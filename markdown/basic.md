@@ -14,10 +14,10 @@ On July 3, the Black Knights, a squadron of Marine Corps F/A-18 Hornets, partici
 
 You can create a heading by adding one or more # symbols before your heading text. The number of # you use will determine the size of the heading.
 
-# Largest heading <h1> tag
-## The second largest heading (an <h2> tag)
-…
-###### The 6th largest heading <h6> tag
+	# Largest heading <h1> tag
+	## The second largest heading (an <h2> tag)
+	…
+	###### The 6th largest heading <h6> tag
 
 ### Blockquotes
 
