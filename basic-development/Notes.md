@@ -74,19 +74,19 @@ Restart Nginx:
     ns2.digitalocean.com
     ns3.digitalocean.com    
             
-11. REMOTE > ADD DOMAIN @ DIGITIAL OCEAN
+11. REMOTE > ADD Domain @ DIGITIAL OCEAN
 ----------------------------------------        
 
-12. REMOTE > SETUP DATABASE NYA
+12. REMOTE > SETUP the DATABASE
 -------------------------------
 
-13. REMOTE > RUN BUNDLE INSTALL
+13. REMOTE > RUN bundle install
 -------------------------------
 
-14. REMOTE > RAKE DB:CREATE
+14. REMOTE > rake db:create
 ---------------------------
 
-15. REMOTE > RAKE DB:MIGRATE
+15. REMOTE > rake db:migrate
 ----------------------------
 
 ## Incase If you find Errors:
