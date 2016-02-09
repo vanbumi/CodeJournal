@@ -6,16 +6,23 @@ psql commands
 go to psql command line:
 	sudo -u postgres psql
 
-show databases:
+## show databases:
 	\l
 
-connect to database >> create relations
+## connect to database # to create relations
+	
 	\c database_name
-	    database_name# \dt to list all tables
-	    SELECT * FROM table_name;  # to see all inside of table users
 
-user list:
+	database_name# \dt to list all tables
+	
+	SELECT * FROM table_name;  # to select the table 
+
+## user list:
+    
     \du
     
-table list:
-    \d    
+## table list:
+    
+    \d
+
+        
