@@ -21,7 +21,9 @@ You can create a heading by adding one or more # symbols before your heading tex
 
 ### Blockquotes
 
-You can indicate blockquotes with => >.
+You can indicate blockquotes with " > ".
+
+example: 
 
 In the words of Abraham Lincoln:
 
@@ -32,6 +34,7 @@ In the words of Abraham Lincoln:
 You can make text bold or italic.
 
 *This text will be italic*
+
 **This text will be bold**
 
 Both bold and italic can use either a * or an _ around the text for styling. This allows you to combine both bold and italic if needed.
