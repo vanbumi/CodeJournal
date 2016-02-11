@@ -6,10 +6,10 @@ psql commands
 go to psql command line:
 	sudo -u postgres psql
 
-## show databases:
+### show databases:
 	\l
 
-## connect to database # to create relations
+### connect to database # to create relations
 	
 	\c database_name
 
@@ -17,12 +17,11 @@ go to psql command line:
 	
 	SELECT * FROM table_name;  # to select the table 
 
-## user list:
+### user list:
     
     \du
     
-## table list:
+### table list:
     
     \d
 
-        
