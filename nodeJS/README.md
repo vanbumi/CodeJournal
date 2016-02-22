@@ -96,3 +96,23 @@ Put link CDN before closing tag body as sample bellow:
 And test it with Angular sintax
 
 Done :)	
+
+## Update NodeJS
+
+Used the following instructions to upgrade from NodeJS version on a Mac & LInux.
+
+Clear NPM's cache:
+
+	sudo npm cache clean -f
+
+Install a little helper called 'n'
+
+	sudo npm install -g n
+	
+Install latest stable NodeJS version
+
+	sudo n stable
+
+Alternatively pick a specific version and install like this:
+
+	sudo n 0.8.20 (version option)
