@@ -26,11 +26,15 @@ Create JavaScript file named server.js and add following code:
 	
 On the same folder now install express
 
-	$ npm install express
+    $ npm init
+
+	$ npm install express --save
 
 Run the server
 
 	$ node server
+    
+Open localhost:3000    
 
 Walahhh :)
 
