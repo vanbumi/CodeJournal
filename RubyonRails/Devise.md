@@ -54,4 +54,68 @@ Check it out
 
 	http://localhost:3000/users/sign_in
 
-		
+## Add sign_in, sign_out, and sign_up		
+
+	<% if user_signed_in? %>
+	  <li>
+	  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+	  </li>
+	<% else %>
+	  <li>
+	  <%= link_to('Login', new_user_session_path)  %>  
+	  </li>
+	<% end %>
+
+Next come the sign_up links. Again, these can be substituted with something else useful if the user is already signed in:
+
+	<% if user_signed_in? %>
+	  <li>
+	  <%= link_to('Edit registration', edit_user_registration_path) %>
+	  </li>
+	<% else %>
+	  <li>
+	  <%= link_to('Register', new_user_registration_path)  %>
+	  </li>
+	<% end %>	
+
+## Add User Role
+
+### Adding an admin attribute
+
+The easiest way of supporting an admin role is to simply add an attribute that can be used to identify administrators.
+
+	$ rails generate migration add_admin_to_users admin:boolean
+
+Add :default => false, to the line that adds the admin column to the table.
+
+Your migration will now look like this:
+
+	class AddAdminToUsers < ActiveRecord::Migration
+	  def change
+	    add_column :users, :admin, :boolean, :default => false
+	  end
+	end
+
+Next, execute the migration script:
+
+	$ rake db:migrate
+
+Now you're able to identify administrators:
+
+	if current_user.admin?
+	  # do something
+	end
+
+If the page could potentially not have a current_user set then:
+
+	if current_user.try(:admin?)
+	  # do something
+	end
+
+With the above way if current_user were nil, then it would still work without raising an undefined method `admin?' for nil:NilClass exception.
+
+The code below can be used to grant admin status to the current user.
+
+	current_user.update_attribute :admin, true
+
+	
