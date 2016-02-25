@@ -49,3 +49,9 @@ Create table User
 	$ rails g devise User
 
 	$ rake db:migrate RAILS_ENV=development
+
+Check it out
+
+	http://localhost:3000/users/sign_in
+
+		
