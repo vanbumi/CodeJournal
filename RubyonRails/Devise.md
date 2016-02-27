@@ -118,4 +118,18 @@ The code below can be used to grant admin status to the current user.
 
 	current_user.update_attribute :admin, true
 
-	
+In this case users tabel already have been made through Devise, we can still create admin page for tabel users with the following command:
+
+	$ rails g scaffold_controller User
+
+Next setup routers as following:
+
+	Rails.application.routes.draw do	
+		...
+		devise_for :users
+		resources :users, path: 'admin/users'
+	end
+
+You need to create name and attribut you want, like address etc
+
+	rails g migration add_name_to_users name:string
