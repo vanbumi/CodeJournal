@@ -25,3 +25,23 @@ go to psql command line:
     
     \d
 
+
+## Setup on Rails
+
+Create New app
+
+	rails new myapp -d postgresql
+
+Setup on development > config/database.yml
+
+	development:
+	  <<: *default
+	  host: localhost
+	  username: myusername
+	  password: mypassword
+	  database: mydatabase
+
+Create database:
+
+	$ rake db:create
+	$ rake db:migrate
