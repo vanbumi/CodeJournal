@@ -4,7 +4,7 @@
 
 ### Credentials
 
-Download file cloudinary.yml from the accounts and put that file on folder config/ directory same level as database.yml
+> Download file cloudinary.yml from the accounts and put that file on folder config/ directory same level as database.yml
 
 ##### Add Gemfile
 
