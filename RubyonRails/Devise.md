@@ -133,3 +133,10 @@ Next setup routers as following:
 You need to create name and attribut you want, like address etc
 
 	rails g migration add_name_to_users name:string
+
+## How To Change the default sign_in and sign_out routes
+	
+https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-and-sign_out-routes
+	
+	devise_for :users, :path => '', :path_names => {:sign_in => 'admin-login', :sign_out => 'admin-logout'}
+
