@@ -2,7 +2,7 @@
 
 ![gambar loop](http://res.cloudinary.com/medio/image/upload/v1459852106/foreachloop_i5ivcm.png)
 
-## Use use Enumerable each_slice
+## Use Enumerable each_slice
 
 	<% @properties.each_slice(3) do |properties| %>
 
