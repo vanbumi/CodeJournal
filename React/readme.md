@@ -27,3 +27,19 @@ Sample:
 You can add property Required which add this  .isRequired onto this line:
 
  	React.PropTypes.string.isRequired
+
+## Sample React
+
+[5 Practical Examples](http://tutorialzine.com/2014/07/5-practical-examples-for-learning-facebooks-react-framework/)
+
+## React Bootstrap
+
+[ReactBootstrap](https://react-bootstrap.github.io/) 	
+
+## Like Button
+
+[Like Button](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html)
+
+## Guides React
+
+[Learn from the web](https://facebook.github.io/react/docs/why-react.html)
