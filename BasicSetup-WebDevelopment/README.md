@@ -12,8 +12,8 @@ STEPS
     
 2. REMOTE > CREATE BARE REPOSITORY
 ----------------------------------
-    > mkdir reponame
-    > cd reponame
+    > access ssh
+    > cd repo
     > git init --bare --shared reponame.git
     
 3. LOCAL > DO GIT INIT 
@@ -23,7 +23,7 @@ STEPS
     git ignored > ignore /config/database.yml
     git add .
     git commit
-    git push github
+    git push github or push to private server
         
 4. LOCAL > ADD GIT REMOTE
 -------------------------
@@ -40,10 +40,42 @@ STEPS
     example : the_site$ git clone dyo@widyobumi.com:/home/dyo/repo/repname.git 
     
 >> For Apache2 server SETUP continue here https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-passenger-and-apache-on-ubuntu-14-04
+
+we need to create a virtual host file for our project. We'll do this by copying the default Apache virtual host:
+
+    sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/nameapp.conf
+
+Open the config file
+
+    sudo nano /etc/apache2/sites-available/testapp.conf
+
+Edit it or replace the existing contents so your final result matches the file shown below. Changes you need to make are highlighted in red. Remember to use your own domain name, and the correct path to your Rails app:
+
+    <VirtualHost *:80>
+        *ServerName example.com
+        *ServerAlias www.example.com
+        ServerAdmin webmaster@localhost
+        DocumentRoot /home/rails/testapp/public
+        *RailsEnv development
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        *<Directory "/home/rails/testapp/public">
+            Options FollowSymLinks
+            Require all granted
+        </Directory>
+    </VirtualHost>
+
+Disable the default site, enable your new site, and restart Apache:
+
+    sudo a2dissite 000-default
+    sudo a2ensite testapp
+    sudo service apache2 restart        
     
-7. SETUP sites-available 
-------------------------
-    > cd /etc/nginx/sites-available/namesites
+
+7. SETUP sites-available for NGINX Server 
+-----------------------------------------
+    > cd /etc/nginx/sites-available
+    > mkdir sitename.conf
     > and write as bellow:
     
         server {

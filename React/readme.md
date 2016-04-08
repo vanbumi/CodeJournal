@@ -32,6 +32,10 @@ You can add property Required which add this  .isRequired onto this line:
 
 [5 Practical Examples](http://tutorialzine.com/2014/07/5-practical-examples-for-learning-facebooks-react-framework/)
 
+[Sample React 	](https://github.com/facebook/react/wiki/Examples)
+
+[React Demos](https://github.com/ruanyf/react-demos)
+
 ## React Bootstrap
 
 [ReactBootstrap](https://react-bootstrap.github.io/) 	
@@ -43,3 +47,5 @@ You can add property Required which add this  .isRequired onto this line:
 ## Guides React
 
 [Learn from the web](https://facebook.github.io/react/docs/why-react.html)
+
+[React Form](http://facebook.github.io/react/docs/forms.html)
