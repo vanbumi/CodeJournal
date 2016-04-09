@@ -49,3 +49,78 @@ You can add property Required which add this  .isRequired onto this line:
 [Learn from the web](https://facebook.github.io/react/docs/why-react.html)
 
 [React Form](http://facebook.github.io/react/docs/forms.html)
+
+## Learn Flux
+
+[facebook.github.io/flux](http://facebook.github.io/flux/)
+
+## React Rails
+
+[React Guides for Rails Developer](https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers)
+
+#### Rails Form into React Form, Learn this:
+
+[Stack Overflow](http://stackoverflow.com/questions/31628436/react-on-rails-integration)
+
+[RailsConf ReactJs on Rails](https://www.youtube.com/watch?v=kTSsZrub5iE)
+
+## Create Slug with React
+
+#### Slug Regex
+
+	slugify(text){
+	   return text.replace(/[^-a-zA-Z0-9\s+]+/ig, '').replace(/\s+/gi, "-").toLowerCase();
+	  }
+
+#### Origininal Form React
+
+	var Input = React.createClass({
+        getInitialState: function() {
+          return {value: 'Hello!'};
+        },
+        handleChange: function(event) {
+          this.setState({value: event.target.value});
+        },
+        render: function () {
+          var value = this.state.value;
+          return (
+            <div>
+              <input type="text" value={value} onChange={this.handleChange} />
+              <p>{value}</p>
+            </div>
+          );
+        }
+      });
+
+      ReactDOM.render(<Input/>, document.body);
+
+#### Form Slug
+
+	<div id="slug"></div>
+
+	<script type="text/babel">
+	    var Input = React.createClass({
+	      getInitialState: function() {
+	        return {value: 'Hello!'};
+	      },
+	      handleChange: function(event) {
+	        this.setState({value: event.target.value});
+	      },
+	      render: function() {
+	        var value = this.state.value;
+	        return (
+	          <div>
+	            <input type="text" value={value} onChange={this.handleChange} />
+	            <p>{value.replace(/\W+/g, "-").toLowerCase()}</p>
+	          </div>
+	        );
+	      }
+	    });
+
+	  // ReactDOM.render(<Input />, document.body);
+	     ReactDOM.render(
+	         <Input />,
+	         document.getElementById('slug')
+	     );
+
+	</script>
