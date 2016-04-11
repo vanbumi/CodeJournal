@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/1302022/best-way-to-generate-slugs-human-readable-ids-in-rails
