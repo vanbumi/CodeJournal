@@ -38,6 +38,9 @@ STEPS
 ---------------------
     $ cd to/sites
     example : the_site$ git clone dyo@widyobumi.com:/home/dyo/repo/repname.git 
+
+Apache Server
+-------------
     
 >> For Apache2 server SETUP continue here https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-passenger-and-apache-on-ubuntu-14-04
 
@@ -63,7 +66,7 @@ Edit it or replace the existing contents so your final result matches the file s
             Options FollowSymLinks
             Require all granted
         </Directory>
-    </VirtualHost>
+    </VirtualHost>    
 
 Disable the default site, enable your new site, and restart Apache:
 
@@ -142,6 +145,12 @@ solution:
 solution:   
 
     go to activate >> gem 'therubyracer', platforms: :ruby
+
+Another error: There was an error while trying to load the gem 'uglifier'. (Bundler::GemRequireError)
+
+Solution:
+
+    sudo apt-get install nodejs    
                         
 #### Error #3
 
@@ -177,7 +186,19 @@ Solution: https://gist.github.com/amolkhanorkar/8706915
 Problem should be resolved :)
       
   
-                        
+#### Error #4
+
+    Gem::LoadError: You have already activated rake 10.5.0, but your Gemfile requires rake 10.4.2. Prepending `bundle exec` to your command may solve this.
+
+Solution:
+
+    sudo bundle exec rake db:create
+
+    sudo bundle exec rake db:migrate
+
+    
+
+
                         
                         
                         
