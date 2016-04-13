@@ -1,6 +1,6 @@
 Hello
 
-I have reasonable experience to develop web app with Ruby on Rails at very reasonable rate ../hr, I also have experience in the following:
+I have reasonable experience to develop web app with Ruby on Rails at very reasonable rate, I also have experience in the following:
 
 - MySQL, PostgreSQL, jQuery, React JS and some Angular JS, for build sites like: Site for Real Estate Agency, News Portal/Magazine, Online Shops, Database App, Warehouse and Corporate Sites.
 
@@ -14,7 +14,7 @@ My previous employers always complimented me that I have good creative taste.
 
 Based on my expertise I can recommend which framework template can be used to simplify cloning web site in future.
 
-Here are some of my projects: pengembanganpelabuhan.com, cmpbatam.com, pencerahansejati.com, erbaru.net, codemedio.tk, widyobumi.com etc. Please note that all of them including creative navigation and tiles were done by me.
+Here are some of my projects: pengembanganpelabuhan.com, cmpbatam.com, pencerahansejati.com, erabaru.net, codemedio.tk, widyobumi.com, vendorpernikahan.ga etc. Please note that all of them including creative navigation and tiles were done by me.
 
 I would glad to join your team/company.
 

@@ -8,7 +8,9 @@
 
 #### [React.js Introduction For People Who Know Just Enough jQuery To Get By](http://reactfordesigners.com/labs/reactjs-introduction-for-people-who-know-just-enough-jquery-to-get-by/)
 
-Last read: Writing the Event Handler 
+Last read: 		Writing the Event Handler
+
+Editor: 	http://jsbin.com/ 
 
 ## How to write Default Props
 
