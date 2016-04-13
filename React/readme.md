@@ -4,6 +4,12 @@
 
 #### [Introduction to React Book by Cory Gackenheimer](https://github.com/vanbumi/CodeJournal/blob/master/React/intro-to-react-book.md)
 
+## Awesome Tut!
+
+#### [React.js Introduction For People Who Know Just Enough jQuery To Get By](http://reactfordesigners.com/labs/reactjs-introduction-for-people-who-know-just-enough-jquery-to-get-by/)
+
+Last read: Writing the Event Handler 
+
 ## How to write Default Props
 
 getDefaultProps is function
