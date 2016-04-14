@@ -1,5 +1,44 @@
 # React Learning Sources
 
+### Getting Start
+
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<script src="//fb.me/react-0.14.7.min.js"></script>
+			<script src="//fb.me/react-dom-0.14.7.min.js"></script>
+			<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+			<meta charset="utf-8">
+			
+			<title>JS Bin</title>
+		</head>
+
+		<body>
+		  <div id="container"></div>
+		</body>
+	</html>
+
+### Practising test on console
+
+	var TweetBox = React.createClass({
+	  handleChange: function(e) {
+	    console.log(e.target.value)
+	  },
+	  render: function() {
+	    return (
+	      <div className="well clearfix">
+	        <textarea className="form-control" onChange={this.handleChange}></textarea><br />
+	        <button className="btn btn-primary pull-right" disabled>Tweet</button>
+	      </div>
+	    );
+	  }
+	});
+
+	ReactDOM.render(
+	  <TweetBox />,
+	  document.getElementById("container")
+	);	
+
 #### [Getting Start](https://github.com/vanbumi/CodeJournal/blob/master/React/getting-start.md)
 
 #### [Introduction to React Book by Cory Gackenheimer](https://github.com/vanbumi/CodeJournal/blob/master/React/intro-to-react-book.md)
