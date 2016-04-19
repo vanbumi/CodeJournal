@@ -6,11 +6,12 @@ Before action it might good references :)
 
 STEPS
 -----
-1. LOCAL > CREATE APP
+1. LOCAL : CREATE APP
 ---------------------
-    rails new appname -d mysql or -d postgresql
+    rails new appname -d mysql or 
+    rails new appname -d postgresql
     
-2. REMOTE > CREATE BARE REPOSITORY
+2. REMOTE : CREATE BARE REPOSITORY
 ----------------------------------
     > access ssh
     > cd repo
