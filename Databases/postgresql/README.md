@@ -25,6 +25,17 @@ go to psql command line:
     
     \d
 
+### Show version
+
+	postgres=# SELECT version();
+
+### SQL dump
+
+	http://www.postgresql.org/docs/9.4/static/backup-dump.html	   
+	
+	http://www.thegeekstuff.com/2009/01/how-to-backup-and-restore-postgres-database-using-pg_dump-and-psql/
+
+
 
 ## Setup on Rails
 

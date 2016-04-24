@@ -1,5 +1,9 @@
 # strftime - format date and time
 
+Reference:
+
+[strfti.me](http://www.strfti.me/)
+
 Sample:
     <small><%= post.created_at.strftime(" %d %B %Y, %H:%M") %></small>
 
