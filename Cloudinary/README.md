@@ -9,6 +9,7 @@
 ##### Add Gemfile
 
 	gem "cloudinary"
+	gem "cloudinary"
 
 ##### Bundle
 
@@ -18,9 +19,22 @@
 
 	$ rails c 
 
-	Cloudinary::Uploader.upload('/home/dyo/Pictures/myphoto.png')
+	Cloudinary::Uploader.upload('/home/dyo/Pictures/manwalk.png')
 
-	result =>
+	result => {"public_id"=>"xqpzzuqpwa3azw2z43rm", "version"=>1461598407, "signature"=>"5b5ca34daa149934c43daefd9f6fd77d5537ed79", "width"=>175, "height"=>372, "format"=>"png", "resource_type"=>"image", "created_at"=>"2016-04-25T15:33:27Z", "tags"=>[], "bytes"=>56448, "type"=>"upload", "etag"=>"d8c3478e3ceec838ae3801fe374852ee", "url"=>"http://res.cloudinary.com/cmp-batam/image/upload/v1461598407/xqpzzuqpwa3azw2z43rm.png", "secure_url"=>"https://res.cloudinary.com/cmp-batam/image/upload/v1461598407/xqpzzuqpwa3azw2z43rm.png", "original_filename"=>"manwalk"}
+
+	**Upload is success
+
+Error 1:	Errno::ENOENT: No such file or directory @ rb_sysopen
+
+	Solution:	Directory path incorrect 	
+
+Error 2:    CloudinaryException: Must supply api_key
+
+	Solution: gem "cloudinary" should be double quotes
+
+	**This case is on sorongbis website
+
 
 ##### Add Gemfile Attachinary
 
@@ -30,13 +44,13 @@
 
 	$ bundle install
 
-##### Setup file of application.rb add below:
+##### Setup file of application.rb add this line below:
 
 	require "attachinary/orm/active_record" # active_record or mongoid
 
 ##### Go to Terminal	
 
-	$ Run rake attachinary:install:migrations
+	$ rake attachinary:install:migrations
 
 	$ rake db:migrate
 
@@ -48,7 +62,7 @@
 
 	$ rake attachinary:fetch_fileupload # download required js file
 
-##### Include pada application.js :
+##### Include on application.js (on cmpbatam its not necessary when do rake above)
 
 	//= require jquery.ui.widget
 	//= require jquery.iframe-transport
@@ -95,7 +109,9 @@
 		<% end %>		
 	<% end %>
 
+## Ask Question?
 
+[Ask Question](https://www.bountysource.com/teams/attachinary/issues?tracker_ids=286322)
 
 
 
