@@ -6,24 +6,16 @@ I have reasonable experience to develop web app with Ruby on Rails at very reaso
 
 - all site were done by me from 0. I got just PSD files and did all responsive HTML coding for MAC/Win: FF/Chrome/IE/Safari.
 
-- I have great knowledge how develop well optimized DB and some NoSQL DB;
+Here are some of my projects: pengembanganpelabuhan.com, cmpbatam.com, pencerahansejati.com, erabaru.net, codemedio.tk, widyobumi.ga, vendorpernikahan.ga, sorongbisnis.com etc. 
 
-My previous employers always complimented me that I have good creative taste.
-
-Based on my expertise I can recommend which framework template can be used to simplify cloning web site in future.
-
-Here are some of my projects: pengembanganpelabuhan.com, cmpbatam.com, pencerahansejati.com, erabaru.net, codemedio.tk, widyobumi.ga, vendorpernikahan.ga etc. 
-
-I would glad to join your team/company.
-
-I am feel excited waiting an answer from you, thank you!
-
+I would glad to work with you, I am feel excited waiting an answer from you, you can contact me at anytime, thank you!
 
 Best wishes, 
 
-Setyo umi (Dyo) 
+S Widyo Bumi (Dyo) 
 
-Do not worry about my timezone I can be in touch whatever you want.
+
+
 
 ## Short
 

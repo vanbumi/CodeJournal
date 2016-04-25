@@ -51,3 +51,7 @@ Admin Side Menu
 Admin Nav Bar with Popup Sign in"
 
 	http://bootsnipp.com/snippets/featured/admin-nav-bar-with-popup-sign-in
+
+## Will_paginate-bootsrap
+
+[will_paginate-bootstrap](https://github.com/bootstrap-ruby/will_paginate-bootstrap)	
