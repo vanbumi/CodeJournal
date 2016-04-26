@@ -109,6 +109,10 @@ Error 2:    CloudinaryException: Must supply api_key
 		<% end %>		
 	<% end %>
 
+##### Error Failed to upload
+
+	Solutions: images: [] ----> on controller strong parameter 	
+
 ## Ask Question?
 
 [Ask Question](https://www.bountysource.com/teams/attachinary/issues?tracker_ids=286322)
