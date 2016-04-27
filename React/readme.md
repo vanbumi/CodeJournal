@@ -97,6 +97,40 @@ You can add property Required which add this  .isRequired onto this line:
 
 [React Form](http://facebook.github.io/react/docs/forms.html)
 
+## React Tut
+
+[The React Quick Start Guide: ES6 Edition](http://www.jackcallister.com/2015/08/30/the-react-quick-start-guide-es6-edition.html)
+
+	Liked button!
+
+## ReactJS Koans
+
+[ReactJS Koans](https://github.com/arkency/reactjs_koans)
+
+	Installation:
+
+	$ git clone https://github.com/arkency/reactjs_koans.git
+	$ cd reactjs_koans
+	$ npm run setup		
+
+You can run a webserver and see your changes live in your web browser:
+
+	npm run start
+
+	Visit http://localhost:8080/
+
+## React Tut Collection!
+
+[codementor.io/learn-reactjs](https://www.codementor.io/learn-reactjs)	
+
+## Rails and React II: A real use case
+
+[Rails and React II: A real use case](http://codeloveandboards.com/blog/2014/09/10/rails-and-react-ii-a-real-use-case/)
+
+## Must Read!
+
+[React.js - A guide for Rails developers](https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers)
+
 ## Learn Flux
 
 [facebook.github.io/flux](http://facebook.github.io/flux/)
