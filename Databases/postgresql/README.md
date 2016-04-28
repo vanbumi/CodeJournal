@@ -5,8 +5,7 @@ Important Reference
 [help.ubuntu.com/community/PostgreSQL](https://help.ubuntu.com/community/PostgreSQL)
 [Backup & Restore via PgAdmin3](http://www.pgadmin.org/docs/dev/backup.html)
 
-psql commands
-=============
+## psql commands
 
 go to psql command line:
 
