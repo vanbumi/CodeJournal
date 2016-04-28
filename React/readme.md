@@ -131,6 +131,8 @@ You can run a webserver and see your changes live in your web browser:
 
 [React.js - A guide for Rails developers](https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers)
 
+* [Sample](https://github.com/fervisa/accounts-react-rails/tree/bf1d80cf3d23a9a5e4aa48c86368262b7a7bd809)
+
 ## Learn Flux
 
 [facebook.github.io/flux](http://facebook.github.io/flux/)

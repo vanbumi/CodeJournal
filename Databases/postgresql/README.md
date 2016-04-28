@@ -4,6 +4,7 @@ psql commands
 =============
 
 go to psql command line:
+
 	sudo -u postgres psql
 
 ### show databases:
@@ -29,11 +30,24 @@ go to psql command line:
 
 	postgres=# SELECT version();
 
-### SQL dump
+### Postgre SQL dump
 
-	http://www.postgresql.org/docs/9.4/static/backup-dump.html	   
 	
-	http://www.thegeekstuff.com/2009/01/how-to-backup-and-restore-postgres-database-using-pg_dump-and-psql/
+
+Learn form Sample:
+
+	dyo@pencerahan-sejati:~$ pg_dump cmpbatam_dev -U widyo -h localhost > cmpbatam.sql
+	Password: 
+	dyo@pencerahan-sejati:~$ ls
+	cmpbatam.sql  joomla_bkup.sql  repo  sites
+
+Download it from server to your local:
+
+	scp myusername@university_computer:/home/myusername/file.odt /local/destination/path/	
+	
+	example:
+
+	scp dyo@pencerahansejati.com:/home/dyo/cmpbatam.sql /home/dyo/backup_db/  DO IT FROM YOUR LOCAL!!
 
 
 
