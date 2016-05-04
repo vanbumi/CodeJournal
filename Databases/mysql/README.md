@@ -13,3 +13,11 @@ DOWNLOAD FROM SERVER TO LOCAL
     scp dyo@pencerahansejati.com:/home/dyo/cmpbatam.sql /home/dyo/backup_db/
 
 Do it from local!!    
+
+Mysql Workbench
+---------------
+
+Install:	
+
+	http://sharadchhetri.com/2013/08/14/install-mysql-workbench-in-ubuntu/
+

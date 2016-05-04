@@ -117,3 +117,15 @@ Create database:
 
 	$ rake db:create
 	$ rake db:migrate
+
+Error:
+
+Errno::EACCES in Home#index
+Showing /home/dyo/sites/sorongb/app/views/layouts/application.html.erb where line #5 raised:
+
+Permission denied @ dir_s_mkdir - /home/dyo/sites/sorongb/tmp
+
+Solution: 	sudo chmod -R 777 /home/dyo/sites/sorongb/
+
+
+

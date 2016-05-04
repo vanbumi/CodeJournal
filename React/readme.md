@@ -51,6 +51,10 @@ Last read: 		Writing the Event Handler
 
 Editor: 	http://jsbin.com/ 
 
+## Awesome 
+
+[React Templates](http://wix.github.io/react-templates/)
+
 ## How to write Default Props
 
 getDefaultProps is function
