@@ -26,11 +26,32 @@ Remote : Cloning git > /var/www/..../wpshop
 
 	sudo git clone dyo@pencerahansejati.com:/home/user/repo/mediostore.git mediostore
 
-Remote : Create file 		
+Remote : Create wp-config.php file 		
 
 	sudo touch wp-config.php
 
 	copy file local to that remote file
+
+Apache Server, Create Virtual Host
+
+ 	cp ...
+
+Enable your new site, and restart Apache:
+
+	sudo a2ensite testapp
+	sudo service apache2 restart   	
+
+Setup Database
+
+	msyql> CREATE DATABASE ...;
+
+Run on browser 
+
+	done :)	
+
+Error Create FTP in DigitalOcean
+
+[ftp-sftp-beginners-guide-to-digital-ocean](https://wp-dreams.com/articles/2015/01/ftp-sftp-beginners-guide-to-digital-ocean/)	
 
 
 ## Woocommerce Plugin
