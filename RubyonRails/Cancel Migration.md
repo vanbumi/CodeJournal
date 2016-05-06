@@ -10,3 +10,20 @@ now, as you don't have that other migration anymore, you cannot roll it back. Yo
 
 	$ rails dbconsole
 	$ DROP TABLE levels;
+
+Others Example:
+
+	rails generate controller article
+	# Oops!
+	rails destroy controller article
+	rails generate controller articles	
+
+Also discovered you can “redo” the last migration as well, which is really handy as well for repairing mistakes:
+
+	rake db:migrate:redo	
+
+## Remove Field from table
+
+	rails generate migration RemoveFieldNameFromTableName field_name:datatype
+
+	rails g migration remove_category_from_posts category:string	

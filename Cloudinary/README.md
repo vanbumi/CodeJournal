@@ -27,7 +27,7 @@
 
 Error 1:	Errno::ENOENT: No such file or directory @ rb_sysopen
 
-	Solution:	Directory path incorrect 	
+	Solution:	Directory path incorrect > fix the path	
 
 Error 2:    CloudinaryException: Must supply api_key
 

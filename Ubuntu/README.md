@@ -75,4 +75,6 @@ DOWNLOAD / COPY FILE FROM server to local
         scp dyo@widyobumi.com:/home/dyo/perpelabuhan_dev_bkup.sql dyo@pengembanganpelabuhan.com:/home/dyo/
     
 
-            
+## Create FTP
+
+[Create ftp](https://www.digitalocean.com/community/questions/how-can-i-create-ftp-user-account-how-to-point-documentroot-var-www-html)            
