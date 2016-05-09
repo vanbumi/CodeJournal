@@ -14,7 +14,30 @@ Best wishes,
 
 S Widyo Bumi (Dyo) 
 
+## Alternate Sample
 
+Mr. Smith
+
+I’m interested in the position of Lead Blogger you recently posted. I have been a professional writer for nine years, and am very familiar with WordPress and Typepad. During my 3 years as editor-in-chief of BeingInterested, I managed a team of writers that produced 5 blogs posts a week. You can see some of my own writing in my portfolio.
+
+You had mentioned that you were looking for someone with a background in creative writing and journalism. I studied both in college, where I majored in English. I began my career as an assistant editor at the local paper, where I learned to take a hands-on approach to investigative journalism.
+
+Per your request, here are the links to three articles I’ve written about local events, gardening or technology.
+
+Moving forward, I can dedicate 15 hours/week to your company, and my daily hours are negotiable. I’m very excited to assist you in making your blog successful – please feel free to contact me directly to discuss this position further.
+
+
+---
+
+
+Hi Sir,
+
+My name Dyo, I’m interested in the position of Web Developer you recently posted. I have been a professional Web Developer for five years, and am very familiar with html, css, javascript, ruby on rails, jquery and some react js an angular js. During my view years as Web Developer, I have been develop web application for real estate, news & magazines, database application, shop online, company profile etc, You can see some of my my portfolio here www.widyobumi.ga.
+
+Moving forward, I can dedicate 30 hours/week to your company, and my daily hours are negotiable. I’m very excited to assist you in making your project successful – please feel free to contact me directly to discuss this position further, thank you!
+
+
+---
 
 
 ## Short
