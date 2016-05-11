@@ -30,5 +30,21 @@ On Rails form helper
 
 ## On Change
 
+	<!--On Change Sell & Rent-->
+	$("#status").change(function(){
+		var status_value = $(this).val();
+
+	    if (status_value == "For Rent"){
+	      $("#price_rent").show(500);
+	      $("#price_sell").hide(500);
+	    } else if (status_value == "Disewa Cepat") {
+	      $("#price_rent").show(500);
+	      $("#price_sell").hide(500);
+	    } else {
+	      $("#price_rent").hide(500);
+	      $("#price_sell").show(500);
+	    }
+	});
+
 * [jQuery change event > this super video](https://www.youtube.com/watch?v=B1mU0Uk_Qs4)
 * [Super Videos](https://www.youtube.com/watch?v=a59kOE2Ma1Q&list=PL6n9fhu94yhVDV697uvHpavA3K_eWGQap)
