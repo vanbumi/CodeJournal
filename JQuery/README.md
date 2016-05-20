@@ -48,3 +48,8 @@ On Rails form helper
 
 * [jQuery change event > this super video](https://www.youtube.com/watch?v=B1mU0Uk_Qs4)
 * [Super Videos](https://www.youtube.com/watch?v=a59kOE2Ma1Q&list=PL6n9fhu94yhVDV697uvHpavA3K_eWGQap)
+
+## JQuery Tag
+
+* [jQuery-Tags-Input](https://github.com/xoxco/jQuery-Tags-Input)
+* [tag-it](http://aehlke.github.io/tag-it/)
