@@ -1,13 +1,21 @@
 # Ubuntu 14.04
 
+## Manage User
 
-remove directory
-----------------
-sudo rm -r -f /path/
+* [Create new user](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
+* [Delete user](https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-an-ubuntu-14-04-vps)
+* [To list all users](http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users)
+    
+        cut -d: -f1 /etc/passwd
 
 
-HOW TO ADD A USER TO A GROUP IN UBUNTU 14.04
-============================================
+## Remove directory
+
+    sudo rm -r -f /path/
+
+
+## HOW TO ADD A USER TO A GROUP IN UBUNTU 14.04
+
     https://www.godaddy.com/help/how-to-add-a-user-to-a-group-in-ubuntu-1404-12281
     1. Sign into your server as root.
     2. Create group

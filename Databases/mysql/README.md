@@ -21,3 +21,9 @@ Install:
 
 	http://sharadchhetri.com/2013/08/14/install-mysql-workbench-in-ubuntu/
 
+User List
+---------
+
+	http://stackoverflow.com/questions/21714869/error-1044-42000-access-denied-for-root-with-all-privileges
+
+
