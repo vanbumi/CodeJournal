@@ -63,3 +63,9 @@ Viewv browser
 ## 3. How-to-configure-secure-updates-and-installations-in-wordpress-on-ubuntu
 
 * [how-to-configure-secure-updates-and-installations-in-wordpress-on-ubuntu](https://www.digitalocean.com/community/tutorials/how-to-configure-secure-updates-and-installations-in-wordpress-on-ubuntu)
+
+-- 
+
+## Administrator Page
+
+[how-to-add-an-admin-user-to-the-wordpress-database-via-mysql](http://www.wpbeginner.com/wp-tutorials/how-to-add-an-admin-user-to-the-wordpress-database-via-mysql/)

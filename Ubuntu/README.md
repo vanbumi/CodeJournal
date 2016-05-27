@@ -3,7 +3,17 @@
 ## Manage User
 
 * [Create new user](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
+
+    adduser demo
+
+Root Privileges
+
+    gpasswd -a demo sudo    
+
 * [Delete user](https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-an-ubuntu-14-04-vps)
+
+    $ sudo deluser newuser
+
 * [To list all users](http://askubuntu.com/questions/410244/a-command-to-list-all-users-and-how-to-add-delete-modify-users)
     
         cut -d: -f1 /etc/passwd
@@ -86,3 +96,18 @@ DOWNLOAD / COPY FILE FROM server to local
 ## Create FTP
 
 [Create ftp](https://www.digitalocean.com/community/questions/how-can-i-create-ftp-user-account-how-to-point-documentroot-var-www-html)            
+
+
+## Lets try my another notes
+
+### DOWNLOAD or COPY FILE from server to local or local to server Ubuntu
+
+#### The Command
+
+    scp myusername@university_computer:/home/myusername/file /local/destination/path/
+    
+    scp dyo@pengembanganpelabuhan.com:/home/dyo/perpelabuhan_dev_bkup.sql /home/dyo/Documents (form server to local)
+    
+#### Copy to other server
+   
+    scp dyo@widyobumi.com:/home/dyo/perpelabuhan_dev_bkup.sql dyo@pengembanganpelabuhan.com:/home/dyo/
