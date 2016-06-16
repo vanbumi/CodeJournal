@@ -138,5 +138,15 @@ You need to create name and attribut you want, like address etc
 	
 https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-and-sign_out-routes
 	
-	devise_for :users, :path => '', :path_names => {:sign_in => 'admin-login', :sign_out => 'admin-logout'}
+Open config/routes.rb and change as below:
+
+	devise_for :users, :path => '', :path_names => {:sign_in => 'new name', :sign_out => 'new name'}
+
+## Remove Sign up and Forgot Password modules/links
+
+In Devise model user.rb remove the devise :registerable, :recoverable option.
+
+Also do the changes in devise/shared/_link.html.erb by deleting the path generation links of sign_up and forgot_password
+
+	
 

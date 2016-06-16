@@ -32,9 +32,9 @@ Moving forward, I can dedicate 15 hours/week to your company, and my daily hours
 
 Hi Sir,
 
-My name Dyo, I’m interested in the position of Web Developer you recently posted. I have been a professional Web Developer for five years, and am very familiar with html, css, javascript, ruby on rails, jquery and some react js an angular js. During my view years as Web Developer, I have been develop web application for real estate, news & magazines, database application, shop online, company profile etc, You can see some of my my portfolio here www.widyobumi.ga.
+My name Dyo, I’m interested in the position of Web Developer you recently posted. I have been a professional Web Developer for five years, and am very familiar with HTML, CSS, JavaScript, Ruby on Rails, jQuery and some ReactJS an AngularJS. During my view years as Web Developer, I have been develop web application for real estate, news & magazines, database application, shop online, company profile etc, You can see some of my my portfolio here www.widyobumi.ga.
 
-Moving forward, I can dedicate 30 hours/week to your company, and my daily hours are negotiable. I’m very excited to assist you in making your project successful – please feel free to contact me directly to discuss this position further, thank you!
+Moving forward, I can dedicate 30 - 38 hours/week to your company, and my daily hours are negotiable. I’m very excited to assist you in making your project successful – please feel free to contact me directly to discuss this position further, thank you!
 
 
 ---

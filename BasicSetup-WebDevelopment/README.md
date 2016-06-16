@@ -1,11 +1,15 @@
-Basic Setup Ruby on Rails Website On Digital Ocean Server
-=========================================================
+Basic Setup Ruby on Rails Sever
+===============================
 
-Before action it might good references :)
-    https://medium.com/@rkukuh/kumpulan-resource-untuk-web-developer-februari-2016-143ec0e4dc9d#.aeevkzrn6
+Resources:
+
+* [Gorails - Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr](https://gorails.com/deploy/ubuntu/14.04)
+* [How-to-deploy-a-rails-app-with-passenger-and-nginx-on-ubuntu-14-04](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-passenger-and-nginx-on-ubuntu-14-04)
+* [Digital Ocean Tutorial Series](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
 
 STEPS
 -----
+
 1. LOCAL : CREATE APP
 ---------------------
     rails new appname -d mysql or 
@@ -75,6 +79,8 @@ Disable the default site, enable your new site, and restart Apache:
     sudo a2ensite testapp
     sudo service apache2 restart        
     
+Nginx Server
+------------    
 
 7. SETUP sites-available for NGINX Server 
 -----------------------------------------
