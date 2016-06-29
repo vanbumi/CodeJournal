@@ -6,6 +6,7 @@ Resources:
 * [Gorails - Deploy Ruby On Rails on Ubuntu 14.04 Trusty Tahr](https://gorails.com/deploy/ubuntu/14.04)
 * [How-to-deploy-a-rails-app-with-passenger-and-nginx-on-ubuntu-14-04](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-passenger-and-nginx-on-ubuntu-14-04)
 * [Digital Ocean Tutorial Series](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
+* [Digitalocean - setting-up-your-server](https://www.digitalocean.com/help/getting-started/setting-up-your-server/)
 
 STEPS
 -----
