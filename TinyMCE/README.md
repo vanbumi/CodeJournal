@@ -17,3 +17,9 @@
         ]
       });
     </script>
+
+## Content Appearance
+
+Configure the appearance of content inside TinyMCe's editable area.
+
+[content_css](https://www.tinymce.com/docs/configure/content-appearance/#content_css)
