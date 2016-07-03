@@ -12,3 +12,5 @@
 
 ---
 
+* [tempat-kursus-javascript-gratis-interaktif](http://www.jurnalweb.com/tempat-kursus-javascript-gratis-interaktif/)
+
