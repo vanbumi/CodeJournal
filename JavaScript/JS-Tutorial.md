@@ -566,4 +566,452 @@ sample:
 
 [Test Code](https://jsfiddle.net/vanbumi/360n0waf/)	
 
-last http://www.w3schools.com/js/js_variables.asp		
+<!-- Example
+
+	var price1 = 5;
+	var price2 = 6;
+	var total = price1 + price2;
+
+	<p id="demo"></p>
+
+	<script>
+	  var price1 = 5;
+	  var price2 = 6;
+	  var total = price1 + price2;
+	  
+	  document.getElementById("demo").innerHTML = "The total are: " + total;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/emeym69s/) -->
+
+#### JavaScript Identifiers
+
+All JavaScript variables must be identified with unique names.
+
+These unique names are called identifiers.
+
+Identifiers can be short names (like x and y), or more descriptive names (age, sum, totalVolume).
+
+The general rules for constructing names for variables (unique identifiers) are:
+
+* Names can contain letters, digits, underscores, and dollar signs.
+* Names must begin with a letter
+* Names can also begin with $ and _ (but we will not use it in this tutorial)
+* Names are case sensitive (y and Y are different variables)
+* Reserved words (like JavaScript keywords) cannot be used as names
+
+#### The Assignment Operator
+
+In JavaScript, the equal sign (=) is an "assignment" operator, not an "equal to" operator.
+
+This is different from algebra. The following does not make sense in algebra:
+
+	x = x + 5
+
+#### JavaScript Data Types
+
+JavaScript variables can hold numbers like 100, and text values like "John Doe".
+
+In programming, text values are called text strings.
+
+JavaScript can handle many types of data, but for now, just think of numbers and strings.
+
+*Strings are written inside double or single quotes. Numbers are written without quotes.*
+
+If you put quotes around a number, it will be treated as a text string.
+
+Example
+
+	var pi = 3.14;
+	var person = "John Doe";
+	var answer = 'Yes I am!';
+
+#### Declaring (Creating) JavaScript Variables
+
+Creating a variable in JavaScript is called "declaring" a variable.
+
+You declare a JavaScript variable with the var keyword:
+
+	var carName;
+
+After the declaration, the variable has no value. (Technically it has the value of undefined)
+
+To assign a value to the variable, use the equal sign:
+
+	carName = "Volvo";
+
+You can also assign a value to the variable when you declare it:
+
+	var carName = "Volvo";
+
+> It's a good programming practice to declare all variables at the beginning of a script.	
+
+Example:
+
+	<p id="sample"></p>
+
+	<script>
+		var schoolName = "Universitas Indonesia";
+	  
+	  document.getElementById("sample").innerHTML = schoolName;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/ttmsre2k/)		
+
+#### One Statement, Many Variables
+
+You can declare many variables in one statement.
+
+Start the statement with var and separate the variables by comma:
+
+	var person = "John Doe", carName = "Volvo", price = 200;
+
+A declaration can span multiple lines:
+
+	var person = "John Doe",
+	carName = "Volvo",
+	price = 200;
+
+#### Value = undefined
+
+In computer programs, variables are often declared without a value. The value can be something that has to be calculated, or something that will be provided later, like user input.
+
+A variable declared without a value will have the value undefined.
+
+The variable carName will have the value undefined after the execution of this statement:
+
+Example
+	
+	var carName;
+
+#### Re-Declaring JavaScript Variables
+
+If you re-declare a JavaScript variable, it will not lose its value.
+
+The variable carName will still have the value "Volvo" after the execution of these statements:
+
+Example
+
+	var carName = "Volvo";
+	var carName;
+
+#### JavaScript Arithmetic
+
+As with algebra, you can do arithmetic with JavaScript variables, using operators like = and +:
+
+Example
+
+	var x = 5 + 2 + 3;
+
+	document.write(x);
+	document.write(x)
+
+or 
+
+	var y = "John" + " " + "Doe";
+	document.write(y)
+
+or
+
+	var z = "5" + 2 + 3;
+  	document.write(z)
+
+If you add a number to a string, the number will be treated as string, and concatenated.			
+
+[Test Code](https://jsfiddle.net/vanbumi/vq12rgrf/3/)
+
+### Lesson 12
+
+#### JavaScript Operators
+
+Example
+
+Assign values to variables and add them together:
+
+	var x = 5;         // assign the value 5 to x
+	var y = 2;         // assign the value 2 to y
+	var z = x + y;     // assign the value 7 to z (x + y)
+
+##### JavaScript Arithmetic Operators
+
+Arithmetic operators are used to perform arithmetic on numbers (literals or variables).
+
+![Arithmetic operators](http://res.cloudinary.com/medio/image/upload/v1467600840/jsAritmeticOperators_wprgfb.png)	
+
+The addition operator (+) adds numbers:
+
+Adding
+
+	var x = 5;
+	var y = 2;
+	var z = x + y;
+
+The multiplication operator (*) multiplies numbers.
+
+Multiplying
+
+	var x = 5;
+	var y = 2;
+	var z = x * y;
+
+##### JavaScript Assignment Operators
+
+Assignment operators assign values to JavaScript variables.
+
+![Assignment op](http://res.cloudinary.com/medio/image/upload/v1467601188/jsAsingOp_w8vdtq.png)	
+
+The assignment operator (=) assigns a value to a variable.
+
+Assignment
+
+	var x = 10;	
+
+The addition assignment operator (+=) adds a value to a variable.
+
+Assignment
+
+	var x = 10;
+	x += 5;
+
+##### JavaScript String Operators
+
+The + operator can also be used to add (concatenate) strings.
+
+> When used on strings, the + operator is called the concatenation operator.
+
+Example
+
+	txt1 = "John";
+	txt2 = "Doe";
+	txt3 = txt1 + " " + txt2;
+
+The result of txt3 will be:
+
+	John Doe
+
+The += assignment operator can also be used to add (concatenate) strings:
+
+Example
+
+	txt1 = "What a very ";
+	txt1 += "nice day";
+
+The result of txt1 will be:
+
+	What a very nice day	
+
+##### Adding Strings and Numbers
+
+Adding two numbers, will return the sum, but adding a number and a string will return a string:
+
+Example
+
+	x = 5 + 5;
+	y = "5" + 5;
+	z = "Hello" + 5;
+	The result of x, y, and z will be:
+
+	10
+	55
+	Hello5
+
+The rule is: If you add a number and a string, the result will be a string!
+
+##### JavaScript Comparison and Logical Operators
+
+![Comparison and Logical Op](http://res.cloudinary.com/medio/image/upload/v1467601559/jscomparisonLogicalOperator_lmqxgp.png)
+
+### Lesson 13
+
+#### JavaScript Data Types
+
+	String, Number, Boolean, Array, Object.
+
+##### Data Types 
+
+JavaScript variables can hold many data types: numbers, strings, arrays, objects and more:
+
+	var length = 16;                               // Number
+	var lastName = "Johnson";                      // String
+	var cars = ["Saab", "Volvo", "BMW"];           // Array
+	var x = {firstName:"John", lastName:"Doe"};    // Object	
+
+##### The Concept of Data Types
+
+In programming, data types is an important concept.
+
+To be able to operate on variables, it is important to know something about the type.
+
+Without data types, a computer cannot safely solve this:
+
+	var x = 16 + "Volvo";
+
+Does it make any sense to add "Volvo" to sixteen? Will it produce an error or will it produce a result?
+
+JavaScript will treat the example above as:
+
+	var x = "16" + "Volvo";
+
+> When adding a number and a string, JavaScript will treat the number as a string. 
+
+	var x = 16 + "Volvo";
+
+	var x = "Volvo" + 16;
+
+JavaScript evaluates expressions from left to right. Different sequences can produce different results:
+
+Example:
+
+	var x = 16 + 4 + "Volvo";
+
+Result:
+
+	20Volvo
+
+Example:	
+
+	var x = "Volvo" + 16 + 4;
+
+Result:
+
+	Volvo164
+
+In the first example, JavaScript treats 16 and 4 as numbers, until it reaches "Volvo".
+
+In the second example, since the first operand is a string, all operands are treated as strings.
+
+##### JavaScript Booleans
+
+Booleans can only have two values: true or false.
+
+Example
+
+	var x = true;
+	var y = false;
+
+Booleans are often used in conditional testing.
+
+##### JavaScript Arrays
+
+JavaScript arrays are written with square brackets.
+
+Array items are separated by commas.
+
+The following code declares (creates) an array called cars, containing three items (car names):
+
+Example
+
+	var cars = ["Saab", "Volvo", "BMW"];	
+
+Array indexes are zero-based, which means the first item is [0], second is [1], and so on.
+
+You will learn more about arrays later in this tutorial.
+
+##### JavaScript Objects
+
+JavaScript objects are written with curly braces.
+
+Object properties are written as name:value pairs, separated by commas.
+
+Example
+
+	var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+The object (person) in the example above has 4 properties: firstName, lastName, age, and eyeColor.
+
+You will learn more about objects later in this tutorial.
+
+##### The typeof Operator
+
+You can use the JavaScript typeof operator to find the type of a JavaScript variable:
+
+Example
+
+	typeof "John"                // Returns string 
+	typeof 3.14                  // Returns number
+	typeof false                 // Returns boolean
+	typeof [1,2,3,4]             // Returns object
+	typeof {name:'John', age:34} // Returns object
+
+> In JavaScript, an array is a special type of object. Therefore typeof [1,2,3,4] returns object. 
+
+##### Undefined
+
+In JavaScript, a variable without a value, has the value undefined. The typeof is also undefined.
+
+Example
+
+	var person;                  // Value is undefined, type is undefined
+
+Any variable can be emptied, by setting the value to undefined. The type will also be undefined.
+
+Example
+
+	person = undefined;          // Value is undefined, type is undefined
+
+##### Empty Values
+
+An empty value has nothing to do with undefined.
+
+An empty string variable has both a value and a type.
+
+Example
+
+	var car = "";                // The value is "", the typeof is string
+
+##### Null
+
+In JavaScript null is "nothing". It is supposed to be something that doesn't exist.
+
+Unfortunately, in JavaScript, the data type of null is an object.
+
+Note	You can consider it a bug in JavaScript that typeof null is an object. It should be null.
+You can empty an object by setting it to null:
+
+Example
+
+	var person = null;           // Value is null, but type is still an object	
+
+You can also empty an object by setting it to undefined:
+
+Example
+
+	var person = undefined;     // Value is undefined, type is undefined
+
+Difference Between Undefined and Null
+
+	typeof undefined             // undefined
+	typeof null                  // object
+	null === undefined           // false
+	null == undefined            // true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
