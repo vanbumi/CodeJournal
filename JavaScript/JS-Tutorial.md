@@ -720,9 +720,7 @@ If you add a number to a string, the number will be treated as string, and conca
 
 [Test Code](https://jsfiddle.net/vanbumi/vq12rgrf/3/)
 
-### Lesson 12
-
-#### JavaScript Operators
+### Lesson 12 - JavaScript Operators
 
 Example
 
@@ -732,7 +730,7 @@ Assign values to variables and add them together:
 	var y = 2;         // assign the value 2 to y
 	var z = x + y;     // assign the value 7 to z (x + y)
 
-##### JavaScript Arithmetic Operators
+#### JavaScript Arithmetic Operators
 
 Arithmetic operators are used to perform arithmetic on numbers (literals or variables).
 
@@ -754,7 +752,7 @@ Multiplying
 	var y = 2;
 	var z = x * y;
 
-##### JavaScript Assignment Operators
+#### JavaScript Assignment Operators
 
 Assignment operators assign values to JavaScript variables.
 
@@ -773,7 +771,7 @@ Assignment
 	var x = 10;
 	x += 5;
 
-##### JavaScript String Operators
+#### JavaScript String Operators
 
 The + operator can also be used to add (concatenate) strings.
 
@@ -800,7 +798,7 @@ The result of txt1 will be:
 
 	What a very nice day	
 
-##### Adding Strings and Numbers
+#### Adding Strings and Numbers
 
 Adding two numbers, will return the sum, but adding a number and a string will return a string:
 
@@ -817,17 +815,15 @@ Example
 
 The rule is: If you add a number and a string, the result will be a string!
 
-##### JavaScript Comparison and Logical Operators
+#### JavaScript Comparison and Logical Operators
 
 ![Comparison and Logical Op](http://res.cloudinary.com/medio/image/upload/v1467601559/jscomparisonLogicalOperator_lmqxgp.png)
 
-### Lesson 13
-
-#### JavaScript Data Types
+### Lesson 13 - JavaScript Data Types
 
 	String, Number, Boolean, Array, Object.
 
-##### Data Types 
+#### Data Types 
 
 JavaScript variables can hold many data types: numbers, strings, arrays, objects and more:
 
@@ -836,7 +832,7 @@ JavaScript variables can hold many data types: numbers, strings, arrays, objects
 	var cars = ["Saab", "Volvo", "BMW"];           // Array
 	var x = {firstName:"John", lastName:"Doe"};    // Object	
 
-##### The Concept of Data Types
+#### The Concept of Data Types
 
 In programming, data types is an important concept.
 
@@ -880,7 +876,7 @@ In the first example, JavaScript treats 16 and 4 as numbers, until it reaches "V
 
 In the second example, since the first operand is a string, all operands are treated as strings.
 
-##### JavaScript Booleans
+#### JavaScript Booleans
 
 Booleans can only have two values: true or false.
 
@@ -891,7 +887,7 @@ Example
 
 Booleans are often used in conditional testing.
 
-##### JavaScript Arrays
+#### JavaScript Arrays
 
 JavaScript arrays are written with square brackets.
 
@@ -907,7 +903,7 @@ Array indexes are zero-based, which means the first item is [0], second is [1], 
 
 You will learn more about arrays later in this tutorial.
 
-##### JavaScript Objects
+#### JavaScript Objects
 
 JavaScript objects are written with curly braces.
 
@@ -921,7 +917,7 @@ The object (person) in the example above has 4 properties: firstName, lastName, 
 
 You will learn more about objects later in this tutorial.
 
-##### The typeof Operator
+#### The typeof Operator
 
 You can use the JavaScript typeof operator to find the type of a JavaScript variable:
 
@@ -935,7 +931,7 @@ Example
 
 > In JavaScript, an array is a special type of object. Therefore typeof [1,2,3,4] returns object. 
 
-##### Undefined
+#### Undefined
 
 In JavaScript, a variable without a value, has the value undefined. The typeof is also undefined.
 
@@ -949,7 +945,7 @@ Example
 
 	person = undefined;          // Value is undefined, type is undefined
 
-##### Empty Values
+#### Empty Values
 
 An empty value has nothing to do with undefined.
 
@@ -959,7 +955,7 @@ Example
 
 	var car = "";                // The value is "", the typeof is string
 
-##### Null
+#### Null
 
 In JavaScript null is "nothing". It is supposed to be something that doesn't exist.
 
@@ -985,13 +981,265 @@ Difference Between Undefined and Null
 	null === undefined           // false
 	null == undefined            // true
 
+### Lesson 14 - JavaScript Functions
 
+A JavaScript function is a block of code designed to perform a particular task.
 
+A JavaScript function is executed when "something" invokes it (calls it).
 
+	function myFunction(p1, p2) {
+	    return p1 * p2;         // The function returns the product of p1 and p2
+	}
 
+Example
 
+	<p id="demo"></p>
 
+	<script>
+		function myFunction(a, b) {
+	  	return a * b;
+	  }
 
+	  // memanggil function dengan getElement dari luar block function iu sendiri.
+	   document.getElementById("demo").innerHTML = myFunction(5, 3);
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/xL7c4dv0/)	
+
+#### JavaScript Function Syntax
+
+A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses ().
+
+Function names can contain letters, digits, underscores, and dollar signs (same rules as variables).
+
+The parentheses may include parameter names separated by commas:
+(parameter1, parameter2, ...)
+
+The code to be executed, by the function, is placed inside curly brackets: {}
+
+	function name(parameter1, parameter2, parameter3) {
+	    code to be executed
+	}
+
+* Function parameters are the names listed in the function definition.
+
+* Function arguments are the real values received by the function when it is invoked.
+
+* Inside the function, the arguments behave as local variables.
+
+#### Function Invocation
+
+The code inside the function will execute when "something" invokes (calls) the function:
+
+* When an event occurs (when a user clicks a button)
+* When it is invoked (called) from JavaScript code
+* Automatically (self invoked)
+* You will learn a lot more about function invocation later in this tutorial.
+
+#### Function Return
+
+When JavaScript reaches a return statement, the function will stop executing.
+*Saat JS mendapat return statement, function akan berhenti eksekusi*
+
+If the function was invoked from a statement, JavaScript will "return" to execute the code after the invoking statement.
+*Jika function sudah dipanggil dari statement, JS akan 'mengembalikan' nya untuk mengeksekusi kode tersebut setelah di statement panggil.*
+
+Functions often compute a return value. The return value is "returned" back to the "caller":
+*Function sering menjalankan nilai pengembalian. Nilai pengembalian di kembalikan kepada sipemanggil*
+
+Example
+
+Calculate the product of two numbers, and return the result:
+
+	var x = myFunction(4, 3);        // Function is called, return value will end up in x
+
+	function myFunction(a, b) {
+	    return a * b;                // Function returns the product of a and b
+	}
+
+The result in x will be:
+
+	12
+
+#### Why Functions?
+
+You can reuse code: Define the code once, and use it many times.
+
+You can use the same code many times with different arguments, to produce different results.
+
+Example
+
+	Convert Fahrenheit to Celsius:
+
+	function toCelsius(fahrenheit) {
+	    return (5/9) * (fahrenheit-32);
+	}
+	document.getElementById("demo").innerHTML = toCelsius(77);
+
+[Test Code](https://jsfiddle.net/vanbumi/pbacu59m/)	
+
+#### The () Operator Invokes the Function
+
+Using the example above, toCelsius refers to the function object, and toCelsius() refers to the function result.
+
+Example
+
+Accessing a function without () will return the function definition:
+
+	function toCelsius(fahrenheit) {
+	    return (5/9) * (fahrenheit-32);
+	}
+	document.getElementById("demo").innerHTML = toCelsius;
+
+[Test Code](https://jsfiddle.net/vanbumi/qvwLm546/)
+
+#### Functions Used as Variables
+
+Functions can be used as variable values in formulas, assignments, and calculations.
+
+Example
+
+You can use:
+
+	var text = "The temperature is " + toCelsius(77) + " Celsius";
+	
+toCelsius(77) is a function with the value already.
+
+Instead of:
+
+	var x = toCelsius(32);
+
+	var text = "The temperature is " + x + " Celsius";
+
+Example
+
+	<p id="demo">Display the result here.</p>
+
+	<script>
+	function myFunction(name) {
+	    return "Hello " + name;
+	}
+	document.getElementById("demo").innerHTML = myFunction("John")
+	</script>	
+
+[Test Code](https://jsfiddle.net/vanbumi/vjvsw7hf/)
+
+Example
+
+	<h4>Define a function named "myFunction", and make it display "Hello World!" in the element.</h4>
+
+	<p id="demo"></p>
+
+	<script>
+	  function myFunction() {
+	  document.getElementById("demo").innerHTML = "Hello World!"; 
+	  }
+	  myFunction()
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/bnfhy4mx/)	
+
+### Lesson 15 - JavaScript Objects
+
+#### Real Life Objects, Properties, and Methods
+
+In real life, a car is an object.
+
+A car has properties like weight and color, and methods like start and stop:
+
+![js object](http://res.cloudinary.com/medio/image/upload/v1467642574/object_bgyv81.png)
+
+All cars have the same properties, but the property values differ from car to car.
+
+All cars have the same methods, but the methods are performed at different times.
+
+#### JavaScript Objects
+
+You have already learned that JavaScript variables are containers for data values.
+
+This code assigns a simple value (Fiat) to a variable named car:
+
+	var car = "Fiat";
+
+Objects are variables too. But objects can contain many values.
+
+This code assigns many values (Fiat, 500, white) to a variable named car:
+
+	var car = {type:"Fiat", model:"500", color:"white"};
+
+	<p id="demo"></p>
+
+	<script>
+	  var car = {type:"Fiat", model:"500", color:"white"};
+	  document.getElementById("demo").innerHTML = "Type of Car: " + car.type;
+	</script>	
+
+[Test Code](https://jsfiddle.net/vanbumi/ku4xrh6g/)
+
+The values are written as name:value pairs (name and value separated by a colon).
+
+> JavaScript objects are containers for named values.
+
+#### Object Properties
+
+The name:values pairs (in JavaScript objects) are called properties.
+
+	var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+![object property](http://res.cloudinary.com/medio/image/upload/v1467643418/objectProperty_za2hlx.png)
+
+#### Object Methods
+
+Methods are actions that can be performed on objects.
+
+Methods are stored in properties as function definitions.
+
+Property	Property Value
+
+firstName	John
+lastName	Doe
+age			50
+eyeColor	blue
+fullName	function() {return this.firstName + " " + this.lastName;}
+
+> JavaScript objects are containers for named values (called properties) and methods.
+
+#### Object Definition
+
+You define (and create) a JavaScript object with an object literal:
+
+Example
+
+	var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+Example
+
+	<p id="demo"></p>
+
+	<script>
+	  var person = {firstName:"John", lastName: "Doe", age:	50, 
+	  eyeColor: "blue"};
+
+		document.getElementById("demo").innerHTML = person.firstName + " is " + person.age + " years old";
+
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/tton98mq/)
+
+Spaces and line breaks are not important. An object definition can span multiple lines:
+
+Example
+
+	var person = {
+	    firstName:"John",
+	    lastName:"Doe",
+	    age:50,
+	    eyeColor:"blue"
+	};
+
+[Test Code](https://jsfiddle.net/vanbumi/1uoc9q95/)	
+
+lat http://www.w3schools.com/js/js_objects.asp 	Accessing Object Properties
 
 
 
