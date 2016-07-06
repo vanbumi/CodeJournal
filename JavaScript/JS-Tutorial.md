@@ -2,7 +2,14 @@
 
 * [JS - w3schools](http://www.w3schools.com/js/default.asp)
 
+## Contents
+
+<ul>
+	<li><a href="#lesson1">Lesson 1 - ..</a></li>
+</ul>
+
 ### Lesson 1
+<h3 id="lesson1">Lesson 1</h3>
 
 	<button type="button" onclick="document.getElementById('tanggal').innerHTML = Date()">
 	  Click me to find out the date is
@@ -1239,13 +1246,90 @@ Example
 
 [Test Code](https://jsfiddle.net/vanbumi/1uoc9q95/)	
 
-lat http://www.w3schools.com/js/js_objects.asp 	Accessing Object Properties
+#### Accessing Object Properties
+
+You can access object properties in two ways:
+
+	objectName.propertyName
+
+or
+
+	objectName["propertyName"]
+
+Example1
+
+	person.lastName;
+
+[Test Code](https://jsfiddle.net/vanbumi/3n3v4jtu/)	
+
+Example2
+
+	person["lastName"];
+
+[Test Code](https://jsfiddle.net/vanbumi/koxv66tz/)		
+
+#### Accessing Object Methods
+
+You access an object method with the following syntax:
+
+	objectName.methodName()
+
+Example
+
+	name = person.fullName();
+
+With the following code
+
+	var karyawan = {
+	  namaDepan: "Dyo",
+	  namaBelakang: "Bumi",
+	  umur: 37,
+	  id: 222,
+	  // create method
+	  namaLengkap: function() {
+	  	return this.namaDepan + " " + this.namaBelakang;
+	  }
+	};
+	document.getElementById("coba").innerHTML = karyawan.namaLengkap();	
+
+[Test Code](https://jsfiddle.net/vanbumi/m5eLryde/)
+
+If you access the fullName property, without (), it will return the function definition:
+
+	name = person.fullName;
+
+[See Code](https://jsfiddle.net/vanbumi/gr5ff8s7/)
+
+Exercise:
+
+Create an object called person with name = John, age = 50.
+Then, access the object to display "John is 50 years old".
+
+Answwer
+
+	var person = {
+	  name: "John",
+	  age: 50
+	}
+	document.getElementById("demo").innerHTML = person.name + " is " + person.age + " years old";	
+
+[Test Code](https://jsfiddle.net/vanbumi/oyqv1vsu/)
+
+#### Do Not Declare Strings, Numbers, and Booleans as Objects!
+
+When a JavaScript variable is declared with the keyword "new", the variable is created as an object:
+
+	var x = new String();        // Declares x as a String object
+	var y = new Number();        // Declares y as a Number object
+	var z = new Boolean();       //	Declares z as a Boolean object
+
+Avoid String, Number, and Boolean objects. They complicate your code and slow down execution speed.
+
+> Note	You will learn more about objects later in this tutorial.
 
 
 
-
-
-
+next http://www.w3schools.com/js/js_scope.asp
 
 
 

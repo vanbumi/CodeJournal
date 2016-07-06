@@ -14,3 +14,5 @@
 
 * [tempat-kursus-javascript-gratis-interaktif](http://www.jurnalweb.com/tempat-kursus-javascript-gratis-interaktif/)
 
+* [Introduction to asynchronous JavaScript](http://tutorials.pluralsight.com/front-end-javascript/introduction-to-asynchronous-javascript)
+
