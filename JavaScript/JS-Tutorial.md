@@ -1327,7 +1327,137 @@ Avoid String, Number, and Boolean objects. They complicate your code and slow do
 
 > Note	You will learn more about objects later in this tutorial.
 
-next http://www.w3schools.com/js/js_scope.asp
+### Lesson 16 - JavaScript Scope
+
+In JavaScript, **objects** and **functions** are also variables.
+
+In JavaScript, **scope** *is the set of variables, objects, and functions you have access to.*
+
+JavaScript has function scope: The scope changes inside functions.
+
+#### Local JavaScript Variables
+
+Variables declared within a JavaScript function, become LOCAL to the function.
+
+Local variables have local scope: They can only be accessed within the function.
+
+Example
+
+	// code here can not use carName
+
+	function myFunction() {
+	    var carName = "Volvo";
+
+	    // code here can use carName
+
+	}
+
+Other example
+
+	<p>The local variable carName cannot be accessed from code outside the function:</p>
+
+	<p id="demo"></p>
+
+	<script>
+	myFunction(); // this is callback
+	document.getElementById("demo").innerHTML =  /* this is
+	"The type of carName is " + typeof carName;     how to print in js */
+
+	function myFunction() {                      /* this is
+	    var carName = "Volvo";						the function */ 	
+	}											 	
+	</script>
+
+Since local variables are only recognized inside their functions, variables with the same name can be used in different functions.
+
+Local variables are created when a function starts, and deleted when the function is completed.
+
+Example
+
+	var carName = " Volvo";
+
+	// code here can use carName
+
+	function myFunction() {
+
+	    // code here can use	carName 
+
+	}
+
+Example 
+
+	<h1>It is call Global Variable</h1>
+	<p id="demo"></p>
+
+	<script>
+		var namaPegawai = "Brandon";
+	  
+	  function myFunction() {
+	  	document.getElementById("demo").innerHTML = namaPegawai
+	  }
+	  myFunction();
+	</script>	
+
+[Test Code](https://jsfiddle.net/vanbumi/ja98nx8m/)
+
+#### Automatically Global
+
+If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable.
+
+This code example will declare a global variable carName, even if the value is assigned inside a function.
+
+**Not give var ... yet**
+
+Example
+
+	myFunction();
+
+	// code here can use carName 
+
+	function myFunction() {
+	    carName = "Volvo";             // not use var carName yet
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/3299tpcg/)	
+
+> Note	Do NOT create global variables unless you intend to.
+
+#### Global Variables in HTML
+
+With JavaScript, the global scope is the complete JavaScript environment.
+
+In HTML, **the global scope is the window object.** All global variables belong to the window object.
+
+Example
+
+	var carName = "Volvo";
+
+	// code here can use window.carName
+
+[Test Code](https://jsfiddle.net/vanbumi/kvmwr6us/)
+
+#### The Lifetime of JavaScript Variables
+
+The lifetime of a JavaScript variable starts when it is declared.
+
+Local variables are deleted when the function is completed.
+
+Global variables are deleted when you close the page.
+
+#### Function Arguments
+
+Function arguments (parameters) work as local variables inside functions.
+
+next http://www.w3schools.com/js/js_events.asp
+
+
+
+
+
+
+
+
+---
 
 ## Skip for while
 
@@ -1377,7 +1507,7 @@ Other Example
 	<p id="demo"></p>
 
 	<script>
-		var x = 0;
+	  var x = 0;
 	  text = "";
 	  while( x < 10) {
 	    text += "<br> number is " + x ; 
