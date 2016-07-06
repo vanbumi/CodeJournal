@@ -1327,13 +1327,64 @@ Avoid String, Number, and Boolean objects. They complicate your code and slow do
 
 > Note	You will learn more about objects later in this tutorial.
 
-
-
 next http://www.w3schools.com/js/js_scope.asp
 
+## Skip for while
 
+http://www.w3schools.com/js/js_loop_while.asp
 
+Loops can execute a block of code as long as a specified condition is true.
 
+#### The While Loop
+
+The while loop loops through a block of code as long as a specified condition is true.
+
+##### Syntax
+
+	while (condition) {
+	    code block to be executed
+	}
+
+Example
+
+In the following example, the code in the loop will run, over and over again, as long as a variable (i) is less than 10:
+
+Example
+
+	while (i < 10) {
+	    text += "The number is " + i;
+	    i++;
+	}
+
+Example
+
+	<button type="button" onclick="myFunction()">Try this</button>
+
+	function myFunction() {
+	    var text = "";
+	    var i = 0;
+	    while (i < 10) {
+	        text += "<br>The number is " + i;
+	        i++;
+	    }
+	    document.getElementById("demo").innerHTML = text;
+	}	
+
+[Test Code](https://jsfiddle.net/vanbumi/xc9p3fet/)
+
+Other Example
+
+	<p id="demo"></p>
+
+	<script>
+		var x = 0;
+	  text = "";
+	  while( x < 10) {
+	    text += "<br> number is " + x ; 
+	 		x++;
+	    document.getElementById("demo").innerHTML = text;
+	  }
+	</script>
 
 
 
