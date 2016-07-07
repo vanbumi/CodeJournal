@@ -16,3 +16,10 @@
 
 * [Introduction to asynchronous JavaScript](http://tutorials.pluralsight.com/front-end-javascript/introduction-to-asynchronous-javascript)
 
+* [Javascript Tutorial - tutorialspoint.com](http://www.tutorialspoint.com/javascript/)
+
+> Javascript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages. It is an interpreted programming language with object-oriented capabilities.
+
+* [JavaScript Road Trip Part 1 - codeschool.com](https://www.codeschool.com/courses/javascript-road-trip-part-1)
+
+
