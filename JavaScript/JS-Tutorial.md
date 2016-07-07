@@ -1448,7 +1448,239 @@ Global variables are deleted when you close the page.
 
 Function arguments (parameters) work as local variables inside functions.
 
-next http://www.w3schools.com/js/js_events.asp
+### Lesson 17 - JavaScript Events
+
+**HTML events are "things" that happen to HTML elements.**
+
+When JavaScript is used in HTML pages, JavaScript can "react" on these events.
+
+#### HTML Events
+
+An HTML event can be something the browser does, or something a user does.
+
+Here are some examples of HTML events:
+
+* An HTML web page has finished loading
+* An HTML input field was changed
+* An HTML button was clicked
+
+Often, when events happen, you may want to do something.
+
+JavaScript lets you execute code when events are detected.
+
+HTML allows event handler attributes, with JavaScript code, to be added to HTML elements.
+
+With single quotes:
+
+	<some-HTML-element some-event='some JavaScript'>
+
+With double quotes:
+
+	<some-HTML-element some-event="some JavaScript">
+
+In the following example, an onclick attribute (with code), is added to a button element:
+
+Example
+
+	<button onclick='getElementById("demo").innerHTML=Date()'>The time is?</button>
+
+	<p id="demo"></p>
+
+[Test Code](https://jsfiddle.net/vanbumi/xm3gxf2j/)
+
+Example
+
+	In the example above, the JavaScript code changes the content of the element with id="demo".
+
+	In the next example, the code changes the content of its own element (using this.innerHTML):
+
+Example
+
+	<button onclick="this.innerHTML=Date()">The time is?</button>
+
+[Test Code](https://jsfiddle.net/vanbumi/745znjn8/1/)
+
+> JavaScript code is often several lines long. It is more common to see event attributes calling functions:
+
+Example
+
+	<button onclick="displayDate()">The time is?</button>
+
+	<script>
+	  function displayDate() {
+	  	document.getElementById("demo").innerHTML = Date();
+	  }
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/3oaj6cvp/)
+
+#### Common HTML Events
+
+Here is a list of some common HTML events:
+
+	Event			Description
+
+	onchange		An HTML element has been changed
+	onclick	The 	user clicks an HTML element
+	onmouseover		The user moves the mouse over an HTML element
+	onmouseout		The user moves the mouse away from an HTML element
+	onkeydown		The user pushes a keyboard key
+	onload			The browser has finished loading the page		
+
+The list is much longer: [W3Schools JavaScript Reference HTML DOM Events.](http://www.w3schools.com/jsref/dom_obj_event.asp)
+
+#### What can JavaScript Do?
+
+Event handlers can be used to handle, and verify, user input, user actions, and browser actions:
+
+Things that should be done every time a page loads
+Things that should be done when the page is closed
+Action that should be performed when a user clicks a button
+Content that should be verified when a user inputs data
+And more ...
+
+Many different methods can be used to let JavaScript work with events:
+
+HTML event attributes can execute JavaScript code directly
+HTML event attributes can call JavaScript functions
+You can assign your own event handler functions to HTML elements
+You can prevent events from being sent or being handled
+And more ...
+
+> You will learn a lot more about events and event handlers in the HTML DOM chapters.
+
+### Lesson 18 - JavaScript Strings
+
+JavaScript strings are used for storing and manipulating text.
+
+A JavaScript string simply stores a series of characters like "John Doe".
+
+A string can be any text inside quotes. You can use single or double quotes:
+
+Example
+
+	var carname = "Volvo XC60";
+	var carname = 'Volvo XC60';
+
+You can use quotes inside a string, as long as they don't match the quotes surrounding the string:
+
+Example
+
+	var answer = "It's alright";
+	var answer = "He is called 'Johnny'";
+	var answer = 'He is called "Johnny"';
+
+#### String Length
+
+The length of a string is found in the built in property length:
+
+Example
+
+	var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var sln = txt.length;
+
+Detail
+
+	<p id="demo"></p>
+
+	<script>
+	 var text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	 document.getElementById("demo").innerHTML =  "Jumlah huruf " + text.length;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/hc60d71m/)
+
+#### Special Characters
+
+Because strings must be written within quotes, JavaScript will misunderstand this string:
+
+var y = "We are the so-called "Vikings" from the north."
+
+The string will be chopped to "We are the so-called ".
+
+The solution to avoid this problem, is **to use the \ escape character.**
+
+The backslash escape character turns special characters into string characters:
+
+Example
+
+	var x = 'It\'s alright';
+	var y = "We are the so-called \"Vikings\" from the north."
+
+	document.getElementById("demo").innerHTML = x + "<br>" + y;
+
+The escape character (\) can also be used to insert other special characters in a string.
+
+This is the list of special characters that can be added to a text string with the backslash sign:
+
+	Code	Outputs
+	\'		single quote
+	\"		double quote
+	\\		backslash
+	\n		new line
+	\r		carriage return
+	\t		tab
+	\b		backspace
+	\f		form feed	
+
+#### Breaking Long Code Lines
+
+For best readability, programmers often like to avoid code lines longer than 80 characters.
+
+If a JavaScript statement does not fit on one line, the best place to break it is **after an operator**:
+
+Example
+
+	document.getElementById("demo").innerHTML =
+	"Hello Dolly.";
+
+You can also break up a code line within a text string with a single backslash:
+
+Example
+
+	document.getElementById("demo").innerHTML = "Hello \
+	Dolly!";
+
+> The \ method is not a ECMAScript (JavaScript) standard.
+Some browsers do not allow spaces behind the \ character.
+
+The safest (but a little slower) way to break a long string is to use string addition:
+
+Example
+
+	document.getElementById("demo").innerHTML = "Hello" + 
+	"Dolly!";
+
+You cannot break up a code line with a backslash:
+
+Example
+
+	document.getElementById("demo").innerHTML = \ 
+	"Hello Dolly!";
+
+#### Strings Can be Objects
+
+Normally, JavaScript strings are primitive values, created from literals: var firstName = "John"
+
+But strings can also be defined as objects with the keyword new: var firstName = new String("John")
+
+Example
+
+	var x = "John";
+	var y = new String("John");
+
+	// typeof x will return string
+	// typeof y will return object
+
+last : http://www.w3schools.com/js/js_strings.asp
+
+
+
+
+
+
+
+
 
 
 
