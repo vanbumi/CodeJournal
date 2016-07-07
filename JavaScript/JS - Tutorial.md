@@ -1672,15 +1672,319 @@ Example
 	// typeof x will return string
 	// typeof y will return object
 
-last : http://www.w3schools.com/js/js_strings.asp
+Example
+
+	<p id="demo"></p>
+
+	<script>
+		var x = "Brandon";
+		var y = new String("Bumi");
+
+		document.getElementById('demo').innerHTML = 
+		"Type Data x = " + typeof x + "<br>" +
+		"Type Data y = " + typeof y;  
+
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/0r1aLv6n/)
+
+> Note: Don't create strings as objects. It slows down execution speed.
+The new keyword complicates the code. This can produce some unexpected results:
+
+When using the == equality operator, equal strings looks equal:
+
+Example
+
+	var x = "John";             
+	var y = new String("John");
+
+	document.getElementById("demo").innerHTML = (x==y);
+
+	// (x == y) is true because x and y have equal values
+
+When using the === equality operator, equal strings are not equal, because the === operator expects equality in both type and value.
+
+Example
+
+	var x = "John";             
+	var y = new String("John");
+
+	document.getElementById("demo").innerHTML = (x===y);
+
+	// (x === y) is false because x and y have different types (string and object)
+
+Or even worse. Objects cannot be compared:
+
+Example
+
+	var x = new String("John");             
+	var y = new String("John");
+
+	document.getElementById("demo").innerHTML = (x==y);
+
+	// (x == y) is false because x and y are different objects
+	// (x == x) is true because both are the same object
 
 
+> Note: JavaScript objects cannot be compared.
 
+### Lesson 19 - JavaScript String Methods
 
+String methods help you to work with strings.
 
+#### String Methods and Properties
 
+Primitive values, like "John Doe", cannot have properties or methods (because they are not objects).
 
+But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.
 
+#### String Length
+
+The length property returns the length of a string:
+
+Example
+
+	var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var sln = txt.length;
+
+	document.getElementById("demo").innerHTML = txt.length;
+
+#### Finding a String in a String
+
+**The indexOf()** method returns the index of (the position of) the first occurrence of a specified text in a string:
+
+Example
+
+	var str = "Please locate where 'locate' occurs!";
+	var pos = str.indexOf("locate");
+
+[Test Code](https://jsfiddle.net/vanbumi/xu8uwcvj/)
+
+The lastIndexOf() method returns the index of the last occurrence of a specified text in a string:
+
+Example
+
+	var str = "Please locate where 'locate' occurs!";
+	var pos = str.lastIndexOf("locate");
+
+Detail Code
+
+	
+	<p id="p1">Please locate where 'locate' occurs!.</p>
+
+	<button onclick="myFunction()">Try it</button>
+
+	<p id="demo"></p>
+
+	<script>
+	function myFunction() {
+	    var str = document.getElementById("p1").innerHTML;
+	    var pos = str.lastIndexOf("locate");
+	    document.getElementById("demo").innerHTML = pos;
+	}
+	</script>
+
+Both the indexOf(), and the lastIndexOf() methods return -1 if the text is not found.
+
+> Note	JavaScript counts positions from zero. 0 is the first position in a string, 1 is the second, 2 is the third ...
+
+Both methods accept a second parameter as the starting position for the search.
+
+#### Searching for a String in a String
+
+The **search()** method searches a string for a specified value and returns the position of the match:
+
+Example
+
+	var str = "Please locate where 'locate' occurs!";
+	var pos = str.search("locate");
+
+[Test Code](https://jsfiddle.net/vanbumi/hy6x9zam/)	
+
+#### Did You Notice?
+
+The two methods, indexOf() and search(), are equal.
+
+They accept the same arguments (parameters), and they return the same value.
+
+The two methods are equal, but the search() method can take much more powerful search values.
+
+You will learn more about powerful search values in the chapter about regular expressions.
+
+#### Extracting (memisahkan/memecahkan) String Parts
+
+There are 3 methods for extracting a part of a string:
+
+* slice(start, end)
+* substring(start, end)
+* substr(start, length)
+
+##### The slice() Method
+
+slice() extracts a part of a string and returns the extracted part in a new string.
+
+The method takes 2 parameters: the starting index (position), and the ending index (position).
+
+This example slices out a portion of a string from position 7 to position 13:
+
+Example
+
+	var str = "Apple, Banana, Kiwi";
+	var res = str.slice(7,13);
+	
+The result of res will be:
+
+	Banana
+
+[Test Code](https://jsfiddle.net/vanbumi/e8wevers/)
+
+If a parameter is negative, the position is counted from the end of the string.
+
+This example slices out a portion of a string from position -12 to position -6:
+
+Example
+
+	var str = "Apple, Banana, Kiwi";
+	var res = str.slice(-12,-6);
+
+The result of res will be:
+
+	Banana
+
+If you omit (menghilangkan) the second parameter, the method will slice out the rest of the string:
+
+Example
+
+	var res = str.slice(7);
+	var str = "Apple, Banana, Kiwi";
+	document.getElementById("demo").innerHTML = str.slice(7);
+
+The result of res will be:
+
+	Banana, Kiwi
+
+or, counting from the end:
+
+Example
+
+	var res = str.slice(-12);
+	var str = "Apple, Banana, Kiwi";
+
+	document.getElementById("demo").innerHTML = str.slice(-12);
+
+The result of res will be:
+
+	Banana, Kiwi
+
+> Note	Negative positions do not work in Internet Explorer 8 and earlier.
+
+#### The substring() Method
+
+substring() is similar to slice().
+
+The difference is that substring() cannot accept negative indexes.
+
+Example
+
+	var str = "Apple, Banana, Kiwi";
+	var res = str.substring(7,13);
+
+The result of res will be:
+
+	Banana
+
+If you omit the second parameter, substring() will slice out the rest of the string.
+
+### The substr() Method
+
+substr() is similar to slice().
+
+The difference is that the second parameter specifies the length of the extracted part.
+
+Example
+
+	var str = "Apple, Banana, Kiwi";
+	var res = str.substr(7,6);
+
+The result of res will be:
+
+	Banana
+
+[Test Code](https://jsfiddle.net/vanbumi/ka6ba8bw/)
+
+If the first parameter is negative, the position counts from the end of the string.
+
+**The second parameter can not be negative, because it defines the length.**
+
+If you omit the second parameter, substr() will slice out the rest of the string.
+
+#### Replacing String Content
+
+The **replace()** method replaces a specified value with another value in a string:
+
+Example
+
+	str = "Please visit Microsoft!";
+	var n = str.replace("Microsoft","W3Schools");
+
+[Test Code](https://jsfiddle.net/vanbumi/57kmaghv/)	
+
+The replace() method can also take a regular expression as the search value.
+
+By default, the replace() function replaces only the first match. To replace all matches, use a regular expression with a **g flag (for global match)**:
+
+Example
+
+	str = "Please visit Microsoft!";
+	var n = str.replace(/Microsoft/g,"W3Schools");
+
+[Test Code](https://jsfiddle.net/vanbumi/bpr7eqv8/)	
+
+> Note	The replace() method does not change the string it is called on. It returns a new string.
+
+#### Converting to Upper and Lower Case
+
+A string is converted to upper case with **toUpperCase()**:
+
+Example
+
+	var text1 = "Hello World!";       // String
+	var text2 = text1.toUpperCase();  // text2 is text1 converted to upper
+
+[Test Code](https://jsfiddle.net/vanbumi/ytrLt4ef/)
+
+A string is converted to lower case with toLowerCase():
+
+Example
+
+	var text1 = "Hello World!";       // String
+	var text2 = text1.toLowerCase();  // text2 is text1 converted to lower
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_string_tolower)
+
+#### The concat() Method
+
+**concat()** joins two or more strings:
+
+Example
+
+	var text1 = "Hello";
+	var text2 = "World";
+	text3 = text1.concat("	",text2);
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_string_concat)
+
+The concat() method can be used instead of the plus operator. These two lines do the same:
+
+Example
+
+	var text = "Hello" + " " + "World!";
+	var text = "Hello".concat(" ","World!");
+
+> All string methods return a new string. They don't modify the original string.
+Formally said: Strings are immutable: Strings cannot be changed, only replaced.
+
+Next Extracting String Characters http://www.w3schools.com/js/js_string_methods.asp
 
 
 
