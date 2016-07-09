@@ -1816,7 +1816,7 @@ You will learn more about powerful search values in the chapter about regular ex
 There are 3 methods for extracting a part of a string:
 
 * slice(start, end)
-* substring(start, end)
+* substring(start, end) *The difference is that the second parameter specifies the length of the extracted part.*
 * substr(start, length)
 
 ##### The slice() Method
@@ -1984,7 +1984,113 @@ Example
 > All string methods return a new string. They don't modify the original string.
 Formally said: Strings are immutable: Strings cannot be changed, only replaced.
 
-Next Extracting String Characters http://www.w3schools.com/js/js_string_methods.asp
+#### Extracting String Characters
+
+There are 2 safe methods for extracting string characters:
+
+* charAt(position)
+* charCodeAt(position)
+
+##### The charAt() Method
+
+The charAt() method returns the character at a specified index (position) in a string:
+
+Example
+
+	var str = "HELLO WORLD";
+	str.charAt(0);            // returns H
+
+	document.getElementById("demo").innerHTML = str.charAt(0);
+
+##### The charCodeAt() Method
+
+The charCodeAt() method returns the unicode of the character at a specified index in a string:
+
+Example
+
+	var str = "HELLO WORLD";
+
+	str.charCodeAt(0);         //	returns 72
+
+##### Accessing a String as an Array is Unsafe
+
+You might have seen code like this, accessing a string as an array:
+
+	var str = "HELLO WORLD";
+
+	str[0];           // returns H
+
+This is unsafe and unpredictable:
+
+* It does not work in all browsers (not in IE5, IE6, IE7)
+* It makes strings look like arrays (but they are not)
+* str[0] = "H" does not give an error (but does not work)
+
+If you want to read a string as an array, convert it to an array first.
+
+#### Converting a String to an Array
+
+A string can be converted to an array with the split() method:
+
+Example
+
+	var txt = "a,b,c,d,e";   // String
+	txt.split(",");          // Split on commas
+	txt.split(" ");          // Split on spaces
+	txt.split("|");          // Split on pipe
+
+[Test Code](https://jsfiddle.net/vanbumi/55zbsLkn/)
+
+If the separator is omitted, the returned array will contain the whole string in index [0].
+
+If the separator is "", the returned array will be an array of single characters:
+
+Example
+
+	var txt = "Hello";       // String
+	txt.split("");           // Split in characters
+
+Detail code
+
+	<p id="demo"></p>
+
+	<script>
+      var str = "widyobumi";
+	  var arr = str.split("");
+	  var txt = "";
+	  var i;
+	  for (i = 0; i < arr.length; i++) {
+	  	txt += arr[i] + "<br>"
+	  }
+	  document.getElementById("demo").innerHTML = txt;
+	</script>
+
+> Catatan: Dalam for loop harus ada var txt = "", var i, i++, txt +=
+
+#### Complete String Reference
+
+For a complete reference, go to our [Complete JavaScript String Reference](http://www.w3schools.com/jsref/jsref_obj_string.asp).
+
+The reference contains descriptions and examples of all string properties and methods. 
+
+last text http://www.w3schools.com/js/js_string_methods.asp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
