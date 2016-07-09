@@ -13,6 +13,13 @@
 	<li><a href="#lesson6">Lesson 6 - JavaScript Comments</a></li>
 	<li><a href="#lesson7">Lesson 7 - JavaScript Variables</a></li>
 	<li><a href="#lesson8">Lesson 8 - JavaScript Operators</a></li>
+	<li>...</li>
+	<li><a href="#lesson17">Lesson 17 - JS String Methods</a></li>
+	<li><a href="#lesson18">Lesson 18 - JS Numbers</a></li>
+	<li><a href="#lesson19">Lesson 19 - JS Number Methods</a></li>
+	<li>...</a></li>
+	<li><a href="#lesson30">Lesson 30 - JS While</a></li>
+
 
 </ul>
 
@@ -1838,7 +1845,7 @@ Example
 
 > Note: JavaScript objects cannot be compared.
 
-### Lesson 19 - JavaScript String Methods
+<h3 id="lesson17">Lesson 17 - JavaScript String Methods</h3>
 
 String methods help you to work with strings.
 
@@ -2183,7 +2190,227 @@ For a complete reference, go to our [Complete JavaScript String Reference](http:
 
 The reference contains descriptions and examples of all string properties and methods. 
 
-last text http://www.w3schools.com/js/js_string_methods.asp
+---
+
+<h3 id="lesson18">Lesson 18 - JavaScript Numbers</h3>
+
+JavaScript has only one type of number.
+
+Numbers can be written with, or without, decimals.
+
+Extra large or extra small numbers can be written with scientific (exponent) notation:
+
+Example
+
+	var x = 123e5;    // 12300000
+	var y = 123e-5;   // 0.00123
+
+#### JavaScript Numbers are Always 64-bit Floating Point
+
+Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc.
+
+JavaScript numbers are always stored as double precision floating point numbers, following the international IEEE 754 standard. 
+
+This format stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63:
+
+	Value (aka Fraction/Mantissa)	Exponent			Sign
+	52 bits (0 - 51)			 	11 bits (52 - 62)	1 bit (63)
+
+#### Precision
+
+Integers (numbers without a period or exponent notation) are considered accurate up to 15 digits.
+
+Example
+
+	var x = 999999999999999;   // x will be 999999999999999
+	var y = 9999999999999999;  // y will be 10000000000000000
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_inaccurate1)
+
+The maximum number of decimals is 17, but floating point arithmetic is not always 100% accurate:
+
+Example
+
+	var x = 0.2 + 0.1;         // x will be 0.30000000000000004
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_inaccurate2)
+
+To solve the problem above, it helps to multiply and divide:
+
+Example
+
+	var x = (0.2 * 10 + 0.1 * 10) / 10;       // x will be 0.3
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_inaccurate3)
+
+#### Hexadecimal
+
+JavaScript interprets numeric constants as hexadecimal if they are preceded by 0x.
+
+Example
+
+	var x = 0xFF;             // x will be 255
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_hex)
+
+> Never write a number with a leading zero (like 07).
+Some JavaScript versions interpret numbers as octal if they are written with a leading zero.
+
+By default, Javascript displays numbers as base 10 decimals.
+
+But you can use the toString() method to output numbers as base 16 (hex), base 8 (octal), or base 2 (binary).
+
+Example
+
+	var myNumber = 128;
+	myNumber.toString(16);     // returns 80
+	myNumber.toString(8);      // returns 200
+	myNumber.toString(2);      // returns 10000000
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_tostring)
+
+#### Infinity
+
+Infinity (or -Infinity) is the value JavaScript will return if you calculate a number outside the largest possible number.
+
+Example
+
+	var myNumber = 2;
+	while (myNumber != Infinity) {          // Execute until Infinity
+	    myNumber = myNumber * myNumber;
+	}
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_infinity)	
+
+Division by 0 (zero) also generates Infinity:
+
+Example
+
+	var x =  2 / 0;          // x will be Infinity
+	var y = -2 / 0;          // y will be -Infinity
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_infinity_zero)
+
+Infinity is a number: typeOf Infinity returns number.
+
+Example
+
+	typeof Infinity;        // returns "number"
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_infinity_number)
+
+#### NaN - Not a Number
+
+NaN is a JavaScript reserved word indicating that a value is not a number.
+
+Trying to do arithmetic with a non-numeric string will result in NaN (Not a Number):
+
+Example
+
+	var x = 100 / "Apple";  // x will be NaN (Not a Number)
+
+However, if the string contains a numeric value , the result will be a number:
+
+Example
+
+	var x = 100 / "10";     // x will be 10
+
+You can use the global JavaScript function isNaN() to find out if a value is a number.
+
+Example
+
+	var x = 100 / "Apple";
+	isNaN(x);               // returns true because x is Not a Number
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_isnan_true)
+
+Watch out for NaN. If you use NaN in a mathematical operation, the result will also be NaN:
+
+Example
+
+	var x = NaN;
+	var y = 5;
+	var z = x + y;         // z will be NaN
+
+Or the result might be a concatenation:
+
+Example
+
+	var x = NaN;
+	var y = "5";
+	var z = x + y;         // z will be NaN5
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_nan_concat)
+
+NaN is a number, and typeof NaN returns number:
+
+Example
+
+	typeof NaN;             // returns "number"
+	document.getElementById("demo").innerHTML = typeof NaN;
+
+Result
+
+	number
+
+#### Numbers Can be Objects
+
+Normally JavaScript numbers are primitive values created from literals: var x = 123
+
+But numbers can also be defined as objects with the keyword new: var y = new Number(123)
+
+Example
+
+	var x = 123;
+	var y = new Number(123);
+
+	// typeof x returns number
+	// typeof y returns object		
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_object_number_type)
+
+> Don not create Number objects. It slows down execution speed.
+The new keyword complicates the code. This can produce some unexpected results:
+
+When using the == equality operator, equal numbers looks equal:
+
+Example
+
+	var x = 500;             
+	var y = new Number(500);
+
+	// (x == y) is true because x and y have equal values
+
+When using the === equality operator, equal numbers are not equal, because the === operator expects equality in both type and value.
+
+Example
+
+	var x = 500;             
+	var y = new Number(500);
+
+	// (x === y) is false because x and y have different types
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_number_object1)
+
+Or even worse. Objects cannot be compared:
+
+Example
+
+	var x = new Number(500);             
+	var y = new Number(500);
+
+	// (x == y) is false because objects cannot be compared
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_number_object3)
+
+> JavaScript objects cannot be compared.
+
+---
+
+<h3 id="lesson19">Lesson 19 - JavaScript Number Methods</h3>
+
+
+
 
 
 
@@ -2211,13 +2438,9 @@ last text http://www.w3schools.com/js/js_string_methods.asp
 
 ---
 
-## Skip for while
-
-http://www.w3schools.com/js/js_loop_while.asp
+<h3 id="lesson30">Lesson 30 - JavaScript While</h3>
 
 Loops can execute a block of code as long as a specified condition is true.
-
-#### The While Loop
 
 The while loop loops through a block of code as long as a specified condition is true.
 
