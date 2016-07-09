@@ -5,20 +5,41 @@
 ## Contents
 
 <ul>
-	<li><a href="#lesson1">Lesson 1 - ..</a></li>
+	<li><a href="#lesson1">Lesson 1 - Introduction</a></li>
+	<li><a href="#lesson2">Lesson 2 - JavaScript Where To</a></li>
+	<li><a href="#lesson3">Lesson 3 - JavaScript Output</a></li>
+	<li><a href="#lesson4">Lesson 4 - JavaScript Syntax</a></li>
+	<li><a href="#lesson5">Lesson 5 - JavaScript Statement</a></li>
+	<li><a href="#lesson6">Lesson 6 - JavaScript Comments</a></li>
+	<li><a href="#lesson7">Lesson 7 - JavaScript Variables</a></li>
+	<li><a href="#lesson8">Lesson 8 - JavaScript Operators</a></li>
+
 </ul>
 
-### Lesson 1
-<h3 id="lesson1">Lesson 1</h3>
+<h3 id="lesson1">Lesson 1 - Introduction</h3>
+
+This page contains some examples of what JavaScript can do.
+
+#### JavaScript Can Change HTML Content
+
+One of many JavaScript HTML methods is getElementById().
+
+This example uses the method to "find" an HTML element (with id="demo") and changes the element content (innerHTML) to "Hello JavaScript":
+
+Example
+
+	document.getElementById("demo").innerHTML = "Hello JavaScript";
+
+[Test Code](https://jsfiddle.net/vanbumi/fbnq1od2/)	
+
+#### JavaScript Can Change HTML Content
 
 	<button type="button" onclick="document.getElementById('tanggal').innerHTML = Date()">
 	  Click me to find out the date is
 	</button>
 	<p id="tanggal"></p>
 
-[Test Code](https://jsfiddle.net/vanbumi/fhbof9ee/)	
-
-### Lesson 2
+[Test Code](https://jsfiddle.net/vanbumi/fhbof9ee/)
 
 #### JavaScript Can Change HTML Attributes 
 
@@ -39,8 +60,6 @@ Sample
 
 [Test Code](https://jsfiddle.net/vanbumi/eg5vfcye/1/)
 
-### Lesson 3
-
 #### JavaScript Can Change HTML Styles (CSS)
 
 Changing the style of an HTML element, is a variant of changing an HTML attribute:
@@ -60,8 +79,6 @@ Sample:
 
 [Test Code](https://jsfiddle.net/vanbumi/jc0reegf/10/)
 
-### Lesson 4 
-
 #### JavaScript Can Hide HTML Elements
 
 Hiding HTML elements can be done by changing the display style:
@@ -79,8 +96,6 @@ Sample:
 	</button>	
 
 [Test Code](https://jsfiddle.net/vanbumi/3jouruqw/3/)
-
-### Lesson 5
 
 #### JavaScript Can Show HTML Elements
 
@@ -103,7 +118,32 @@ Sample:
 
 [Test Code](https://jsfiddle.net/vanbumi/esadgyd9/7/)
 
-### Lesson 6
+#### What Can JavaScript Do?
+
+It is difficult to answer the question "What can JavaScript do?"
+
+The examples on this page is only a few examples of the possibilities JavaScript provides.
+
+---
+
+<h3 id="lesson2">Lesson 2 - JavaScript Where To</h3>
+
+	JavaScript can be placed in the <body> and the <head> sections of an HTML page.
+
+<h4>The &lt;script&gt; Tag</h4>
+
+In HTML, JavaScript code must be inserted between <script> and </script> tags.
+
+Example
+
+	<script>
+		document.getElementById("demo").innerHTML = "My First JavaScript";
+	</script>
+
+Note:	
+
+	Older examples may use a type attribute: <script type="text/javascript">.
+	This type attribute is not required. JavaScript is the default scripting language in HTML.	
 
 #### JavaScript Functions and Events
 
@@ -161,7 +201,7 @@ Sample:
 	</body>
 	</html>	
 
-### Lesson 7
+<h3 id="lesson3">Lesson 3 - JavaScript Output</h3>
 
 #### JavaScript Display Possibilities
 
@@ -228,9 +268,9 @@ Activate the browser console with F12, and select "Console" in the menu.
 
 [Test Code](https://jsbin.com/fucerev/edit?html,js,console,output)
 
-### Lesson 8
+---
 
-#### JavaScript Syntax
+<h3 id="lesson4">Lesson 4 - JavaScript Syntax</h3>
 
 JavaScript syntax is the set of rules, how JavaScript programs are constructed.
 *sintaks JavaScript adalah seperangkat aturan, bagaimana JavaScript program dibangun.*
@@ -405,9 +445,7 @@ Unicode covers (almost) all the characters, punctuations, and symbols in the wor
 
 For a closer look, please study our [Complete Unicode Reference](http://www.w3schools.com/charsets/ref_html_utf8.asp).
 
-### Lesson 9
-
-#### JavaScript Statements
+<h3 id="lesson5">Lesson 5 - JavaScript Statements</h3>
 
 In HTML, JavaScript statements are "instructions" to be "executed" by the web browser.
 
@@ -505,9 +543,21 @@ Here is a list of some of the keywords you will learn about in this tutorial:
 
 ![keywordsJS](http://res.cloudinary.com/medio/image/upload/v1467558449/js-keyword_qxtjjr.png)
 
-### Lesson 10
+---
 
-#### JavaScript Comments
+<h3 id="lesson6">Lesson 6 - JavaScript Comments</h3>
+
+JavaScript comments can be used to explain JavaScript code, and to make it more readable.
+
+JavaScript comments can also be used to prevent execution, when testing alternative code.
+
+#### Single Line Comments
+
+Single line comments start with //.
+
+Any text between // and the end of the line will be ignored by JavaScript (will not be executed).
+
+This example uses a single-line comment before each code line:
 
 Example
 
@@ -516,10 +566,20 @@ Example
 	// Change paragraph:
 	document.getElementById("myP").innerHTML = "My first paragraph.";
 
+This example uses a single line comment at the end of each line to explain the code:	
+
 Example
 
 	var x = 5;      // Declare x, give it the value of 5
 	var y = x + 2;  // Declare y, give it the value of x + 2
+
+#### Multi-line Comments
+
+Multi-line comments start with /* and end with */.
+
+Any text between /* and */ will be ignored by JavaScript.
+
+This example uses a multi-line comment (a comment block) to explain the code:	
 
 Example
 
@@ -532,9 +592,30 @@ Example
 	document.getElementById("myH").innerHTML = "My First Page";
 	document.getElementById("myP").innerHTML = "My first paragraph.";
 
-### Lesson 11
+> It is most common to use single line comments. Block comments are often used for formal documentation.	
+#### Using Comments to Prevent Execution
 
-#### JavaScript Variables
+Using comments to prevent execution of code is suitable for code testing.
+
+Adding // in front of a code line changes the code lines from an executable line to a comment.
+
+This example uses // to prevent execution of one of the code lines:
+
+Example
+
+	//document.getElementById("myH").innerHTML = "My First Page";
+	document.getElementById("myP").innerHTML = "My first paragraph.";
+
+This example uses a comment block to prevent execution of multiple lines:
+
+Example
+
+	/*
+	document.getElementById("myH").innerHTML = "My First Page";
+	document.getElementById("myP").innerHTML = "My first paragraph.";
+	*/
+
+<h3 id="lesson7">Lesson 7 - JavaScript Variables</h3>
 
 JavaScript variables are containers for storing data values.
 
@@ -550,7 +631,16 @@ From the example above, you can expect:
 
 	x stores the value 5
 	y stores the value 6
-	z stores the value 11	
+	z stores the value 11
+
+#### Much Like Algebra
+
+In this example, price1, price2, and total, are variables:
+
+Example
+var price1 = 5;
+var price2 = 6;
+var total = price1 + price2;		
 
 Example
 
@@ -558,7 +648,7 @@ Example
 	var price2 = 6;
 	var total = price1 + price2;
 
-sample:
+Example:
 	
 	<p id="demo"></p>
 
@@ -573,23 +663,13 @@ sample:
 
 [Test Code](https://jsfiddle.net/vanbumi/360n0waf/)	
 
-<!-- Example
+In programming, just like in algebra, we use variables (like price1) to hold values.
 
-	var price1 = 5;
-	var price2 = 6;
-	var total = price1 + price2;
+In programming, just like in algebra, we use variables in expressions (total = price1 + price2).
 
-	<p id="demo"></p>
+From the example above, you can calculate the total to be 11.
 
-	<script>
-	  var price1 = 5;
-	  var price2 = 6;
-	  var total = price1 + price2;
-	  
-	  document.getElementById("demo").innerHTML = "The total are: " + total;
-	</script>
-
-[Test Code](https://jsfiddle.net/vanbumi/emeym69s/) -->
+> JavaScript variables are containers for storing data values.
 
 #### JavaScript Identifiers
 
@@ -605,7 +685,9 @@ The general rules for constructing names for variables (unique identifiers) are:
 * Names must begin with a letter
 * Names can also begin with $ and _ (but we will not use it in this tutorial)
 * Names are case sensitive (y and Y are different variables)
-* Reserved words (like JavaScript keywords) cannot be used as names
+* Reserved words (like JavaScript keywords) cannot be used as names.
+
+> JavaScript identifiers are case-sensitive.
 
 #### The Assignment Operator
 
@@ -614,6 +696,12 @@ In JavaScript, the equal sign (=) is an "assignment" operator, not an "equal to"
 This is different from algebra. The following does not make sense in algebra:
 
 	x = x + 5
+
+In JavaScript, however, it makes perfect sense: it assigns the value of x + 5 to x.
+
+(It calculates the value of x + 5 and puts the result into x. The value of x is incremented by 5.)
+
+> The "equal to" operator is written like == in JavaScript.
 
 #### JavaScript Data Types
 
@@ -737,7 +825,17 @@ Assign values to variables and add them together:
 	var y = 2;         // assign the value 2 to y
 	var z = x + y;     // assign the value 7 to z (x + y)
 
-#### JavaScript Arithmetic Operators
+---
+
+<h3 id="lesson8">Lesson 8 - JavaScript Arithmetic Operators</h3>
+
+Example
+
+Assign values to variables and add them together:
+
+	var x = 5;         // assign the value 5 to x
+	var y = 2;         // assign the value 2 to y
+	var z = x + y;     // assign the value 7 to z (x + y)
 
 Arithmetic operators are used to perform arithmetic on numbers (literals or variables).
 
@@ -745,7 +843,7 @@ Arithmetic operators are used to perform arithmetic on numbers (literals or vari
 
 The addition operator (+) adds numbers:
 
-Adding
+##### Adding
 
 	var x = 5;
 	var y = 2;
@@ -753,7 +851,7 @@ Adding
 
 The multiplication operator (*) multiplies numbers.
 
-Multiplying
+##### Multiplying
 
 	var x = 5;
 	var y = 2;
@@ -767,7 +865,7 @@ Assignment operators assign values to JavaScript variables.
 
 The assignment operator (=) assigns a value to a variable.
 
-Assignment
+##### Assignment
 
 	var x = 10;	
 
@@ -825,6 +923,18 @@ The rule is: If you add a number and a string, the result will be a string!
 #### JavaScript Comparison and Logical Operators
 
 ![Comparison and Logical Op](http://res.cloudinary.com/medio/image/upload/v1467601559/jscomparisonLogicalOperator_lmqxgp.png)
+
+> Comparison and logical operators are described in the JS Comparisons chapter.
+
+#### JavaScript Type Operators
+
+	Operator	Description
+	typeof		Returns the type of a variable
+	instanceof	Returns true if an object is an instance of an object type
+
+> Type operators are described in the JS Type Conversion chapter.
+
+---
 
 ### Lesson 13 - JavaScript Data Types
 
