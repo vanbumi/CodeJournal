@@ -17,6 +17,13 @@
 	<li><a href="#lesson17">Lesson 17 - JS String Methods</a></li>
 	<li><a href="#lesson18">Lesson 18 - JS Numbers</a></li>
 	<li><a href="#lesson19">Lesson 19 - JS Number Methods</a></li>
+	<li><a href="#lesson20">Lesson 20 - JS Math Object</a></li>
+	<li><a href="#lesson21">Lesson 21 - JavaScript Dates</a></li>
+	<li><a href="#lesson22">Lesson 22 - JS Arrays</a></li>
+	<li><a href="#lesson23">Lesson 23 - JS Booleans</a></li>
+	<li><a href="#lesson24">Lesson 24 - JS Comparison and Logical Operators</a></li>
+	<li><a href="#lesson25">Lesson 25 - JS If...Else Statements</a></li>
+	<li><a href="#lesson26">Lesson 26 - JS JavaScript Switch Statement</a></li>
 	<li>...</a></li>
 	<li><a href="#lesson30">Lesson 30 - JS While</a></li>
 
@@ -2409,21 +2416,994 @@ Example
 
 <h3 id="lesson19">Lesson 19 - JavaScript Number Methods</h3>
 
+Number methods help you work with numbers.
 
+#### Number Methods and Properties
 
+Primitive values (like 3.14 or 2014), cannot have properties and methods (because they are not objects).
 
+But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.
 
+#### The toString() Method
 
+toString() returns a number as a string.
 
+All number methods can be used on any type of numbers (literals, variables, or expressions):
 
+Example
 
+	var x = 123;
+	x.toString();   	         // returns 123 from variable x
+	(123).toString();        	 // returns 123 from literal 123
+	(100 + 23).toString();   	 // returns 123 from expression 100 + 23
 
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_number_tostring)
 
+#### The toExponential() Method
 
+toExponential() returns a string, with a number rounded and written using exponential notation.
 
+A parameter defines the number of characters behind the decimal point:
 
+Example
 
+	var x = 9.656;
+	x.toExponential(2);     // returns 9.66e+0
+	x.toExponential(4);     // returns 9.6560e+0
+	x.toExponential(6);     // returns 9.656000e+0
 
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_number_toexponential)
+
+The parameter is optional. If you don't specify it, JavaScript will not round the number.
+
+#### The toFixed() Method
+
+toFixed() returns a string, with the number written with a specified number of decimals:
+
+Example
+
+	var x = 9.656;
+	x.toFixed(0);           // returns 10
+	x.toFixed(2);           // returns 9.66
+	x.toFixed(4);           // returns 9.6560
+	x.toFixed(6);           // returns 9.656000
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_number_tofixed)
+
+*toFixed(2) is perfect for working with money.*
+
+#### The toPrecision() Method
+
+toPrecision() returns a string, with a number written with a specified length:
+
+Example
+
+	var x = 9.656;
+	x.toPrecision();        // returns 9.656
+	x.toPrecision(2);       // returns 9.7
+	x.toPrecision(4);       // returns 9.656
+	x.toPrecision(6);       // returns 9.65600
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_number_toprecision)
+
+#### The valueOf() Method
+
+valueOf() returns a number as a number.
+
+Example
+
+	var x = 123;
+	x.valueOf();            // returns 123 from variable x
+	(123).valueOf();        // returns 123 from literal 123
+	(100 + 23).valueOf();   // returns 123 from expression 100 + 23
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_valueof)
+
+In JavaScript, a number can be a primitive value (typeof = number) or an object (typeof = object).
+
+The valueOf() method is used internally in JavaScript to convert Number objects to primitive values.
+
+There is no reason to use it in your code.
+
+> A JavaScript data types have a valueOf() and a toString() method.
+
+#### Converting Variables to Numbers
+
+There are 3 JavaScript methods that can be used to convert variables to numbers:
+
+* The Number() method
+* The parseInt() method
+* The parseFloat() method
+
+These methods are not number methods, but global JavaScript methods.
+
+#### Global Methods
+
+JavaScript global methods can be used on all JavaScript data types.
+
+These are the most relevant methods, when working with numbers:
+
+	Method			Description
+	
+	Number()		Returns a number, converted from its argument.
+	parseFloat()	Parses its argument and returns a floating point number
+	parseInt()		Parses its argument and returns an integer
+
+#### The Number() Method
+
+Number() can be used to convert JavaScript variables to numbers:
+
+Example
+
+	x = true;
+	Number(x);        // returns 1
+
+	x = false;     
+	Number(x);        // returns 0
+
+	x = new Date();
+	Number(x);        // returns 1404568027739
+
+	x = "10"
+	Number(x);        // returns 10
+
+	x = "10 20"
+	Number(x);        // returns NaN
+
+[Test Code](https://jsfiddle.net/vanbumi/y9g1Lw4e/)
+
+#### The parseInt() Method
+
+parseInt() parses a string and returns a whole number. Spaces are allowed. Only the first number is returned:
+
+Example
+
+	parseInt("10");         // returns 10
+	parseInt("10.33");      // returns 10
+	parseInt("10 20 30");   // returns 10
+	parseInt("10 years");   // returns 10
+	parseInt("years 10");   // returns NaN 
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_global_parseint)
+
+If the number cannot be converted, NaN (Not a Number) is returned.
+
+#### The parseFloat() Method
+
+parseFloat() parses a string and returns a number. Spaces are allowed. Only the first number is returned:
+
+Example
+
+	parseFloat("10");        // returns 10
+	parseFloat("10.33");     // returns 10.33
+	parseFloat("10 20 30");  // returns 10
+	parseFloat("10 years");  // returns 10
+	parseFloat("years 10");  // returns NaN
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_global_parsefloat)
+
+If the number cannot be converted, NaN (Not a Number) is returned.
+
+#### Number Properties
+
+	Property			Description
+
+	MAX_VALUE			Returns the largest number possible in JavaScript
+	MIN_VALUE			Returns the smallest number possible in JavaScript
+	NEGATIVE_INFINITY	Represents negative infinity (returned on overflow)
+	NaN					Represents a "Not-a-Number" value
+	POSITIVE_INFINITY	Represents infinity (returned on overflow)
+
+Example
+	
+	var x = Number.MAX_VALUE;
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_number_max)
+
+Number properties belongs to the JavaScript's number object wrapper called Number.
+
+These properties can only be accessed as Number.MAX_VALUE.
+
+Using myNumber.MAX_VALUE, where myNumber is a variable, expression, or value, will return undefined:
+
+Example
+
+	var x = 6;
+	var y = x.MAX_VALUE;    // y becomes undefined
+
+[Test Code	](http://www.w3schools.com/js/tryit.asp?filename=tryjs_number_max_undefined)
+
+Complete JavaScript Number Reference
+
+For a complete reference, go to our [Complete JavaScript Number Reference.](http://www.w3schools.com/jsref/jsref_obj_number.asp)
+
+The reference contains descriptions and examples of all Number properties and methods.
+
+---
+
+<h3 id="lesson20">Lesson 20 - JavaScript Math Object</h3>
+
+The Math object allows you to perform mathematical tasks on numbers.
+
+#### The Math Object
+
+The Math object allows you to perform mathematical tasks.
+
+The Math object includes several mathematical methods.
+
+One common use of the Math object is to create a random number:
+
+Example
+
+	Math.random();       // returns a random number
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_math_random)
+
+> Math.random() always returns a number lower than 1.
+
+> Math has no constructor. No methods have to create a Math object first.
+
+#### Math.min() and Math.max()
+
+Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments:
+
+Example
+
+	Math.min(0, 150, 30, 20, -8, -200);      // returns -200
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_math_min)
+
+Example
+
+	Math.max(0, 150, 30, 20, -8, -200);      // returns 150
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_math_max)	
+
+#### Math.round()
+
+Math.round() rounds a number to the nearest integer:
+
+Example
+
+	Math.round(4.7);            // returns 5
+	Math.round(4.4);            // returns 4
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_math_round)
+
+#### Math.ceil()
+
+Math.ceil() rounds a number up to the nearest integer:
+
+Example
+	
+	Math.ceil(4.4);             // returns 5
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_math_ceil)
+
+##### Math.floor()
+
+Math.floor() rounds a number down to the nearest integer:
+
+Example
+
+	Math.floor(4.7);            // returns 4
+
+Math.floor() and Math.random() can be used together to return a random number between 0 and 10:
+
+Example
+
+	Math.floor(Math.random() * 11);   // returns a random number between 0 and 10
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_math_floor_random)
+
+#### Math Constants
+
+JavaScript provides 8 mathematical constants that can be accessed with the Math object:
+
+Example
+
+	Math.E          // returns Euler's number
+	Math.PI         // returns PI
+	Math.SQRT2      // returns the square root of 2
+	Math.SQRT1_2    // returns the square root of 1/2
+	Math.LN2        // returns the natural logarithm of 2
+	Math.LN10       // returns the natural logarithm of 10
+	Math.LOG2E      // returns base 2 logarithm of E
+	Math.LOG10E     // returns base 10 logarithm of E
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_math_constants)
+
+#### Math Object Methods
+
+	Method				Description
+
+	abs(x)				Returns the absolute value of x
+	acos(x)				Returns the arccosine of x, in radians
+	asin(x)				Returns the arcsine of x, in radians
+	atan(x)				Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians
+	atan2(y,x)			Returns the arctangent of the quotient of its arguments
+	ceil(x)				Returns x, rounded upwards to the nearest integer
+	cos(x)				Returns the cosine of x (x is in radians)
+	exp(x)				Returns the value of Ex
+	floor(x)			Returns x, rounded downwards to the nearest integer
+	log(x)				Returns the natural logarithm (base E) of x
+	max(x,y,z,...,n)	Returns the number with the highest value
+	min(x,y,z,...,n)	Returns the number with the lowest value
+	pow(x,y)			Returns the value of x to the power of y
+	random()			Returns a random number between 0 and 1
+	round(x)			Rounds x to the nearest integer
+	sin(x)				Returns the sine of x (x is in radians)
+	sqrt(x)				Returns the square root of x
+	tan(x)				Returns the tangent of an angle
+
+#### Complete Math Reference
+
+For a complete reference, go to our [complete Math object reference.](http://www.w3schools.com/jsref/jsref_obj_math.asp)
+
+The reference contains descriptions and examples of all Math properties and methods.
+
+---
+
+<h3 id="lesson21">Lesson 21 - JavaScript Dates</h3>
+
+The Date object lets you work with dates (years, months, days, hours, minutes, seconds, and milliseconds)
+
+#### JavaScript Date Formats
+
+A JavaScript date can be written as a string:
+
+	Sun Jul 10 2016 07:50:46 GMT+0700 (WIB)
+
+or as a number:
+
+	1468111846839
+
+Dates written as numbers, specifies the number of milliseconds since January 1, 1970, 00:00:00.
+
+#### Displaying Dates
+
+In this tutorial we use a script to display dates inside a <p> element with id="demo":
+
+Example
+
+	<p id="demo"></p>
+
+	<script>
+		document.getElementById("demo").innerHTML = Date();
+	</script>
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_current)
+
+	<p id="demo"></p>
+
+	<script>
+		var d = Date();
+	    document.getElementById("demo").innerHTML = d;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/xqgxcak2/)
+
+The script above says: assign the value of Date() to the content (innerHTML) of the element with id="demo". 
+
+> You will learn how to display a date, in a more readable format, at the bottom of this page.
+
+#### Creating Date Objects
+
+The Date object lets us work with dates.
+
+A date consists of a year, a month, a day, an hour, a minute, a second, and milliseconds.
+
+Date objects are created with the new Date() constructor.
+
+There are 4 ways of initiating a date:
+
+	new Date()
+	new Date(milliseconds)
+	new Date(dateString)
+	new Date(year, month, day, hours, minutes, seconds, milliseconds)
+
+Using new Date(), creates a new date object with the current date and time:
+
+Example
+
+	<script>
+		var d = new Date();
+		document.getElementById("demo").innerHTML = d;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/qaumh65e/)	
+
+Using new Date(date string), creates a new date object from the specified date and time:
+
+Example
+
+	<script>
+		var d = new Date("October 13, 2014 11:13:00");
+		document.getElementById("demo").innerHTML = d;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/2Lhcmd62/)
+
+> Valid date strings (date formats) are described in the next chapter.
+
+Using new Date(number), creates a new date object as zero time plus the number.
+
+Zero time is 01 January 1970 00:00:00 UTC. The number is specified in milliseconds:
+
+Example
+
+	<script>
+		var d = new Date(86400000);
+		document.getElementById("demo").innerHTML = d;
+	</script>
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_new_millisec)
+
+> JavaScript dates are calculated in milliseconds from 01 January, 1970 00:00:00 Universal Time (UTC). One day contains 86,400,000 millisecond.
+
+Using new Date(7 numbers), creates a new date object with the specified date and time:
+
+The 7 numbers specify the year, month, day, hour, minute, second, and millisecond, in that order:
+
+Example
+
+	<script>
+		var d = new Date(99,5,24,11,33,30,0);
+		document.getElementById("demo").innerHTML = d;
+	</script>
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_new_all)
+
+Variants of the example above let us omit any of the last 4 parameters:
+
+Example
+
+	<script>
+		var d = new Date(99,5,24);
+		document.getElementById("demo").innerHTML = d;
+	</script>
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_new_numbers)
+
+> JavaScript counts months from 0 to 11. January is 0. December is 11.
+
+#### Date Methods
+
+When a Date object is created, a number of methods allow you to operate on it.
+
+Date methods allow you to get and set the year, month, day, hour, minute, second, and millisecond of objects, using either local time or UTC (universal, or GMT) time.
+
+Date methods are covered in a later chapter.
+
+##### Displaying Dates
+
+When you display a date object in HTML, it is automatically converted to a string, with the toString() method.
+
+Example
+
+	<p id="demo"></p>
+
+	<script>
+		d = new Date();
+		document.getElementById("demo").innerHTML = d;
+	</script>
+	
+Is the same as:
+
+	<p id="demo"></p>
+
+	<script>
+		d = new Date();
+		document.getElementById("demo").innerHTML = d.toString();
+	</script>
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_tostring)
+
+The toUTCString() method converts a date to a UTC string (a date display standard).
+
+Example
+
+	<script>
+		var d = new Date();
+		document.getElementById("demo").innerHTML = d.toUTCString();
+	</script>
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_toutcstring)
+
+The toDateString() method converts a date to a more readable format:
+
+Example
+
+	<script>
+		var d = new Date();
+		document.getElementById("demo").innerHTML = d.toDateString();
+	</script>
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_todatestring)	
+
+> Date objects are static. The computer time is ticking, but date objects, once created, are not.
+
+#### Time Zones
+
+When setting a date, without specifying the time zone, JavaScript will use the browser's time zone.
+
+When getting a date, without specifying the time zone, the result is converted to the browser's time zone.
+
+In other words: If a date/time is created in GMT (Greenwich Mean Time), the date/time will be converted to CDT (Central US Daylight Time) if a user browses from central US.
+
+> Read more about time zones in the next chapters.
+
+#### JavaScript Date Formats
+
+JavaScript Date Input
+
+There are generally 4 types of JavaScript date input formats:
+
+	Type		Example
+
+	ISO Date	"2015-03-25" (The International Standard)
+	Short Date	"03/25/2015" or "2015/03/25"
+	Long Date	"Mar 25 2015" or "25 Mar 2015"
+	Full Date	"Wednesday March 25 2015"
+
+#### JavaScript Date Output
+
+Independent of input format, JavaScript will (by default) output dates in full text string format:
+
+	Wed Mar 25 2015 07:00:00 GMT+0700 (WIB)
+
+#### JavaScript ISO Dates
+
+ISO 8601 is the international standard for the representation of dates and times.
+
+The ISO 8601 syntax (YYYY-MM-DD) is also the preferred JavaScript date format:
+
+##### Example (Complete date)
+
+	var d = new Date("2015-03-25");
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_string_iso1)
+
+> The computed date will be relative to your time zone.
+Depending on your time zone, the result above will vary between March 24 and March 25.
+
+It can be written without specifying the day (YYYY-MM):
+
+Example (Year and month)
+
+	var d = new Date("2015-03");
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_string_iso2)
+
+> Time zones will vary the result above between February 28 and March 01.
+
+It can be written without month and day (YYYY):
+
+Example (Only year)
+
+	var d = new Date("2015");
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_string_iso3)
+
+> Time zones will vary the result above between December 31 2014 and January 01 2015.
+
+It can be written with added hours, minutes, and seconds (YYYY-MM-DDTHH:MM:SS):
+
+Example (Complete date plus hours, minutes, and seconds)
+
+	var d = new Date("2015-03-25T12:00:00");
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_string_iso4)
+
+The T in the date string, between the date and time, indicates UTC time.
+
+> UTC (Universal Time Coordinated)  is the same as GMT (Greenwich Mean Time).
+
+JavaScript Short Dates.
+Short dates are most often written with an "MM/DD/YYYY" syntax like this:
+
+Example
+
+	var d = new Date("03/25/2015");
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_date_string_7)
+
+Read more here: http://www.w3schools.com/js/js_date_formats.asp
+
+#### JavaScript Date Methods
+
+Date methods let you get and set date values (years, months, days, hours, minutes, seconds, milliseconds)
+
+##### Date Get Methods
+
+Get methods are used for getting a part of a date. Here are the most common (alphabetically):
+
+	Method				Description
+
+	getDate()			Get the day as a number (1-31)
+	getDay()			Get the weekday as a number (0-6)
+	getFullYear()		Get the four digit year (yyyy)
+	getHours()			Get the hour (0-23)
+	getMilliseconds()	Get the milliseconds (0-999)
+	getMinutes()		Get the minutes (0-59)
+	getMonth()			Get the month (0-11)
+	getSeconds()		Get the seconds (0-59)
+	getTime()			Get the time (milliseconds since January 1, 1970)
+
+###### The getTime() Method
+
+getTime() returns the number of milliseconds since January 1, 1970:
+
+Example
+
+	<script>
+		var d = new Date();
+		document.getElementById("demo").innerHTML = d.getTime();
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/jaatrdLw/)
+
+###### The getFullYear() Method
+
+getFullYear() returns the year of a date as a four digit number:
+
+Example
+
+	<script>
+		var d = new Date();
+		document.getElementById("demo").innerHTML = d.getFullYear();
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/9z3rsu0g/)
+
+###### The getDay() Method
+
+getDay() returns the weekday as a number (0-6):
+
+Example
+
+	<script>
+		var d = new Date();
+		document.getElementById("demo").innerHTML = d.getDay();
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/vw6vd5g7/)
+
+> In JavaScript, the first day of the week (0) means "Sunday", even if some countries in the world consider the first day of the week to be "Monday"
+
+You can use an array of names, and getDay() to return the weekday as a name:
+
+Example
+
+	<script>
+		var d = new Date();
+		var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+		document.getElementById("demo").innerHTML = days[d.getDay()];
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/k9Lruo2h/)
+
+###### Date Set Methods
+
+Set methods are used for setting a part of a date. Here are the most common (alphabetically):
+
+	Method				Description
+
+	setDate()			Set the day as a number (1-31)
+	setFullYear()		Set the year (optionally month and day)
+	setHours()			Set the hour (0-23)
+	setMilliseconds()	Set the milliseconds (0-999)
+	setMinutes()		Set the minutes (0-59)
+	setMonth()			Set the month (0-11)
+	setSeconds()		Set the seconds (0-59)
+	setTime()			Set the time (milliseconds since January 1, 1970)
+
+##### The setFullYear() Method
+
+setFullYear() sets a date object to a specific date. In this example, to January 14, 2020:
+
+Example
+
+	<script>
+		var d = new Date();
+		d.setFullYear(2020, 0, 14);
+		document.getElementById("demo").innerHTML = d;
+	</script>
+
+[Test Code	](https://jsfiddle.net/vanbumi/xzqve7c4/)
+
+###### The setDate() Method
+
+setDate() sets the day of the month (1-31):
+
+Example
+
+	<script>
+		var d = new Date();
+		d.setDate(20);
+		document.getElementById("demo").innerHTML = d;
+	</script>
+
+The setDate() method can also be used to add days to a date:
+
+Example
+
+	<script>
+		var d = new Date();
+		d.setDate(d.getDate() + 50);
+		document.getElementById("demo").innerHTML = d;
+	</script>			
+
+[Test Code](https://jsfiddle.net/vanbumi/e549et25/)
+
+> If adding days, shifts the month or year, the changes are handled automatically by the Date object.
+
+###### Date Input - Parsing Dates
+
+If you have a valid date string, you can use the Date.parse() method to convert it to milliseconds.
+
+Date.parse() returns the number of milliseconds between the date and January 1, 1970:
+
+Example
+
+	<script>
+		var msec = Date.parse("March 21, 2012");
+		document.getElementById("demo").innerHTML = msec;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/s5udm1b5/)
+
+You can then use the number of milliseconds to convert it to a date object:
+
+Example
+
+	<script>
+		var msec = Date.parse("March 21, 2012");
+		var d = new Date(msec);
+		document.getElementById("demo").innerHTML = d;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/Lndbad0n/)	
+
+###### Compare Dates
+
+Dates can easily be compared.
+
+The following example compares today's date with January 14, 2100:
+
+Example
+
+	var today, someday, text;
+	today = new Date();
+	someday = new Date();
+	someday.setFullYear(2100, 0, 14);
+
+	if (someday > today) {
+	    text = "Today is before January 14, 2100.";
+	} else {
+	    text = "Today is after January 14, 2100.";
+	}
+	document.getElementById("demo").innerHTML = text;
+
+> JavaScript counts months from 0 to 11. January is 0. December is 11.
+
+#### UTC Date Methods
+
+UTC date methods are used for working UTC dates (Univeral Time Zone dates):
+
+	Method					Description
+
+	getUTCDate()			Same as getDate(), but returns the UTC date
+	getUTCDay()				Same as getDay(), but returns the UTC day
+	getUTCFullYear()		Same as getFullYear(), but returns the UTC year
+	getUTCHours()			Same as getHours(), but returns the UTC hour
+	getUTCMilliseconds() 	Same as getMilliseconds(), but returns the UTC milliseconds
+	getUTCMinutes()			Same as getMinutes(), but returns the UTC minutes
+	getUTCMonth()			Same as getMonth(), but returns the UTC month
+	getUTCSeconds()			Same as getSeconds(), but returns the UTC seconds
+
+Complete JavaScript Date Reference
+
+For a complete reference, go to our [Complete JavaScript Date Reference.](http://www.w3schools.com/jsref/jsref_obj_date.asp)
+
+The reference contains descriptions and examples of all Date properties and methods.
+
+---
+
+<h3 id="lesson22">Lesson 22 - JavaScript Arrays</h3>
+
+[Readmore](http://www.w3schools.com/js/js_arrays.asp)
+
+#### JavaScript Array Methods
+
+[Readmore](http://www.w3schools.com/js/js_array_methods.asp)
+
+#### JavaScript Sorting Arrays
+
+[Readmore](http://www.w3schools.com/js/js_array_sort.asp)
+
+<h3 id="lesson23">Lesson 23 - JavaScript Booleans</h3>
+
+[Readmore](http://www.w3schools.com/js/js_booleans.asp)
+
+<h3 id="lesson24">Lesson 24 - JavaScript Comparison and Logical Operators"></h3>
+
+[Readmore](http://www.w3schools.com/js/js_comparisons.asp)
+
+<h3 id="lesson25">Lesson 25 - JavaScript If...Else Statements</h3>
+
+Conditional statements are used to perform different actions based on different conditions.
+
+#### Conditional Statements
+
+Very often when you write code, you want to perform different actions for different decisions.
+
+You can use conditional statements in your code to do this.
+
+In JavaScript we have the following conditional statements:
+
+* Use if to specify a block of code to be executed, if a specified condition is true
+* Use else to specify a block of code to be executed, if the same condition is false
+* Use else if to specify a new condition to test, if the first condition is false
+* Use switch to specify many alternative blocks of code to be executed
+
+#### The if Statement
+
+Use the if statement to specify a block of JavaScript code to be executed if a condition is true.
+
+Syntax
+
+	if (condition) {
+	    block of code to be executed if the condition is true
+	}
+
+Note that if is in lowercase letters. Uppercase letters (If or IF) will generate a JavaScript error.
+
+Example
+
+	Make a "Good day" greeting if the hour is less than 18:00:
+
+	if (hour < 18) {
+	    greeting = "Good day";
+	}
+
+The result of greeting will be:
+
+	Good day
+
+#### The else Statement
+
+Use the else statement to specify a block of code to be executed if the condition is false.
+
+	if (condition) {
+	    block of code to be executed if the condition is true
+	} else { 
+	    block of code to be executed if the condition is false
+	}
+
+Example
+
+If the hour is less than 18, create a "Good day" greeting, otherwise "Good evening":
+
+	if (hour < 18) {
+	    greeting = "Good day";
+	} else {
+	    greeting = "Good evening";
+	}
+
+The result of greeting will be:
+
+	Good day	
+
+#### The else if Statement
+
+Use the else if statement to specify a new condition if the first condition is false.
+
+Syntax
+
+	if (condition1) {
+	    block of code to be executed if condition1 is true
+	} else if (condition2) {
+	    block of code to be executed if the condition1 is false and condition2 is true
+	} else {
+	    block of code to be executed if the condition1 is false and condition2 is false
+	}
+
+Example
+
+If time is less than 10:00, create a "Good morning" greeting, if not, but time is less than 20:00, create a "Good day" greeting, otherwise a "Good evening":
+
+	if (time < 10) {
+	    greeting = "Good morning";
+	} else if (time < 20) {
+	    greeting = "Good day";
+	} else {
+	    greeting = "Good evening";
+	}
+
+The result of greeting will be:
+
+	Good morning
+
+Example
+
+	<p id="demo">Display the result here.</p>
+
+	<script>
+	var greeting;
+	var hour = new Date().getHours();
+
+	if (hour < 18) {
+	    greeting = "Good day";
+	}
+	else
+	    {greeting = "Good evening";
+	}
+
+	document.getElementById("demo").innerHTML = greeting + " time now is " + hour;
+	</script>
+
+[Test Code](http://www.w3schools.com/js/exercise.asp?filename=exercise_conditions6)	
+
+<h3 id="lesson26">Lesson 26 - JavaScript Switch Statement</h3>
+
+#### The JavaScript Switch Statement
+
+Use the switch statement to select one of many blocks of code to be executed.
+
+Syntax
+
+	switch(expression) {
+	    case n:
+	        code block
+	        break;
+	    case n:
+	        code block
+	        break;
+	    default:
+	        default code block
+	}
+
+This is how it works:
+
+* The switch expression is evaluated once.
+* The value of the expression is compared with the values of each case.
+* If there is a match, the associated block of code is executed.
+
+Example
+
+The getDay() method returns the weekday as a number between 0 and 6. (Sunday=0, Monday=1, Tuesday=2 ..)
+
+Use the weekday number to calculate weekday name:
+
+	switch (new Date().getDay()) {
+	    case 0:
+	        day = "Sunday";
+	        break;
+	    case 1:
+	        day = "Monday";
+	        break;
+	    case 2:
+	        day = "Tuesday";
+	        break;
+	    case 3:
+	        day = "Wednesday";
+	        break;
+	    case 4:
+	        day = "Thursday";
+	        break;
+	    case 5:
+	        day = "Friday";
+	        break;
+	    case 6:
+	        day = "Saturday";
+	}
+
+The result of day will be:
+
+	Sunday
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_switch)
 
 
 
