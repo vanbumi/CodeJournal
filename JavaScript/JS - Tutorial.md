@@ -3212,7 +3212,171 @@ The reference contains descriptions and examples of all Date properties and meth
 
 <h3 id="lesson22">Lesson 22 - JavaScript Arrays</h3>
 
-[Readmore](http://www.w3schools.com/js/js_arrays.asp)
+JavaScript arrays are used to store multiple values in a single variable.
+
+Example
+
+	var cars = ["Saab", "Volvo", "BMW"];
+
+#### What is an Array?
+
+An array is a special variable, which can hold more than one value at a time.
+
+If you have a list of items (a list of car names, for example), storing the cars in single variables could look like this:
+
+	var car1 = "Saab";
+	var car2 = "Volvo";
+	var car3 = "BMW";
+
+However, what if you want to loop through the cars and find a specific one? And what if you had not 3 cars, but 300?
+
+The solution is an array!
+
+An array can hold many values under a single name, and you can access the values by referring to an index number.
+
+#### Creating an Array
+
+Using an array literal is the easiest way to create a JavaScript Array.
+
+Syntax:
+
+	var array-name = [item1, item2, ...];       
+
+Example
+
+	var cars = ["Saab", "Volvo", "BMW"];
+
+[Test Code](https://jsfiddle.net/vanbumi/esfy9h0z/)
+
+Spaces and line breaks are not important. A declaration can span multiple lines:
+
+Example
+
+	var cars = [
+	    "Saab",
+	    "Volvo",
+	    "BMW"
+	];
+
+> Never put a comma after the last element (like "BMW",).
+The effect is inconsistent across browsers.
+
+#### Using the JavaScript Keyword new
+
+The following example also creates an Array, and assigns values to it:
+
+Example
+
+	var cars = new Array("Saab", "Volvo", "BMW");
+
+Example
+
+	<p id="demo"></p>
+
+	<script>
+		var pets = new Array("Cat","Dog","Bird");
+	  document.getElementById("demo").innerHTML = pets;
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/3dtvq96v/)
+
+> The three examples above do exactly the same. There is no need to use new Array().
+For simplicity, readability and execution speed, use the first one (the array literal method).
+
+#### Access the Elements of an Array
+
+You refer to an array element by referring to the index number.
+
+This statement accesses the value of the first element in cars:
+
+	var name = cars[0];
+
+This statement modifies the first element in cars:
+
+	cars[0] = "Opel";
+
+Example
+
+	var cars = ["Saab", "Volvo", "BMW"];
+	document.getElementById("demo").innerHTML = cars[0];
+
+[Test Code	](https://jsfiddle.net/vanbumi/9k0r665L/)
+
+> [0] is the first element in an array. [1] is the second. Array indexes start with 0.
+
+#### Access the Full Array
+
+With JavaScript, the full array can be accessed by referring to the array name:
+
+Example
+
+	var cars = ["Saab", "Volvo", "BMW"];
+	document.getElementById("demo").innerHTML = cars;
+
+#### Arrays are Objects
+
+Arrays are a special type of objects. The typeof operator in JavaScript returns "object" for arrays.
+
+But, JavaScript arrays are best described as arrays.
+
+Arrays use numbers to access its "elements". In this example, person[0] returns John:
+
+Array:
+
+	var person = ["John", "Doe", 46];
+	document.getElementById("demo").innerHTML = person[0];
+
+Objects use names to access its "members". In this example, person.firstName returns John:
+
+Object:
+
+	var person = {firstName:"John", lastName:"Doe", age:46};
+
+[Test Code](https://jsfiddle.net/vanbumi/ts9hht25/)		
+
+#### Array Elements Can Be Objects
+
+JavaScript variables can be objects. Arrays are special kinds of objects.
+
+Because of this, you can have variables of different types in the same Array.
+
+You **can have objects in an Array**. You **can have functions in an Array**. You **can have arrays in an Array**:
+
+	myArray[0] = Date.now;
+	myArray[1] = myFunction;
+	myArray[2] = myCars;
+
+#### Array Properties and Methods
+
+The real strength of JavaScript arrays are the built-in array properties and methods:
+
+Examples
+
+	var x = cars.length;   // The length property returns the number of elements
+	var y = cars.sort();   // The sort() method sorts arrays
+
+Array methods are covered in the next chapters.
+
+#### The length Property
+
+The **length** property of an array returns the length of an array (the number of array elements).
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.length;                       // the length of fruits is 4
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### JavaScript Array Methods
 
