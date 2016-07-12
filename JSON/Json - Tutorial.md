@@ -1,4 +1,12 @@
-# JSON Tutorial
+<h1 id="home">JSON Tutorial</h1>
+
+## Contents
+
+<ul>
+	<li><a href="#home">Home</a></li>
+	<li><a href="#lesson1">JSON Introduction</a></li>
+	<li><a href="#lesson2">JSON Syntax</a></li>
+</ul>
 
 JSON: JavaScript Object Notation.
 
@@ -55,7 +63,7 @@ XML Example
 > Note	* JSON uses JavaScript syntax, but the JSON format is text only, just like XML.
 Text can be read and used as a data format by any programming language.
 
-## JSON - Introduction	
+<h2 id="lesson1">JSON - Introduction</h2>	
 
 ### JSON - Evaluates to JavaScript Objects
 
@@ -126,11 +134,121 @@ Using JSON
 * Fetch a JSON string
 * JSON.Parse the JSON string
 
-## JSON Syntax
+<h2 id="lesson2">JSON Syntax</h2>
 
 The JSON syntax is a subset of the JavaScript syntax.
 
-last http://www.w3schools.com/json/json_syntax.asp
+### JSON Syntax Rules
 
+JSON syntax is derived (berasal) from JavaScript object notation syntax:
 
+* Data is in name/value pairs
+* Data is separated by commas
+* Curly braces hold objects
+* Square brackets hold arrays
 
+### JSON Data - A Name and a Value
+
+JSON data is written as name/value pairs.
+
+A name/value pair consists (terdiri) of **a field name (in double quotes)**, followed by **a colon**, followed by **a value**:
+
+Example
+
+	"firstName":"John"
+
+> Note!! JSON names require double quotes. JavaScript names don't.
+
+### JSON Values
+
+JSON values can be:
+
+* A number (integer or floating point)
+* A string (in double quotes)
+* A Boolean (true or false)
+* An array (in square brackets)
+* An object (in curly braces)
+* null
+
+### JSON Objects
+
+JSON objects are written inside curly braces.
+
+Just like JavaScript, JSON objects can contain multiple name/values pairs:
+
+Example
+
+	{"firstName":"John", "lastName":"Doe"}
+
+### JSON Arrays
+
+JSON arrays are written inside square brackets.
+
+Just like JavaScript, a JSON array can contain multiple objects:
+
+Example
+
+	"employees":[
+	    {"firstName":"John", "lastName":"Doe"}, 
+	    {"firstName":"Anna", "lastName":"Smith"}, 
+	    {"firstName":"Peter","lastName":"Jones"}
+	]
+
+In the example above, the object "employees" is an array containing three objects. Each object is a record of a person (with a first name and a last name).
+
+### JSON Uses JavaScript Syntax
+
+Because JSON syntax is derived from JavaScript object notation, very little extra software is needed to work with JSON within JavaScript.
+
+With JavaScript you can create an array of objects and assign data to it, like this:
+
+Example
+
+	var employees = [
+	    {"firstName":"John", "lastName":"Doe"},
+	    {"firstName":"Anna", "lastName":"Smith"},
+	    {"firstName":"Peter","lastName": "Jones"}
+	];
+
+The first entry in the JavaScript object array can be accessed like this:
+
+Example
+
+	// returns John Doe
+	employees[0].firstName + " " + employees[0].lastName;
+
+[Test Code](https://jsfiddle.net/vanbumi/fncgbfms/)
+
+It can also be accessed like this:
+
+Example
+
+	// returns John Doe
+	employees[0]["firstName"] + " " + employees[0]["lastName"];
+
+[Test Code](https://jsfiddle.net/vanbumi/5L7jum7p/)
+
+Data can be modified like this:
+
+Example
+
+	employees[0].firstName = "Gilbert";
+
+[Test Code](https://jsfiddle.net/vanbumi/r34ccgj6/)	
+
+It can also be modified like this:
+
+Example
+
+	employees[0]["firstName"] = "Gilbert";
+
+[Test Code](http://www.w3schools.com/json/tryit.asp?filename=tryjson_objectarray_4)
+
+In the next chapter you will learn how to convert a JSON text to a JavaScript object.
+
+### JSON Files
+
+* The file type for JSON files is ".json"
+* The MIME type for JSON text is "application/json"
+
+next json how to http://www.w3schools.com/json/json_eval.asp
