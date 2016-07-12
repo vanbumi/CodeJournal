@@ -22,4 +22,6 @@
 
 * [JavaScript Road Trip Part 1 - codeschool.com](https://www.codeschool.com/courses/javascript-road-trip-part-1)
 
+* [Learn JS in x minute](https://learnxinyminutes.com/docs/javascript/)
+
 

@@ -3232,7 +3232,7 @@ However, what if you want to loop through the cars and find a specific one? And 
 
 The solution is an array!
 
-An array can hold many values under a single name, and you can access the values by referring to an index number.
+*An array can hold many values under a single name*, and you can access the values by **referring to an index number**.
 
 #### Creating an Array
 
@@ -3275,7 +3275,7 @@ Example
 
 	<script>
 		var pets = new Array("Cat","Dog","Bird");
-	  document.getElementById("demo").innerHTML = pets;
+	  	document.getElementById("demo").innerHTML = pets;
 	</script>
 
 [Test Code](https://jsfiddle.net/vanbumi/3dtvq96v/)
@@ -3299,6 +3299,10 @@ Example
 
 	var cars = ["Saab", "Volvo", "BMW"];
 	document.getElementById("demo").innerHTML = cars[0];
+
+The answer is:
+
+	Saab	
 
 [Test Code	](https://jsfiddle.net/vanbumi/9k0r665L/)
 
@@ -3331,6 +3335,7 @@ Objects use names to access its "members". In this example, person.firstName ret
 Object:
 
 	var person = {firstName:"John", lastName:"Doe", age:46};
+	document.getElementById("demo").innerHTML = person["firstName"];
 
 [Test Code](https://jsfiddle.net/vanbumi/ts9hht25/)		
 
@@ -3366,21 +3371,537 @@ Example
 	var fruits = ["Banana", "Orange", "Apple", "Mango"];
 	fruits.length;                       // the length of fruits is 4
 
+[Test Code](https://jsfiddle.net/vanbumi/m5fnbfmn/)	
 
+> The length property is always one more than the highest array index.
 
+#### Adding Array Elements
 
+The easiest way to add a new element to an array is using the push method:
 
+Example
 
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.push("Lemon");                // adds a new element (Lemon) to fruits
 
+[Test Code](https://jsfiddle.net/vanbumi/uotjdfxs/)
 
+New element can also be added to an array using the length property:
 
+Example
 
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits[fruits.length] = "Lemon";     // adds a new element (Lemon) to fruits
 
+Adding elements with high indexes can create undefined "holes" in an array:
 
+Example
 
-#### JavaScript Array Methods
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits[10] = "Lemon";                // adds a new element (Lemon) to fruits
 
-[Readmore](http://www.w3schools.com/js/js_array_methods.asp)
+[Test Code](https://jsfiddle.net/vanbumi/ucfkcLng/)
+
+#### Looping Array Elements
+
+The best way to loop through an array, is using a "for" loop:
+
+Example
+
+	var fruits, text, fLen, i;
+
+	fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fLen = fruits.length;
+	text = "<ul>";
+	for (i = 0; i < fLen; i++) {
+	    text += "<li>" + fruits[i] + "</li>";
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/cc4zz0uu/)
+
+#### Associative Arrays
+
+Many programming languages support arrays with named indexes.
+
+Arrays with named indexes are called associative arrays (or hashes).
+
+JavaScript does not support arrays with named indexes.
+
+In JavaScript, arrays always use numbered indexes.  
+
+Example
+
+	var person = [];
+	person[0] = "John";
+	person[1] = "Doe";
+	person[2] = 46;
+	var x = person.length;         // person.length will return 3
+	var y = person[0];             // person[0] will return "John"
+
+[Test Code](https://jsfiddle.net/vanbumi/yj9mshhg/)
+
+> WARNING !!
+If you use a named index, JavaScript will redefine the array to a standard object.
+After that, all array methods and properties will produce incorrect results.
+
+Example:
+
+	var person = [];
+	person["firstName"] = "John";
+	person["lastName"] = "Doe";
+	person["age"] = 46;
+	
+	var x = person.length;         // person.length will return 0
+	var y = person[0];             // person[0] will return undefined
+
+[Test Code](https://jsfiddle.net/vanbumi/8s5n0pm1/)
+
+#### The Difference Between Arrays and Objects
+
+*In JavaScript, arrays use numbered indexes.*  
+
+*In JavaScript, objects use named indexes.*
+
+**Arrays are a special kind of objects, with numbered indexes.**
+
+#### When to Use Arrays. When to use Objects.
+
+* JavaScript does not support associative arrays.
+* You should use objects when you want the element names to be strings (text).
+* You should use arrays when you want the element names to be numbers.
+
+#### Avoid new Array()
+
+There is no need to use the JavaScript's built-in array constructor new Array().
+
+##### Use [] instead.
+
+These two different statements both create a new empty array named points:
+
+	var points = new Array();         // Bad
+	var points = [];                  // Good 
+
+These two different statements both create a new array containing 6 numbers:
+
+	var points = new Array(40, 100, 1, 5, 25, 10)  // Bad
+	var points = [40, 100, 1, 5, 25, 10];          // Good
+
+[Test Code](https://jsfiddle.net/vanbumi/w76xvpho/)
+
+The new keyword only complicates the code. It can also produce some unexpected results:
+
+	var points = new Array(40, 100);  // Creates an array with two elements (40 and 100)
+	What if I remove one of the elements?
+
+	var points = new Array(40);       // Creates an array with 40 undefined elements !!!!!
+
+#### How to Recognize an Array
+
+A common question is: How do I know if a variable is an array?
+
+The problem is that the JavaScript operator typeof returns "object":
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+	typeof fruits;             // returns object
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_array_typeof)
+
+#### Solution 1:
+
+To solve this problem ECMAScript 5 defines a new method **Array.isArray()**:
+
+	Array.isArray(fruits);     // returns true
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_array_isarray_method)
+
+The problem with this solution is that ECMAScript 5 is not supported in older browsers.
+
+#### Solution 2:
+
+To solve this problem you can create your own **isArray() function**:
+
+	function isArray(x) {
+	    return x.constructor.toString().indexOf("Array") > -1;
+	}
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_array_isarray)
+
+The function above always returns true if the argument is an array.
+
+Or more precisely: it returns true if the object prototype contains the word "Array".
+
+#### Solution 3:
+
+The instanceof operator returns true if an object is created by a given constructor:
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+	fruits instanceof Array     // returns true
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_array_instanceof)
+
+### JavaScript Array Methods
+
+The strength of JavaScript arrays lies in the array methods.
+
+#### Converting Arrays to Strings
+
+The JavaScript method **toString()** converts an array to a string of (comma separated) array values.
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo").innerHTML = fruits.toString();
+
+Result
+	
+	Banana,Orange,Apple,Mango
+
+[Test Code](https://jsfiddle.net/vanbumi/on7ewx4h/)
+
+#### The **join()** method also joins all array elements into a string.
+
+It behaves just like toString(), but in addition you can specify the separator:
+
+Example
+
+	var fruits = ["Banana", "Orange","Apple", "Mango"];
+	document.getElementById("demo").innerHTML = fruits.join(" * ");
+
+Result
+
+	Banana * Orange * Apple * Mango
+
+[Test Code](https://jsfiddle.net/vanbumi/c4ygkjbj/)
+
+#### Popping and Pushing
+
+When you work with arrays, it is easy to remove elements and add new elements.
+
+This is what popping and pushing is:
+
+Popping items out of an array, or pushing items into an array.
+
+#### Popping
+
+The pop() method removes the last element from an array:
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.pop();              // Removes the last element ("Mango") from fruits
+
+[Test Code](https://jsfiddle.net/vanbumi/hd0w9nuz/)
+
+The pop() method returns the value that was "popped out":
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	var x = fruits.pop();      // the value of x is "Mango"
+
+[Test Code](https://jsfiddle.net/vanbumi/ok60ftz2/)
+
+#### Pushing
+
+The push() method adds a new element to an array (at the end):
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.push("Kiwi");       //  Adds a new element ("Kiwi") to fruits
+
+[Test Code](https://jsfiddle.net/vanbumi/574L6qzj/)	
+
+The push() method returns the new array length:
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	var x = fruits.push("Kiwi");   //  the value of x is 5
+
+[Test Code](https://jsfiddle.net/vanbumi/gmokgLh0/)
+
+#### Shifting Elements
+
+Shifting is equivalent to popping, working on the first element instead of the last.
+
+The shift() method removes the first array element and "shifts" all other elements to a lower index.
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.shift();            // Removes the first element "Banana" from fruits
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_array_shift)
+
+The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements:
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.unshift("Lemon");    // Adds a new element "Lemon" to fruits
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_array_unshift)
+
+The shift() method returns the string that was "shifted out".
+
+The unshift() method returns the new array length.
+
+#### Changing Elements
+
+Array elements are accessed using their index number:
+
+Array indexes start with 0. [0] is the first array element, [1] is the second, [2] is the third ...
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits[0] = "Kiwi";        // Changes the first element of fruits to "Kiwi"
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_array_change)
+
+The length property provides an easy way to append a new element to an array:
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits[fruits.length] = "Kiwi";          // Appends "Kiwi" to fruit
+
+[Test Code](https://jsfiddle.net/vanbumi/rarkmyc7/)
+
+#### Deleting Elements
+
+Since JavaScript arrays are objects, elements can be deleted by using the JavaScript operator delete:
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	delete fruits[0];        // Changes the first element in fruits to undefined
+
+[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_array_delete)
+
+> !! Using delete may leave undefined holes in the array. Use pop() or shift() instead.
+
+#### Splicing an Array
+
+The **splice()** method can be used to add new items to an array:
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.splice(2, 0, "Lemon", "Kiwi");
+
+[Test Code](https://jsfiddle.net/vanbumi/9542ydb2/)
+
+The first parameter (2) defines the position where new elements should be added (spliced in).
+
+The second parameter (0) defines how many elements should be removed.
+
+The rest of the parameters ("Lemon" , "Kiwi") define the new elements to be added.
+
+[Test Code](https://jsfiddle.net/vanbumi/9542ydb2/1/)
+
+#### Using splice() to Remove Elements
+
+With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array:
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	fruits.splice(0, 1);        // Removes the first element of fruits
+
+[Test Code](https://jsfiddle.net/vanbumi/pz24fror/)
+
+The first parameter (0) defines the position where new elements should be added (spliced in).
+
+The second parameter (1) defines how many elements should be removed.
+
+The rest of the parameters are omitted. No new elements will be added.
+
+#### Joining Arrays
+
+The concat() method creates a new array by concatenating two arrays:
+
+Example
+
+	var myGirls = ["Cecilie", "Lone"];
+	var myBoys = ["Emil", "Tobias","Linus"];
+	var myChildren = myGirls.concat(myBoys);     // Concatenates (joins) myGirls and myBoys
+
+[Test Code](https://jsfiddle.net/vanbumi/o17qyf8k/)
+
+The concat() method can take any number of array arguments:
+
+Example
+
+	var arr1 = ["Cecilie", "Lone"];
+	var arr2 = ["Emil", "Tobias","Linus"];
+	var arr3 = ["Robin", "Morgan"];
+	var myChildren = arr1.concat(arr2, arr3);     // Concatenates arr1 with arr2 and arr3
+
+[Test Code](https://jsfiddle.net/vanbumi/40n8ogdr/)
+
+#### Slicing an Array
+
+The slice() method slices out a piece of an array into a new array.
+
+This example slices out a part of an array starting from array element 1 ("Orange"):
+
+Example
+
+	var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+	var citrus = fruits.slice(1);
+
+[Test Code](https://jsfiddle.net/vanbumi/w2fnqvqc/)
+
+> Array indexes start with 0. [0] is the first array element, [1] is the second, [2] is the third ...
+
+This example slices out a part of an array starting from array element 3 ("Apple"):
+
+Example
+
+	var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+	var citrus = fruits.slice(3);
+
+[Test Code](https://jsfiddle.net/vanbumi/neuywdw4/)	
+
+The slice() method can take two arguments like slice(1,3).
+
+The method then selects elements from the start argument, and up to (but not including) the end argument.
+
+Example
+
+	var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+	var citrus = fruits.slice(1, 3);
+
+[Test Code](https://jsfiddle.net/vanbumi/b19on111/)
+
+If the end argument is omitted, like in the first examples, the slice() method slices out the rest of the array.
+
+Example
+
+	var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+	var citrus = fruits.slice(2);
+
+[Test Code](https://jsfiddle.net/vanbumi/4j7ngLsp/)
+
+#### The valueOf() Method
+
+The **valueOf()** method is the default behavior for an array. It converts an array to a primitive value.
+
+JavaScript will automatically convert an array to a string when a primitive value is expected.
+
+Because of this, all these examples will produce the same result:
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo").innerHTML = fruits;
+
+[Test Code](https://jsfiddle.net/vanbumi/rmdeht63/)	
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo").innerHTML = fruits.valueOf();
+
+[Test Code](https://jsfiddle.net/vanbumi/q2x31vuz/)
+
+Example
+
+	var fruits = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById("demo").innerHTML = fruits.toString();
+
+[Test Code](https://jsfiddle.net/vanbumi/e9pe7skm/)
+
+> All JavaScript objects have a valueOf() and a toString() method.
+
+#### Sorting Arrays
+
+Sorting arrays are covered in the next chapter of this tutorial.
+
+#### Complete Array Reference
+
+For a complete reference, go to our [Complete JavaScript Array Reference.](http://www.w3schools.com/jsref/jsref_obj_array.asp)
+
+The reference contains descriptions and examples of all Array properties and methods.
+
+#### Exercise:
+
+Use the pop() method to remove the last item from the fruits array.
+
+	<p id="demo"></p> 
+
+	<script>
+		var fruits = ["Banana", "Orange", "Apple"];
+		fruits.pop();
+		document.getElementById("demo").innerHTML = fruits;
+	</script>
+
+Result:
+
+	Banana,Orange
+
+Use the push() method to add a new item to fruits: Kiwi.
+
+	<p id="demo"></p> 
+
+	<script>
+	var fruits = ["Banana", "Orange", "Apple"];
+	fruits.push("Kiwi");
+	document.getElementById("demo").innerHTML = fruits;
+	</script>	
+
+Result:
+
+	Banana,Orange,Apple,Kiwi
+
+Use the splice() method to remove "Orange" and "Apple" from fruits.
+
+	<p id="demo"></p> 
+
+	<script>
+	var fruits = ["Banana", "Orange", "Apple", "Kiwi"];
+	fruits.splice(1, 2);
+	document.getElementById("demo").innerHTML = fruits;
+	</script>
+
+Result:
+
+	Banana,KiwiBanana,Kiwi
+
+Use the sort() method to sort the array alphabetically.
+
+	<p id="demo"></p> 
+
+	<script>
+	var fruits = ["Banana", "Orange", "Apple", "Kiwi"];
+	fruits.sort();
+	document.getElementById("demo").innerHTML = fruits;
+	</script>
+
+Result:
+
+	Apple,Banana,Kiwi,Orange
+
+Use the concat() method to concatenate girls and boys.
+
+<p id="demo"></p> 
+
+	<script>
+	var girls = ["Cecilie", "Lone"];
+	var boys = ["Emil", "Tobias", "Linus"];
+	var children = girls.concat(boys);
+	document.getElementById("demo").innerHTML = children;
+	</script>			
+
+Result:
+
+	Cecilie,Lone,Emil,Tobias,Linus
+
+next this bellow
 
 #### JavaScript Sorting Arrays
 
