@@ -22,9 +22,11 @@
 	<li><a href="#lesson22">Lesson 22 - JS Arrays</a></li>
 	<li><a href="#lesson23">Lesson 23 - JS Booleans</a></li>
 	<li><a href="#lesson24">Lesson 24 - JS Comparison and Logical Operators</a></li>
-	<li><a href="#lesson25">Lesson 25 - JS If...Else Statements</a></li>
+	<li><a href="#lesson25">Lesson 25 - JS Condition If Else Statements</a></li>
 	<li><a href="#lesson26">Lesson 26 - JS JavaScript Switch Statement</a></li>
-	<li>...</a></li>
+	<li><a href="#lesson27">Lesson 27 - JS For Loop</a></li>
+	<li><a href="#lesson28">Lesson 28 - JS JavaScript Switch Statement</a></li>
+	<li><a href="#lesson29">Lesson 29 - JS JavaScript Switch Statement</a></li>
 	<li><a href="#lesson30">Lesson 30 - JS While</a></li>
 
 
@@ -4384,16 +4386,9 @@ Example
 
 [Test Code](https://jsfiddle.net/vanbumi/sqj12py6/)
 
+---
 
-
-
-
-
-
-
-
-
-<h3 id="lesson25">Lesson 25 - JavaScript If...Else Statements</h3>
+<h3 id="lesson25">Lesson 25 - JavaScript Condition If Else Statements</h3>
 
 Conditional statements are used to perform different actions based on different conditions.
 
@@ -4401,14 +4396,14 @@ Conditional statements are used to perform different actions based on different 
 
 Very often when you write code, you want to perform different actions for different decisions.
 
-You can use conditional statements in your code to do this.
+You can use **conditional statements** in your code to do this.
 
 In JavaScript we have the following conditional statements:
 
-* Use if to specify a block of code to be executed, if a specified condition is true
-* Use else to specify a block of code to be executed, if the same condition is false
-* Use else if to specify a new condition to test, if the first condition is false
-* Use switch to specify many alternative blocks of code to be executed
+* Use **if** to specify a block of code to be executed, if a specified condition is true
+* Use **else** to specify a block of code to be executed, if the same condition is false
+* Use **else if** to specify a new condition to test, if the first condition is false
+* Use **switch** to specify many alternative blocks of code to be executed
 
 #### The if Statement
 
@@ -4506,7 +4501,7 @@ Example
 	document.getElementById("demo").innerHTML = greeting + " time now is " + hour;
 	</script>
 
-[Test Code](http://www.w3schools.com/js/exercise.asp?filename=exercise_conditions6)	
+[Test Code](https://jsfiddle.net/vanbumi/fdjn3ehj/1/)	
 
 <h3 id="lesson26">Lesson 26 - JavaScript Switch Statement</h3>
 
@@ -4566,7 +4561,116 @@ The result of day will be:
 
 	Sunday
 
-[Test Code](http://www.w3schools.com/js/tryit.asp?filename=tryjs_switch)
+[Test Code](https://jsfiddle.net/vanbumi/57pgq8nm/)
+
+#### The break Keyword
+
+When JavaScript reaches a break keyword, it breaks out of the switch block.
+
+This will stop the execution of more code and case testing inside the block.
+
+When a match is found, and the job is done, it's time for a break. There is no need for more testing.
+
+> It is not necessary to break the last case in a switch block. It breaks (ends) there anyway.
+
+#### The default Keyword
+
+The default keyword specifies the code to run if there is no case match:
+
+Example
+
+The getDay() method returns the weekday as a number between 0 and 6.
+
+If today is neither Saturday (6) nor Sunday (0), write a default message:
+
+	switch (new Date().getDay()) {
+	    case 6:
+	        text = "Today is Saturday";
+	        break; 
+	    case 0:
+	        text = "Today is Sunday";
+	        break; 
+	    default: 
+	        text = "Looking forward to the Weekend";
+	}
+
+The result of text will be:
+
+	Looking forward to the Weekend
+
+[Test Code](https://jsfiddle.net/vanbumi/84thuw83/)	
+
+#### Common Code and Fall-Through
+
+Sometimes, in a switch block, you will want different cases to use the same code, or fall-through to a common default.
+
+Note from the next example, that cases can share the same code block, and that the default case does not have to be the last case in a switch block:
+
+Example
+
+switch (new Date().getDay()) {
+    case 1:
+    case 2:
+    case 3:
+    default: 
+        text = "Looking forward to the Weekend";
+        break; 
+    case 4:
+    case 5:
+       text = "Soon it is Weekend";
+        break; 
+    case 0:
+    case 6:
+       text = "It is Weekend";
+}
+
+[Test Code](https://jsfiddle.net/vanbumi/f2zyb0zs/)
+
+> If default is not the last case in the switch block, remember to end it with a break.
+
+Bahan latihan :
+
+	<input id="myInput" type="text" value="Tutti Frutti">
+	<button onclick="checkFruit()">Check Fruit</button>
+	<p id="demo"></p>
+
+	<script>
+	function checkFruit() {
+	  var text;
+	  var fruits = document.getElementById("myInput").value;
+
+	  switch(fruits) {
+	    case "Banana":
+	      text = "Banana is good!";
+	      break;
+	    case "Orange":
+	      text = "I am not a fan of orange.";
+	      break;
+	    case "Apple":
+	      text = "How you like them apples?";
+	      break;
+	    default:
+	      text = "I have never heard of that fruit.";
+	  }
+	  document.getElementById("demo").innerHTML = text;
+	}
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/3Le2uqmy/)	
+
+---
+
+<h3 id="lesson27">Lesson 27 - JavaScript For Loop</h3>
+
+Loops can execute a block of code a number of times.
+
+JavaScript Loops
+Loops are handy, if you want to run the same code over and over again, each time with a different value.
+
+Often this is the case when working with arrays:
+
+continue http://www.w3schools.com/js/js_loop_for.asp
+
 
 
 
