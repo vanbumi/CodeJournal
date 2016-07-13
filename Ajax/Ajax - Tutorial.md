@@ -1,4 +1,15 @@
-# AJAX Tutorial
+<h1 id="home">AJAX Tutorial</h1>
+
+## Contents
+
+<ul>
+	<li><a href="#home">Home</a></li>
+	<li><a href="#intro">Introduction</a></li>
+	<li><a href="#lesson1">Ajax XMLHttp</a></li>
+	<li><a href="#lesson2">Ajax Request</a></li>
+	<li><a href="#lesson3">Ajax Response</a></li>
+	<li><a href="#home">Home</a></li>
+</ul>
 
 ## With Ajax you can:
 
@@ -7,7 +18,7 @@
 * Receive data from a server - after the page has loaded
 * Send data to a server - in the background
 
-## AJAX Introduction
+<h2 id="intro">AJAX Introduction</h2>
 
 AJAX is about updating parts of a web page, without reloading the whole page.
 
@@ -55,9 +66,11 @@ Google Suggest is using AJAX to create a very dynamic web interface: When you st
 
 AJAX is based on existing standards. These standards have been used by developers for several years. Read our next chapters to see how it works!
 
-## AJAX - Create an XMLHttpRequest Object
+---
 
-The keystone of AJAX is the XMLHttpRequest object.
+<h2 id="lesson1">Lesson 1 - Create an XMLHttpRequest Object</h2>
+
+The keystone of AJAX is the **XMLHttpRequest object**.
 
 ### The XMLHttpRequest Object
 
@@ -91,13 +104,15 @@ To handle all browsers, including IE5 and IE6, check if the browser supports the
 
 In the next chapter you will learn about sending server requests.
 
-## AJAX - Send a Request To a Server
+---
 
-The XMLHttpRequest object is used to exchange data with a server.
+<h2 id="lesson2">Lesson 2 - Send a Request To a Server</h2>
+
+The **XMLHttpRequest object** is used to exchange data with a server.
 
 ### Send a Request To a Server
 
-To send a request to a server, we use the open() and send() methods of the XMLHttpRequest object:
+To send a request to a server, we use the open() and send() methods of the **XMLHttpRequest object**:
 
 	xhttp.open("GET", "ajax_info.txt", true);
 	xhttp.send();
@@ -116,6 +131,260 @@ Table
 
 	send(string)				Sends the request to the server (used for POST)	
 
-next GET or POST? http://www.w3schools.com/ajax/ajax_xmlhttprequest_send.asp
+### GET or POST?
 
-	
+GET is simpler and faster than POST, and can be used in most cases.
+
+However, always use POST requests when:
+
+* A cached file is not an option (update a file or database on the server).
+* Sending a large amount of data to the server (POST has no size limitations).
+* Sending user input (which can contain unknown characters), **POST is more robust and secure than GET**.
+
+### GET Requests
+
+A simple GET request:
+
+Example
+
+	xhttp.open("GET", "demo_get.asp", true);
+	xhttp.send();
+
+Detail Code
+
+	<h2>AJAX</h2>
+
+	<button type="button" onclick="loadDoc()">Request data</button>
+
+	<p id="demo"></p>
+
+	<script>
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+	      document.getElementById("demo").innerHTML = xhttp.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "demo_get.asp", true);
+	  xhttp.send();
+	}
+	</script>	
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_get)
+
+In the example above, you may get a cached result. To avoid this, add a unique ID to the URL:
+
+Example
+
+	xhttp.open("GET", "demo_get.asp?t=" + Math.random(), true);
+	xhttp.send();
+		
+Detail Code
+
+	<h2>AJAX</h2>
+
+	<button type="button" onclick="loadDoc()">Request data</button>
+
+	<p>Click the button several times to see if the time changes, or if the file is cached.</p>
+
+	<p id="demo"></p>
+
+	<script>
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange=function() {
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+	      document.getElementById("demo").innerHTML = xhttp.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "demo_get.asp?t=" + Math.random(), true);
+	  xhttp.send();
+	}
+	</script>
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_get_unique)
+
+If you want to send information with the GET method, add the information to the URL:
+
+Example
+
+	xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford", true);
+	xhttp.send();
+
+Detail Code
+
+	<h2>AJAX</h2>
+
+	<button type="button" onclick="loadDoc()">Request data</button>
+
+	<p id="demo"></p>
+
+	<script>
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+	      document.getElementById("demo").innerHTML = xhttp.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford", true);
+	  xhttp.send();
+	}
+	</script>
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_get2)
+
+## POST Requests
+
+A simple POST request:
+
+Example
+
+	xhttp.open("POST", "demo_post.asp", true);
+	xhttp.send();
+
+Detail Code
+
+	<h2>AJAX</h2>
+
+	<button type="button" onclick="loadDoc()">Request data</button>
+
+	<p id="demo"></p>
+	 
+	<script>
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+	      document.getElementById("demo").innerHTML = xhttp.responseText;
+	    }
+	  };
+	  xhttp.open("POST", "demo_post.asp", true);
+	  xhttp.send();
+	}
+	</script>
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_post)
+
+To POST data like an HTML form, add an **HTTP header** with **setRequestHeader()**. Specify the data you want to send in the send() method:
+
+Example
+
+	xhttp.open("POST", "ajax_test.asp", true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhttp.send("fname=Henry&lname=Ford");
+
+Detail Code
+
+	<h2>AJAX</h2>
+
+	<button type="button" onclick="loadDoc()">Request data</button>
+
+	<p id="demo"></p>
+	 
+	<script>
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+
+	  xhttp.onreadystatechange = function() {
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+	      document.getElementById("demo").innerHTML = xhttp.responseText;
+	    }
+	  };
+
+	  xhttp.open("POST", "demo_post2.asp", true);
+	  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	  xhttp.send("fname=Henry&lname=Ford");
+	}
+	</script>
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_post2)
+
+	Method								Description
+
+	setRequestHeader(header, value)		Adds HTTP headers to the request
+
+										header: specifies the header name
+										value: specifies the header value
+
+### The url - A File On a Server
+
+The url parameter of the open() method, is an address to a file on a server:
+
+	xhttp.open("GET", "ajax_test.asp", true);
+
+The file can be any kind of file, like .txt and .xml, or server scripting files like .asp and .php (which can perform actions on the server before sending the response back).
+
+### Asynchronous - True or False?
+
+AJAX stands for Asynchronous JavaScript and XML, and for the **XMLHttpRequest object** to behave as AJAX, the async parameter of the open() method has to be set to true:
+
+	xhttp.open("GET", "ajax_test.asp", true);
+
+Sending asynchronous requests is a huge improvement for web developers. Many of the tasks performed on the server are very time consuming. Before AJAX, this operation could cause the application to hang or stop.
+
+With AJAX, the JavaScript does not have to wait for the server response, but can instead:
+
+* execute other scripts while waiting for server response
+* deal with the response when the response ready
+
+### Async=true
+
+When using async=true, specify a function to execute when the response is ready in the onreadystatechange event:
+
+Example
+
+	xhttp.onreadystatechange = function() {
+	  if (xhttp.readyState == 4 && xhttp.status == 200) {
+	    document.getElementById("demo").innerHTML = xhttp.responseText;
+	  }
+	};
+	xhttp.open("GET", "ajax_info.txt", true);
+	xhttp.send();
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_first)
+
+You will learn more about onreadystatechange in a later chapter.
+
+### Async=false
+
+To use async=false, change the third parameter in the open() method to false:
+
+	xhttp.open("GET", "ajax_info.txt", false);
+
+Using async=false is not recommended, but for a few small requests this can be ok.
+
+Remember that the JavaScript will NOT continue to execute, until the server response is ready. If the server is busy or slow, the application will hang or stop.
+
+Note: When you use async=false, do NOT write an onreadystatechange function - just put the code after the send() statement:
+
+Example
+
+	xhttp.open("GET", "ajax_info.txt", false);
+	xhttp.send();
+	document.getElementById("demo").innerHTML = xhttp.responseText;
+
+Detail Code
+
+	<p id="demo">Let AJAX change this text.</p>
+
+	<button type="button" onclick="loadDoc()">Change Content</button>
+
+	<script>
+	function loadDoc() {
+	  var xhttp = new XMLHttpRequest();
+	  xhttp.open("GET", "ajax_info.txt", false);
+	  xhttp.send();
+	  document.getElementById("demo").innerHTML = xhttp.responseText;
+	}
+	</script>
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_asyncfalse)
+
+<h2 id="lesson3">Lesson 3 - Ajax Server Response</h2>
+
+
+
+
+

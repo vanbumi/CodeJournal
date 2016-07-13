@@ -4255,6 +4255,8 @@ Given that x = 5, the table below explains the comparison operators:
 	>=			greater than or equal to			x >= 8			false		Try it »
 	<=			less than or equal to				x <= 8			true		Try it »
 
+[Try it one by one here](https://jsfiddle.net/vanbumi/gs0hx3ne/1/)	
+
 #### How Can it be Used
 
 Comparison operators can be used in conditional statements to compare values and take action depending on the result:
@@ -4262,6 +4264,130 @@ Comparison operators can be used in conditional statements to compare values and
 	if (age < 18) text = "Too young";
 
 You will learn more about the use of conditional statements in the next chapter of this tutorial.
+
+#### Logical Operators
+
+Logical operators are used **to determine the logic between variables or values**.
+
+Given that x = 6 and y = 3, the table below explains the logical operators:
+
+	Operator	Description		Example							Try it
+
+	&&			and				(x < 10 && y > 1) is true		Try it »
+	||			or				(x == 5 || y == 5) is false		Try it »
+	!			not				!(x == y) is true				Try it »
+
+[Try it](https://jsfiddle.net/vanbumi/3yuqm9y3/)
+
+#### Conditional (Ternary) Operator
+
+JavaScript also contains a conditional operator that assigns a value to a variable based on some condition.
+
+##### Syntax
+
+	variablename = (condition) ? value1:value2 
+
+Example
+
+	var voteable = (age < 18) ? "Too young":"Old enough";
+
+[Test Code](https://jsfiddle.net/vanbumi/w3eghdbg/)
+
+If the variable age is a value below 18, the value of the variable voteable will be "Too young", otherwise the value of voteable will be "Old enough".
+
+#### Comparing Different Types
+
+Comparing data of different types may give unexpected results.
+
+When comparing a string with a number, JavaScript will convert the string to a number when doing the comparison. An empty string converts to 0. A non-numeric string converts to NaN which is always false.
+
+	Case			Value			Try
+
+	2 < 12			true			Try it »
+	2 < "12"		true			Try it »
+	2 < "John"		false			Try it »
+	2 > "John"		false			Try it »
+	2 == "John"		false			Try it »
+	"2" < "12"		false			Try it »
+	"2" > "12"		true			Try it »
+	"2" == "12"		false			Try it »
+
+When comparing two strings, "2" will be greater than "12", because (alphabetically) 1 is less than 2.
+
+To secure a proper result, variables should be converted to the proper type before comparison:
+
+	age = Number(age);
+	if (isNaN(age)) {
+	    voteable = "Error in input";
+	} else {
+	    voteable = (age < 18) ? "Too young" : "Old enough";
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/nowvxc9d/)
+
+#### JavaScript Bitwise Operators
+
+Bit operators work on 32-bit numbers.
+
+Any numeric operand in the operation is converted into a 32-bit number.
+
+The result is converted back to a JavaScript number.
+
+![bitwise](http://res.cloudinary.com/medio/image/upload/v1468380932/bitwise_akzbbk.png)
+
+> The table above use 4 bits unsigned examples. But JavaScript uses 32-bit signed numbers.
+Because of this, in JavaScript, ~ 5 will not return 10. It will return -6:
+~00000000000000000000000000000101 will return 11111111111111111111111111111010
+
+Example
+
+	x = 5 & 1;
+	The result in x:
+
+	1
+
+[Test Code](https://jsfiddle.net/vanbumi/g7o66ebc/)
+
+Example
+
+	x = 5 | 1;
+	The result in x:
+
+	5
+
+[Test Code](https://jsfiddle.net/vanbumi/qpj1630f/)
+
+Example
+
+	x = 5 >> 1;
+	The result in x:
+
+	2
+
+[Test Code](https://jsfiddle.net/vanbumi/k2akqruh/)
+
+Example
+
+	x = 5 << 1;
+	The result in x:
+
+	10
+
+[Test Code](https://jsfiddle.net/vanbumi/kyhvj6aw/)
+
+Example
+
+	x = ~ 5;
+	The result in x:
+
+	-6
+
+[Test Code](https://jsfiddle.net/vanbumi/sqj12py6/)
+
+
+
+
+
 
 
 
