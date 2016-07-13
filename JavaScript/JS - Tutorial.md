@@ -4097,14 +4097,175 @@ Example
 
 ---
 
-next :)
 <h3 id="lesson23">Lesson 23 - JavaScript Booleans</h3>
 
-[Readmore](http://www.w3schools.com/js/js_booleans.asp)
+A JavaScript Boolean represents one of two values: true or false.
 
-<h3 id="lesson24">Lesson 24 - JavaScript Comparison and Logical Operators"></h3>
+#### Boolean Values
 
-[Readmore](http://www.w3schools.com/js/js_comparisons.asp)
+Very often, in programming, you will need a data type that can only have one of two values, like
+
+* YES / NO
+* ON / OFF
+* TRUE / FALSE
+
+For this, JavaScript has a Boolean data type. It can only take the values true or false.
+
+#### The Boolean() Function
+
+You can use the Boolean() function to find out if an expression (or a variable) is true:
+
+Example
+
+	Boolean(10 > 9)        // returns true
+
+[Test Code](https://jsfiddle.net/vanbumi/wd5pw0py/)
+
+Or even easier:
+
+Example
+
+	(10 > 9)              // also returns true
+	10 > 9                // also returns true
+
+[Test Code](https://jsfiddle.net/vanbumi/taxh1w4s/)
+
+#### Comparisons and Conditions
+
+The chapter JS Comparisons gives a full overview of comparison operators.
+
+The chapter JS Conditions gives a full overview of conditional statements.
+
+Here are some examples:
+
+	Operator	Description		Example
+
+	==			equal to		if (day == "Monday")
+	>			greater than	if (salary > 9000)
+	<			less than		if (age < 18)
+
+
+> The Boolean value of an expression is the fundament for JavaScript comparisons and conditions.
+
+#### Everything With a "Real" Value is True
+
+Examples
+
+	100
+
+	3.14
+
+	-15
+
+	"Hello"
+
+	"false"
+
+	7 + 1 + 3.14
+
+	5 < 6
+
+[Test Code](https://jsfiddle.net/vanbumi/7fu9avLj/)	
+
+#### Everything Without a "Real" is False
+
+The Boolean value of 0 (zero) is false:
+
+	var x = 0;
+	Boolean(x);       // returns false
+
+[Test Code](https://jsfiddle.net/vanbumi/Lh9mqo0t/)	
+
+The Boolean value of -0 (minus zero) is false:
+
+	var x = -0;
+	Boolean(x);       // returns false
+
+[Test Code](https://jsfiddle.net/vanbumi/xps2qcv1/)
+
+The Boolean value of "" (empty string) is false:
+
+	var x = "";
+	Boolean(x);       // returns false
+
+[Test Code](https://jsfiddle.net/vanbumi/n7Lc4moL/)
+
+The Boolean value of undefined is false:
+
+	var x;
+	Boolean(x);       // returns false
+
+[Test Code](https://jsfiddle.net/vanbumi/snak3hr1/)
+
+The Boolean value of null is false:
+
+	var x = null;
+	Boolean(x);       // returns false
+
+[Test Code](https://jsfiddle.net/vanbumi/frmwLwat/)
+
+The Boolean value of false is (you guessed it) false:
+
+	var x = false;
+	Boolean(x);       // returns false
+
+[Test Code](https://jsfiddle.net/vanbumi/2t87x7z6/)
+
+The Boolean value of NaN is false:
+
+	var x = 10 / "H";
+	Boolean(x);       // returns false
+
+[Test Code](https://jsfiddle.net/vanbumi/5m6dteqj/)
+
+#### Boolean Properties and Methods
+
+Primitive values, like true and false, cannot have properties or methods (because they are not objects).
+
+But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.
+
+#### Complete Boolean Reference
+
+For a complete reference, go to our [Complete JavaScript Boolean Reference.](http://www.w3schools.com/jsref/jsref_obj_boolean.asp)
+
+The reference contains descriptions and examples of all Boolean properties and methods.
+
+
+<h3 id="lesson24">Lesson 24 - JavaScript Comparison and Logical Operators</h3>
+
+#### Comparison Operators
+
+Comparison operators **are used in logical statements to determine equality or difference between variables or values**.
+
+Given that x = 5, the table below explains the comparison operators:
+
+	Operator	Description							Comparing		Returns		Try it
+
+	==			equal to							x == 8			false		Try it »
+													x == 5			true		Try it »
+													x == "5"		true		Try it »
+	===			equal value and equal type			x === 5			true		Try it »
+													x === "5"		false		Try it »
+	!=			not equal							x != 8			true		Try it »
+	!==			not equal value or not equal type	x !== 5			false		Try it »
+													x !== "5"		true		Try it »
+													x !== 8			true		Try it »
+	>			greater than						x > 8			false		Try it »
+	<			less than							x < 8			true		Try it »
+	>=			greater than or equal to			x >= 8			false		Try it »
+	<=			less than or equal to				x <= 8			true		Try it »
+
+#### How Can it be Used
+
+Comparison operators can be used in conditional statements to compare values and take action depending on the result:
+
+	if (age < 18) text = "Too young";
+
+You will learn more about the use of conditional statements in the next chapter of this tutorial.
+
+
+
+
 
 <h3 id="lesson25">Lesson 25 - JavaScript If...Else Statements</h3>
 
