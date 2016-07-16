@@ -53,3 +53,7 @@ On Rails form helper
 
 * [jQuery-Tags-Input](https://github.com/xoxco/jQuery-Tags-Input)
 * [tag-it](http://aehlke.github.io/tag-it/)
+
+## Sticky-Kit
+
+* [Sticky-Kit web](http://leafo.net/sticky-kit/)

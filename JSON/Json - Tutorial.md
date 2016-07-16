@@ -6,6 +6,7 @@
 	<li><a href="#home">Home</a></li>
 	<li><a href="#lesson1">JSON Introduction</a></li>
 	<li><a href="#lesson2">JSON Syntax</a></li>
+	<li><a href="#lesson3">JSON How To</a></li>
 </ul>
 
 JSON: JavaScript Object Notation.
@@ -251,4 +252,45 @@ In the next chapter you will learn how to convert a JSON text to a JavaScript ob
 * The file type for JSON files is ".json"
 * The MIME type for JSON text is "application/json"
 
-next json how to http://www.w3schools.com/json/json_eval.asp
+<h2 id="lesson3">JSON How To</h2>
+
+A common use of JSON is **to read data from a web server, and display the data in a web page**.
+
+For simplicity, this can be demonstrated by using a string as input (instead of a file).
+
+### JSON Example - Object From String
+
+Create a JavaScript string containing JSON syntax:
+
+	var text = '{ "employees" : [' +
+	'{ "firstName":"John" , "lastName":"Doe" },' +
+	'{ "firstName":"Anna" , "lastName":"Smith" },' +
+	'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+JSON syntax is a subset of JavaScript syntax.
+
+The JavaScript function JSON.parse(text) can be used to convert a JSON text into a JavaScript object:
+
+	var obj = JSON.parse(text);	
+
+Use the new JavaScript object in your page:	
+
+#### Example
+
+	<p id="demo"></p> 
+
+	<script>
+	document.getElementById("demo").innerHTML =
+	obj.employees[1].firstName + " " + obj.employees[1].lastName; 
+	</script>
+
+#### Using eval()
+
+Older browsers without the support for the JavaScript function JSON.parse() can use the eval() function to convert a JSON text into a JavaScript object:
+
+Example
+
+	var obj = eval ("(" + text + ")");
+
+
+http://www.w3schools.com/json/json_eval.asp

@@ -25,9 +25,8 @@
 	<li><a href="#lesson25">Lesson 25 - JS Condition If Else Statements</a></li>
 	<li><a href="#lesson26">Lesson 26 - JS JavaScript Switch Statement</a></li>
 	<li><a href="#lesson27">Lesson 27 - JS For Loop</a></li>
-	<li><a href="#lesson28">Lesson 28 - JS JavaScript Switch Statement</a></li>
-	<li><a href="#lesson29">Lesson 29 - JS JavaScript Switch Statement</a></li>
-	<li><a href="#lesson30">Lesson 30 - JS While</a></li>
+	<li><a href="#lesson28">Lesson 28 - JS While</a></li>
+	<li><a href="#lesson29">Lesson 29 - JS Break and Continue</a></li>
 
 
 </ul>
@@ -4664,30 +4663,208 @@ Bahan latihan :
 
 Loops can execute a block of code a number of times.
 
-JavaScript Loops
+#### JavaScript Loops
+
 Loops are handy, if you want to run the same code over and over again, each time with a different value.
 
 Often this is the case when working with arrays:
 
-continue http://www.w3schools.com/js/js_loop_for.asp
+Instead of writing:
 
+	text += cars[0] + "<br>"; 
+	text += cars[1] + "<br>"; 
+	text += cars[2] + "<br>"; 
+	text += cars[3] + "<br>"; 
+	text += cars[4] + "<br>"; 
+	text += cars[5] + "<br>";
 
+You can write:
 
+	for (i = 0; i < cars.length; i++) { 
+	    text += cars[i] + "<br>";
+	}
 
+Detail Code
 
+	<p id="demo"></p>
 
+	var cars = ["BMW", "Volvo", "Saab", "Ford"];
+	var text = "";
+	var i;
 
+	for(i = 0; i < cars.lenth; i++) {
+		text += cars[i] + "<br>";
+	}
+	document.getElementById("demo").innerHTML = text;  	
 
+[Test Code](https://jsfiddle.net/vanbumi/suw75k7f/)
 
+#### Different Kinds of Loops
 
+JavaScript supports different kinds of loops:
 
+* **for** - loops through a block of code a number of times
+* **for/in** - loops through the properties of an object
+* **while** - loops through a block of code while a specified condition is true
+* **do/while** - also loops through a block of code while a specified condition is true
 
+#### The For Loop
+
+The for loop is often the tool you will use when you want to create a loop.
+
+The for loop has the following syntax:
+
+	for (statement 1; statement 2; statement 3) {
+	    code block to be executed
+	}
+
+Statement 1 is executed before the loop (the code block) starts.
+
+Statement 2 defines the condition for running the loop (the code block).
+
+Statement 3 is executed each time after the loop (the code block) has been executed.
+
+Example
+
+	for (i = 0; i < 5; i++) {
+	    text += "The number is " + i + "<br>";
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/tvftcfec/)
+
+From the example above, you can read:
+
+Statement 1 sets a variable before the loop starts (var i = 0).
+
+Statement 2 defines the condition for the loop to run (i must be less than 5).
+
+Statement 3 increases a value (i++) each time the code block in the loop has been executed.
+
+#### Statement 1
+
+Normally you will use statement 1 to initiate the variable used in the loop (i = 0).
+
+This is not always the case, JavaScript doesn't care. Statement 1 is optional.
+
+You can initiate many values in statement 1 (separated by comma):
+
+Example
+
+	for (i = 0, len = cars.length, text = ""; i < len; i++) { 
+	    text += cars[i] + "<br>";
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/Ls0wqj4k/)	
+
+And you can omit statement 1 (like when your values are set before the loop starts):
+
+Example
+
+	var i = 2;
+	var len = cars.length;
+	var text = "";
+	for (; i < len; i++) { 
+	    text += cars[i] + "<br>";
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/apz0pt0n/)	
+
+#### Statement 2
+
+Often statement 2 is used to evaluate the condition of the initial variable.
+
+This is not always the case, JavaScript doesn't care. Statement 2 is also optional.
+
+If statement 2 returns true, the loop will start over again, if it returns false, the loop will end.
+
+> If you omit statement 2, you must provide a break inside the loop. Otherwise the loop will never end. This will crash your browser. Read about breaks in a later chapter of this tutorial.
+
+#### Statement 3
+
+Often statement 3 increases the initial variable.
+
+This is not always the case, JavaScript doesn't care, and statement 3 is optional.
+
+Statement 3 can do anything like negative increment (i--), positive increment **(i = i + 15)**, or anything else.
+
+Statement 3 can also be omitted (like when you increment your values inside the loop):
+
+Example
+
+	var i = 0;
+	var len = cars.length;
+	for (; i < len; ) { 
+	    text += cars[i] + "<br>";
+	    i++;
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/11tLeq25/)	
+
+#### The For/In Loop
+
+The JavaScript for/in statement loops through the properties of an object:
+
+Example
+
+	var person = {fname:"John", lname:"Doe", age:25}; 
+
+	var text = "";
+	var x;
+	for (x in person) {
+	    text += person[x];
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/0xw99856/)
+
+#### The While Loop
+
+The while loop and the do/while loop will be explained in the next chapter.
+
+Exercise:
+
+Make the loop start counting from 5. Count up to (including) 50, and count only every fifth number.
+
+	<p id="demo"></p>
+
+	<script>
+		var i;
+		for (i = 0; i < 10; i++) {
+		    document.getElementById("demo").innerHTML += i + "<br>";
+		}
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/d3caxwxj/)
+
+Make the loop start counting downwards from 10 and stop at 1.
+
+The output should be 10 9 8 7 6 5 4 3 2 1 with line breaks.
+
+[Test Code](https://jsfiddle.net/vanbumi/xwgjn8vn/)
+
+Exercise:
+
+Inside the for loop: 
+Set the counter variable (i) to 0. 
+Run the loop as long as i is less than the length of the food array. 
+Increment i by 1.
+
+[Test Code](https://jsfiddle.net/vanbumi/q1nb1bL9/)
+
+Exercise:
+In this exercise, you are going to create a for loop from scratch. 
+We have already created the counter variable i for you, and a text variable for output. 
+Your task is to create a FOR LOOP that output the numbers 1 3 5 7 9 with line breaks between each number. 
+WARNING: Remember to increase the variable used in the condition to avoid infinite loops (will crash your browser).
+
+[Test Code](https://jsfiddle.net/vanbumi/2pk16p2y/)
 
 ---
 
-<h3 id="lesson30">Lesson 30 - JavaScript While</h3>
+<h3 id="lesson28">Lesson 28 - JavaScript While</h3>
 
 Loops can execute a block of code as long as a specified condition is true.
+
+#### The While Loop
 
 The while loop loops through a block of code as long as a specified condition is true.
 
@@ -4738,15 +4915,303 @@ Other Example
 	  }
 	</script>
 
+> If you forget to increase the variable used in the condition, the loop will never end. This will crash your browser.
+
+#### The Do/While Loop
+
+The **do/while** loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+
+Syntax
+
+	do {
+	    code block to be executed
+	}
+	while (condition);
+
+Example
+
+The example below uses a do/while loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:
+
+Example
+
+	do {
+	    text += "The number is " + i;
+	    i++;
+	}
+	while (i < 10);
+
+[Test Code](https://jsfiddle.net/vanbumi/82q8kafp/)
+
+> Do not forget to increase the variable used in the condition, otherwise the loop will never end!
+
+#### Comparing For and While
+
+If you have read the previous chapter, about the for loop, you will discover that a while loop is much the same as a for loop, with statement 1 and statement 3 omitted.
+
+The loop in this example uses a for loop to collect the car names from the cars array:
+
+Example
+
+	var cars = ["BMW", "Volvo", "Saab", "Ford"];
+	var i = 0;
+	var text = "";
+
+	for (;cars[i];) {
+	    text += cars[i] + "<br>";
+	    i++;
+	}
+
+[Text Code](https://jsfiddle.net/vanbumi/kkwfom0c/1/)
+
+The loop in this example uses a while loop to collect the car names from the cars array:
+
+Example
+
+	var cars = ["BMW", "Volvo", "Saab", "Ford"];
+	var i = 0;
+	var text = "";
+
+	while (cars[i]) {
+	    text += cars[i] + "<br>";
+	    i++;
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/a4xvvrhu/)
+
+<h3 id="lesson29">Lesson 29 - JavaScript Break and Continue</h3>
+
+The **break** statement "jumps out" of a loop.
+
+The **continue** statement "jumps over" one iteration in the loop.
+
+#### The Break Statement
+
+You have already seen the break statement used in an earlier chapter of this tutorial. It was used to "jump out" of a switch() statement.
+
+The break statement can also be used to jump out of a loop.  
+
+The break statement breaks the loop and continues executing the code after the loop (if any):
+
+Example
+
+	for (i = 0; i < 10; i++) {
+	    if (i === 3) { break; }
+	    text += "The number is " + i + "<br>";
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/d1fd1ju2/)
+
+[Test Code](https://jsfiddle.net/vanbumi/reaxyvg4/)
+
+#### The Continue Statement
+
+The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+
+This example skips the value of 3:
+
+Example
+
+	for (i = 0; i < 10; i++) {
+	    if (i === 3) { continue; }
+	    text += "The number is " + i + "<br>";
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/ouhjeo9q/)
+
+#### JavaScript Labels
+
+To label JavaScript statements you precede the statements with a label name and a colon:
+
+	label:
+	statements
+
+The break and the continue statements are the only JavaScript statements that can "jump out of" a code block.
+
+Syntax:
+
+	break labelname; 
+
+	continue labelname;
+
+The continue statement (with or without a label reference) can only be used to skip one loop iteration.
+
+The break statement, without a label reference, can only be used to jump out of a loop or a switch.
+
+With a label reference, the break statement can be used to jump out of any code block:
+
+Example
+
+	var cars = ["BMW", "Volvo", "Saab", "Ford"];
+	list: {
+	    text += cars[0] + "<br>"; 
+	    text += cars[1] + "<br>"; 
+	    text += cars[2] + "<br>"; 
+	    break list;
+	    text += cars[3] + "<br>"; 
+	    text += cars[4] + "<br>"; 
+	    text += cars[5] + "<br>"; 
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/vyk7ahc6/)	
+
+> A code block is a block of code between { and }.
+
+Exercise:
+
+Use the break statement to stop the loop at 5.
+
+	<p id="demo"></p>
+
+	<script>
+	var text = "";
+	var i;
+	for (i = 1; i < 10; i++) {
+	    if (i === 5) {break}
+	    document.getElementById("demo").innerHTML += i + "<br>";
+	}
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/z9eqz3aw/)
+
+Use the continue statement to skip the number 5 in the loop.
+
+	<p id="demo"></p>
+
+	<script>
+	var text = "";
+	var i;
+	for (i = 1; i < 10; i++) {
+	    document.getElementById("demo").innerHTML += i + "<br>";
+	}
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/yhue5ftx/)	
+
+Use the continue statement to skip the numbers 5 AND 7 in the loop.
+
+	<p id="demo"></p>
+
+	<script>
+		var text = "";
+		var i;
+		for (i = 1; i < 10; i++) {
+		    document.getElementById("demo").innerHTML += i + "<br>";
+		}
+	</script>
+
+[Test Code](https://jsfiddle.net/vanbumi/msqv1sL7/)
 
 
+	<input id="myInput" type="text" value="BMW">
+	<button onclick="checkCar()">Check Car</button>
+	<p id="demo"></p>
 
+	<script>
+	function checkCar() {
+	  var text;
+	  var favCar = document.getElementById("myInput").value;
 
+	  switch(favCar) {
+	    case "BMW":
+	      text = "German car";
+	      break; 
+	    case "Ford":
+	      text = "American car";
+	      break;
+	    case "Peugeot":
+	      text = "French car";
+	      break;
+	    default:
+	      text = "Unknown car name";
+	  }
+	  document.getElementById("demo").innerHTML = text;
+	}
+	</script>
 
+[Test Code](https://jsfiddle.net/vanbumi/6a4w23L8/)
 
+<h3 id="lesson30">Lesson 30 - JavaScript Type Conversion</h3>
 
+Number() converts to a Number, String() converts to a String, Boolean() converts to a Boolean.
 
+#### JavaScript Data Types
 
+In JavaScript there are 5 different data types that can contain values:
 
+* string
+* number
+* boolean
+* object
+* function
 
+There are 3 types of objects:
 
+* Object
+* Date
+* Array
+
+And 2 data types that cannot contain values:
+
+* null
+* undefined
+
+#### The **typeof** Operator
+
+You can use the typeof operator to find the data type of a JavaScript variable.
+
+Example
+
+	typeof "John"                 // Returns string 
+	typeof 3.14                   // Returns number
+	typeof NaN                    // Returns number
+	typeof false                  // Returns boolean
+	typeof [1,2,3,4]              // Returns object
+	typeof {name:'John', age:34}  // Returns object
+	typeof new Date()             // Returns object
+	typeof function () {}         // Returns function
+	typeof myCar                  // Returns undefined (if myCar is not declared)
+	typeof null                   // Returns object
+
+[Test Code](https://jsfiddle.net/vanbumi/7s5n9c16/)
+
+Please observe:
+
+The data type of NaN is number
+The data type of an array is object
+The data type of a date is object
+The data type of null is object
+The data type of an undefined variable is undefined
+
+> You cannot use typeof to determine if a JavaScript object is an array (or a date).
+
+#### The Data Type of typeof
+
+The typeof operator is not a variable. It is an operator. Operators ( + - * / ) do not have any data type.
+
+But, the typeof operator always returns a string containing the type of the operand.
+
+#### The constructor Property
+
+The **constructor** property returns the constructor function for all JavaScript variables.
+
+Example
+
+	"John".constructor                 // Returns function String()  { [native code] }
+	(3.14).constructor                 // Returns function Number()  { [native code] }
+	false.constructor                  // Returns function Boolean() { [native code] }
+	[1,2,3,4].constructor              // Returns function Array()   { [native code] }
+	{name:'John', age:34}.constructor  // Returns function Object()  { [native code] }
+	new Date().constructor             // Returns function Date()    { [native code] }
+	function () {}.constructor         // Returns function Function(){ [native code] }
+
+[Test Code](https://jsfiddle.net/vanbumi/79L34sou/)
+
+You can check the constructor property to find out if an object is an Array (contains the word "Array"):
+
+Example
+
+	function isArray(myArray) {
+	    return myArray.constructor.toString().indexOf("Array") > -1;
+	}
+
+next http://www.w3schools.com/js/js_type_conversion.asp

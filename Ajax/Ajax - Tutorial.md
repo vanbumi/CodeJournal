@@ -8,7 +8,8 @@
 	<li><a href="#lesson1">Ajax XMLHttp</a></li>
 	<li><a href="#lesson2">Ajax Request</a></li>
 	<li><a href="#lesson3">Ajax Response</a></li>
-	<li><a href="#home">Home</a></li>
+	<li><a href="#lesson4">Ajax Event</a></li>
+	
 </ul>
 
 ## With Ajax you can:
@@ -384,7 +385,87 @@ Detail Code
 
 <h2 id="lesson3">Lesson 3 - Ajax Server Response</h2>
 
+#### Server Response
 
+To get the response from a server, use the **responseText** or **responseXML** property of the **XMLHttpRequest object**.
 
+	Property		Description
 
+	responseText	get the response data as a string
+	responseXML		get the response data as XML data
 
+#### The responseText Property
+
+If the response from the server is not XML, use the responseText property.
+
+The responseText property returns the response as a string, and you can use it accordingly:
+
+Example
+
+	document.getElementById("demo").innerHTML = xhttp.responseText;
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_first)	
+
+#### The responseXML Property
+
+If the response from the server is XML, and you want to parse it as an XML object, use the responseXML property:
+
+Example
+
+Request the file cd_catalog.xml and parse the response:
+
+	xmlDoc = xhttp.responseXML;
+	txt = "";
+	x = xmlDoc.getElementsByTagName("ARTIST");
+	for (i = 0; i < x.length; i++) {
+	  txt += x[i].childNodes[0].nodeValue + "<br>";
+	  }
+	document.getElementById("demo").innerHTML = txt;
+
+[Test Code](http://www.w3schools.com/ajax/tryit.asp?filename=tryajax_responsexml)	
+
+<h2 id="lesson4">Lesson 4 - Ajax Event</h2>
+
+### AJAX - The onreadystatechange Event
+
+#### The onreadystatechange event
+
+When a request to a server is sent, we want to perform some actions based on the response.
+
+The onreadystatechange event is triggered every time the readyState changes.
+
+The readyState property holds the status of the XMLHttpRequest.
+
+Three important properties of the XMLHttpRequest object:
+
+	Property			Description
+
+	onreadystatechange	Stores a function (or the name of a function) to be called automatically 
+						eachtime the readyState property changes
+
+	readyState			Holds the status of the XMLHttpRequest. Changes from 0 to 4: 
+						0: request not initialized 
+						1: server connection established
+						2: request received 
+						3: processing request 
+						4: request finished and response is ready
+
+	status				200: "OK"
+						404: Page not found
+
+In the onreadystatechange event, we specify what will happen when the server response is ready to be processed.
+
+When readyState is 4 and status is 200, the response is ready:
+
+Example
+
+	function loadDoc() {
+	    var xhttp = new XMLHttpRequest();
+	    xhttp.onreadystatechange = function() {
+	        if (xhttp.readyState == 4 && xhttp.status == 200) {
+	            document.getElementById("demo").innerHTML = xhttp.responseText;
+	        }
+	    };
+	    xhttp.open("GET", "ajax_info.txt", true);
+	    xhttp.send();
+	}						
