@@ -27,6 +27,7 @@
 	<li><a href="#lesson27">Lesson 27 - JS For Loop</a></li>
 	<li><a href="#lesson28">Lesson 28 - JS While</a></li>
 	<li><a href="#lesson29">Lesson 29 - JS Break and Continue</a></li>
+	<li><a href="#lesson30">Lesson 30 - JS Type Conversion</a></li>
 
 
 </ul>
@@ -5192,11 +5193,11 @@ But, the typeof operator always returns a string containing the type of the oper
 
 #### The constructor Property
 
-The **constructor** property returns the constructor function for all JavaScript variables.
+The **constructor** property *returns the constructor function* for all JavaScript variables.
 
 Example
 
-	"John".constructor                 // Returns function String()  { [native code] }
+	"John".constructor                 // Returns function Strin	g()  { [native code] }
 	(3.14).constructor                 // Returns function Number()  { [native code] }
 	false.constructor                  // Returns function Boolean() { [native code] }
 	[1,2,3,4].constructor              // Returns function Array()   { [native code] }
@@ -5214,4 +5215,114 @@ Example
 	    return myArray.constructor.toString().indexOf("Array") > -1;
 	}
 
-next http://www.w3schools.com/js/js_type_conversion.asp
+[Test Code](https://jsfiddle.net/vanbumi/384ypv8h/)
+
+You can check the constructor property to find out if an object is a Date (contains the word "Date"):
+
+Example
+
+	function isDate(myDate) {
+	    return myDate.constructor.toString().indexOf("Date") > -1;
+	}
+
+[Test Code](https://jsfiddle.net/vanbumi/1najp7ce/)	
+
+#### JavaScript Type Conversion
+
+JavaScript variables can be converted to a new variable and another data type:
+
+* By the use of a JavaScript function
+* Automatically by JavaScript itself
+
+#### Converting Numbers to Strings
+
+The global method String() can convert numbers to strings.
+
+It can be used on any type of numbers, literals, variables, or expressions:
+
+Example
+
+	String(x)         // returns a string from a number variable x
+	String(123)       // returns a string from a number literal 123
+	String(100 + 23)  // returns a string from a number from an expression
+
+[Test Code](https://jsfiddle.net/vanbumi/r9j6a1wh/)	
+
+The Number method toString() does the same.
+
+Example
+
+	x.toString()
+	(123).toString()
+	(100 + 23).toString()
+
+[Test Code](https://jsfiddle.net/vanbumi/zuuLckj1/)	
+
+In the chapter Number Methods, you will find more methods that can be used to convert numbers to strings:
+
+	Method				Description
+
+	toExponential()		Returns a string, with a number rounded and written using exponential notation.
+	toFixed()			Returns a string, with a number rounded and written with a specified number of decimals.
+	toPrecision()		Returns a string, with a number written with a specified length
+
+#### Converting Booleans to Strings
+
+The global method String() can convert booleans to strings.
+
+	String(false)        // returns "false"
+	String(true)         // returns "true"
+
+The Boolean method toString() does the same.
+
+	false.toString()     // returns "false"
+	true.toString()      // returns "true"
+
+#### Converting Dates to Strings
+
+The global method String() can convert dates to strings.
+
+	String(Date())      // returns Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)
+	
+The Date method toString() does the same.	
+
+Example
+
+	Date().toString()   // returns Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)
+
+In the chapter Date Methods, you will find more methods that can be used to convert dates to strings:
+
+	Method				Description
+
+	getDate()			Get the day as a number (1-31)
+	getDay()			Get the weekday a number (0-6)
+	getFullYear()		Get the four digit year (yyyy)
+	getHours()			Get the hour (0-23)
+	getMilliseconds()	Get the milliseconds (0-999)
+	getMinutes()		Get the minutes (0-59)
+	getMonth()			Get the month (0-11)
+	getSeconds()		Get the seconds (0-59)
+	getTime()			Get the time (milliseconds since January 1, 1970)	 
+
+#### Converting Strings to Numbers
+
+The global method Number() can convert strings to numbers.
+
+Strings containing numbers (like "3.14") convert to numbers (like 3.14).
+
+Empty strings convert to 0.
+
+Anything else converts to NaN (Not a number).
+
+	Number("3.14")    // returns 3.14
+	Number(" ")       // returns 0 
+	Number("")        // returns 0
+	Number("99 88")   // returns NaN	
+
+In the chapter Number Methods, you will find more methods that can be used to convert strings to numbers:
+
+	Method			Description
+
+	parseFloat()	Parses a string and returns a floating point number
+	parseInt()		Parses a string and returns an integer
+
