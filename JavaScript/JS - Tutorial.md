@@ -29,6 +29,8 @@
 	<li><a href="#lesson29">Lesson 29 - JS Break and Continue</a></li>
 	<li><a href="#lesson30">Lesson 30 - JS Type Conversion</a></li>
 	<li><a href="#lesson31">Lesson 31 - JS Regular Expression</a></li>
+	<li><a href="#lesson32">Lesson 32 - JS Throw and Try to Catch</a></li>
+	<li><a href="#lesson33">Lesson 33 - JS Debugging</a></li>
 
 
 </ul>
@@ -5560,29 +5562,329 @@ Since there is an "e" in the string, the output of the code above will be:
 
 [Test Code](https://jsfiddle.net/k04wmmrp/)	
 
+You don't have to put the regular expression in a variable first. The two lines above can be shortened to one:
 
+	/e/.test("The best things in life are free!");
 
+#### Using exec()
 
+The **exec()** method is a RegExp expression method.
 
+It searches a string for a specified pattern, and returns the found text.
 
+If no match is found, it returns null.
 
+The following example searches a string for the character "e":
 
+Example 1
 
+	/e/.exec("The best things in life are free!");
 
+Since there is an "e" in the string, the output of the code above will be:
 
+	e
 
+[Test Code](https://jsfiddle.net/oqLry832/)
 
+#### Complete RegExp Reference
 
+For a complete reference, go to our [Complete JavaScript RegExp Reference.](http://www.w3schools.com/jsref/jsref_obj_regexp.asp)
 
+The reference contains descriptions and examples of all RegExp properties and methods.
 
+<h3 id="lesson32">JavaScript Errors - Throw and Try to Catch</h3>
 
+The **try** statement lets you test a block of code for errors.
 
+The **catch** statement lets you handle the error.
 
+The **throw** statement lets you create custom errors.
 
+The **finally** statement lets you execute code, after try and catch, regardless of the result.
 
+#### Errors Will Happen!
 
+When executing JavaScript code, different errors can occur.
 
+Errors can be coding errors made by the programmer, errors due to wrong input, and other unforeseeable things:
 
+Example
 
+	<!DOCTYPE html>
+	<html>
+	<body>
 
+	<p id="demo"></p>
 
+	<script>
+		try {
+		    adddlert("Welcome guest!");
+		}
+		catch(err) {
+		    document.getElementById("demo").innerHTML = err.message;
+		}
+	</script>
+
+	</body>
+	</html>
+
+[Test Code](https://jsfiddle.net/7L4ac6qL/)
+
+In the example above we have made a typo in the code (in the try block).
+
+The catch block catches the error, and executes code to handle it.
+
+#### JavaScript try and catch
+
+The **try** statement allows you to define a block of code to be tested for errors while it is being executed.
+
+The catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+The JavaScript statements try and catch come in pairs:
+
+	try {
+	    Block of code to try
+	}
+	catch(err) {
+	    Block of code to handle errors
+	}
+
+#### JavaScript can Raise Errors
+
+When an error occurs, JavaScript will normally stop, and generate an error message.
+
+The technical term for this is: JavaScript will  raise (or throw) an exception.
+
+#### The throw Statement
+
+The throw statement allows you to create a custom error.
+
+Technically you can raise (throw) an exception.
+
+The exception can be a JavaScript String, a Number, a Boolean or an Object:
+
+	throw "Too big";    // throw a text
+	throw 500;          // throw a number
+
+If you use throw together with try and catch, you can control program flow and generate custom error messages.
+
+#### Input Validation Example
+
+This example examines input. If the value is wrong, an exception (err) is thrown.
+
+The exception (err) is caught by the catch statement and a custom error message is displayed:
+
+	<!DOCTYPE html>
+	<html>
+	<body>
+
+	<p>Please input a number between 5 and 10:</p>
+
+	<input id="demo" type="text">
+	<button type="button" onclick="myFunction()">Test Input</button>
+	<p id="message"></p>
+
+	<script>
+	function myFunction() {
+	    var message, x;
+	    message = document.getElementById("message");
+	    message.innerHTML = "";
+	    x = document.getElementById("demo").value;
+	    try { 
+	        if(x == "") throw "empty";
+	        if(isNaN(x)) throw "not a number";
+	        x = Number(x);
+	        if(x < 5) throw "too low";
+	        if(x > 10) throw "too high";
+	    }
+	    catch(err) {
+	        message.innerHTML = "Input is " + err;
+	    }
+	}
+	</script>
+
+	</body>
+	</html>
+
+[Test Code](https://jsfiddle.net/35jxy9bz/1/)
+
+#### HTML Validation
+
+The code above is just an example.
+
+Modern browsers will often use a combination of JavaScript and built-in HTML validation, using predefined validation rules defined in HTML attributes:
+
+	<input id="demo" type="number" min="5" max="10" step="1"
+
+You can read more about forms validation in a later chapter of this tutorial.
+
+### The finally Statement
+
+The finally statement lets you execute code, after try and catch, regardless of the result:
+
+	try {
+	    Block of code to try
+	}
+	catch(err) {
+	    Block of code to handle errors
+	} 
+	finally {
+	    Block of code to be executed regardless of the try / catch result
+	}
+
+Example
+
+	function myFunction() {
+	    var message, x;
+	    message = document.getElementById("message");
+	    message.innerHTML = "";
+	    x = document.getElementById("demo").value;
+	    try { 
+	        if(x == "") throw "is empty";
+	        if(isNaN(x)) throw "is not a number";
+	        x = Number(x);
+	        if(x > 10) throw "is too high";
+	        if(x < 5) throw "is too low";
+	    }
+	    catch(err) {
+	        message.innerHTML = "Error: " + err + ".";
+	    }
+	    finally {
+	        document.getElementById("demo").value = "";
+	    }
+	}
+
+[Test Code](https://jsfiddle.net/n18cchv9/1/)
+
+<h3 id="lesson33">Lesson 33 - JavaScript Debugging</h3>
+
+It is easy to get lost writing JavaScript code without a debugger.
+
+#### JavaScript Debugging
+
+It is difficult to write JavaScript code without a debugger.
+
+Your code might contain syntax errors, or logical errors, that are difficult to diagnose.
+
+Often, when JavaScript code contains errors, nothing will happen. There are no error messages, and you will get no indications where to search for errors.
+
+Normally, errors will happen, every time you try to write some new JavaScript code.
+
+#### JavaScript Debuggers
+
+Searching for errors in programming code is called code debugging.
+
+Debugging is not easy. But fortunately, all modern browsers have a built-in debugger.
+
+Built-in debuggers can be turned on and off, forcing errors to be reported to the user.
+
+With a debugger, you can also set breakpoints (places where code execution can be stopped), and examine variables while the code is executing.
+
+Normally, otherwise follow the steps at the bottom of this page, you activate debugging in your browser with the F12 key, and select "Console" in the debugger menu.
+
+The console.log() Method
+If your browser supports debugging, you can use console.log() to display JavaScript values in the debugger window:
+
+Example
+
+	<!DOCTYPE html>
+	<html>
+	<body>
+
+	<h1>My First Web Page</h1>
+
+	<script>
+		a = 5;
+		b = 6;
+		c = a + b;
+		console.log(c);
+	</script>
+
+	</body>
+	</html>
+
+[Test Code](https://jsfiddle.net/r6sgsLh8/)
+
+#### Setting Breakpoints
+
+In the debugger window, you can set breakpoints in the JavaScript code.
+
+At each breakpoint, JavaScript will stop executing, and let you examine JavaScript values.
+
+After examining values, you can resume the execution of code (typically with a play button).
+
+#### The debugger Keyword
+
+The debugger keyword stops the execution of JavaScript, and calls (if available) the debugging function.
+
+This has the same function as setting a breakpoint in the debugger.
+
+If no debugging is available, the debugger statement has no effect.
+
+With the debugger turned on, this code will stop executing before it executes the third line.
+
+Example
+
+	var x = 15 * 5;
+	debugger;
+	document.getElementbyId("demo").innerHTML = x;
+
+[Test Code](https://jsfiddle.net/7Lpx5cq0/)
+
+#### Major Browsers' Debugging Tools
+
+Normally, you activate debugging in your browser with F12, and select "Console" in the debugger menu.
+
+Otherwise follow these steps:
+
+Chrome
+
+* Open the browser.
+* From the menu, select tools.
+* From tools, choose developer tools.
+* Finally, select Console.
+
+Firefox Firebug
+
+* Open the browser.
+* Go to the web page:
+* http://www.getfirebug.com
+* Follow the instructions how to:
+install Firebug
+
+Internet Explorer
+
+* Open the browser.
+* From the menu, select tools.
+* From tools, choose developer tools.
+* Finally, select Console.
+
+Opera
+
+* Open the browser.
+* Go to the webpage:
+http://dev.opera.com
+* Follow the instructions how to:
+add a Developer Console button to your toolbar.
+
+Safari Firebug
+
+* Open the browser.
+* Go to the webpage:
+http://extensions.apple.com
+*Follow the instructions how to:
+install Firebug Lite.
+
+Safari Develop Menu
+
+* Go to Safari, Preferences, Advanced in the main menu.
+* Check "Enable Show Develop menu in menu bar".
+* When the new option "Develop" appears in the menu:
+Choose "Show Error Console".
+
+#### Did You Know?
+
+> Debugging is the process of testing, finding, and reducing bugs (errors) in computer programs.
+The first known computer bug was a real bug (an insect) stuck in the electronics.
+
+next http://www.w3schools.com/js/js_hoisting.asp
