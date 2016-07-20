@@ -28,6 +28,7 @@
 	<li><a href="#lesson28">Lesson 28 - JS While</a></li>
 	<li><a href="#lesson29">Lesson 29 - JS Break and Continue</a></li>
 	<li><a href="#lesson30">Lesson 30 - JS Type Conversion</a></li>
+	<li><a href="#lesson31">Lesson 31 - JS Regular Expression</a></li>
 
 
 </ul>
@@ -5325,4 +5326,263 @@ In the chapter Number Methods, you will find more methods that can be used to co
 
 	parseFloat()	Parses a string and returns a floating point number
 	parseInt()		Parses a string and returns an integer
+
+#### The Unary + Operator
+
+The unary + operator can be used to convert a variable to a number:
+
+Example
+
+	var y = "5";      // y is a string
+	var x = + y;      // x is a number
+
+[Test Code](https://jsfiddle.net/jb5a3xxo/)
+
+If the variable cannot be converted, it will still become a number, but with the value NaN (Not a number):
+
+Example
+
+	var y = "John";   // y is a string
+	var x = + y;      // x is a number (NaN)
+
+[Test Code](https://jsfiddle.net/pnf5ohq4/)
+
+#### Converting Booleans to Numbers
+
+The global method Number() can also convert booleans to numbers.
+
+	Number(false)     // returns 0
+	Number(true)      // returns 1
+
+#### Converting Dates to Numbers
+
+The global method Number() can be used to convert dates to numbers.
+
+	d = new Date();
+	Number(d)          // returns 1404568027739
+	
+The date method getTime() does the same.
+
+	d = new Date();
+	d.getTime()        // returns 1404568027739
+
+#### Automatic Type Conversion
+
+When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type.
+
+The result is not always what you expect:
+
+	5 + null    // returns 5         because null is converted to 0
+	"5" + null  // returns "5null"   because null is converted to "null"
+	"5" + 2     // returns 52        because 2 is converted to "2"
+	"5" - 2     // returns 3         because "5" is converted to 5
+	"5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
+
+[Test Code](https://jsfiddle.net/kfpxtpsa/)
+
+#### Automatic String Conversion
+
+JavaScript automatically calls the variable's toString() function when you try to "output" an object or a variable:
+
+	document.getElementById("demo").innerHTML = myVar;
+
+	// if myVar = {name:"Fjohn"}  // toString converts to "[object Object]"
+	// if myVar = [1,2,3,4]       // toString converts to "1,2,3,4"
+	// if myVar = new Date()      // toString converts to "Fri Jul 18 2014 09:08:55 GMT+0200"
+
+Numbers and booleans are also converted, but this is not very visible:
+
+	// if myVar = 123             // toString converts to "123"
+	// if myVar = true            // toString converts to "true"
+	// if myVar = false           // toString converts to "false"
+
+#### JavaScript Type Conversion Table
+
+This table shows the result of converting different JavaScript values to Number, String, and Boolean:
+
+![](http://res.cloudinary.com/medio/image/upload/v1468818173/conv-table_wrt2s1.png)
+
+[Continue Table](http://www.w3schools.com/js/js_type_conversion.asp)
+
+<h3 id="lesson31">Lesson 31 - JavaScript Regular Expressions</h3>
+
+A regular expression is a sequence of characters that forms a search pattern.
+
+The search pattern can be used for text search and text replace operations.
+
+#### What Is a Regular Expression?
+
+A regular expression is a sequence of characters that forms a search pattern.
+
+When you search for data in a text, you can use this search pattern to describe what you are searching for.
+
+A regular expression can be a single character, or a more complicated pattern.
+
+Regular expressions can be used to perform all types of text search and text replace operations.
+
+Syntax
+
+	/pattern/modifiers;
+
+Example
+
+	var patt = /w3schools/i;
+
+Example explained:
+
+**/w3schools/i**  is a regular expression.
+
+**w3schools**  is a pattern (to be used in a search).
+
+**i**  is a modifier (modifies the search to be case-insensitive).
+
+#### Using String Methods
+
+In JavaScript, regular expressions are often used with the two string methods: **search()** and **replace()**.
+
+The **search()** method uses an expression to search for a match, and returns the position of the match.
+
+The **replace()** method returns a modified string where the pattern is replaced.
+
+Using String search() With a Regular Expression
+
+Example
+
+Use a regular expression to do a case-insensitive search for "w3schools" in a string:
+
+	var str = "Visit W3Schools";
+	var n = str.search(/w3schools/i);
+
+The result in n will be:
+
+	6
+
+[Test Code](https://jsfiddle.net/hd4hfgLt/)
+
+#### Using String search() With String
+
+The search method will also accept a string as search argument. The string argument will be converted to a regular expression:
+
+Example
+
+Use a string to do a search for "W3schools" in a string:
+
+	var str = "Visit W3Schools!";
+	var n = str.search("W3Schools");
+
+[Test Code](https://jsfiddle.net/9Lxnft8e/)	
+
+#### Use String replace() With a Regular Expression
+
+Example
+
+Use a case insensitive regular expression to replace Microsoft with W3Schools in a string:
+
+	var	str = "Visit Microsoft!";
+	var res = str.replace(/microsoft/i, "W3Schools");
+
+The result in res will be:
+
+	Visit W3Schools!
+
+[Test code](https://jsfiddle.net/2n6f6neo/)	
+
+#### Using String replace() With a String
+
+The replace() method will also accept a string as search argument:
+
+	var str = "Visit Microsoft!";
+	var res = str.replace("Microsoft", "W3Schools");
+
+[Test Code](https://jsfiddle.net/t8r5knzt/)
+
+#### Did You Notice?
+
+Regular expression arguments (instead of string arguments) can be used in the methods above.
+Regular expressions can make your search much more powerful (case insensitive for example).
+
+#### Regular Expression Modifiers
+
+Modifiers can be used to perform case-insensitive more global searches:
+
+	Modifier	Description
+
+	i			Perform case-insensitive matching
+	g			Perform a global match (find all matches rather than stopping after the first match)
+	m			Perform multiline matching
+
+#### Regular Expression Patterns
+
+Brackets are used to find a range of characters:
+
+	Expression		Description
+
+		[abc]		Find any of the characters between the brackets
+		[0-9]		Find any of the digits between the brackets
+		(x|y)		Find any of the alternatives separated with |
+
+#### Metacharacters are characters with a special meaning:
+
+	Metacharacter	Description
+
+		\d			Find a digit
+		\s			Find a whitespace character
+		\b			Find a match at the beginning or at the end of a word
+		\uxxxx		Find the Unicode character specified by the hexadecimal number xxxx
+	
+Quantifiers define quantities:
+
+	Quantifier	Description
+		n+			Matches any string that contains at least one n
+		n*			Matches any string that contains zero or more occurrences of n
+		n?			Matches any string that contains zero or one occurrences of n
+
+#### Using the RegExp Object
+
+In JavaScript, the RegExp object is a regular expression object with predefined properties and methods.
+
+#### Using test()
+
+The test() method is a RegExp expression method.
+
+It searches a string for a pattern, and returns true or false, depending on the result.
+
+The following example searches a string for the character "e":
+
+Example
+
+	var patt = /e/;
+	patt.test("The best things in life are free!");
+
+Since there is an "e" in the string, the output of the code above will be:
+
+	true
+
+[Test Code](https://jsfiddle.net/k04wmmrp/)	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
