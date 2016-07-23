@@ -31,6 +31,11 @@
 	<li><a href="#lesson31">Lesson 31 - JS Regular Expression</a></li>
 	<li><a href="#lesson32">Lesson 32 - JS Throw and Try to Catch</a></li>
 	<li><a href="#lesson33">Lesson 33 - JS Debugging</a></li>
+	<li><a href="#lesson34">Lesson 34 - JS Hoisting</a></li>
+	<li><a href="#lesson35">Lesson 35 - JS Use Strict</a></li>
+	<li><a href="#lesson36">Lesson 36 - JS Style Guide and Coding Conventions</a></li>
+	<li><a href="#lesson37">Lesson 37 - JS Best Practices</a></li>
+	<li><a href="#lesson38">Lesson 38 - JS Common Mistakes</a></li>
 
 
 </ul>
@@ -5887,4 +5892,901 @@ Choose "Show Error Console".
 > Debugging is the process of testing, finding, and reducing bugs (errors) in computer programs.
 The first known computer bug was a real bug (an insect) stuck in the electronics.
 
-next http://www.w3schools.com/js/js_hoisting.asp
+<h3 id="lesson34">Lesson 34 - JavaScript Hoisting</h3>
+
+#### JavaScript Hoisting
+
+Hoisting is JavaScript's default behavior of moving **declarations** to the top.
+
+##### JavaScript Declarations are Hoisted
+
+In JavaScript, a variable can be declared after it has been used.
+
+In other words; a variable can be used before it has been declared.
+
+Example 1 gives the same result as Example 2:
+
+Example 1
+
+	x = 5; // Assign 5 to x
+
+	elem = document.getElementById("demo"); // Find an element 
+	elem.innerHTML = x;                     // Display x in the element
+
+	var x; // Declare x
+
+[Test Code](https://jsfiddle.net/wj0pv4zw/)	
+
+Example 2
+
+	var x; // Declare x 
+	x = 5; // Assign 5 to x
+
+	elem = document.getElementById("demo"); // Find an element 
+	elem.innerHTML = x;                     // Display x in the element
+
+[Test Code](https://jsfiddle.net/4d5j33rc/)
+
+To understand this, you have to understand the term "hoisting".
+
+Hoisting is JavaScript's default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function).
+
+#### JavaScript Initializations are Not Hoisted	
+
+JavaScript only hoists declarations, not initializations.
+
+Example 1 does not give the same result as Example 2:
+
+Example 1
+
+	var x = 5; // Initialize x
+	var y = 7; // Initialize y
+
+	elem = document.getElementById("demo"); // Find an element 
+	elem.innerHTML = x + " " + y;           // Display x and y
+
+Example 2
+
+	var x = 5; // Initialize x
+
+	elem = document.getElementById("demo"); // Find an element 
+	elem.innerHTML = x + " " + y;           // Display x and y
+
+	var y = 7; // Initialize y
+
+[Test Code](https://jsfiddle.net/Lx6omc56/1/)	
+
+Does it make sense that y is undefined in the last example?
+
+This is because only the declaration (var y), not the initialization (=7) is hoisted to the top.
+
+Because of hoisting, y has been declared before it is used, but because initializations are not hoisted, the value of y is undefined.
+
+Example 2 is the same as writing:
+
+Example
+
+	var x = 5; // Initialize x
+	var y;     // Declare y
+
+	elem = document.getElementById("demo"); // Find an element 
+	elem.innerHTML = x + " " + y;           // Display x and y
+
+	y = 7;    // Assign 7 to y
+
+[Test Code](https://jsfiddle.net/efsa6aLa/)
+
+### Declare Your Variables At the Top !
+
+Hoisting is (to many developers) **an unknown or overlooked** behavior of JavaScript.
+
+*If a developer doesn't understand hoisting, programs may contain bugs (errors)*.
+
+To avoid bugs, **always declare all variables at the beginning of every scope**.
+
+Since this is how JavaScript interprets the code, it is always a good rule.
+
+> JavaScript in strict mode does not allow variables to be used if they are not declared.
+Study "use strict" in the next chapter.
+
+<h3 id="lesson35">Lesson 35 - JavaScript Use Strict</h3>
+
+#### JavaScript Use Strict
+
+**"use strict";**  Defines that JavaScript code should be executed in "strict mode".
+
+#### The "use strict" Directive
+
+The "use strict" directive is new in JavaScript 1.8.5 (ECMAScript version 5).
+
+It is not a statement, but a literal expression, ignored by earlier versions of JavaScript.
+
+The purpose of "use strict" is to indicate that the code should be executed in "strict mode".
+
+With strict mode, you can not, for example, use undeclared variables.
+
+> Strict mode is supported in:
+IE from version 10. Firefox from version 4.
+Chrome from version 13. Safari from version 5.1.
+Opera from version 12.
+
+#### Declaring Strict Mode
+
+Strict mode is declared by adding "use strict"; to the beginning of a script or a function.
+
+Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode):
+
+Example
+
+	"use strict";
+	x = 3.14;       // This will cause an error (x is not defined)
+
+[Test Code](https://jsfiddle.net/1Ly74o09/)
+
+Example
+
+	"use strict";
+	myFunction();
+
+	function myFunction() {
+	    y = 3.14;   // This will also cause an error (y is not defined)
+	}
+
+[Test Code](https://jsfiddle.net/ejnj5om5/2/)
+
+Declared inside a function, it has local scope (only the code inside the function is in strict mode):
+
+	x = 3.14;       // This will not cause an error. 
+	myFunction();
+
+	function myFunction() {
+	   "use strict";
+	    y = 3.14;   // This will cause an error (y is not defined)
+	}
+
+[Test Code](https://jsfiddle.net/k6kgasxw/)
+
+#### The "use strict"; Syntax
+
+The syntax, for declaring strict mode, was designed to be compatible with older versions of JavaScript.
+
+Compiling a numeric literal (4 + 5;) or a string literal ("John Doe";) in a JavaScript program has no side effects. It simply compiles to a non existing variable and dies.
+
+So **"use strict";** only matters to new compilers that **"understand"** the meaning of it.
+
+#### Why Strict Mode?
+
+Strict mode makes it easier to write **"secure" JavaScript**.
+
+Strict mode changes previously accepted "bad syntax" into real errors.
+
+As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable.
+
+In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.
+
+In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+
+Not Allowed in Strict Mode
+Using a variable, without declaring it, is not allowed:
+
+	"use strict";
+	x = 3.14;                // This will cause an error (x is not defined)
+
+[Test Code](https://jsfiddle.net/arrv56t1/)
+
+> Objects are variables too.
+
+Using an object, without declaring it, is not allowed:
+
+	"use strict";
+	x = {p1:10, p2:20};      // This will cause an error (x is not defined)
+
+[Test Code](https://jsfiddle.net/Lvo0ypmt/)
+
+Deleting a variable (or object) is not allowed.
+
+	"use strict";
+	var x = 3.14;
+	delete x;                // This will cause an error
+
+[Test Code](https://jsfiddle.net/r76cq77m/)
+
+Deleting a function is not allowed.
+
+	"use strict";
+	function x(p1, p2) {}; 
+	delete x;                // This will cause an error 
+
+[Test Code](https://jsfiddle.net/csa606dv/)
+
+Duplicating a parameter name is not allowed:
+
+	"use strict";
+	function x(p1, p1) {};   // This will cause an error
+
+[Test Code](https://jsfiddle.net/dr4L2wwf/)
+
+Octal numeric literals are not allowed:
+
+	"use strict";
+	var x = 010;             // This will cause an error
+
+Detail Code
+
+ 	<h1>With "use strict":</h1>
+	<h3>Octal numeric literals are not allowed.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	var x = 010;   // This will cause an error
+	</script>	
+
+Escape characters are not allowed:
+
+	"use strict";
+	var x = \010;            // This will cause an error
+
+Detail Code
+
+	<h1>With "use strict":</h1>
+	<h3>Escape characters are not allowed.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	var x = \010;   // This will cause an error
+	</script>
+
+Writing to a read-only property is not allowed:
+
+	"use strict";
+	var obj = {};
+	Object.defineProperty(obj, "x", {value:0, writable:false});
+
+	obj.x = 3.14;            // This will cause an error
+
+Detail Code	
+
+	<h1>With "use strict":</h1>
+	<h3>Writing to a read-only property is not allowed.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	var obj = {};
+	Object.defineProperty(obj, "x", {value:0, writable:false});
+
+	obj.x = 3.14;   // This will cause an error
+	</script>
+
+Writing to a get-only property is not allowed:
+
+	"use strict";
+	var obj = {get x() {return 0} };
+
+	obj.x = 3.14;            // This will cause an error
+
+Detail Code
+
+	<h1>With "use strict":</h1>
+	<h3>Writing to a get-only property is not allowed.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	var obj = {get x() {return 0} };
+
+	obj.x = 3.14;   // This will cause an error
+	</script>
+
+Deleting an undeletable property is not allowed:
+
+	"use strict";
+	delete Object.prototype; // This will cause an error
+
+Detail Code
+
+	<h1>With "use strict":</h1>
+	<h3>Deleting an udeletable property is not allowed.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	delete Object.prototype;   // This will cause an error
+	</script>
+
+The string "eval" cannot be used as a variable:
+
+	"use strict";
+	var eval = 3.14;         // This will cause an error
+
+Detail Code
+
+	<h1>With "use strict":</h1>
+	<h3>The string "eval" cannot be used as a variable.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	var eval = 3.14;   // This will cause an error
+	</script>
+
+The string "arguments" cannot be used as a variable:
+
+	"use strict";
+	var arguments = 3.14;    // This will cause an error
+
+Detail Code
+
+	<h1>With "use strict":</h1>
+	<h3>The string "arguments" cannot be used as a variable.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	var arguments = 3.14;   // This will cause an error
+	</script>
+
+
+The with statement is not allowed:
+
+	"use strict";
+	with (Math){x = cos(2)}; // This will cause an error
+
+Detail Code
+
+	<h1>With "use strict":</h1>
+	<h3>The with statement is not allowed.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	with (Math){x = cos(2)};   // This will cause an error
+	</script>
+
+For security reasons, eval() is not allowed to create variables in the scope from which it was called:
+
+	"use strict";
+	eval ("var x = 2");
+	alert (x);               // This will cause an error
+
+Detail Code
+
+	<h1>With "use strict":</h1>
+	<h3>For security reasons, eval() is not allowed to create variables in the scope from which it was called.</h3>
+
+	<p>Activate debugging in your browser (F12) to see the error report.</p>
+
+	<script>
+	"use strict";
+	eval ("var x = 2");
+	alert (x);          // This will cause an error
+	</script>
+
+In function calls like f(), the this value was the global object. In strict mode, it is now undefined.
+
+Future Proof!
+Future reserved keywords are not allowed in strict mode. These are:
+
+* implements
+* interface
+* let
+* package
+* private
+* protected
+* public
+* static
+* yield
+
+> ("use strict";
+var public = 1500;      // This will cause an error
+
+[Test Code](https://jsfiddle.net/h5450ft4/)
+
+> #### Watch Out!
+The "use strict" directive is only recognized at the beginning of a script or a function.
+
+<h3 id="lesson36">Lesson 36 - JavaScript Style Guide and Coding Conventions</h3>
+
+#### JavaScript Coding Conventions
+
+Coding conventions are **style guidelines for programming**. They typically cover:
+
+* Naming and declaration rules for variables and functions.
+* Rules for the use of white space, indentation, and comments.
+* Programming practices and principles
+
+Coding conventions secure quality:
+
+* Improves code readability
+* Make code maintenance easier
+
+Coding conventions can be documented rules for teams to follow, or just be your individual coding practice.
+
+> This page describes the general JavaScript code conventions used by W3Schools.
+You should also read the next chapter "Best Practices", and learn how to avoid coding pitfalls.
+
+#### Variable Names
+
+At W3schools we use camelCase for identifier names (variables and functions).
+
+All names start with a letter.
+
+At the bottom of this page, you will find a wider discussion about naming rules.
+
+	firstName = "John";
+	lastName = "Doe";
+
+	price = 19.90;
+	tax = 0.20;
+
+	fullPrice = price + (price * tax);
+
+#### Spaces Around Operators
+
+Always put spaces around operators ( = + - * / ), and after commas:
+
+Examples:
+
+	var x = y + z;
+	var values = ["Volvo", "Saab", "Fiat"];
+
+#### Code Indentation
+
+Always use 4 spaces for indentation of code blocks:
+
+##### Functions:
+
+	function toCelsius(fahrenheit) {
+	    return (5 / 9) * (fahrenheit - 32);
+	}
+
+> Do not use tabs (tabulators) for indentation. Different editors interpret tabs differently.
+
+#### Statement Rules
+
+General rules for simple statements:
+
+* Always end a simple statement with a semicolon.
+
+Examples:
+
+	var values = ["Volvo", "Saab", "Fiat"];
+
+	var person = {
+	    firstName: "John",
+	    lastName: "Doe",
+	    age: 50,
+	    eyeColor: "blue"
+	};
+
+
+General rules for complex (compound) statements:
+
+* Put the opening bracket at the end of the first line.
+* Use one space before the opening bracket.
+* Put the closing bracket on a new line, without leading spaces.
+* Do not end a complex statement with a semicolon.
+
+Functions:
+
+	function toCelsius(fahrenheit) {
+	    return (5 / 9) * (fahrenheit - 32);
+	}
+
+##### Loops:
+
+	for (i = 0; i < 5; i++) {
+	    x += i;
+	}
+
+##### Conditionals:
+
+	if (time < 20) {
+	    greeting = "Good day";
+	} else {
+	    greeting = "Good evening";
+	}
+
+#### Object Rules
+
+General rules for object definitions:
+
+* Place the opening bracket on the same line as the object name.
+* Use colon plus one space between each property and its value.
+* Use quotes around string values, not around numeric values.
+* Do not add a comma after the last property-value pair.
+* Place the closing bracket on a new line, without leading spaces.
+* Always end an object definition with a semicolon
+
+Example
+
+	var person = {
+	    firstName: "John",
+	    lastName: "Doe",
+	    age: 50,
+	    eyeColor: "blue"
+	};	
+
+Short objects can be written compressed, on one line, using spaces only between properties, like this:
+
+	var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+#### Line Length < 80
+
+For readability, avoid lines longer than 80 characters.
+
+If a JavaScript statement does not fit on one line, the best place to break it, is after an operator or a comma.
+
+#### Example
+
+	document.getElementById("demo").innerHTML =
+	    "Hello Dolly.";
+
+Detail Code 
+
+	<h1>My Web Page</h1>
+
+	<p>
+	The best place to break a code line is after an operator or a comma.
+	</p>
+
+	<p id="demo"></p>
+
+	<script>
+	document.getElementById("demo").innerHTML =
+	    "Hello Dolly.";
+	</script>
+
+#### Naming Conventions
+
+Always use the same naming convention for all your code. For example:
+
+* Variable and function names written as camelCase
+* Global variables written in UPPERCASE (We don't, but it's quite common)
+* Constants (like PI) written in UPPERCASE
+ 
+##### Should you use hyp-hens, camelCase, or under_scores in variable names?
+
+This is a question programmers often discuss. The answer depends on who you ask:
+
+##### Hyphens in HTML and CSS:
+
+HTML5 attributes can start with data- (data-quantity, data-price).
+
+CSS uses hyphens in property-names (font-size).
+
+> Hyphens can be mistaken as subtraction attempts. Hyphens are not allowed in JavaScript names.
+
+##### Underscores:
+
+Many programmers prefer to use underscores (date_of_birth), especially in SQL databases.
+
+Underscores are often used in PHP documentation.
+
+##### PascalCase:
+
+PascalCase is often preferred by C programmers.
+
+##### camelCase:
+
+camelCase is used by JavaScript itself, by jQuery, and other JavaScript libraries.
+
+Do not start names with a $ sign. It will put you in conflict with many JavaScript library names.
+
+#### Loading JavaScript in HTML
+
+Use simple syntax for loading external scripts (the type attribute is not necessary):
+
+	<script src="myscript.js"></script>
+
+#### Accessing HTML Elements
+
+A consequence of using "untidy" HTML styles, might result in JavaScript errors.
+
+These two JavaScript statements will produce different results:
+
+	var obj = getElementById("Demo")
+
+	var obj = getElementById("demo")
+
+If possible, use the same naming convention (as JavaScript) in HTML.
+
+[Visit the HTML Style Guide.](http://www.w3schools.com/html/html5_syntax.asp)
+
+#### File Extensions
+
+HTML files should have a .html extension (not .htm).
+
+CSS files should have a .css extension.
+
+JavaScript files should have a .js extension.
+
+#### Use Lower Case File Names
+
+Most web servers (Apache, Unix) are case sensitive about file names:
+
+london.jpg cannot be accessed as London.jpg.
+
+Other web servers (Microsoft, IIS) are not case sensitive:
+
+london.jpg can be accessed as London.jpg or london.jpg.
+
+If you use a mix of upper and lower case, you have to be extremely consistent.
+
+If you move from a case insensitive, to a case sensitive server, even small errors can break your web site.
+
+To avoid these problems, always use lower case file names (if possible).
+
+#### Performance
+
+Coding conventions are not used by computers. Most rules have little impact on the execution of programs.
+
+Indentation and extra spaces are not significant in small scripts.
+
+For code in development, readability should be preferred. Larger production scripts should be minified.
+
+<h3 id="lesson37">Lesson 37 - JavaScript Best Practices</h3> 
+
+#### JavaScript Best Practices
+
+Avoid global variables,  avoid new,  avoid  ==,  avoid eval()
+
+#### Avoid Global Variables
+
+Minimize the use of global variables.
+
+This includes all data types, objects, and functions.
+
+Global variables and functions can be overwritten by other scripts.
+
+Use local variables instead, and learn how to use [closures.](http://www.w3schools.com/js/js_function_closures.asp)
+
+#### Always Declare Local Variables
+
+All variables used in a function should be declared as **local variables**.
+
+Local variables must be declared with the **var keyword**, otherwise they will become global variables.
+
+> Strict mode does not allow undeclared variables.
+
+#### Declarations on Top
+
+It is a good coding practice to put all declarations at the top of each script or function.
+
+This will:
+
+Give cleaner code
+Provide a single place to look for local variables
+Make it easier to avoid unwanted (implied) global variables
+Reduce the possibility of unwanted re-declarations
+
+	// Declare at the beginning
+	var firstName, lastName, price, discount, fullPrice;
+
+	// Use later
+	firstName = "John";
+	lastName = "Doe";
+
+	price = 19.90;
+	discount = 0.10;
+
+	fullPrice = price * 100 / discount;
+
+##### This also goes for loop variables:
+
+	// Declare at the beginning
+	var i;
+
+	// Use later
+	for (i = 0; i < 5; i++) {
+
+> By default, JavaScript moves all declarations to the top (JavaScript hoisting)
+
+#### Initialize Variables
+
+It is a good coding practice to initialize variables when you declare them.
+
+This will:
+
+* Give cleaner code
+
+* Provide a single place to initialize variables
+
+* Avoid undefined values
+
+Example
+
+	// Declare and initiate at the beginning
+	var firstName = "",
+	    lastName = "",
+	    price = 0,
+	    discount = 0,
+	    fullPrice = 0,
+	    myArray = [],
+	    myObject = {};
+
+> Initializing variables provides an idea of the intended use (and intended data type).
+
+#### Never Declare Number, String, or Boolean Objects
+
+**Always treat numbers, strings, or booleans as primitive values. Not as objects**.
+
+Declaring these types as objects, slows down execution speed, and produces nasty side effects:
+
+Example
+
+	var x = "John";              // string
+	var y = new String("John");  // object
+	(x === y) // is false because x is a string and y is an object.
+
+[Test Code](https://jsfiddle.net/4s40pdvp/)	
+
+Or even worse:
+
+Example
+
+	var x = new String("John");             
+	var y = new String("John");
+	(x == y) // is false because you cannot compare objects.
+
+[Test Code](https://jsfiddle.net/mupzr980/)
+
+#### Don't Use new Object()
+
+* Use {} instead of new Object()
+* Use "" instead of new String()
+* Use 0 instead of new Number()
+* Use false instead of new Boolean()
+* Use [] instead of new Array()
+* Use /()/ instead of new RegExp()
+* Use function (){} instead of new Function()
+
+Example
+
+	var x1 = {};           // new object
+	var x2 = "";           // new primitive string
+	var x3 = 0;            // new primitive number
+	var x4 = false;        // new primitive boolean
+	var x5 = [];           // new array object
+	var	x6 = /()/;         // new regexp object
+	var x7 = function(){}; // new function object
+
+[Test Code](https://jsfiddle.net/tpzw0Lcf/)
+
+#### Beware of Automatic Type Conversions
+
+Beware that numbers can accidentally be converted to strings or NaN (Not a Number).
+
+JavaScript is loosely typed. A variable can contain different data types, and a variable can change its data type:
+
+Example
+
+	var x = "Hello";     // typeof x is a string
+	x = 5;               // changes typeof x to a number
+
+[Test Code](https://jsfiddle.net/tyyvmo1p/)
+
+When doing mathematical operations, JavaScript can convert numbers to strings:
+
+Example
+
+	var x = 5 + 7;       // x.valueOf() is 12,  typeof x is a number
+	var x = 5 + "7";     // x.valueOf() is 57,  typeof x is a string
+	var x = "5" + 7;     // x.valueOf() is 57,  typeof x is a string
+	var x = 5 - 7;       // x.valueOf() is -2,  typeof x is a number
+	var x = 5 - "7";     // x.valueOf() is -2,  typeof x is a number
+	var x = "5" - 7;     // x.valueOf() is -2,  typeof x is a number
+	var x = 5 - "x";     // x.valueOf() is NaN, typeof x is a number
+
+[Test Code](https://jsfiddle.net/zssbL7uf/)
+
+Subtracting a string from a string, does not generate an error but returns NaN (Not a Number):
+
+Example
+
+	"Hello" - "Dolly"    // returns NaN
+
+[Test Code](https://jsfiddle.net/ab2xqaLa/1/)
+
+#### Use === Comparison
+
+The == comparison operator always converts (to matching types) before comparison.
+
+The === operator forces comparison of values and type:
+
+Example
+
+	0 == "";        // true
+	1 == "1";       // true
+	1 == true;      // true
+
+	0 === "";       // false
+	1 === "1";      // false
+	1 === true;     // false
+
+[Test Code](https://jsfiddle.net/f6xbjk0f/)
+
+#### Use Parameter Defaults
+
+If a function is called with a missing argument, the value of the missing argument is set to undefined.
+
+Undefined values can break your code. It is a good habit to assign default values to arguments.
+
+Example
+
+	function myFunction(x, y) {
+	    if (y === undefined) {
+	        y = 0;
+	    }
+	}
+
+[Test Code](https://jsfiddle.net/tLLnb02d/)
+
+Read more about function parameters and arguments at [Function Parameters](http://www.w3schools.com/js/js_function_parameters.asp)
+
+#### End Your Switches with Defaults
+
+Always end your switch statements with a default. Even if you think there is no need for it.
+
+Example
+
+	switch (new Date().getDay()) {
+	    case 0:
+	        day = "Sunday";
+	        break;
+	    case 1:
+	        day = "Monday";
+	        break;
+	    case 2:
+	        day = "Tuesday";
+	        break;
+	    case 3:
+	        day = "Wednesday";
+	        break;
+	    case 4:
+	        day = "Thursday";
+	        break;
+	    case 5:
+	        day = "Friday";
+	        break;
+	    case 6:
+	        day = "Saturday";
+	        break;
+	    default:
+	        day = "Unknown";
+	}
+
+[Test Code](https://jsfiddle.net/zay6p6aj/)
+
+#### Avoid Using eval()
+
+The eval() function is used to run **text as code**. In almost all cases, it should not be necessary to use it.
+
+Because it allows arbitrary code to be run, it also represents a security problem.
+
+---
+
+<h3 id="lesson38">Lesson 38 - JavaScript Common Mistakes</h3>
+
+This chapter points out some common JavaScript mistakes.
+
+#### Accidentally Using the Assignment Operator
+
+JavaScript programs may generate unexpected results if a programmer accidentally uses an assignment operator (=), instead of a comparison operator (==) in an if statement.
+
+This if statement returns false (as expected) because x is not equal to 10:
+
+	var x = 0;
+	if (x == 10)
+
+[Test Code](https://jsfiddle.net/th2ypyzm/)	

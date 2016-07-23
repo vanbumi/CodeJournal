@@ -43,17 +43,21 @@
 
 #### [Introduction to React Book by Cory Gackenheimer](https://github.com/vanbumi/CodeJournal/blob/master/React/intro-to-react-book.md)
 
-## Awesome Tut!
+## Tutorial References
 
 #### [React.js Introduction For People Who Know Just Enough jQuery To Get By](http://reactfordesigners.com/labs/reactjs-introduction-for-people-who-know-just-enough-jquery-to-get-by/)
 
 Last read: 		Writing the Event Handler
 
-Editor: 	http://jsbin.com/ 
+Editor: 	http://jsbin.com/
+
+#### [Build with React](http://buildwithreact.com/) 
 
 ## Awesome 
 
 [React Templates](http://wix.github.io/react-templates/)
+
+---
 
 ## How to write Default Props
 
@@ -211,3 +215,5 @@ You can run a webserver and see your changes live in your web browser:
 	     );
 
 	</script>
+
+	
