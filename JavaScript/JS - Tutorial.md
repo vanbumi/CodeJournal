@@ -6789,4 +6789,71 @@ This if statement returns false (as expected) because x is not equal to 10:
 	var x = 0;
 	if (x == 10)
 
-[Test Code](https://jsfiddle.net/th2ypyzm/)	
+[Test Code](https://jsfiddle.net/th2ypyzm/)
+
+This if statement returns true (maybe not as expected), because 10 is true:
+
+	var x = 0;
+	if (x = 10)
+
+[Test Code](https://jsfiddle.net/gp0653u9/)
+
+This if statement returns false (maybe not as expected), because 0 is false:
+
+	var x = 0;
+	if (x = 0)
+
+[Test Code](https://jsfiddle.net/qocqnh0a/)			
+
+> An assignment always returns the value of the assignment.
+
+#### Expecting Loose Comparison
+
+In regular comparison, data type does not matter. This if statement returns true:
+
+	var x = 10;
+	var y = "10";
+	if (x == y)
+
+[Test Code](https://jsfiddle.net/qocqnh0a/)
+
+In strict comparison, data type does matter. This if statement returns false:
+
+	var x = 10;
+	var y = "10";
+	if (x === y)
+
+[Test Code](https://jsfiddle.net/uga9189b/)	
+
+It is a common mistake to forget that switch statements use strict comparison:
+
+This case switch will display an alert:
+
+	var x = 10;
+	switch(x) {
+	    case 10: alert("Hello");
+	}
+
+[Test Code](https://jsfiddle.net/5Lgrx0cc/)	
+
+This case switch will not display an alert:
+
+	var x = 10;
+	switch(x) {
+	    case "10": alert("Hello");
+	}
+
+[Test Code](https://jsfiddle.net/btzf88dp/)
+
+#### Confusing Addition & Concatenation
+
+Addition is about adding numbers.
+
+**Concatenation is about adding strings**.
+
+In JavaScript both operations use the same + operator.
+
+Because of this, adding a number as a number will produce a different result from adding a number as a string:
+
+var x = 10 + 5;          // the result in x is 15
+var x = 10 + "5";        // the result in x is "105"
