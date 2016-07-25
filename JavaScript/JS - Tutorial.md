@@ -36,6 +36,8 @@
 	<li><a href="#lesson36">Lesson 36 - JS Style Guide and Coding Conventions</a></li>
 	<li><a href="#lesson37">Lesson 37 - JS Best Practices</a></li>
 	<li><a href="#lesson38">Lesson 38 - JS Common Mistakes</a></li>
+	<li><a href="#lesson39">Lesson 39 - JS Performance</a></li>
+	<li><a href="#lesson39">Lesson 40 - JS JSON</a></li>
 
 
 </ul>
@@ -6855,5 +6857,469 @@ In JavaScript both operations use the same + operator.
 
 Because of this, adding a number as a number will produce a different result from adding a number as a string:
 
-var x = 10 + 5;          // the result in x is 15
-var x = 10 + "5";        // the result in x is "105"
+	var x = 10 + 5;          // the result in x is 15
+	var x = 10 + "5";        // the result in x is "105"
+
+[Test Code](https://jsfiddle.net/w05ff0wk/)
+
+When adding two variables, it can be difficult to anticipate the result:
+
+	var x = 10;
+	var y = 5;
+	var z = x + y;           // the result in z is 15
+
+	var x = 10;
+	var y = "5";
+	var z = x + y;           // the result in z is "105"
+
+[Test Code](https://jsfiddle.net/sqw1f44u/)
+
+#### Misunderstanding Floats
+
+All numbers in JavaScript are stored as 64-bits Floating point numbers (Floats).
+
+All programming languages, including JavaScript, have difficulties with precise floating point values:
+
+	var x = 0.1;
+	var y = 0.2;
+	var z = x + y            // the result in z will not be 0.3
+	if (z == 0.3)            // this if test will fail
+
+[Test Code](https://jsfiddle.net/hh6tfr65/)
+
+To solve the problem above, it helps to multiply and divide:
+
+Example
+
+	var z = (x * 10 + y * 10) / 10;       // z will be 0.3
+
+[Test Code](https://jsfiddle.net/gq3gL6be/)
+
+#### Breaking a JavaScript String
+
+JavaScript will allow you to break a statement into two lines:
+
+Example 1
+
+	var x =
+
+	"Hello World!";
+
+[Test Code](https://jsfiddle.net/bLktuhyu/)
+
+But, breaking a statement in the middle of a string will not work:
+
+Example 2
+
+	var x = "Hello
+	World!";
+
+[Test Code](https://jsfiddle.net/wk7L05ux/)
+
+You must use a "backslash" if you must break a statement in a string:
+
+Example 3
+
+	var x = "Hello \
+	World!";
+
+[Test Code](https://jsfiddle.net/7d0uet5r/)
+
+#### Misplacing Semicolon
+
+Because of a misplaced semicolon, this code block will execute regardless of the value of x:
+
+	if (x == 19);
+	{
+	    // code block  
+	}
+
+[Test Code](https://jsfiddle.net/8dh9sw3q/)	
+
+#### Breaking a Return Statement
+
+It is a default JavaScript behavior to close a statement automatically at the end of a line.
+
+Because of this, these two examples will return the same result:
+
+Example 1
+
+	function myFunction(a) {
+	    var power = 10  
+	    return a * power
+	}
+
+[Test Code](https://jsfiddle.net/9p0ru8rc/)
+
+Example 2
+
+	function myFunction(a) {
+	    var power = 10;
+	    return a * power;
+	}
+
+[Test Code](https://jsfiddle.net/1z4768py/)
+
+JavaScript will also allow you to break a statement into two lines.
+
+Because of this, example 3 will also return the same result:
+
+Example 3
+
+	function myFunction(a) {
+	    var
+	    power = 10;  
+	    return a * power;
+	}	
+
+[Test Code](https://jsfiddle.net/ygqv7nvd/)
+
+But, what will happen if you break the return statement in two lines like this:
+
+Example 4
+
+	function myFunction(a) {
+	    var
+	    power = 10;  
+	    return
+	    a * power;
+	}
+
+[Test Code](https://jsfiddle.net/e20Lzxzm/)	
+
+**The function will return undefined!**
+
+Why? Because JavaScript thinks you meant:
+
+Example 5
+
+	function myFunction(a) {
+	    var
+	    power = 10;  
+	    return;
+	    a * power;
+	}
+
+[Test Code](https://jsfiddle.net/e20Lzxzm/)	
+
+#### Explanation
+
+If a statement is incomplete like:
+
+	var
+
+JavaScript will try to complete the statement by reading the next line:
+
+	power = 10;
+
+But since this statement is complete:
+
+	return
+
+JavaScript will automatically close it like this:
+
+	return;
+
+This happens because closing (ending) statements with semicolon is optional in JavaScript.
+
+JavaScript will close the return statement at the end of the line, because it is a complete statement.
+
+> Never break a return statement.
+
+#### Accessing Arrays with Named Indexes
+
+Many programming languages support arrays with named indexes.
+
+**Arrays with named indexes are called associative arrays (or hashes)**.
+
+JavaScript does not support arrays with named indexes.
+
+In JavaScript, arrays use numbered indexes:  
+
+Example
+
+	var person = [];
+	person[0] = "John";
+	person[1] = "Doe";
+	person[2] = 46;
+	var x = person.length;         // person.length will return 3
+	var y = person[0];             // person[0] will return "John"
+
+[Test Code](https://jsfiddle.net/mqox1Lyc/)
+
+In JavaScript, objects use named indexes.
+
+If you use a named index, when accessing an array, JavaScript will redefine the array to a standard object.
+
+After the automatic redefinition, array methods and properties will produce undefined or incorrect results:
+
+Example:
+
+	var person = [];
+	person["firstName"] = "John";
+	person["lastName"] = "Doe";
+	person["age"] = 46;
+	var x = person.length;         // person.length will return 0
+	var y = person[0];             // person[0] will return undefined
+
+[Test Code](https://jsfiddle.net/h1315j1c/)
+
+#### Ending an Array Definition with a Comma
+
+Incorrect:
+
+	points = [40, 100, 1, 5, 25, 10,];
+
+Some JSON and JavaScript engines will fail, or behave unexpectedly.
+
+Correct:
+
+	points = [40, 100, 1, 5, 25, 10];
+
+#### Ending an Object Definition with a Comma
+
+Incorrect:
+
+	person = {firstName:"John", lastName:"Doe", age:46,}
+
+Some JSON and JavaScript engines will fail, or behave unexpectedly.
+
+Correct:
+
+	person = {firstName:"John", lastName:"Doe", age:46}
+	
+#### Undefined is Not Null
+
+With JavaScript, null is for objects, undefined is for variables, properties, and methods.
+
+To be null, an object has to be defined, otherwise it will be undefined.
+
+If you want to test if an object exists, this will throw an error if the object is undefined:
+
+Incorrect:
+
+	if (myObj !== null && typeof myObj !== "undefined") 
+
+Because of this, you must test typeof() first:
+
+Correct:
+
+	if (typeof myObj !== "undefined" && myObj !== null) 
+
+#### Expecting Block Level Scope
+
+JavaScript does not create a new scope for each code block.
+
+It is true in many programming languages, but not true in JavaScript.
+
+It is a common mistake, among new JavaScript developers, to believe that this code returns undefined:
+
+Example
+
+	for (var i = 0; i < 10; i++) {
+	    // some code
+	}
+	return i;
+
+[Test Code](https://jsfiddle.net/802s1xvk/)	
+
+---
+
+<h3 id="lesson39">Lesson 39 - JavaScript Performance</h3>
+
+How to speed up your JavaScript code.
+
+#### Reduce Activity in Loops
+
+Loops are often used in programming.
+
+Each statement in a loop, including the for statement, is executed for each iteration (*perulangan*) of the loop.
+
+Search for statements or assignments that can be placed outside the loop.
+
+Bad Code:
+
+	for (i = 0; i < arr.length; i++) {
+
+Better Code:
+
+	l = arr.length;
+	for (i = 0; i < l; i++) {
+
+The bad code accesses the length property of an array each time the loop is iterated.
+
+The better code accesses the length property outside the loop, and makes the loop run faster.
+
+#### Reduce DOM Access
+
+Accessing the HTML DOM is very slow, compared to other JavaScript statements.
+
+If you expect to access a DOM element several times, access it once, and use it as a local variable:
+
+Example
+
+	obj = document.getElementById("demo");
+	obj.innerHTML = "Hello";
+
+[Test Code](https://jsfiddle.net/ssebzoj0/)	
+
+#### Reduce DOM Size
+
+Keep the number of elements in the HTML DOM small.
+
+This will always improve page loading, and speed up rendering (page display), especially on smaller devices.
+
+Every attempt to search the DOM (like getElementsByTagName) will benefit from a smaller DOM.
+
+#### Avoid Unnecessary Variables
+
+Don't create new variables if you don't plan to save values.
+
+Often you can replace code like this:
+
+	var fullName = firstName + " " + lastName;
+	document.getElementById("demo").innerHTML = fullName;
+	
+With this:
+
+	document.getElementById("demo").innerHTML = firstName + " " + lastName
+
+#### Delay JavaScript Loading
+
+Putting your scripts at the bottom of the page body, lets the browser load the page first.
+
+While a script is downloading, the browser will not start any other downloads. In addition all parsing and rendering activity might be blocked.
+
+The HTTP specification defines that browsers should not download more than two components in parallel.
+
+An alternative is to use defer="true" in the script tag. The defer attribute specifies that the script should be executed after the page has finished parsing, but it only works for external scripts.
+
+If possible, you can add your script to the page by code, after the page has loaded:
+
+Example
+	
+	<script>
+	window.onload = downScripts;
+
+	function downScripts() {
+	    var element = document.createElement("script");
+	    element.src = "myScript.js";
+	    document.body.appendChild(element);
+	}
+	</script>
+
+#### Avoid Using with
+
+Avoid using the with **keyword**. It has a negative effect on speed. It also clutters up JavaScript scopes.
+
+The with keyword is **not allowed** in strict mode.
+
+---
+
+<h3 id="lesson40">Lesson 40 - JavaScript JSON</h3>
+
+JSON is a format for storing and transporting data.
+
+JSON is often used when data is sent from a server to a web page.
+
+#### What is JSON?
+
+* JSON stands for JavaScript Object Notation
+* JSON is lightweight data interchange format
+* JSON is language independent *
+* JSON is "self-describing" and easy to understand
+
+*The JSON syntax is derived (berasal) from JavaScript object notation syntax, but the JSON format is text only. Code for reading and generating JSON data can be written in any programming language.
+
+#### JSON Example
+
+This JSON syntax defines an employees object: an array of 3 employee records (objects):
+
+JSON Example
+
+	{
+	"employees":[
+	    {"firstName":"John", "lastName":"Doe"}, 
+	    {"firstName":"Anna",	"lastName":"Smith"},
+	    {"firstName":"Peter", "lastName":"Jones"}
+	]
+	}
+
+#### The JSON Format Evaluates to JavaScript Objects
+
+The JSON format is syntactically identical to the code for creating JavaScript objects.
+
+Because of this similarity, a JavaScript program can easily convert JSON data into native JavaScript objects.
+
+#### JSON Syntax Rules
+
+* Data is in name/value pairs
+* Data is separated by commas
+* Curly braces hold objects
+* Square brackets hold arrays
+
+#### JSON Data - A Name and a Value
+
+JSON data is written as **name/value pairs**, just like JavaScript object properties.
+
+A name/value pair consists of a field name (in double quotes), followed by a colon, followed by a value:
+
+	"firstName":"John"
+
+JSON names require double quotes. JavaScript names do not.
+
+#### JSON Objects
+
+JSON objects are **written inside curly braces**.
+
+Just like in JavaScript, objects can contain multiple name/value pairs:
+
+{"firstName":"John", "lastName":"Doe"}
+
+#### JSON Arrays
+
+JSON arrays are **written inside square brackets**.
+
+Just like in JavaScript, **an array can contain objects**:
+
+	"employees":[
+	    {"firstName":"John", "lastName":"Doe"}, 
+	    {"firstName":"Anna", "lastName":"Smith"}, 
+	    {"firstName":"Peter", "lastName":"Jones"}
+	]
+
+In the example above, the object "employees" is an array. It contains three objects.
+
+Each object is a record of a person (with a first name and a last name).
+
+#### Converting a JSON Text to a JavaScript Object
+
+A common use of JSON is to read data from a web server, and display the data in a web page.
+
+For simplicity, this can be demonstrated using a string as input (or read more in our JSON tutorial):
+
+First, create a JavaScript string containing JSON syntax:
+
+	var text = '{ "employees" : [' +
+	'{ "firstName":"John" , "lastName":"Doe" },' +
+	'{ "firstName":"Anna" , "lastName":"Smith" },' +
+	'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+
+Then, use the JavaScript built-in function JSON.parse() to convert the string into a JavaScript object:
+
+	var obj = JSON.parse(text);
+
+Finally, use the new JavaScript object in your page:
+
+Example
+
+	<p id="demo"></p>
+
+	<script>
+	document.getElementById("demo").innerHTML =
+	obj.employees[1].firstName + " " + obj.employees[1].lastName;
+	</script>
+
+You can read more about JSON in our JSON tutorial.
+
+[Test Code](https://jsfiddle.net/0Lbepa7k/)

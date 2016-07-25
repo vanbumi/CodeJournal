@@ -1045,6 +1045,12 @@ body .markdown-body
     <li><a href="#lesson30">Lesson 30 - JS Type Conversion</a></li>
     <li><a href="#lesson31">Lesson 31 - JS Regular Expression</a></li>
     <li><a href="#lesson32">Lesson 32 - JS Throw and Try to Catch</a></li>
+    <li><a href="#lesson33">Lesson 33 - JS Debugging</a></li>
+    <li><a href="#lesson34">Lesson 34 - JS Hoisting</a></li>
+    <li><a href="#lesson35">Lesson 35 - JS Use Strict</a></li>
+    <li><a href="#lesson36">Lesson 36 - JS Style Guide and Coding Conventions</a></li>
+    <li><a href="#lesson37">Lesson 37 - JS Best Practices</a></li>
+    <li><a href="#lesson38">Lesson 38 - JS Common Mistakes</a></li>
 
 </ul>
 
@@ -5173,4 +5179,943 @@ patt.test("The best things in life are free!");
 catch(err) {
     Block of code to handle errors
 }
-</code></pre></article></body></html>
+</code></pre>
+<h4 id="javascript-can-raise-errors"><a name="user-content-javascript-can-raise-errors" href="#javascript-can-raise-errors" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript can Raise Errors</h4>
+<p>When an error occurs, JavaScript will normally stop, and generate an error message.</p>
+<p>The technical term for this is: JavaScript will  raise (or throw) an exception.</p>
+<h4 id="the-throw-statement"><a name="user-content-the-throw-statement" href="#the-throw-statement" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The throw Statement</h4>
+<p>The throw statement allows you to create a custom error.</p>
+<p>Technically you can raise (throw) an exception.</p>
+<p>The exception can be a JavaScript String, a Number, a Boolean or an Object:</p>
+<pre><code>throw "Too big";    // throw a text
+throw 500;          // throw a number
+</code></pre>
+<p>If you use throw together with try and catch, you can control program flow and generate custom error messages.</p>
+<h4 id="input-validation-example"><a name="user-content-input-validation-example" href="#input-validation-example" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Input Validation Example</h4>
+<p>This example examines input. If the value is wrong, an exception (err) is thrown.</p>
+<p>The exception (err) is caught by the catch statement and a custom error message is displayed:</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;p&gt;Please input a number between 5 and 10:&lt;/p&gt;
+
+&lt;input id="demo" type="text"&gt;
+&lt;button type="button" onclick="myFunction()"&gt;Test Input&lt;/button&gt;
+&lt;p id="message"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+function myFunction() {
+    var message, x;
+    message = document.getElementById("message");
+    message.innerHTML = "";
+    x = document.getElementById("demo").value;
+    try { 
+        if(x == "") throw "empty";
+        if(isNaN(x)) throw "not a number";
+        x = Number(x);
+        if(x &lt; 5) throw "too low";
+        if(x &gt; 10) throw "too high";
+    }
+    catch(err) {
+        message.innerHTML = "Input is " + err;
+    }
+}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><a href="https://jsfiddle.net/35jxy9bz/1/">Test Code</a></p>
+<h4 id="html-validation"><a name="user-content-html-validation" href="#html-validation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>HTML Validation</h4>
+<p>The code above is just an example.</p>
+<p>Modern browsers will often use a combination of JavaScript and built-in HTML validation, using predefined validation rules defined in HTML attributes:</p>
+<pre><code>&lt;input id="demo" type="number" min="5" max="10" step="1"
+</code></pre>
+<p>You can read more about forms validation in a later chapter of this tutorial.</p>
+<h3 id="the-finally-statement"><a name="user-content-the-finally-statement" href="#the-finally-statement" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The finally Statement</h3>
+<p>The finally statement lets you execute code, after try and catch, regardless of the result:</p>
+<pre><code>try {
+    Block of code to try
+}
+catch(err) {
+    Block of code to handle errors
+} 
+finally {
+    Block of code to be executed regardless of the try / catch result
+}
+</code></pre>
+<p>Example</p>
+<pre><code>function myFunction() {
+    var message, x;
+    message = document.getElementById("message");
+    message.innerHTML = "";
+    x = document.getElementById("demo").value;
+    try { 
+        if(x == "") throw "is empty";
+        if(isNaN(x)) throw "is not a number";
+        x = Number(x);
+        if(x &gt; 10) throw "is too high";
+        if(x &lt; 5) throw "is too low";
+    }
+    catch(err) {
+        message.innerHTML = "Error: " + err + ".";
+    }
+    finally {
+        document.getElementById("demo").value = "";
+    }
+}
+</code></pre>
+<p><a href="https://jsfiddle.net/n18cchv9/1/">Test Code</a></p>
+<h3 id="lesson33">Lesson 33 - JavaScript Debugging</h3>
+
+<p>It is easy to get lost writing JavaScript code without a debugger.</p>
+<h4 id="javascript-debugging"><a name="user-content-javascript-debugging" href="#javascript-debugging" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Debugging</h4>
+<p>It is difficult to write JavaScript code without a debugger.</p>
+<p>Your code might contain syntax errors, or logical errors, that are difficult to diagnose.</p>
+<p>Often, when JavaScript code contains errors, nothing will happen. There are no error messages, and you will get no indications where to search for errors.</p>
+<p>Normally, errors will happen, every time you try to write some new JavaScript code.</p>
+<h4 id="javascript-debuggers"><a name="user-content-javascript-debuggers" href="#javascript-debuggers" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Debuggers</h4>
+<p>Searching for errors in programming code is called code debugging.</p>
+<p>Debugging is not easy. But fortunately, all modern browsers have a built-in debugger.</p>
+<p>Built-in debuggers can be turned on and off, forcing errors to be reported to the user.</p>
+<p>With a debugger, you can also set breakpoints (places where code execution can be stopped), and examine variables while the code is executing.</p>
+<p>Normally, otherwise follow the steps at the bottom of this page, you activate debugging in your browser with the F12 key, and select &ldquo;Console&rdquo; in the debugger menu.</p>
+<p>The console.log() Method<br />
+If your browser supports debugging, you can use console.log() to display JavaScript values in the debugger window:</p>
+<p>Example</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;h1&gt;My First Web Page&lt;/h1&gt;
+
+&lt;script&gt;
+    a = 5;
+    b = 6;
+    c = a + b;
+    console.log(c);
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><a href="https://jsfiddle.net/r6sgsLh8/">Test Code</a></p>
+<h4 id="setting-breakpoints"><a name="user-content-setting-breakpoints" href="#setting-breakpoints" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Setting Breakpoints</h4>
+<p>In the debugger window, you can set breakpoints in the JavaScript code.</p>
+<p>At each breakpoint, JavaScript will stop executing, and let you examine JavaScript values.</p>
+<p>After examining values, you can resume the execution of code (typically with a play button).</p>
+<h4 id="the-debugger-keyword"><a name="user-content-the-debugger-keyword" href="#the-debugger-keyword" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The debugger Keyword</h4>
+<p>The debugger keyword stops the execution of JavaScript, and calls (if available) the debugging function.</p>
+<p>This has the same function as setting a breakpoint in the debugger.</p>
+<p>If no debugging is available, the debugger statement has no effect.</p>
+<p>With the debugger turned on, this code will stop executing before it executes the third line.</p>
+<p>Example</p>
+<pre><code>var x = 15 * 5;
+debugger;
+document.getElementbyId("demo").innerHTML = x;
+</code></pre>
+<p><a href="https://jsfiddle.net/7Lpx5cq0/">Test Code</a></p>
+<h4 id="major-browsers-debugging-tools"><a name="user-content-major-browsers-debugging-tools" href="#major-browsers-debugging-tools" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Major Browsers&rsquo; Debugging Tools</h4>
+<p>Normally, you activate debugging in your browser with F12, and select &ldquo;Console&rdquo; in the debugger menu.</p>
+<p>Otherwise follow these steps:</p>
+<p>Chrome</p>
+<ul>
+<li>Open the browser.</li>
+<li>From the menu, select tools.</li>
+<li>From tools, choose developer tools.</li>
+<li>Finally, select Console.</li>
+</ul>
+<p>Firefox Firebug</p>
+<ul>
+<li>Open the browser.</li>
+<li>Go to the web page:</li>
+<li><a href="http://www.getfirebug.com">http://www.getfirebug.com</a></li>
+<li>Follow the instructions how to:<br />
+install Firebug</li>
+</ul>
+<p>Internet Explorer</p>
+<ul>
+<li>Open the browser.</li>
+<li>From the menu, select tools.</li>
+<li>From tools, choose developer tools.</li>
+<li>Finally, select Console.</li>
+</ul>
+<p>Opera</p>
+<ul>
+<li>Open the browser.</li>
+<li>Go to the webpage:<br />
+<a href="http://dev.opera.com">http://dev.opera.com</a></li>
+<li>Follow the instructions how to:<br />
+add a Developer Console button to your toolbar.</li>
+</ul>
+<p>Safari Firebug</p>
+<ul>
+<li>Open the browser.</li>
+<li>Go to the webpage:<br />
+<a href="http://extensions.apple.com">http://extensions.apple.com</a><br />
+*Follow the instructions how to:<br />
+install Firebug Lite.</li>
+</ul>
+<p>Safari Develop Menu</p>
+<ul>
+<li>Go to Safari, Preferences, Advanced in the main menu.</li>
+<li>Check &ldquo;Enable Show Develop menu in menu bar&rdquo;.</li>
+<li>When the new option &ldquo;Develop&rdquo; appears in the menu:<br />
+Choose &ldquo;Show Error Console&rdquo;.</li>
+</ul>
+<h4 id="did-you-know"><a name="user-content-did-you-know" href="#did-you-know" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Did You Know?</h4>
+<blockquote>
+<p>Debugging is the process of testing, finding, and reducing bugs (errors) in computer programs.<br />
+The first known computer bug was a real bug (an insect) stuck in the electronics.</p>
+</blockquote>
+<h3 id="lesson34">Lesson 34 - JavaScript Hoisting</h3>
+
+<h4 id="javascript-hoisting"><a name="user-content-javascript-hoisting" href="#javascript-hoisting" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Hoisting</h4>
+<p>Hoisting is JavaScript&rsquo;s default behavior of moving <strong>declarations</strong> to the top.</p>
+<h5 id="javascript-declarations-are-hoisted"><a name="user-content-javascript-declarations-are-hoisted" href="#javascript-declarations-are-hoisted" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Declarations are Hoisted</h5>
+<p>In JavaScript, a variable can be declared after it has been used.</p>
+<p>In other words; a variable can be used before it has been declared.</p>
+<p>Example 1 gives the same result as Example 2:</p>
+<p>Example 1</p>
+<pre><code>x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x;                     // Display x in the element
+
+var x; // Declare x
+</code></pre>
+<p><a href="https://jsfiddle.net/wj0pv4zw/">Test Code</a> </p>
+<p>Example 2</p>
+<pre><code>var x; // Declare x 
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x;                     // Display x in the element
+</code></pre>
+<p><a href="https://jsfiddle.net/4d5j33rc/">Test Code</a></p>
+<p>To understand this, you have to understand the term &ldquo;hoisting&rdquo;.</p>
+<p>Hoisting is JavaScript&rsquo;s default behavior of moving all declarations to the top of the current scope (to the top of the current script or the current function).</p>
+<h4 id="javascript-initializations-are-not-hoisted"><a name="user-content-javascript-initializations-are-not-hoisted" href="#javascript-initializations-are-not-hoisted" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Initializations are Not Hoisted</h4>
+<p>JavaScript only hoists declarations, not initializations.</p>
+<p>Example 1 does not give the same result as Example 2:</p>
+<p>Example 1</p>
+<pre><code>var x = 5; // Initialize x
+var y = 7; // Initialize y
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x + " " + y;           // Display x and y
+</code></pre>
+<p>Example 2</p>
+<pre><code>var x = 5; // Initialize x
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x + " " + y;           // Display x and y
+
+var y = 7; // Initialize y
+</code></pre>
+<p><a href="https://jsfiddle.net/Lx6omc56/1/">Test Code</a>   </p>
+<p>Does it make sense that y is undefined in the last example?</p>
+<p>This is because only the declaration (var y), not the initialization (=7) is hoisted to the top.</p>
+<p>Because of hoisting, y has been declared before it is used, but because initializations are not hoisted, the value of y is undefined.</p>
+<p>Example 2 is the same as writing:</p>
+<p>Example</p>
+<pre><code>var x = 5; // Initialize x
+var y;     // Declare y
+
+elem = document.getElementById("demo"); // Find an element 
+elem.innerHTML = x + " " + y;           // Display x and y
+
+y = 7;    // Assign 7 to y
+</code></pre>
+<p><a href="https://jsfiddle.net/efsa6aLa/">Test Code</a></p>
+<h3 id="declare-your-variables-at-the-top"><a name="user-content-declare-your-variables-at-the-top" href="#declare-your-variables-at-the-top" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Declare Your Variables At the Top !</h3>
+<p>Hoisting is (to many developers) <strong>an unknown or overlooked</strong> behavior of JavaScript.</p>
+<p><em>If a developer doesn&rsquo;t understand hoisting, programs may contain bugs (errors)</em>.</p>
+<p>To avoid bugs, <strong>always declare all variables at the beginning of every scope</strong>.</p>
+<p>Since this is how JavaScript interprets the code, it is always a good rule.</p>
+<blockquote>
+<p>JavaScript in strict mode does not allow variables to be used if they are not declared.<br />
+Study &ldquo;use strict&rdquo; in the next chapter.</p>
+</blockquote>
+<h3 id="lesson35">Lesson 35 - JavaScript Use Strict</h3>
+
+<h4 id="javascript-use-strict"><a name="user-content-javascript-use-strict" href="#javascript-use-strict" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Use Strict</h4>
+<p><strong>&ldquo;use strict&rdquo;;</strong>  Defines that JavaScript code should be executed in &ldquo;strict mode&rdquo;.</p>
+<h4 id="the-use-strict-directive"><a name="user-content-the-use-strict-directive" href="#the-use-strict-directive" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The &ldquo;use strict&rdquo; Directive</h4>
+<p>The &ldquo;use strict&rdquo; directive is new in JavaScript 1.8.5 (ECMAScript version 5).</p>
+<p>It is not a statement, but a literal expression, ignored by earlier versions of JavaScript.</p>
+<p>The purpose of &ldquo;use strict&rdquo; is to indicate that the code should be executed in &ldquo;strict mode&rdquo;.</p>
+<p>With strict mode, you can not, for example, use undeclared variables.</p>
+<blockquote>
+<p>Strict mode is supported in:<br />
+IE from version 10. Firefox from version 4.<br />
+Chrome from version 13. Safari from version 5.1.<br />
+Opera from version 12.</p>
+</blockquote>
+<h4 id="declaring-strict-mode"><a name="user-content-declaring-strict-mode" href="#declaring-strict-mode" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Declaring Strict Mode</h4>
+<p>Strict mode is declared by adding &ldquo;use strict&rdquo;; to the beginning of a script or a function.</p>
+<p>Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode):</p>
+<p>Example</p>
+<pre><code>"use strict";
+x = 3.14;       // This will cause an error (x is not defined)
+</code></pre>
+<p><a href="https://jsfiddle.net/1Ly74o09/">Test Code</a></p>
+<p>Example</p>
+<pre><code>"use strict";
+myFunction();
+
+function myFunction() {
+    y = 3.14;   // This will also cause an error (y is not defined)
+}
+</code></pre>
+<p><a href="https://jsfiddle.net/ejnj5om5/2/">Test Code</a></p>
+<p>Declared inside a function, it has local scope (only the code inside the function is in strict mode):</p>
+<pre><code>x = 3.14;       // This will not cause an error. 
+myFunction();
+
+function myFunction() {
+   "use strict";
+    y = 3.14;   // This will cause an error (y is not defined)
+}
+</code></pre>
+<p><a href="https://jsfiddle.net/k6kgasxw/">Test Code</a></p>
+<h4 id="the-use-strict-syntax"><a name="user-content-the-use-strict-syntax" href="#the-use-strict-syntax" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>The &ldquo;use strict&rdquo;; Syntax</h4>
+<p>The syntax, for declaring strict mode, was designed to be compatible with older versions of JavaScript.</p>
+<p>Compiling a numeric literal (4 + 5;) or a string literal (&ldquo;John Doe&rdquo;;) in a JavaScript program has no side effects. It simply compiles to a non existing variable and dies.</p>
+<p>So <strong>&ldquo;use strict&rdquo;;</strong> only matters to new compilers that <strong>&ldquo;understand&rdquo;</strong> the meaning of it.</p>
+<h4 id="why-strict-mode"><a name="user-content-why-strict-mode" href="#why-strict-mode" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Why Strict Mode?</h4>
+<p>Strict mode makes it easier to write <strong>&ldquo;secure&rdquo; JavaScript</strong>.</p>
+<p>Strict mode changes previously accepted &ldquo;bad syntax&rdquo; into real errors.</p>
+<p>As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable.</p>
+<p>In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties.</p>
+<p>In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.</p>
+<p>Not Allowed in Strict Mode<br />
+Using a variable, without declaring it, is not allowed:</p>
+<pre><code>"use strict";
+x = 3.14;                // This will cause an error (x is not defined)
+</code></pre>
+<p><a href="https://jsfiddle.net/arrv56t1/">Test Code</a></p>
+<blockquote>
+<p>Objects are variables too.</p>
+</blockquote>
+<p>Using an object, without declaring it, is not allowed:</p>
+<pre><code>"use strict";
+x = {p1:10, p2:20};      // This will cause an error (x is not defined)
+</code></pre>
+<p><a href="https://jsfiddle.net/Lvo0ypmt/">Test Code</a></p>
+<p>Deleting a variable (or object) is not allowed.</p>
+<pre><code>"use strict";
+var x = 3.14;
+delete x;                // This will cause an error
+</code></pre>
+<p><a href="https://jsfiddle.net/r76cq77m/">Test Code</a></p>
+<p>Deleting a function is not allowed.</p>
+<pre><code>"use strict";
+function x(p1, p2) {}; 
+delete x;                // This will cause an error
+</code></pre>
+<p><a href="https://jsfiddle.net/csa606dv/">Test Code</a></p>
+<p>Duplicating a parameter name is not allowed:</p>
+<pre><code>"use strict";
+function x(p1, p1) {};   // This will cause an error
+</code></pre>
+<p><a href="https://jsfiddle.net/dr4L2wwf/">Test Code</a></p>
+<p>Octal numeric literals are not allowed:</p>
+<pre><code>"use strict";
+var x = 010;             // This will cause an error
+</code></pre>
+<p>Detail Code</p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;Octal numeric literals are not allowed.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+var x = 010;   // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>Escape characters are not allowed:</p>
+<pre><code>"use strict";
+var x = \010;            // This will cause an error
+</code></pre>
+<p>Detail Code</p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;Escape characters are not allowed.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+var x = \010;   // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>Writing to a read-only property is not allowed:</p>
+<pre><code>"use strict";
+var obj = {};
+Object.defineProperty(obj, "x", {value:0, writable:false});
+
+obj.x = 3.14;            // This will cause an error
+</code></pre>
+<p>Detail Code </p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;Writing to a read-only property is not allowed.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+var obj = {};
+Object.defineProperty(obj, "x", {value:0, writable:false});
+
+obj.x = 3.14;   // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>Writing to a get-only property is not allowed:</p>
+<pre><code>"use strict";
+var obj = {get x() {return 0} };
+
+obj.x = 3.14;            // This will cause an error
+</code></pre>
+<p>Detail Code</p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;Writing to a get-only property is not allowed.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+var obj = {get x() {return 0} };
+
+obj.x = 3.14;   // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>Deleting an undeletable property is not allowed:</p>
+<pre><code>"use strict";
+delete Object.prototype; // This will cause an error
+</code></pre>
+<p>Detail Code</p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;Deleting an udeletable property is not allowed.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+delete Object.prototype;   // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>The string &ldquo;eval&rdquo; cannot be used as a variable:</p>
+<pre><code>"use strict";
+var eval = 3.14;         // This will cause an error
+</code></pre>
+<p>Detail Code</p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;The string "eval" cannot be used as a variable.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+var eval = 3.14;   // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>The string &ldquo;arguments&rdquo; cannot be used as a variable:</p>
+<pre><code>"use strict";
+var arguments = 3.14;    // This will cause an error
+</code></pre>
+<p>Detail Code</p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;The string "arguments" cannot be used as a variable.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+var arguments = 3.14;   // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>The with statement is not allowed:</p>
+<pre><code>"use strict";
+with (Math){x = cos(2)}; // This will cause an error
+</code></pre>
+<p>Detail Code</p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;The with statement is not allowed.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+with (Math){x = cos(2)};   // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>For security reasons, eval() is not allowed to create variables in the scope from which it was called:</p>
+<pre><code>"use strict";
+eval ("var x = 2");
+alert (x);               // This will cause an error
+</code></pre>
+<p>Detail Code</p>
+<pre><code>&lt;h1&gt;With "use strict":&lt;/h1&gt;
+&lt;h3&gt;For security reasons, eval() is not allowed to create variables in the scope from which it was called.&lt;/h3&gt;
+
+&lt;p&gt;Activate debugging in your browser (F12) to see the error report.&lt;/p&gt;
+
+&lt;script&gt;
+"use strict";
+eval ("var x = 2");
+alert (x);          // This will cause an error
+&lt;/script&gt;
+</code></pre>
+<p>In function calls like f(), the this value was the global object. In strict mode, it is now undefined.</p>
+<p>Future Proof!<br />
+Future reserved keywords are not allowed in strict mode. These are:</p>
+<ul>
+<li>implements</li>
+<li>interface</li>
+<li>let</li>
+<li>package</li>
+<li>private</li>
+<li>protected</li>
+<li>public</li>
+<li>static</li>
+<li>yield</li>
+</ul>
+<blockquote>
+<p>(&ldquo;use strict&rdquo;;<br />
+var public = 1500;      // This will cause an error</p>
+</blockquote>
+<p><a href="https://jsfiddle.net/h5450ft4/">Test Code</a></p>
+<blockquote>
+<h4 id="watch-out"><a name="user-content-watch-out" href="#watch-out" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Watch Out!</h4>
+<p>The &ldquo;use strict&rdquo; directive is only recognized at the beginning of a script or a function.</p>
+</blockquote>
+<h3 id="lesson36">Lesson 36 - JavaScript Style Guide and Coding Conventions</h3>
+
+<h4 id="javascript-coding-conventions"><a name="user-content-javascript-coding-conventions" href="#javascript-coding-conventions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Coding Conventions</h4>
+<p>Coding conventions are <strong>style guidelines for programming</strong>. They typically cover:</p>
+<ul>
+<li>Naming and declaration rules for variables and functions.</li>
+<li>Rules for the use of white space, indentation, and comments.</li>
+<li>Programming practices and principles</li>
+</ul>
+<p>Coding conventions secure quality:</p>
+<ul>
+<li>Improves code readability</li>
+<li>Make code maintenance easier</li>
+</ul>
+<p>Coding conventions can be documented rules for teams to follow, or just be your individual coding practice.</p>
+<blockquote>
+<p>This page describes the general JavaScript code conventions used by W3Schools.<br />
+You should also read the next chapter &ldquo;Best Practices&rdquo;, and learn how to avoid coding pitfalls.</p>
+</blockquote>
+<h4 id="variable-names"><a name="user-content-variable-names" href="#variable-names" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Variable Names</h4>
+<p>At W3schools we use camelCase for identifier names (variables and functions).</p>
+<p>All names start with a letter.</p>
+<p>At the bottom of this page, you will find a wider discussion about naming rules.</p>
+<pre><code>firstName = "John";
+lastName = "Doe";
+
+price = 19.90;
+tax = 0.20;
+
+fullPrice = price + (price * tax);
+</code></pre>
+<h4 id="spaces-around-operators"><a name="user-content-spaces-around-operators" href="#spaces-around-operators" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Spaces Around Operators</h4>
+<p>Always put spaces around operators ( = + - * / ), and after commas:</p>
+<p>Examples:</p>
+<pre><code>var x = y + z;
+var values = ["Volvo", "Saab", "Fiat"];
+</code></pre>
+<h4 id="code-indentation"><a name="user-content-code-indentation" href="#code-indentation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Code Indentation</h4>
+<p>Always use 4 spaces for indentation of code blocks:</p>
+<h5 id="functions"><a name="user-content-functions" href="#functions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Functions:</h5>
+<pre><code>function toCelsius(fahrenheit) {
+    return (5 / 9) * (fahrenheit - 32);
+}
+</code></pre>
+<blockquote>
+<p>Do not use tabs (tabulators) for indentation. Different editors interpret tabs differently.</p>
+</blockquote>
+<h4 id="statement-rules"><a name="user-content-statement-rules" href="#statement-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Statement Rules</h4>
+<p>General rules for simple statements:</p>
+<ul>
+<li>Always end a simple statement with a semicolon.</li>
+</ul>
+<p>Examples:</p>
+<pre><code>var values = ["Volvo", "Saab", "Fiat"];
+
+var person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 50,
+    eyeColor: "blue"
+};
+</code></pre>
+<p>General rules for complex (compound) statements:</p>
+<ul>
+<li>Put the opening bracket at the end of the first line.</li>
+<li>Use one space before the opening bracket.</li>
+<li>Put the closing bracket on a new line, without leading spaces.</li>
+<li>Do not end a complex statement with a semicolon.</li>
+</ul>
+<p>Functions:</p>
+<pre><code>function toCelsius(fahrenheit) {
+    return (5 / 9) * (fahrenheit - 32);
+}
+</code></pre>
+<h5 id="loops"><a name="user-content-loops" href="#loops" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Loops:</h5>
+<pre><code>for (i = 0; i &lt; 5; i++) {
+    x += i;
+}
+</code></pre>
+<h5 id="conditionals"><a name="user-content-conditionals" href="#conditionals" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Conditionals:</h5>
+<pre><code>if (time &lt; 20) {
+    greeting = "Good day";
+} else {
+    greeting = "Good evening";
+}
+</code></pre>
+<h4 id="object-rules"><a name="user-content-object-rules" href="#object-rules" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Object Rules</h4>
+<p>General rules for object definitions:</p>
+<ul>
+<li>Place the opening bracket on the same line as the object name.</li>
+<li>Use colon plus one space between each property and its value.</li>
+<li>Use quotes around string values, not around numeric values.</li>
+<li>Do not add a comma after the last property-value pair.</li>
+<li>Place the closing bracket on a new line, without leading spaces.</li>
+<li>Always end an object definition with a semicolon</li>
+</ul>
+<p>Example</p>
+<pre><code>var person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 50,
+    eyeColor: "blue"
+};
+</code></pre>
+<p>Short objects can be written compressed, on one line, using spaces only between properties, like this:</p>
+<pre><code>var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+</code></pre>
+<h4 id="line-length-80"><a name="user-content-line-length-80" href="#line-length-80" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Line Length &lt; 80</h4>
+<p>For readability, avoid lines longer than 80 characters.</p>
+<p>If a JavaScript statement does not fit on one line, the best place to break it, is after an operator or a comma.</p>
+<h4 id="example"><a name="user-content-example" href="#example" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Example</h4>
+<pre><code>document.getElementById("demo").innerHTML =
+    "Hello Dolly.";
+</code></pre>
+<p>Detail Code </p>
+<pre><code>&lt;h1&gt;My Web Page&lt;/h1&gt;
+
+&lt;p&gt;
+The best place to break a code line is after an operator or a comma.
+&lt;/p&gt;
+
+&lt;p id="demo"&gt;&lt;/p&gt;
+
+&lt;script&gt;
+document.getElementById("demo").innerHTML =
+    "Hello Dolly.";
+&lt;/script&gt;
+</code></pre>
+<h4 id="naming-conventions"><a name="user-content-naming-conventions" href="#naming-conventions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Naming Conventions</h4>
+<p>Always use the same naming convention for all your code. For example:</p>
+<ul>
+<li>Variable and function names written as camelCase</li>
+<li>Global variables written in UPPERCASE (We don&rsquo;t, but it&rsquo;s quite common)</li>
+<li>Constants (like PI) written in UPPERCASE</li>
+</ul>
+<h5 id="should-you-use-hyp-hens-camelcase-or-under_scores-in-variable-names"><a name="user-content-should-you-use-hyp-hens-camelcase-or-under_scores-in-variable-names" href="#should-you-use-hyp-hens-camelcase-or-under_scores-in-variable-names" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Should you use hyp-hens, camelCase, or under_scores in variable names?</h5>
+<p>This is a question programmers often discuss. The answer depends on who you ask:</p>
+<h5 id="hyphens-in-html-and-css"><a name="user-content-hyphens-in-html-and-css" href="#hyphens-in-html-and-css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Hyphens in HTML and CSS:</h5>
+<p>HTML5 attributes can start with data- (data-quantity, data-price).</p>
+<p>CSS uses hyphens in property-names (font-size).</p>
+<blockquote>
+<p>Hyphens can be mistaken as subtraction attempts. Hyphens are not allowed in JavaScript names.</p>
+</blockquote>
+<h5 id="underscores"><a name="user-content-underscores" href="#underscores" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Underscores:</h5>
+<p>Many programmers prefer to use underscores (date_of_birth), especially in SQL databases.</p>
+<p>Underscores are often used in PHP documentation.</p>
+<h5 id="pascalcase"><a name="user-content-pascalcase" href="#pascalcase" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>PascalCase:</h5>
+<p>PascalCase is often preferred by C programmers.</p>
+<h5 id="camelcase"><a name="user-content-camelcase" href="#camelcase" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>camelCase:</h5>
+<p>camelCase is used by JavaScript itself, by jQuery, and other JavaScript libraries.</p>
+<p>Do not start names with a $ sign. It will put you in conflict with many JavaScript library names.</p>
+<h4 id="loading-javascript-in-html"><a name="user-content-loading-javascript-in-html" href="#loading-javascript-in-html" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Loading JavaScript in HTML</h4>
+<p>Use simple syntax for loading external scripts (the type attribute is not necessary):</p>
+<pre><code>&lt;script src="myscript.js"&gt;&lt;/script&gt;
+</code></pre>
+<h4 id="accessing-html-elements"><a name="user-content-accessing-html-elements" href="#accessing-html-elements" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Accessing HTML Elements</h4>
+<p>A consequence of using &ldquo;untidy&rdquo; HTML styles, might result in JavaScript errors.</p>
+<p>These two JavaScript statements will produce different results:</p>
+<pre><code>var obj = getElementById("Demo")
+
+var obj = getElementById("demo")
+</code></pre>
+<p>If possible, use the same naming convention (as JavaScript) in HTML.</p>
+<p><a href="http://www.w3schools.com/html/html5_syntax.asp">Visit the HTML Style Guide.</a></p>
+<h4 id="file-extensions"><a name="user-content-file-extensions" href="#file-extensions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>File Extensions</h4>
+<p>HTML files should have a .html extension (not .htm).</p>
+<p>CSS files should have a .css extension.</p>
+<p>JavaScript files should have a .js extension.</p>
+<h4 id="use-lower-case-file-names"><a name="user-content-use-lower-case-file-names" href="#use-lower-case-file-names" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Use Lower Case File Names</h4>
+<p>Most web servers (Apache, Unix) are case sensitive about file names:</p>
+<p>london.jpg cannot be accessed as London.jpg.</p>
+<p>Other web servers (Microsoft, IIS) are not case sensitive:</p>
+<p>london.jpg can be accessed as London.jpg or london.jpg.</p>
+<p>If you use a mix of upper and lower case, you have to be extremely consistent.</p>
+<p>If you move from a case insensitive, to a case sensitive server, even small errors can break your web site.</p>
+<p>To avoid these problems, always use lower case file names (if possible).</p>
+<h4 id="performance"><a name="user-content-performance" href="#performance" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Performance</h4>
+<p>Coding conventions are not used by computers. Most rules have little impact on the execution of programs.</p>
+<p>Indentation and extra spaces are not significant in small scripts.</p>
+<p>For code in development, readability should be preferred. Larger production scripts should be minified.</p>
+<h3 id="lesson37">Lesson 37 - JavaScript Best Practices</h3>
+
+<h4 id="javascript-best-practices"><a name="user-content-javascript-best-practices" href="#javascript-best-practices" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>JavaScript Best Practices</h4>
+<p>Avoid global variables,  avoid new,  avoid  ==,  avoid eval()</p>
+<h4 id="avoid-global-variables"><a name="user-content-avoid-global-variables" href="#avoid-global-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Avoid Global Variables</h4>
+<p>Minimize the use of global variables.</p>
+<p>This includes all data types, objects, and functions.</p>
+<p>Global variables and functions can be overwritten by other scripts.</p>
+<p>Use local variables instead, and learn how to use <a href="http://www.w3schools.com/js/js_function_closures.asp">closures.</a></p>
+<h4 id="always-declare-local-variables"><a name="user-content-always-declare-local-variables" href="#always-declare-local-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Always Declare Local Variables</h4>
+<p>All variables used in a function should be declared as <strong>local variables</strong>.</p>
+<p>Local variables must be declared with the <strong>var keyword</strong>, otherwise they will become global variables.</p>
+<blockquote>
+<p>Strict mode does not allow undeclared variables.</p>
+</blockquote>
+<h4 id="declarations-on-top"><a name="user-content-declarations-on-top" href="#declarations-on-top" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Declarations on Top</h4>
+<p>It is a good coding practice to put all declarations at the top of each script or function.</p>
+<p>This will:</p>
+<p>Give cleaner code<br />
+Provide a single place to look for local variables<br />
+Make it easier to avoid unwanted (implied) global variables<br />
+Reduce the possibility of unwanted re-declarations</p>
+<pre><code>// Declare at the beginning
+var firstName, lastName, price, discount, fullPrice;
+
+// Use later
+firstName = "John";
+lastName = "Doe";
+
+price = 19.90;
+discount = 0.10;
+
+fullPrice = price * 100 / discount;
+</code></pre>
+<h5 id="this-also-goes-for-loop-variables"><a name="user-content-this-also-goes-for-loop-variables" href="#this-also-goes-for-loop-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>This also goes for loop variables:</h5>
+<pre><code>// Declare at the beginning
+var i;
+
+// Use later
+for (i = 0; i &lt; 5; i++) {
+</code></pre>
+<blockquote>
+<p>By default, JavaScript moves all declarations to the top (JavaScript hoisting)</p>
+</blockquote>
+<h4 id="initialize-variables"><a name="user-content-initialize-variables" href="#initialize-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Initialize Variables</h4>
+<p>It is a good coding practice to initialize variables when you declare them.</p>
+<p>This will:</p>
+<ul>
+<li>
+<p>Give cleaner code</p>
+</li>
+<li>
+<p>Provide a single place to initialize variables</p>
+</li>
+<li>
+<p>Avoid undefined values</p>
+</li>
+</ul>
+<p>Example</p>
+<pre><code>// Declare and initiate at the beginning
+var firstName = "",
+    lastName = "",
+    price = 0,
+    discount = 0,
+    fullPrice = 0,
+    myArray = [],
+    myObject = {};
+</code></pre>
+<blockquote>
+<p>Initializing variables provides an idea of the intended use (and intended data type).</p>
+</blockquote>
+<h4 id="never-declare-number-string-or-boolean-objects"><a name="user-content-never-declare-number-string-or-boolean-objects" href="#never-declare-number-string-or-boolean-objects" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Never Declare Number, String, or Boolean Objects</h4>
+<p><strong>Always treat numbers, strings, or booleans as primitive values. Not as objects</strong>.</p>
+<p>Declaring these types as objects, slows down execution speed, and produces nasty side effects:</p>
+<p>Example</p>
+<pre><code>var x = "John";              // string
+var y = new String("John");  // object
+(x === y) // is false because x is a string and y is an object.
+</code></pre>
+<p><a href="https://jsfiddle.net/4s40pdvp/">Test Code</a> </p>
+<p>Or even worse:</p>
+<p>Example</p>
+<pre><code>var x = new String("John");             
+var y = new String("John");
+(x == y) // is false because you cannot compare objects.
+</code></pre>
+<p><a href="https://jsfiddle.net/mupzr980/">Test Code</a></p>
+<h4 id="dont-use-new-object"><a name="user-content-dont-use-new-object" href="#dont-use-new-object" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Don&rsquo;t Use new Object()</h4>
+<ul>
+<li>Use {} instead of new Object()</li>
+<li>Use &ldquo;&rdquo; instead of new String()</li>
+<li>Use 0 instead of new Number()</li>
+<li>Use false instead of new Boolean()</li>
+<li>Use [] instead of new Array()</li>
+<li>Use /()/ instead of new RegExp()</li>
+<li>Use function (){} instead of new Function()</li>
+</ul>
+<p>Example</p>
+<pre><code>var x1 = {};           // new object
+var x2 = "";           // new primitive string
+var x3 = 0;            // new primitive number
+var x4 = false;        // new primitive boolean
+var x5 = [];           // new array object
+var x6 = /()/;         // new regexp object
+var x7 = function(){}; // new function object
+</code></pre>
+<p><a href="https://jsfiddle.net/tpzw0Lcf/">Test Code</a></p>
+<h4 id="beware-of-automatic-type-conversions"><a name="user-content-beware-of-automatic-type-conversions" href="#beware-of-automatic-type-conversions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Beware of Automatic Type Conversions</h4>
+<p>Beware that numbers can accidentally be converted to strings or NaN (Not a Number).</p>
+<p>JavaScript is loosely typed. A variable can contain different data types, and a variable can change its data type:</p>
+<p>Example</p>
+<pre><code>var x = "Hello";     // typeof x is a string
+x = 5;               // changes typeof x to a number
+</code></pre>
+<p><a href="https://jsfiddle.net/tyyvmo1p/">Test Code</a></p>
+<p>When doing mathematical operations, JavaScript can convert numbers to strings:</p>
+<p>Example</p>
+<pre><code>var x = 5 + 7;       // x.valueOf() is 12,  typeof x is a number
+var x = 5 + "7";     // x.valueOf() is 57,  typeof x is a string
+var x = "5" + 7;     // x.valueOf() is 57,  typeof x is a string
+var x = 5 - 7;       // x.valueOf() is -2,  typeof x is a number
+var x = 5 - "7";     // x.valueOf() is -2,  typeof x is a number
+var x = "5" - 7;     // x.valueOf() is -2,  typeof x is a number
+var x = 5 - "x";     // x.valueOf() is NaN, typeof x is a number
+</code></pre>
+<p><a href="https://jsfiddle.net/zssbL7uf/">Test Code</a></p>
+<p>Subtracting a string from a string, does not generate an error but returns NaN (Not a Number):</p>
+<p>Example</p>
+<pre><code>"Hello" - "Dolly"    // returns NaN
+</code></pre>
+<p><a href="https://jsfiddle.net/ab2xqaLa/1/">Test Code</a></p>
+<h4 id="use-comparison"><a name="user-content-use-comparison" href="#use-comparison" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Use === Comparison</h4>
+<p>The == comparison operator always converts (to matching types) before comparison.</p>
+<p>The === operator forces comparison of values and type:</p>
+<p>Example</p>
+<pre><code>0 == "";        // true
+1 == "1";       // true
+1 == true;      // true
+
+0 === "";       // false
+1 === "1";      // false
+1 === true;     // false
+</code></pre>
+<p><a href="https://jsfiddle.net/f6xbjk0f/">Test Code</a></p>
+<h4 id="use-parameter-defaults"><a name="user-content-use-parameter-defaults" href="#use-parameter-defaults" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Use Parameter Defaults</h4>
+<p>If a function is called with a missing argument, the value of the missing argument is set to undefined.</p>
+<p>Undefined values can break your code. It is a good habit to assign default values to arguments.</p>
+<p>Example</p>
+<pre><code>function myFunction(x, y) {
+    if (y === undefined) {
+        y = 0;
+    }
+}
+</code></pre>
+<p><a href="https://jsfiddle.net/tLLnb02d/">Test Code</a></p>
+<p>Read more about function parameters and arguments at <a href="http://www.w3schools.com/js/js_function_parameters.asp">Function Parameters</a></p>
+<h4 id="end-your-switches-with-defaults"><a name="user-content-end-your-switches-with-defaults" href="#end-your-switches-with-defaults" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>End Your Switches with Defaults</h4>
+<p>Always end your switch statements with a default. Even if you think there is no need for it.</p>
+<p>Example</p>
+<pre><code>switch (new Date().getDay()) {
+    case 0:
+        day = "Sunday";
+        break;
+    case 1:
+        day = "Monday";
+        break;
+    case 2:
+        day = "Tuesday";
+        break;
+    case 3:
+        day = "Wednesday";
+        break;
+    case 4:
+        day = "Thursday";
+        break;
+    case 5:
+        day = "Friday";
+        break;
+    case 6:
+        day = "Saturday";
+        break;
+    default:
+        day = "Unknown";
+}
+</code></pre>
+<p><a href="https://jsfiddle.net/zay6p6aj/">Test Code</a></p>
+<h4 id="avoid-using-eval"><a name="user-content-avoid-using-eval" href="#avoid-using-eval" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Avoid Using eval()</h4>
+<p>The eval() function is used to run <strong>text as code</strong>. In almost all cases, it should not be necessary to use it.</p>
+<p>Because it allows arbitrary code to be run, it also represents a security problem.</p>
+<hr />
+<h3 id="lesson38">Lesson 38 - JavaScript Common Mistakes</h3>
+
+<p>This chapter points out some common JavaScript mistakes.</p>
+<h4 id="accidentally-using-the-assignment-operator"><a name="user-content-accidentally-using-the-assignment-operator" href="#accidentally-using-the-assignment-operator" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Accidentally Using the Assignment Operator</h4>
+<p>JavaScript programs may generate unexpected results if a programmer accidentally uses an assignment operator (=), instead of a comparison operator (==) in an if statement.</p>
+<p>This if statement returns false (as expected) because x is not equal to 10:</p>
+<pre><code>var x = 0;
+if (x == 10)
+</code></pre>
+<p><a href="https://jsfiddle.net/th2ypyzm/">Test Code</a></p>
+<p>This if statement returns true (maybe not as expected), because 10 is true:</p>
+<pre><code>var x = 0;
+if (x = 10)
+</code></pre>
+<p><a href="https://jsfiddle.net/gp0653u9/">Test Code</a></p>
+<p>This if statement returns false (maybe not as expected), because 0 is false:</p>
+<pre><code>var x = 0;
+if (x = 0)
+</code></pre>
+<p><a href="https://jsfiddle.net/qocqnh0a/">Test Code</a>         </p>
+<blockquote>
+<p>An assignment always returns the value of the assignment.</p>
+</blockquote>
+<h4 id="expecting-loose-comparison"><a name="user-content-expecting-loose-comparison" href="#expecting-loose-comparison" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Expecting Loose Comparison</h4>
+<p>In regular comparison, data type does not matter. This if statement returns true:</p>
+<pre><code>var x = 10;
+var y = "10";
+if (x == y)
+</code></pre>
+<p><a href="https://jsfiddle.net/qocqnh0a/">Test Code</a></p>
+<p>In strict comparison, data type does matter. This if statement returns false:</p>
+<pre><code>var x = 10;
+var y = "10";
+if (x === y)
+</code></pre>
+<p><a href="https://jsfiddle.net/uga9189b/">Test Code</a> </p>
+<p>It is a common mistake to forget that switch statements use strict comparison:</p>
+<p>This case switch will display an alert:</p>
+<pre><code>var x = 10;
+switch(x) {
+    case 10: alert("Hello");
+}
+</code></pre>
+<p><a href="https://jsfiddle.net/5Lgrx0cc/">Test Code</a> </p>
+<p>This case switch will not display an alert:</p>
+<pre><code>var x = 10;
+switch(x) {
+    case "10": alert("Hello");
+}
+</code></pre>
+<p><a href="https://jsfiddle.net/btzf88dp/">Test Code</a></p>
+<h4 id="confusing-addition-concatenation"><a name="user-content-confusing-addition-concatenation" href="#confusing-addition-concatenation" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Confusing Addition &amp; Concatenation</h4>
+<p>Addition is about adding numbers.</p>
+<p><strong>Concatenation is about adding strings</strong>.</p>
+<p>In JavaScript both operations use the same + operator.</p>
+<p>Because of this, adding a number as a number will produce a different result from adding a number as a string:</p>
+<p>var x = 10 + 5;          // the result in x is 15<br />
+var x = 10 + &ldquo;5&rdquo;;        // the result in x is &ldquo;105&rdquo;</p></article></body></html>
