@@ -12,6 +12,7 @@ Ref: [Learn Web Development with Rails](https://www.railstutorial.org/book)
 			<li><a href="#intro">Introduction</a></li>
 			<li><a href="#upand">Up and Running</a></li>
 			<li><a href="#thefirst">The first application</a></li>
+			<li><a href="#git">Version control with Git</a></li>
 		</ul>
 	</li>
 
@@ -270,8 +271,432 @@ As seen at the end of Listing 1.3, running rails new automatically runs the bund
 
 Notice how many files and directories the rails command creates. This standard directory and file structure (Figure 1.5) is one of the many advantages of Rails: it immediately gets you from zero to a functional (if minimal) application. Moreover, since the structure is common to all Rails apps, you can immediately get your bearings when looking at someone else’s code.
 
-A summary of the default Rails files appears in Table 1.2. We’ll learn about most of these files and directories throughout the rest of this book. In particular, starting in Section 5.2.1 we’ll discuss the app/assets directory, part of the asset pipeline that makes it easy to organize and deploy assets such as cascading style sheets and JavaScript files. 
+A summary of the default Rails files appears in Table 1.2. We’ll learn about most of these files and directories throughout the rest of this book. In particular, starting in Section 5.2.1 we’ll discuss the app/assets directory, part of the asset pipeline that makes it easy to organize and deploy assets such as cascading style sheets and JavaScript files.
 
+![helloApp](http://res.cloudinary.com/medio/image/upload/v1469437872/helloApp_sdgmly.png) 
+
+<center>Figure 1.5: The directory structure for a newly created Rails app.</center>
+
+	File/Directory	Purpose
+
+	app/			Core application (app) code, including models, views, controllers, and 
+					helpers
+
+	app/assets		Applications assets such as cascading style sheets (CSS), JavaScript files, 				and images
+	
+	bin/			Binary executable files
+	
+	config/			Application configuration
+	
+	db/				Database files
+	
+	doc/			Documentation for the application
+	
+	lib/			Library modules
+	
+	lib/assets		Library assets such as cascading style sheets (CSS), JavaScript files, and 					images
+	
+	log/			Application log files
+
+	public/			Data accessible to the public (e.g., via web browsers), such as error pages
+	
+	bin/rails		A program for generating code, opening console sessions, or starting a 						local server
+	
+	test/			Application tests
+	
+	tmp/			Temporary files
+	
+	vendor/			Third-party code such as plugins and gems
+	
+	vendor/assets	Third-party assets such as cascading style sheets (CSS), JavaScript files, 					and images
+	
+	README.md		A brief description of the application
+	
+	Rakefile		Utility tasks available via the rake command
+	
+	Gemfile			Gem requirements for this app
+	
+	Gemfile.lock	A list of gems used to ensure that all copies of the app use the same gem 					versions
+	
+	config.ru		A configuration file for Rack middleware
+	
+	.gitignore		Patterns for files that should be ignored by Git
+
+
+<center>Table 1.2: A summary of the default Rails directory structure.</center>
+
+#### 1.3.1 Bundler
+
+After creating a new Rails application, the next step is to use Bundler to install and include the gems needed by the app. As noted briefly in Section 1.3, Bundler is run automatically (via bundle install) by the rails command, but in this section we’ll make some changes to the default application gems and run Bundler again. This involves opening the Gemfile with a text editor. (With the cloud IDE, this involves clicking the arrow in the file navigator to open the sample app directory and double-clicking the Gemfile icon.) Although the exact version numbers and details may differ slightly, the results should look something like Figure 1.6 and Listing 1.4. (The code in this file is Ruby, but don’t worry at this point about the syntax; Chapter 4 will cover Ruby in more depth.) If the files and directories don’t appear as shown in Figure 1.6, click on the file navigator’s gear icon and select “Refresh File Tree”. (As a general rule, you should refresh the file tree any time files or directories don’t appear as expected.)11.
+
+![gemfile](http://res.cloudinary.com/medio/image/upload/v1469442283/gem_povbfl.png)
+
+<center>Figure 1.6: The default Gemfile open in a text editor.</center>
+
+Listing 1.4: The default Gemfile in the hello_app directory.
+
+	source 'https://rubygems.org'
+
+
+	# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+	gem 'rails', '~> 5.0.0'
+	# Use sqlite3 as the database for Active Record
+	gem 'sqlite3'
+	# Use Puma as the app server
+	gem 'puma', '~> 3.0'
+	# Use SCSS for stylesheets
+	gem 'sass-rails', '~> 5.0'
+	# Use Uglifier as compressor for JavaScript assets
+	gem 'uglifier', '>= 1.3.0'
+	# Use CoffeeScript for .coffee assets and views
+	gem 'coffee-rails', '~> 4.2'
+	# See https://github.com/rails/execjs#readme for more supported runtimes
+	# gem 'therubyracer', platforms: :ruby
+
+	# Use jquery as the JavaScript library
+	gem 'jquery-rails'
+	# Turbolinks makes navigating your web application faster.
+	# Read more: https://github.com/turbolinks/turbolinks
+	gem 'turbolinks', '~> 5.x'
+	# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+	gem 'jbuilder', '~> 2.0'
+	# Use Redis adapter to run Action Cable in production
+	# gem 'redis', '~> 3.0'
+	# Use ActiveModel has_secure_password
+	# gem 'bcrypt', '~> 3.1.7'
+
+	# Use Capistrano for deployment
+	# gem 'capistrano-rails', group: :development
+
+	group :development, :test do
+	  # Call 'byebug' anywhere in the code to stop execution
+	  # and get a debugger console
+	  gem 'byebug', platform: :mri
+	end
+
+	group :development do
+	  # Access an IRB console on exception pages or by using
+	  # <%= console %> anywhere in the code.
+	  gem 'web-console'
+	  gem 'listen', '~> 3.0.5'
+	  # Spring speeds up development by keeping your application running
+	  # in the background. Read more: https://github.com/rails/spring
+	  gem 'spring'
+	  gem 'spring-watcher-listen', '~> 2.0.0'
+	end
+
+	# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+	gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+---
+	
+Many of these lines are commented out with the hash symbol # (Section 4.2.1); they are there to show you some commonly needed gems and to give examples of the Bundler syntax. For now, we won’t need any gems other than the defaults.
+
+Unless you specify a version number to the gem command, Bundler will automatically install the latest requested version of the gem. This is the case, for example, in the code
+
+	gem 'sqlite3'
+
+There are also two common ways to specify a gem version range, which allows us to exert some control over the version used by Rails. The first looks like this:
+
+	gem 'uglifier', '>= 1.3.0'
+
+This installs the latest version of the uglifier gem (which handles file compression for the asset pipeline) as long as it’s greater than or equal to version 1.3.0—even if it’s, say, version 7.2. The second method looks like this:
+
+	gem 'coffee-rails', '~> 4.0.0'
+
+This installs the gem coffee-rails as long as it’s newer than version 4.0.0 and not newer than 4.1. In other words, the >= notation always installs the latest gem, whereas the ~> 4.0.0 notation only installs updated gems where the last digit differs (e.g., from 4.0.0 to 4.0.1), but the digits before that releases (e.g., from 4.0 to 4.1).12 Unfortunately, experience shows that even minor point releases can break the application, so for the Ruby on Rails Tutorial we’ll err on the side of caution by including exact version numbers for all gems. You are welcome to use the most up-to-date version of any gem, including using the ~> construction in the Gemfile (which I generally recommend for more advanced users), but be warned that this may cause the tutorial to act unpredictably.
+
+Converting the Gemfile in Listing 1.4 to use exact gem versions results in the code shown in Listing 1.5. (You can determine the exact version number for each gem by running gem list <gem name> at the command line, but Listing 1.5 saves you the trouble.) Note that we’ve also taken this opportunity to arrange for the sqlite3 gem to be included only in a development or test environment (Section 7.1.1), which prevents potential conflicts with the database used by Heroku (Section 1.5). Important note: For all the Gemfiles in this book, you should use the version numbers listed at gemfiles-4th-ed.railstutorial.org instead of the ones listed below (although they should be identical if you are reading this online).
+
+Listing 1.5: A Gemfile with an explicit version for each Ruby gem.
+
+source 'https://rubygems.org'
+
+	gem 'rails',        '5.0.0'
+	gem 'puma',         '3.4.0'
+	gem 'sass-rails',   '5.0.5'
+	gem 'uglifier',     '3.0.0'
+	gem 'coffee-rails', '4.2.1'
+	gem 'jquery-rails', '4.1.1'
+	gem 'turbolinks',   '5.0.0'
+	gem 'jbuilder',     '2.4.1'
+
+	group :development, :test do
+	  gem 'sqlite3', '1.3.11'
+	  gem 'byebug',  '9.0.0', platform: :mri
+	end
+
+	group :development do
+	  gem 'web-console',           '3.1.1'
+	  gem 'listen',                '3.0.8'
+	  gem 'spring',                '1.7.2'
+	  gem 'spring-watcher-listen', '2.0.0'
+	end
+
+Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+Once you’ve placed the contents of Listing 1.5 into the application’s Gemfile, install the gems using bundle install:13
+
+	$ cd hello_app/
+	$ bundle install
+	Fetching source index for https://rubygems.org/
+	.
+	.
+	.
+
+The bundle install command might take a few moments, but when it’s done our application will be ready to run.
+
+By the way, when you run bundle install it’s possible that you’ll get a message saying you need to run bundle update first. In this case you should… run bundle update first. (Learning not to panic when things don’t go exactly as planned is a key part of technical sophistication, and you’ll be amazed at how often the “error” message contains the exact instructions you need to fix the problem at hand.)
+
+#### 1.3.2 rails server
+
+Thanks to running rails new in Section 1.3 and bundle install in Section 1.3.1, we already have an application we can run—but how? Happily, Rails comes with a command-line program, or script, that runs a local webserver to assist us in developing our application. The exact command depends on the environment you’re using: on a local system, you just run rails server (Listing 1.6), whereas on Cloud9 you need to supply an additional IP binding address and port number to tell the Rails server the address it can use to make the application visible to the outside world (Listing 1.7).14 (Cloud9 uses the special environment variables $IP and $PORT to assign the IP address and port number dynamically. If you want to see the values of these variables, type echo $IP or echo $PORT at the command line.)
+
+If your system complains about the lack of a JavaScript runtime, visit the execjs page at GitHub for a list of possibilities. I particularly recommend installing Node.js.
+
+Listing 1.6: Running the Rails server on a local machine.
+
+	$ cd ~/workspace/hello_app/
+	$ rails server
+	=> Booting Puma
+	=> Rails application starting on http://localhost:3000
+	=> Run `rails server -h` for more startup options
+	=> Ctrl-C to shutdown server
+
+Listing 1.7: Running the Rails server on the cloud IDE.
+
+	$ cd ~/workspace/hello_app/
+	$ rails server -b $IP -p $port
+	=> Booting Puma
+	=> Rails application starting on http://0.0.0.0:8080
+	=> Run `rails server -h` for more startup options
+	=> Ctrl-C to shutdown server
+
+Whichever option you choose, I recommend running the rails server command in a second terminal tab so that you can still issue commands in the first tab, as shown in Figure 1.7 and Figure 1.8. (If you already started a server in your first tab, press Ctrl-C to shut it down.)15 On a local server, paste the URL http://0.0.0.0:3000 into the address bar of your browser; **on the cloud IDE**, go to **Share and click on the Application address to open it** (Figure 1.9). In either case, the result should look something like Figure 1.10.
+
+![share port view](http://res.cloudinary.com/medio/image/upload/v1469450707/share_h6wboy.png)
+
+<center>Figure 1.9: Sharing the local server running on the cloud workspace.</center>
+
+![yay!](http://res.cloudinary.com/medio/image/upload/v1469450842/yay_taja22.png)
+
+<center>Figure 1.10: The default Rails page served by rails server.</center>
+
+#### Exercises
+
+1. According to the default Rails page, what is the version of Ruby on your system? Confirm by running ruby -v at the command line.
+2. What is the version of Rails? Confirm that it matches the version installed in Listing 1.1.
+
+#### 1.3.3 Model-View-Controller (MVC)
+
+Even at this early stage, it’s helpful to get a high-level overview of how Rails applications work, as illustrated in Figure 1.11. You might have noticed that the standard Rails application structure (Figure 1.5) has an application directory called app/ containing three subdirectories: models, views, and controllers. This is a hint that Rails follows the model-view-controller (MVC) architectural pattern, which enforces a separation between the data in the application (such as user information) and the code used to display it, which is a common way of structuring a graphical user interface (GUI).
+
+When interacting with a Rails application, a browser sends a request, which is received by a webserver and passed on to a Rails controller, which is in charge of what to do next. In some cases, the controller will immediately render a view, which is a template that gets converted to HTML and sent back to the browser. More commonly for dynamic sites, the controller interacts with a model, which is a Ruby object that represents an element of the site (such as a user) and is in charge of communicating with the database. After invoking the model, the controller then renders the view and returns the complete web page to the browser as HTML.
+
+<center>![mvc](http://res.cloudinary.com/medio/image/upload/v1469451296/mvc_schematic_rvsjq8.png)</center>
+
+<center>Figure 1.11: A schematic representation of the model-view-controller (MVC) architecture.</center>
+
+If this discussion seems a bit abstract right now, don’t worry; we’ll cover these ideas in more detail later in this book. In particular, Section 1.3.4 shows a first tentative application of MVC, while Section 2.2.2 includes a more detailed discussion of MVC in the context of the toy app. Finally, the full sample app will use all aspects of MVC: we’ll cover controllers and views starting in Section 3.2, models starting in Section 6.1, and we’ll see all three working together in Section 7.1.2.
+
+#### 1.3.4 Hello, world!
+
+As a first application of the MVC framework, we’ll make a wafer-thin change to the first app by adding a controller action to render the string “hello, world!” to replace the default Rails page from Figure 1.10. (We’ll learn more about controller actions starting in Section 2.2.2.)
+
+As implied by their name, controller actions are defined inside controllers. We’ll call our action hello and place it in the Application controller. Indeed, at this point the Application controller is the only controller we have, which you can verify by running
+
+	$ ls app/controllers/*_controller.rb // untuk melihat daftar controller yang ada
+
+to view the current controllers. (We’ll start creating our own controllers in Chapter 2.) Listing 1.8 shows the resulting definition of hello, which uses the render function to return the HTML text “hello, world!”. (Don’t worry about the Ruby syntax right now; it will be covered in more depth in Chapter 4.)
+
+Listing 1.8: Adding a hello action to the Application controller.
+app/controllers/application_controller.rb
+
+	class ApplicationController < ActionController::Base
+	  # Prevent CSRF attacks by raising an exception.
+	  # For APIs, you may want to use :null_session instead.
+	  protect_from_forgery with: :exception
+
+	  def hello
+	    render html: "hello, world!"
+	  end
+	end
+
+Having defined an action that returns the desired string, we need to tell Rails to use that action instead of the default page in Figure 1.10. To do this, we’ll edit the Rails router, which sits in front of the controller in Figure 1.11 and determines where to send requests that come in from the browser. (I’ve omitted the router from Figure 1.11 for simplicity, but we’ll discuss it in more detail starting in Section 2.2.2.) In particular, we want to change the default page, the root route, which determines the page that is served on the root URL. Because it’s the URL for an address like http://www.example.com/ (where nothing comes after the final forward slash), the root URL is often referred to as / (“slash”) for short.
+
+As seen in Listing 1.9, the Rails routes file (config/routes.rb) includes a comment directing us to the Rails Guide on Routing, which includes instructions on how to define the root route. The syntax looks like this:
+
+	root 'controller_name#action_name'
+
+In the present case, the controller name is application and the action name is hello, which results in the code shown in Listing 1.10.
+
+##### Listing 1.9: The default routing file (formatted to fit).
+config/routes.rb
+
+	Rails.application.routes.draw do
+	  # For details on the DSL available within this file,
+	  # see http://guides.rubyonrails.org/routing.html
+	end
+
+##### Listing 1.10: Setting the root route.
+config/routes.rb
+
+	Rails.application.routes.draw do
+	  root 'application#hello'
+	end
+
+With the code from Listing 1.8 and Listing 1.10, the root route returns “hello, world!” as required (Figure 1.12).16 Hello, world!
+
+![](http://res.cloudinary.com/medio/image/upload/v1469452689/hello_zydswr.png)
+
+<center>Figure 1.12: Viewing “hello, world!” in the browser.</center>
+
+##### Exercises
+
+1. Change the content of the hello action in Listing 1.8 to read “hola, mundo!” instead of “hello, world!”.
+2. Show that Rails supports non-ASCII characters by including an inverted exclamation point, as in “¡Hola, mundo!” (Figure 1.13).17 To get a ¡ character on a Mac, you can use Option-1; otherwise, you can always copy-and-paste the character into your editor.
+3. By following the example of the hello action in Listing 1.8, add a second action called goodbye that renders the text “goodbye, world!”. Edit the routes file from Listing 1.10 so that the root route goes to goodbye instead of to hello (Figure 1.14).
+
+<h3 id="git">1.4 Version control with Git</h3>
+
+Now that we have a working “hello, world” application, we’ll take a moment for a step that, while technically optional, would be viewed by experienced software developers as practically essential: placing our application source code under version control. Version control systems allow us to track changes to our project’s code, collaborate more easily, and roll back any inadvertent errors (such as accidentally deleting files). Knowing how to use a version control system is a required skill for every professional-grade software developer.
+
+There are many options for version control, but the Rails community has largely standardized on Git, a distributed version control system originally developed by Linus Torvalds to host the Linux kernel. Git is a large subject, and we’ll only be scratching the surface in this book; for a more thorough introduction, see Learn Enough Git to Be Dangerous.18
+
+Putting your source code under version control with Git is strongly recommended, not only because it’s nearly a universal practice in the Rails world, but also because it will allow you to back up and share your code more easily (Section 1.4.3) and deploy your application right here in the first chapter (Section 1.5).
+
+#### 1.4.1 Installation and setup
+
+The cloud IDE recommended in Section 1.2.1 includes Git by default, so no installation is necessary in this case. Otherwise, Learn Enough Git to Be Dangerous includes instructions for installing Git on your system.
+
+##### First-time system setup
+
+Before using Git, you should perform a couple of one-time setup steps. These are system setups, meaning you only have to do them once per computer:
+
+	$ git config --global user.name "Your Name"
+	$ git config --global user.email your.email@example.com
+
+Note that the name and email address you use in your Git configuration will be available in any repositories you make public.
+
+##### First-time repository setup
+
+Now we come to some steps that are necessary each time you create a new repository (sometimes called a repo for short). The first step is to navigate to the root directory of the first app and initialize a new repository:
+
+	$ git init
+
+Initialized empty Git repository in /home/ubuntu/workspace/hello_app/.git/
+The next step is to add all the project files to the repository using git add -A:
+
+	$ git add -A
+
+This command adds all the files in the current directory apart from those that match the patterns in a special file called **.gitignore**. The rails new command automatically generates a **.gitignore** file appropriate to a Rails project, but you can add additional patterns as well.19
+
+The added files are initially placed in a staging area, which contains pending changes to our project. We can see which files are in the staging area using the **status** command:
+
+	$ git status
+	On branch master
+
+	Initial commit
+
+	Changes to be committed:
+	  (use "git rm --cached <file>..." to unstage)
+
+	  new file:   .gitignore
+	  new file:   Gemfile
+	  new file:   Gemfile.lock
+	  new file:   README.md
+	  new file:   Rakefile
+	  .
+	  .
+	  .
+
+To tell Git we want to keep the changes, we use the commit command:
+
+	$ git commit -m "Initialize repository"
+	[master (root-commit) df0a62f] Initialize repository
+	.
+	.
+	.
+
+The -m flag lets us add a message for the commit; if we omit -m, Git will open the system’s default editor and have us enter the message there. (All the examples in this book will use the -m flag.)
+
+It is important to note that Git commits are local, recorded only on the machine on which the commits occur. We’ll see how to push the changes up to a remote repository (using git push) in Section 1.4.4.
+
+By the way, we can see a list of the commit messages using the log command:
+
+	commit af72946fbebc15903b2770f92fae9081243dd1a1
+	Author: Michael Hartl <michael@michaelhartl.com>
+	Date:   Thu May 12 19:25:07 2016 +0000
+
+	    Initialize repository
+
+Depending on the length of the repository’s log history, you may have to type q to quit. (As explained in Learn Enough Git to Be Dangerous, git log uses the less interface covered in Learn Enough Command Line to Be Dangerous.)
+
+#### 1.4.2 What good does Git do you?
+
+If you’ve never used version control before, it may not be entirely clear at this point what good it does you, so let me give just one example. Suppose you’ve made some accidental changes, such as (D’oh!) deleting the critical app/controllers/ directory.
+
+	$ ls app/controllers/
+	application_controller.rb  concerns/
+	$ rm -rf app/controllers/
+	$ ls app/controllers/
+	ls: app/controllers/: No such file or directory
+
+Here we’re using the Unix ls command to list the contents of the app/controllers/ directory and the rm command to remove it (Table 1.1). As noted in Learn Enough Command Line to Be Dangerous, the -rf flag means “recursive force”, which recursively removes all files, directories, subdirectories, and so on, without asking for explicit confirmation of each deletion.
+
+Let’s check the status to see what changed:
+
+	$ git status
+	On branch master
+	Changed but not updated:
+	  (use "git add/rm <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	      deleted:    app/controllers/application_controller.rb
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+We see here that a file has been deleted, but the changes are only on the “working tree”; they haven’t been committed yet. This means we can still undo the changes using the checkout command with the -f flag to force overwriting the current changes:
+
+	$ git checkout -f
+	$ git status
+	# On branch master
+	nothing to commit (working directory clean)
+	$ ls app/controllers/
+	application_controller.rb  concerns/
+
+The missing files and directories are back. That’s a relief!
+
+#### 1.4.3 Bitbucket
+
+Now that we’ve put our project under version control with Git, it’s time to push our code up to Bitbucket, a site optimized for hosting and sharing Git repositories. (Learn Enough Git to Be Dangerous uses GitHub, but see Box 1.4 to learn the reasons why this tutorial uses Bitbucket instead.) Putting a copy of your Git repository at Bitbucket serves two purposes: it’s a full backup of your code (including the full history of commits), and it makes any future collaboration much easier.
+
+##### Box 1.4. GitHub and Bitbucket
+
+> By far the two most popular sites for hosting Git repositories are GitHub and Bitbucket. The two services share many similarities: both sites allow for Git repository hosting and collaboration, as well as offering convenient ways to browse and search repositories. The important differences (from the perspective of this tutorial) are that GitHub offers unlimited free repositories (with collaboration) for open-source repositories while charging for private repos, whereas Bitbucket allows unlimited free private repos while charging for more than a certain number of collaborators. Which service you use for a particular repo thus depends on your specific needs.
+
+> Learn Enough Git to Be Dangerous (and some previous editions of this tutorial) use GitHub because of its emphasis on supporting open-source code, but growing concerns about security have led me to recommend that all web application repositories be private by default. The issue is that such repositories might contain potentially sensitive information such as cryptographic keys or passwords, which could be used to compromise the security of a site running the code. It is possible, of course, to arrange for this information to be handled securely (by having Git ignore it, for example), but this is error-prone and requires significant expertise.
+
+> As it happens, the sample application created in this tutorial is safe for exposure on the web, but it is dangerous to rely on this fact in general. Thus, to be as secure as possible, we will err on the side of caution and use private repositories by default. Since GitHub charges for private repositories while Bitbucket offers an unlimited number for free, for our present purposes Bitbucket is a better fit than GitHub.
+
+> (By the way, recently a third major Git hosting company has emerged, called GitLab. Originally designed principally as an open-source Git tool you hosted yourself, GitLab now offers a hosted version as well, and in fact allows for unlimited public and private repositories. This makes GitLab an excellent alternative to GitHub or Bitbucket for future projects.)
+
+Getting started with Bitbucket is straightforward, though it may take a little technical sophistication (Box 1.1) to get everything to work just right:
+
+1. Sign up for a Bitbucket account if you don’t already have one.
+2. Copy your public key to your clipboard. As indicated in Listing 1.11, users of the cloud IDE can view their public key using the cat command, which can then be selected and copied. If you’re using your own system and see no output when running the command in Listing 1.11, follow the instructions on how to install a public key on your Bitbucket account.
+3. Add your public key to Bitbucket by clicking on the avatar image in the upper right and selecting “Manage account” and then “SSH keys” (Figure 1.15).
+
+Listing 1.11: Printing the public key using cat.
+
+	$ cat ~/.ssh/id_rsa.pub
+
+<center>![ssh-key](http://res.cloudinary.com/medio/image/upload/v1469459339/ssh_gfudi6.png)</center>
+
+<center>Figure 1.15: Adding the SSH public key.</center>
+
+next https://www.railstutorial.org/book/beginning#code-cat_public_key
 
 
 
