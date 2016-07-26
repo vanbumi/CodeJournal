@@ -696,7 +696,105 @@ Listing 1.11: Printing the public key using cat.
 
 <center>Figure 1.15: Adding the SSH public key.</center>
 
-next https://www.railstutorial.org/book/beginning#code-cat_public_key
+Once you’ve added your public key, click on “Create” to create a new repository, as shown in Figure 1.16. When filling in the information for the project, take care to leave the box next to “This is a private repository.” checked. After clicking “Create repository”, follow the instructions under “Command line > I have an existing project”, which should look something like Listing 1.12. (If it doesn’t look like Listing 1.12, it might be because the public key didn’t get added correctly, in which case I suggest trying that step again.) When pushing up the repository, answer yes if you see the question “Are you sure you want to continue connecting (yes/no)?”
+
+![create](http://res.cloudinary.com/medio/image/upload/v1469492951/createbitbucket_sao6kr.png)
+
+<center>Figure 1.16: Creating the first app repository at Bitbucket.</center>
+
+Listing 1.12: Adding Bitbucket and pushing up the repository.
+
+	$ git remote add origin git@bitbucket.org:<username>/hello_app.git
+	$ git push -u origin --all
+
+The commands in Listing 1.12 first tell Git that you want to add Bitbucket as the origin for your repository, and then push your repository up to the remote origin. (Don’t worry about what the -u flag does; if you’re curious, do a web search for “git set upstream”.) Of course, you should replace <username> with your actual username. For example, the command I ran was
+
+	$ git remote add bucket git@bitbucket.org:vanbumi/hello_app.git
+
+The result is a page at Bitbucket for the hello_app repository, with file browsing, full commit history, and lots of other goodies (Figure 1.17).20
+
+![](http://res.cloudinary.com/medio/image/upload/v1469494258/afterpush_mmfcqg.png)
+
+<center>Figure 1.17: A Bitbucket repository page.</center>
+
+#### 1.4.4 Branch, edit, commit, merge
+
+If you’ve followed the steps in Section 1.4.3, you might notice that Bitbucket automatically rendered the repository’s README file, as shown in Figure 1.17. This file, called README.md, was generated automatically by the command in Listing 1.3. As indicated by the filename extension .md, it is written in Markdown,21 a human-readable markup language designed to be easy to convert to HTML—which is exactly what Bitbucket has done.
+
+This automatic rendering of the README is convenient, but of course it would be better if we tailored the contents of the file to the project at hand. In this section, we’ll customize the README by adding some Rails Tutorial–specific content. In the process, we’ll see a first example of the branch, edit, commit, merge workflow that I recommend using with Git.22
+
+![readme](http://res.cloudinary.com/medio/image/upload/v1469494679/readme_aive97.png)
+
+<center>Figure 1.18: Bitbucket’s rendering of the default Rails README.
+</center>
+
+#### Branch
+
+Git is incredibly good at making branches, which are effectively **copies of a repository** where we can make (possibly experimental) **changes** without modifying the parent files. In most cases, **the parent repository is the master branch**, and we can create a **new topic branch** by using checkout with the -b flag:
+
+	$ git checkout -b modify-README
+	Switched to a new branch 'modify-README'
+	$ git branch
+	  master
+	* modify-README
+
+Here the second command, **git branch**, just lists all the local branches, and the asterisk ***** identifies which branch we’re currently on. Note that **git checkout -b modify-README** both creates a new branch and switches to it, as indicated by the asterisk in front of the **modify-README branch**.
+
+The full value of branching only becomes clear when working on a project with multiple developers,23 but branches are helpful even for a single-developer tutorial such as this one. In particular, because the master branch is insulated from any changes we make to the topic branch, even if we really mess things up we can always abandon the changes by checking out the master branch and deleting the topic branch. We’ll see how to do this at the end of the section.
+
+By the way, for a change as small as this one I wouldn’t normally bother with a new branch (opting instead to work directly on the master branch), but in the present context it’s a prime opportunity to start practicing good habits.
+
+#### Edit
+
+After creating the topic branch, we’ll edit the README to add custom content, as shown in Listing 1.13.
+
+Listing 1.13: The new README file.
+
+	README.md
+	 # Ruby on Rails Tutorial
+
+	## "hello, world!"
+
+	This is the first application for the
+	[*Ruby on Rails Tutorial*](http://www.railstutorial.org/)
+	by [Michael Hartl](http://www.michaelhartl.com/). Hello, world!
+
+#### Commit
+
+With the changes made, we can take a look at the status of our branch:
+
+	$ git status
+	On branch modify-README
+	Changes not staged for commit:
+	  (use "git add <file>..." to update what will be committed)
+	  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	        modified:   README.md
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+At this point, we could use git add -A as in Section 1.4.1.2, but git commit provides the -a flag as a shortcut for the (very common) case of committing all modifications to existing files:
+
+	$ git commit -a -m "Improve the README file"
+	[modify-README 9dc4f64] Improve the README file
+	 1 file changed, 5 insertions(+), 22 deletions(-)
+
+Be careful about using the -a flag improperly; if you have added any new files to the project since the last commit, you still have to tell Git about them using git add -A first.
+
+Note that we write the commit message in the present tense (and, technically speaking, the imperative mood). Git models commits as a series of patches, and in this context it makes sense to describe what each commit does, rather than what it did. Moreover, this usage matches up with the commit messages generated by Git commands themselves. See Committing to Git from Learn Enough Git to Be Dangerous for more information.
+
+next https://www.railstutorial.org/book/beginning#sec-git_merge
+
+
+
+
+
+
+
+
+
+
+
 
 
 
