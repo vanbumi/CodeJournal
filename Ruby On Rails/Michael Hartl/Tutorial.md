@@ -7,7 +7,7 @@ Ref: [Learn Web Development with Rails](https://www.railstutorial.org/book)
 ### Content
 
 <ul>
-	<li><a href="#from-zero">From zero to deploy</a>
+	<li><a href="#from-zero">Chapter 1 - From zero to deploy</a>
 		<ul>
 			<li><a href="#intro">Introduction</a></li>
 			<li><a href="#upand">Up and Running</a></li>
@@ -15,13 +15,14 @@ Ref: [Learn Web Development with Rails](https://www.railstutorial.org/book)
 			<li><a href="#git">Version control with Git</a></li>
 		</ul>
 	</li>
+	<li><a href="#toy">Chapter 2 - A Toy App</a></li>
 
 	<li>...</li>
 </ul>
 
 ## Chapter 1
 
-<h3 id="from-zero">From zero to deploy</h3>
+<h3 id="from-zero">Chapter 2 - From zero to deploy</h3>
 
 Welcome to Ruby on Rails Tutorial: Learn Web Development with Rails. The purpose of this book is to teach you how to develop custom web applications, and our tool of choice is the popular Ruby on Rails web framework. In addition to focusing on general principles of web development (rather than on Rails specifically), the Ruby on Rails Tutorial teaches the broader skill of technical sophistication (Box 1.1),1 which is a principal theme developed by the Learn Enough to Be Dangerous tutorials.2 In particular, the Learn Enough introductory sequence consists of a series of tutorials that are suitable as prerequisites to the Ruby on Rails Tutorial, starting with Learn Enough Command Line to Be Dangerous,3 which (unlike the present tutorial) is aimed at complete beginners.
 
@@ -944,8 +945,227 @@ Error:
 	 ! [remote rejected] master -> master (pre-receive hook declined)
 	error: failed to push some refs to 'https://git.heroku.com/aqueous-journey-14610.git'
 
-this step https://www.railstutorial.org/book/beginning#sec-heroku_step_one
+* might be [solution](https://devcenter.heroku.com/articles/buildpacks#detection-failure)
 
-might be solution : https://devcenter.heroku.com/articles/buildpacks#detection-failure
+* this is the right solution to follow [this](https://devcenter.heroku.com/articles/getting-started-with-rails4)
 
-	
+* this is the heroku url: http://young-river-39047.herokuapp.com/ 	
+
+#### 1.5.3 Heroku deployment, step two
+
+There is no step two! We’re already done. To see your newly deployed application, visit the address that you saw when you ran heroku create (i.e., Listing 1.15). (If you’re working on your local machine instead of the cloud IDE, you can also use heroku open.) The result appears in Figure 1.20. The page is identical to Figure 1.12, but now it’s running in a production environment on the live web.
+
+![hello_app heroku](http://res.cloudinary.com/medio/image/upload/v1469691805/heroku_edaunm.png)
+
+<center>Figure 1.20: The first Rails Tutorial application running on Heroku.</center>
+
+##### Exercises
+
+Solutions to exercises are available for free at railstutorial.org/solutions with any Rails Tutorial purchase. To see other people’s answers and to record your own, join the Learn Enough Society at learnenough.com/society.
+
+1. By making the same change as in Section 1.3.4.1, arrange for your production app to display “hola, mundo!”.
+2. As in Section 1.3.4.1, arrange for the root route to display the result of the goodbye action. When deploying, confirm that you can omit master in the Git push, as in git push heroku.
+
+#### 1.5.4 Heroku commands
+
+There are many Heroku commands, and we’ll barely scratch the surface in this book. Let’s take a minute to show just one of them by renaming the application as follows:
+
+	$ heroku rename rails-tutorial-hello
+
+Don’t use this name yourself; it’s already taken by me! In fact, you probably shouldn’t bother with this step right now; using the default address supplied by Heroku is fine. But if you do want to rename your application, you can arrange for it to be reasonably secure by using a random or obscure subdomain, such as the following:
+
+hwpcbmze.herokuapp.com
+seyjhflo.herokuapp.com
+jhyicevg.herokuapp.com
+
+With a random subdomain like this, someone could visit your site only if you gave them the address. (By the way, as a preview of Ruby’s compact awesomeness, here’s the code I used to generate the random subdomains:
+
+	('a'..'z').to_a.shuffle[0..7].join
+
+Pretty sweet.)
+
+In addition to supporting subdomains, Heroku also supports custom domains. (In fact, the Ruby on Rails Tutorial site lives at Heroku; if you’re reading this book online, you’re looking at a Heroku-hosted site right now!) See the [Heroku documentation](http://devcenter.heroku.com/) for more information about custom domains and other Heroku topics.
+
+##### Exercises
+
+Solutions to exercises are available for free at railstutorial.org/solutions with any Rails Tutorial purchase. To see other people’s answers and to record your own, join the Learn Enough Society at learnenough.com/society.
+
+1. Run **heroku help** to see a list of Heroku commands. What is the command to display logs for an app?
+2. Use the command identified in the previous exercise to inspect the activity on your application. What was the most recent event? (This command is often useful when debugging production apps.)
+
+#### 1.6 Conclusion
+
+We’ve come a long way in this chapter: installation, development environment setup, version control, and deployment. In the next chapter, we’ll build on the foundation from Chapter 1 to make a database-backed toy app, which will give us our first real taste of what Rails can do.
+
+If you’d like to share your progress at this point, feel free to send a tweet or Facebook status update with something like this:
+
+I’m learning Ruby on Rails with the @railstutorial! http://www.railstutorial.org/
+
+I also recommend signing up for the Rails Tutorial email list28, which will ensure that you receive priority updates (and exclusive coupon codes) regarding the Ruby on Rails Tutorial.
+
+#### 1.6.1 What we learned in this chapter
+
+* Ruby on Rails is a web development framework written in the Ruby programming language.
+* Installing Rails, generating an application, and editing the resulting files is easy using a pre-configured cloud environment.
+* Rails comes with a command-line command called rails that can generate new applications (rails new) and run local servers (rails server).
+* We added a controller action and modified the root route to create a “hello, world” application.
+* We protected against data loss while enabling collaboration by placing our application source code under version control with Git and pushing the resulting code to a private repository at Bitbucket.
+* We deployed our application to a production environment using Heroku.
+
+---
+
+## Chapter 2
+
+<h3 id="toy">A toy app</h3>
+
+In this chapter, we’ll develop a toy demo application to show off some of the power of Rails. The purpose is to get a high-level overview of Ruby on Rails programming (and web development in general) by rapidly generating an application using scaffold generators, which create a large amount of functionality automatically. As discussed in Box 1.2, the rest of the book will take the opposite approach, developing a full sample application incrementally and explaining each new concept as it arises, but for a quick overview (and some instant gratification) there is no substitute for scaffolding. The resulting toy app will allow us to interact with it through its URLs, giving us insight into the structure of a Rails application, including a first example of the REST architecture favored by Rails.
+
+As with the forthcoming sample application, the toy app will consist of users and their associated microposts (thus constituting a minimalist Twitter-style app). The functionality will be utterly under-developed, and many of the steps will seem like magic, but worry not: the full sample app will develop a similar application from the ground up starting in Chapter 3, and I will provide plentiful forward-references to later material. In the mean time, have patience and a little faith—the whole point of this tutorial is to take you beyond this superficial (dangkal), scaffold-driven approach to achieve a deeper understanding of Rails.
+
+#### 2.1 Planning the application
+
+In this section, we’ll outline our plans for the toy application. As in Section 1.3, we’ll start by generating the application skeleton using the rails new command with a specific Rails version number:
+
+	$ cd ~/workspace
+	$ rails _5.0.0_ new toy_app
+	$ cd toy_app/
+
+If you’re using the **cloud IDE** as recommended in Section 1.2.1, note that this second app can be created in the same workspace as the first. It is not necessary to create a new workspace. In order to get the files to appear, you may need to click the gear icon in the file navigator area and select “Refresh File Tree”.
+
+Next, we’ll use a text editor to update the Gemfile needed by Bundler with the contents of Listing 2.1. Important note: For all the Gemfiles in this book, you should use the version numbers listed at gemfiles-4th-ed.railstutorial.org instead of the ones listed below (although they should be identical if you are reading this online).
+
+Listing 2.1: A Gemfile for the toy app.
+source 'https://rubygems.org'
+
+	gem 'rails',        '5.0.0'
+	gem 'puma',         '3.4.0'
+	gem 'sass-rails',   '5.0.5'
+	gem 'uglifier',     '3.0.0'
+	gem 'coffee-rails', '4.2.1'
+	gem 'jquery-rails', '4.1.1'
+	gem 'turbolinks',   '5.0.0'
+	gem 'jbuilder',     '2.4.1'
+
+	group :development, :test do
+	  gem 'sqlite3', '1.3.11'
+	  gem 'byebug',  '9.0.0', platform: :mri
+	end
+
+	group :development do
+	  gem 'web-console',           '3.1.1'
+	  gem 'listen',                '3.0.8'
+	  gem 'spring',                '1.7.2'
+	  gem 'spring-watcher-listen', '2.0.0'
+	end
+
+	group :production do
+	  gem 'pg', '0.18.4'
+	end
+
+	# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+	gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+Note that Listing 2.1 is identical to Listing 1.14.
+
+As in Section 1.5.1, we’ll install the local gems while suppressing the installation of production gems using the --without production option:
+
+	$ bundle install --without production
+
+As noted in Section 1.3.1, you may need to run bundle update as well (Box 1.1).
+
+Finally, we’ll put the toy app under version control with Git:
+
+	$ git init
+	$ git add -A
+	$ git commit -m "Initialize repository"
+
+You should also create a new repository by clicking on the “Create” button at Bitbucket (Figure 2.1), and then push up to the remote repository:
+
+	$ git remote add origin git@bitbucket.org:<username>/toy_app.git
+	$ git push -u origin --all
+
+![bucket toy app](http://res.cloudinary.com/medio/image/upload/v1469698182/bucket_toy_q2pkeb.png)
+
+<center>Figure 2.1: Creating the toy app repository at Bitbucket.</center>
+
+Finally, it’s never too early to deploy, which I suggest doing by following the same “hello, world!” steps from Section 1.3.4, as shown in Listing 2.2 and Listing 2.3.
+
+Listing 2.2: Adding a hello action to the Application controller.
+app/controllers/application_controller.rb
+
+	class ApplicationController < ActionController::Base
+	  protect_from_forgery with: :exception
+
+	  def hello
+	    render html: "hello, world!"
+	  end
+	end
+
+Listing 2.3: Setting the root route.
+config/routes.rb
+ 
+	Rails.application.routes.draw do
+	  root 'application#hello'
+	end
+
+Then commit the changes and push up to Heroku:
+
+	$ git commit -am "Add hello"
+	$ heroku create
+	$ git push heroku master
+
+**I used my own way here** [Push to Heroku](https://devcenter.heroku.com/articles/getting-started-with-rails4)	
+
+![heroku](http://res.cloudinary.com/medio/image/upload/v1469700039/herokutoy_sd4l5r.png)
+
+(As in Section 1.5, you may see some warning messages, which you should ignore for now. We’ll deal with them in Section 7.5.) Apart from the URL of the Heroku app, the result should be the same as in Figure 1.20.
+
+Now we’re ready to start making the app itself. The typical first step when making a web application is to create a data model, which is a representation of the structures needed by our application. In our case, the toy app will be a Twitter-style microblog, with only users and short (micro)posts. Thus, we’ll begin with a model for users of the app (Section 2.1.1), and then we’ll add a model for microposts (Section 2.1.2).
+
+2.1.1 A toy model for users
+
+There are as many choices for a user data model as there are different registration forms on the web; for simplicity, we’ll go with a distinctly minimalist approach. Users of our toy app will have a unique identifier called id (of type integer), a publicly viewable name (of type string), and an email address (also of type string) that will double as a unique username. A summary of the data model for users appears in Figure 2.2.
+
+<center>
+![data model](http://res.cloudinary.com/medio/image/upload/v1469701070/demo_user_model_d4yp7h.png)</center>
+<center>Figure 2.2: The data model for users.</center>
+
+As we’ll see starting in Section 6.1.1, the label users in Figure 2.2 corresponds to a table in a database, and the id, name, and email attributes are columns in that table.
+
+#### 2.1.2 A toy model for microposts
+
+The core of the micropost data model is even simpler than the one for users: a micropost has only an id and a content field for the micropost’s text (of type text).1 There’s an additional complication, though: we want to associate each micropost with a particular user. We’ll accomplish this by recording the user_id of the owner of the post. The results are shown in Figure 2.3.
+
+<center>
+![model microposts](http://res.cloudinary.com/medio/image/upload/v1469702451/demo_micropost_model_jq16ql.png)</center>
+
+<center>Figure 2.3: The data model for microposts.
+</center>
+
+We’ll see in Section 2.3.3 (and more fully in Chapter 13) how this user_id attribute allows us to succinctly express the notion that a user potentially has many associated microposts.
+
+### 2.2 The Users resource
+
+In this section, we’ll implement the users data model in Section 2.1.1, along with a web interface to that model. The combination will constitute a Users resource, which will allow us to think of users as objects that can be created, read, updated, and deleted through the web via the HTTP protocol. As promised in the introduction, our Users resource will be created by a scaffold generator program, which comes standard with each Rails project. I urge you not to look too closely at the generated code; at this stage, it will only serve to confuse you.
+
+Rails scaffolding is generated by passing the scaffold command to the rails generate script. The argument of the scaffold command is the singular version of the resource name (in this case, User), together with optional parameters for the data model’s attributes:2
+
+	$ rails generate scaffold User name:string email:string
+		
+[next](https://www.railstutorial.org/book/toy_app#sec-demo_users_resource)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
