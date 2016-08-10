@@ -1,4 +1,4 @@
-# sMSYQL DUMP
+# MYSQL DUMP
 -----------
 Good web referense: http://webcheatsheet.com/sql/mysql_backup_restore.php
 
@@ -26,4 +26,19 @@ User List
 
 	http://stackoverflow.com/questions/21714869/error-1044-42000-access-denied-for-root-with-all-privileges
 
+To see User List
+----------------
+
+Use this query:
+
+SELECT User FROM mysql.user;
+Which will output a table like this:
+
++-------+
+| User  |
++-------+
+| root  |
++-------+
+| user2 |
++-------+
 

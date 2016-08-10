@@ -106,6 +106,8 @@ Restart Nginx:
 
     sudo nginx -s reload or
     sudo service nginx restart
+
+---    
  
 9. REMOTE > SETUP DOMAIN @ DOMAIN HOST
 --------------------------------------

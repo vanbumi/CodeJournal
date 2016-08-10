@@ -92,6 +92,12 @@ DOWNLOAD / COPY FILE FROM server to local
     --------------------
         scp dyo@widyobumi.com:/home/dyo/perpelabuhan_dev_bkup.sql dyo@pengembanganpelabuhan.com:/home/dyo/
     
+Copy or cp
+----------
+
+Copy folder
+
+[cp -r](http://askubuntu.com/questions/35779/what-does-cp-omitting-directory-mean)
 
 ## Create FTP
 

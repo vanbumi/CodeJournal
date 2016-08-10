@@ -1644,6 +1644,26 @@ In Chapter 13 and Chapter 14, we will use the association of users and micropost
 2. The code in Listing 2.16 shows how to add a validation for the presence of micropost content in order to ensure that microposts can’t be blank. Verify that you get the behavior shown in Figure 2.16.
 3. Update Listing 2.17 by replacing FILL_IN with the appropriate code to validate the presence of name and email attributes in the User model (Figure 2.17).
 
-[continue](https://www.railstutorial.org/book/toy_app#sec-exercises_demo_user_has_many_microposts)
+Listing 2.16: Code to validate the presence of micropost content.
+app/models/micropost.rb
 
+	class Micropost < ApplicationRecord
+	  belongs_to :user
+	  validates :content, length: { maximum: 140 },
+	                      presence: true
+	end
 
+![validation](http://res.cloudinary.com/medio/image/upload/v1470124349/validation_s8lcmj.png)
+
+<center>Figure 2.16: The effect of a micropost presence validation.</center>
+
+Listing 2.17: Adding presence validations to the User model.
+app/models/user.rb
+
+	class User < ApplicationRecord
+	  has_many :microposts
+	  validates FILL_IN, presence: true    # Replace FILL_IN with the right code.
+	  validates FILL_IN, presence: true    # Replace FILL_IN with the right code.
+	end
+
+	
