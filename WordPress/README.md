@@ -118,7 +118,27 @@ try this next:
 
 * [how-to-configure-secure-updates-and-installations-in-wordpress-on-ubuntu](https://www.digitalocean.com/community/tutorials/how-to-configure-secure-updates-and-installations-in-wordpress-on-ubuntu)
 
--- 
+Error : Public and Private keys incorrect for wp-user
+
+Solution:
+https://www.digitalocean.com/community/questions/wordpress-ssh-public-and-private-keys-incorrect-for-wp-user
+
+	SOLVED!!!
+
+	I'm posting this here so that if someone else has this frustrating problem this might solve it.
+
+	Here is what I found:
+
+	Try to give www-data permission in wordpress directory:
+
+	cd /yourwordpress_dir/
+	sudo chown -R www-data:www-data *
+
+	In my case, I had to cd /var/www/html and then sudo chown -R www-data:www-data *
+
+	:-)
+
+--- 
 
 ## Administrator Page
 
