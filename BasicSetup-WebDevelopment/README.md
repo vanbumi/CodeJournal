@@ -78,7 +78,17 @@ Disable the default site, enable your new site, and restart Apache:
 
     sudo a2dissite 000-default
     sudo a2ensite testapp
-    sudo service apache2 restart        
+    sudo service apache2 restart
+
+**For Multy Domain**
+
+![multi domain](http://res.cloudinary.com/medioxtra/image/upload/v1471107705/multidomain_bpzk42.png)
+
+*Look for mediostore and yoriku is same web* dont forget to below after add new file:
+    
+    sudo a2ensite yoriku
+    sudo service apache2 restart
+
     
 Nginx Server
 ------------    
@@ -107,20 +117,24 @@ Restart Nginx:
     sudo nginx -s reload or
     sudo service nginx restart
 
----    
+---
+
+For all server
+--------------    
  
-9. REMOTE > SETUP DOMAIN @ DOMAIN HOST
---------------------------------------
+9. REMOTE > SETUP DOMAIN at DOMAIN SERVER
+-----------------------------------------
     ref: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean
         
-10. SETUP NAME SERVER di DOMAIN SERVER
+10. SETUP NAME SERVER at DOMAIN SERVER
 --------------------------------------
     ns1.digitalocean.com
     ns2.digitalocean.com
-    ns3.digitalocean.com    
-            
-11. REMOTE > ADD Domain @ DIGITIAL OCEAN
-----------------------------------------        
+    ns3.digitalocean.com
+
+        
+11. REMOTE > ADD Domain at DIGITIAL OCEAN
+-----------------------------------------        
 
 12. REMOTE > SETUP the DATABASE
 -------------------------------
