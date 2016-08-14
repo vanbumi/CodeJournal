@@ -49,7 +49,7 @@ Saat ini DBMS yang cukup popular saat ini digunakan antara lain adalah :
 
 # Pengertian Basis Data
 
-<center>![what is](http://res.cloudinary.com/medioxtra/image/upload/v1471148507/db_u3p0vt.jpg)</center>
+<p align="center">![what is](http://res.cloudinary.com/medioxtra/image/upload/v1471148507/db_u3p0vt.jpg)</p>
 
 **Basis Data**
 
