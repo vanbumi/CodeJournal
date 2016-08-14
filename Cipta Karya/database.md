@@ -1,5 +1,7 @@
 # Aplikasi Database Cipta Karya
 
+![image dbcp](http://res.cloudinary.com/medioxtra/image/upload/v1471147323/database-development_vrifoz.png)
+
 Aplikasi Database Cipta Karya adalah sistem penyimpanan data Direktorat Jendral Cipta Karya Kementrian Pekerjaan Umum dan Perumahan Rakyat, yang bersumber dari data .... 
 
 Aplikasi ini dibuat untuk membantu proses pencarian data (semua data dibawah naungan DJ Cipta Karya) menuju One Data dalam rangka upaya peningkatan kinerja .... 
@@ -45,7 +47,76 @@ Saat ini DBMS yang cukup popular saat ini digunakan antara lain adalah :
 * MsSQL database
 * PostgreSQL database dll.
 
-Dalam melakukan proses desain database yang baik harus melelui beberapa langkah, yaitu:
+# Pengertian Basis Data
+
+<center>![what is](http://res.cloudinary.com/medioxtra/image/upload/v1471148507/db_u3p0vt.jpg)</center>
+
+**Basis Data**
+
+Basis data (database) adalah suatu kumpulan data yang disusun dalam bentuk tabel-tabel yang saling berkaitan maupun berdiri sendiri dan disimpan secara bersama-sama pada suatu media. Basis data dapat digunakan oleh satu atau lebih program aplikasi secara optimal, data disimpan tanpa mengalami ketergantungan pada program yang akan menggunakannya.
+
+Terdapat beberapa aturan yang harus dipatuhi pada file basis data agar dapat memenuhi kriteria sebagai suatu basis data, yaitu:
+
+1. Kerangkapan data, yaitu munculnya data-data yang sama secara berulang-ulang pada file basis data.
+2. Inkonsistensi data, yaitu munculnya data yang tidak konsisten pada field yang sama untuk beberapa file dengan kunci yang sama. 
+3. Data terisolasi, disebabkan oleh pemakaian beberapa file basis data. Program aplikasi tidak dapat mengakses file tertentu dalam sistem basis data tersebut, kecuali program aplikasi dirubah atau ditambah sehingga seolah-olah ada file yang terpisah atau terisolasi terhadap file yang lain. 
+4. Keamanan data, berhubungan dengan masalah keamanan data dalam sistem basis data. Pada prinsipnya file basis data hanya boleh digunakan oleh pemakai tertentu yang mempunya wewenang untuk mengakses. 
+5. Integrasi data, berhubungan dengan unjuk kerja sistem agar dapat melakukan kendali atau kontrol pada semua bagian sistem sehingga sistem selalu beroperasi dalam pengendalian penuh.
+
+## Bagian-Bagian Basis Data
+
+Membangun basis data adalah langkah awal dari pembuatan sebuah aplikasi. Keberhasilan dalam membangun basis data akan menyebabkan program lebih mudah dibaca, mudah dikembangkan dan mudah mengikuti perkembangan perangkat lunak. Berikut ini diuraikan mengenai komponen-komponen yang terdapat dalam basis data.
+
+1. Tabel
+Tabel adalah kumpulan dari suatu field dan record. Dalam hal ini biasanya field ditunjukan dalam bentuk kolom dan record ditunjukan dalam bentuk baris.
+
+2. Field
+Field adalah sebutan untuk mewakili suatu record. Misalnya seorang pegawai dapat dilihat datanya melalui field yang diberikan padanya seperti nip, nama, alamat, dan lain-lain.
+
+3. Record
+Record adalah kumpulan elemen-elemen yang saling berkaitan menginformasikan tentang suatu isi data secara lengkap. Satu record mewakili satu data atau informasi tentang seseorang misalnya, nomor daftar, nama pendaftar, alamat, tanggal masuk.
+
+4. Primary Key
+Primary key adalah suatu kolom (field) yang menjadi titik acuan pada sebuah tabel, bersifat unik dalam artian tidak ada satu nilai pun yang sama atau kembar dalam tabel tersebut, dan dalam satu tabel hanya boleh ada satu primary key.
+
+5. Foreign Key
+Foreign key atau disebut juga **kunci relasi** adalah suatu kolom dalam tabel yang digunakan sebagai **“kaitan”** untuk melengkapi satu hubungan yang didapati dari tabel induk, dan biasanya hubungan yang terjalin antar tabel adalah satu ke banyak (one to many).
+
+6. Index
+Index adalah struktur basis data secara fisik, yang digunakan untuk optimalisasi pemrosesan data dan mempercepat proses pencarian data.
+
+## Relasi (relationship) Basis Data
+
+Basis data adalah kumpulan file yang saling berkaitan. Pada model data relasional hubungan antar file direlasikan dengan kunci relasi (relation key), yang merupakan kunci utama dari masing- masing file.
+Perancangan basis data yang tepat akan menyebabkan paket program relasional akan bekerja secara optimal.
+
+Relasi antara dua file atau dua tabel dapat dikategorikan menjadi tiga macam. Demikian pula untuk membantu gambaran relasi secara lengkap terdapat juga tiga macam relasi dalam hubungan atribute dalam satu file.
+
+### 1. One to one relationship 
+<center>![one to one](http://res.cloudinary.com/medioxtra/image/upload/v1471149720/one_to_one_relasi_lbqwuk.jpg)</center>
+
+<center>Model relasi one to one relationship</center>
+
+Hubungan antara file pertama dengan file kedua adalah satu berbanding satu. Hubungan tersebut dapat digambarkan dengan **tanda kotak untuk menunjukan table** dan relasi antara keduanya diwakilkan dengan **tanda panah tunggal**.
+
+### 2. One to many relationship
+<center>![one to many](http://res.cloudinary.com/medioxtra/image/upload/v1471150354/relasi_one_to_many_hirtin.jpg)</center>
+
+<center>Model relasi one to many relationship</center>
+
+Hubungan antara file pertama dengan file kedua adalah satu berbanding banyak atau dapat pula dibalik banyak lawan satu. Hubungan tersebut dapat digambarkan dengan tanda kotak untuk menunjukkan tabel dan relasi antara keduanya diwakilkan dengan **tanda panah ganda** pada salah satu hubungan.
+
+### 3. Many to many relationship
+
+<center>![many to many](http://res.cloudinary.com/medioxtra/image/upload/v1471150705/relasi_many_to_many_yftpna.jpg)</center>
+ 
+<center>Model relasi many to many relationship</center>
+
+Hubungan antara file pertama dengan file kedua adalah banyak berbanding banyak. Hubungan tersebut dapat digambarkan dengan tanda kotak untuk menunjukkan tabel dan relasi antara keduanya diwakilkan dengan tanda panah ganda pada kedua hubungan tersebut.
+
+---
+
+### Dalam melakukan proses desain database yang baik harus melelui beberapa langkah, yaitu:
 
 * Analisis Persyaratan : Memahami dan mengetahui data yang harus disimpan dalam database, aplikasi apa yang harus dibangun di atasnya, jenis operasi apa yang akan digunakan.
 
@@ -75,13 +146,13 @@ Informasi dikumpulkan pada saat analisis persyaratan digunakan untuk mengembangk
 
 ### 4. Perbaikan Skema:
 
- Langkah keempat dalam desain database adalah analisis sekumpulan relasi dalam skema database relasional untuk mengidentifikasi permasalahan yang muncul, dan memperbaikinya. Berbeda dengan alaisis persyaratan dan langkah-langkah desain konseptual, yang secara esensial bersifat subjektif, perbaikan skema dapat dipandu oleh beberapa teori yang kuat dan bagus.  Langkah keempat ini, para akademis IT lebih sering disebut dengan Normalisasi.
+ Langkah keempat dalam desain database adalah analisis sekumpulan relasi dalam skema database relasional untuk mengidentifikasi permasalahan yang muncul, dan memperbaikinya. Berbeda dengan analisis persyaratan dan langkah-langkah desain konseptual, yang secara esensial bersifat subjektif, perbaikan skema dapat dipandu oleh beberapa teori yang kuat dan bagus.  Langkah keempat ini, para akademis IT lebih sering disebut dengan Normalisasi.
 
 ### 5. Desain Database Fisik: 
 
-Llangkah ini, kita juga mempertimbagkan beban kerja umum yang diharapkan dapat didukung oleh database kita dan memperbaiki desain database di masa mendatang untuk memastikan terpenuhinya kriteria performa yang diinginkan. Langkah ini hanya mencakup pembuatan indeks pada beberapa tabel dan mengelompokkan beberapa tabel, atau bahkan melibatkan desain ulang yang substansial terhadap beberapa bagian skema database yang didapat dari langkah pertama desain database.
+Langkah ini, kita juga mempertimbagkan beban kerja umum yang diharapkan dapat didukung oleh database kita dan memperbaiki desain database di masa mendatang untuk memastikan terpenuhinya kriteria performa yang diinginkan. Langkah ini hanya mencakup pembuatan indeks pada beberapa tabel dan mengelompokkan beberapa tabel, atau bahkan melibatkan desain ulang yang substansial terhadap beberapa bagian skema database yang didapat dari langkah pertama desain database.
 
-### 6.Desain Aplikasi dan Keamanan: 
+### 6. Desain Aplikasi dan Keamanan: 
 
 Semua proyek perangkat lunak yang melibatkan sebuah DBMS harus mempertimbangkan aspek aplikasi yang berada di luar database itu sendiri. Metodologi desain seperti UML mencoba menekankan desain perangkat lunak dan siklus pengembangan yang lengkap. Secara singkat, kita harus bisa mengidentifikasi entitas (contohnya pengguna, grup-grup pengguna, dan bagian-bagian lain) dan proses-proses yang terlibat dalam aplikasi. Kita harus menggambarkan peran setiap entitas dalam setiap proses yang akan direfleksikan pada beberapa tugas aplikasi, sebagai bagian dari aliran 
 kerja lengkap untuk tugas tersebut. Untuk tiap peran, kita harus bisa mengidentifikasi bagian database yang harus bisa diakses dan yang tidak bisa diakses, dan kitah harus bisa menganmbil langkah untuk memastikan bahwa aturan akses terseut dilakukan. DBMS memberikan beberapa mekanisme untuk membantu langkah tersebut.
@@ -136,13 +207,13 @@ Relasi menunjukkan adanya hubungan di antara sejumlah entitas yang berasal dari 
 
 Misalnya, entitas seorang mahasiwa dengan 
 
-nim = 980001 dan 
-nama_mhs = Ali Akbar (yang ada di himpunan entitas Mahasiswa) 
+	nim = 980001 dan 
+	nama_mhs = Ali Akbar (yang ada di himpunan entitas Mahasiswa) 
 
 mempunyai relasi dengan entitas sebuah mata kuliah dengan 
 
-kode_kul=IF-110 dan 
-nama_kul=Struktur Data. 
+	kode_kul=IF-110 dan 
+	nama_kul=Struktur Data. 
 
 Relasi diantara kedua entitas tadi mengandung arti bahwa mahasiswa tersebut sedang mengambil/mempelajari mata kuliah tersebut di sebuah perguruan tinggi yang ditinjau.
 
@@ -152,7 +223,7 @@ Sebagaimana istilah himpunan entitas yang banyak sekali disingkat menjadi entita
 
 ### Kardinalitas/derajat Relasi
 
-Kardinalitas Relasi menunjukkan jumlah maksimum entitas yang dapat berelasi dengan entitas pada himpunan entitas yang lain. Kardinalitas relasi merujuk kepada hubungan maksimum yang terjadi dari himpunan entitas yang satu ke himpunan entitas yang lain dan begitu juga sebaliknya. 
+Kardinalitas Relasi adalah **menunjukkan jumlah maksimum entitas yang dapat berelasi dengan entitas pada himpunan entitas yang lain**. Kardinalitas relasi merujuk kepada hubungan maksimum yang terjadi dari himpunan entitas yang satu ke himpunan entitas yang lain dan begitu juga sebaliknya. 
 
 Kardinalitas di antara dua himpunan entitas (misalnya A dan B) dapat berupa :
 
