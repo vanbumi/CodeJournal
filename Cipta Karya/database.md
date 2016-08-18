@@ -270,3 +270,6 @@ Diagram ER selalu dibuat secara bertahap. Paling tidak ada dua kelompok penahapa
 * Melengkapi himpunan entitas dan himpunan relasi dengan atribut-atribut deskriptif (non key).
 
 ### Tahap optimasi Diagram ER (final design).
+
+
+

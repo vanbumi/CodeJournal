@@ -10,6 +10,8 @@ Run the bundle command to install it.
 
 	$ bundle install
 
+	$ bundle update
+
 	$ rails g devise:install
 
 
@@ -50,6 +52,8 @@ Create table User
 
 	$ rake db:migrate RAILS_ENV=development
 
+Dont forget to refresh the server after this action!	
+
 Check it out
 
 	http://localhost:3000/users/sign_in
@@ -76,7 +80,36 @@ Next come the sign_up links. Again, these can be substituted with something else
 	  <li>
 	  <%= link_to('Register', new_user_registration_path)  %>
 	  </li>
-	<% end %>	
+	<% end %>
+
+## Create Admin Limited Akses
+
+	class AdminController < ApplicationController
+
+	  before_action :authenticate_user!		
+
+	  layout 'admin_layout'
+
+	  def index
+	  end
+	end		
+
+## Create Admin Page
+
+	$ rails g scaffold_controller User
+
+Change the Routes, add below:
+
+	devise_for :users
+
+  	resources :users, path: 'admin/users'
+
+And add restriction 
+
+	class UsersController < ApplicationController
+
+	  before_action :authenticate_user!
+	  before_action :set_user, only: [:show, :edit, :update, :destroy]  		
 
 ## Add User Role
 
@@ -141,6 +174,10 @@ https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-
 Open config/routes.rb and change as below:
 
 	devise_for :users, :path => '', :path_names => {:sign_in => 'new name', :sign_out => 'new name'}
+
+## Create custom layouts
+
+	https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts	
 
 ## Remove Sign up and Forgot Password modules/links
 
