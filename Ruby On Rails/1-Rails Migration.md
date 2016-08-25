@@ -108,21 +108,22 @@ Sources: [Active Record Migrations](http://edgeguides.rubyonrails.org/active_rec
 
 ### Change data type
 
-rails g migration change_data_type_for_fieldname
+	rails g migration change_data_type_for_peta_drainase
+
 Then edit the migration to use change_table:
 
-	class ChangeDataTypeForFieldname < ActiveRecord::Migration
-	  def self.up
-	    change_table :tablename do |t|
-	      t.change :fieldname, :date
-	    end
-	  end
-	  def self.down
-	    change_table :tablename do |t|
-	      t.change :fieldname, :datetime
-	    end
-	  end
-	end
+class ChangeDataTypeForPetaDrainase < ActiveRecord::Migration
+  def self.up
+    change_table :drainases do |t|
+      t.change :peta_drainase, :string
+    end
+  end
+  def self.down
+    change_table :tablename do |t|
+      t.change :peta_drainase, :boolean
+    end
+  end
+end
 
 Then run the migration:
 

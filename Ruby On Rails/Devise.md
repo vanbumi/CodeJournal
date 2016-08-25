@@ -173,17 +173,60 @@ https://github.com/plataformatec/devise/wiki/How-To:-Change-the-default-sign_in-
 	
 Open config/routes.rb and change as below:
 
-	devise_for :users, :path => '', :path_names => {:sign_in => 'new name', :sign_out => 'new name'}
+	devise_for :users, :path => '...', :path_names => {:sign_in => 'new name', :sign_out => 'new name'}
+
+### B Indonesia
+
+Untuk membuat URL dengan path seperti /aut/sign_in, /aut/sign_out, dan URL default lainnya,
+bukalah config/routes.rb dan tambahkan baris berikut:
+
+	#devise_for dicomment agar default URL tidak dapat diakses
+	#devise_for :users
+	#ini URL devise yang baru
+	
+	devise_for :users, :path => 'aut'
+	
+Untuk mengganti berikut path_names, berikut codenya;
+	
+	devise_for :users, :path => 'aut', :path_names => {:sign_in => 'login', :sign_out
+	=> 'logout'}
+
+example
+
+	devise_for :users, :path => 'newpath', :path_names => {:sign_in => 'newname', :sign_up => 'newname', :sign_out => 'newname'}	
+
+Sehingga URLnya sekarang menjadi /aut/login, /aut/logout beberapa URL default lainnya yang
+diawali dengan path /aut.	
 
 ## Create custom layouts
 
 	https://github.com/plataformatec/devise/wiki/How-To:-Create-custom-layouts	
 
-## Remove Sign up and Forgot Password modules/links
-
-In Devise model user.rb remove the devise :registerable, :recoverable option.
+## Remove Forgot Password modules/links
 
 Also do the changes in devise/shared/_link.html.erb by deleting the path generation links of sign_up and forgot_password
 
-	
+## Disable registration
+
+In Devise model user.rb remove the devise :registerable, :recoverable option.
+
+## Custom user delete in Devise
+
+[custom-user-delete-in-devise](http://liquidmedia.org/blog/2011/08/custom-user-delete-in-devise/)
+
+## Error
+
+When logout 
+
+	No route matches [GET] "/users/sign_out"
+
+Solution
+
+Modify config/initializer/devise.rb to
+
+	config.sign_out_via = :get
+
+And change the link
+
+	<%= link_to "log out", destroy_user_session_path, method: :get %>
 

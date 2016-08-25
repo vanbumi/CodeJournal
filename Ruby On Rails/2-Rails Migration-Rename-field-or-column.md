@@ -1,11 +1,12 @@
-# How can I rename a database column in a Ruby on Rails migration?
+## How can I rename a database column in a Ruby on Rails migration?
 
 ## An update for Rails 4
 
-	While creating a Migration as for renaming a column, Rails 4 generates a change method instead of up and down as mentioned in the above answer. The generated change method is as below :
+While creating a Migration as for renaming a column, Rails 4 generates a change method instead of up and down as mentioned in the above answer. The generated change method is as below :
 
 	$ rails g migration ChangeColumnName
-	which will create a migration file similar to this :
+
+which will create a migration file similar to this :
 
 	class ChangeColumnName < ActiveRecord::Migration
 	  def change
@@ -13,7 +14,7 @@
 	  end
 	end
 
-# Rails Migrations to Add a Column and Change Column Type
+## Rails Migrations to Add a Column and Change Column Type
 	
 Reference:
 
