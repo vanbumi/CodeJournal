@@ -1666,4 +1666,109 @@ app/models/user.rb
 	  validates FILL_IN, presence: true    # Replace FILL_IN with the right code.
 	end
 
-	
+Become like this
+
+	class User < ApplicationRecord
+	  has_many :microposts 
+	  
+	  validates :name, presence: true    
+	  validates :email, presence: true 
+	end		
+
+![user validation](http://res.cloudinary.com/medio/image/upload/v1472224889/userValidation_yvjnul.png)
+
+Figure 2.17: The effect of presence validations on the User model.
+
+#### 2.3.4 Inheritance hierarchies
+
+We end our discussion of the toy application with a brief description of the controller and model class hierarchies in Rails. This discussion will only make much sense if you have some experience with object-oriented programming (OOP), particularly classes. Don’t worry if it’s confusing for now; we’ll discuss these ideas more thoroughly in Section 4.4.
+
+We start with the inheritance structure for models. Comparing Listing 2.18 and Listing 2.19, we see that both the User model and the Micropost model inherit (via the left angle bracket <) from **ApplicationRecord**, which in turn inherits from **ActiveRecord::Base**, which is the base class for models provided by **Active Record**; a diagram summarizing this relationship appears in Figure 2.18. It is by inheriting from **ActiveRecord::Base** **that our model objects gain the ability to communicate with the database**, treat the database columns as Ruby attributes, and so on.
+
+Listing 2.18: The User class, highlighting inheritance.
+app/models/user.rb
+
+	class User < ApplicationRecord
+	  .
+	  .
+	  .
+	end	
+
+Listing 2.19: The Micropost class, highlighting inheritance.
+app/models/micropost.rb
+
+	class Micropost < ApplicationRecord
+	  .
+	  .
+	  .
+	end	
+
+![](http://res.cloudinary.com/medio/image/upload/v1472225431/activerecordbase_s7qkmq.png)
+
+The inheritance structure for **controllers** is essentially the same as that for models. Comparing Listing 2.20 and Listing 2.21, we see that both the Users controller and the Microposts controller inherit from the **Application controller**. Examining Listing 2.22, we see that **ApplicationController** itself inherits from **ActionController::Base**, which is the **base class for controllers provided by the Rails library Action Pack**. The relationships between these classes is illustrated in Figure 2.19.
+
+Listing 2.20: The UsersController class, highlighting inheritance.
+app/controllers/users_controller.rb
+ 
+	class UsersController < ApplicationController
+	  .
+	  .
+	  .
+	end
+
+Listing 2.21: The MicropostsController class, highlighting inheritance.
+app/controllers/microposts_controller.rb
+
+	class MicropostsController < ApplicationController
+	  .
+	  .
+	  .
+	end
+
+Listing 2.22: The ApplicationController class, highlighting inheritance.
+app/controllers/application_controller.rb
+
+	class ApplicationController < ActionController::Base
+	  .
+	  .
+	  .
+	end
+
+![](http://res.cloudinary.com/medio/image/upload/v1472225776/actionController_wxgdbw.png)		
+
+As with model inheritance, both the **Users and Microposts controllers** **gain a large amount of functionality** by inheriting from a base class (in this case, **ActionController::Base**), including the **ability to manipulate model objects**, filter inbound HTTP requests, and render views as HTML. Since all Rails controllers inherit from **ApplicationController**, **rules defined in the Application controller** automatically apply to every **action in the application**. For example, in Section 9.1 we’ll see how to include helpers for logging in and logging out of all of the sample application’s controllers.
+
+Exercises
+
+1. By examining the contents of the Application controller file, find the line that causes ApplicationController to inherit from ActionController::Base.
+
+2. Is there an analogous file containing a line where ApplicationRecord inherits from ActiveRecord::Base? Hint: It would probably be a file called something like application_record.rb in the app/models directory.
+
+#### 2.3.5 Deploying the toy app
+
+With the completion of the Microposts resource, now is a good time to push the repository up to Bitbucket:
+
+	$ git status
+	$ git add -A
+	$ git commit -m "Finish toy app"
+	$ git push
+
+Ordinarily, you should make smaller, more frequent commits, but for the purposes of this chapter a single big commit at the end is fine.
+
+At this point, you can also deploy the toy app to Heroku as in Section 1.5:
+
+	$ git push heroku
+
+(This assumes you created the Heroku app in Section 2.1. Otherwise, you should run heroku create and then git push heroku master.)
+
+To get the application’s database to work, you’ll also have to migrate the production database, which involves running the migration command from Listing 2.4 prefixed with heroku run:
+
+	$ heroku run rails db:migrate
+
+This updates the database at Heroku with the necessary user and micropost data models. After running the migration, you should be able to use the toy app in production, with a real PostgreSQL database back-end (Figure 2.20).
+
+Finally, if you completed the exercises in Section 2.3.3.1, you will have to remove the code to display the first user’s micropost in order to get the app to load properly. In this case, simply delete the offending code, make another commit, and push again to Heroku.
+
+![](http://res.cloudinary.com/medio/image/upload/v1472227682/heroku_fcz7o9.png)
+
+Figure 2.20: Running the toy app in production.
