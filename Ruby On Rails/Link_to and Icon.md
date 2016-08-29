@@ -26,6 +26,8 @@ Convert into below:
         <i class="gi gi-exit"></i>
     <% end %>
 
-Result 
+## Sample 4
 
-![]()    	     	
+	<%= link_to new_drainase_path do %>
+	    <span class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Data Baru</span>
+	<% end %>    	     	

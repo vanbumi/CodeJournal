@@ -10,8 +10,13 @@
 
 Ref:
 
+* [Tutorial](https://developers.google.com/maps/)
 * [How to create a Basic Google Maps](http://findnerd.com/list/view/How-to-create-a-Basic-Google-Maps/17490/)
 * [Google Maps API Tutorial - w3School](http://www.w3schools.com/googleapi/default.asp)
+* [I follow this](http://www.tutorialspoint.com/google_maps/index.htm)
+* [jQuery Google Map](http://tilotiti.github.io/jQuery-Google-Map/)
+* [jQuer Google Map](https://hpneo.github.io/gmaps/)
+
 
 	
 <h3 id="tutgoomap">Tutorial Google Maps</h3>

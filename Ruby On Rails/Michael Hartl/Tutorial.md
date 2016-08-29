@@ -1772,3 +1772,5 @@ Finally, if you completed the exercises in Section 2.3.3.1, you will have to rem
 ![](http://res.cloudinary.com/medio/image/upload/v1472227682/heroku_fcz7o9.png)
 
 Figure 2.20: Running the toy app in production.
+
+next https://www.railstutorial.org/book/toy_app#sec-exercises_deploying_the_toy_app
