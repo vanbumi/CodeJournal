@@ -13,6 +13,7 @@ Ref: [Learn Web Development with Rails](https://www.railstutorial.org/book)
 			<li><a href="#upand">Up and Running</a></li>
 			<li><a href="#thefirst">The first application</a></li>
 			<li><a href="#git">Version control with Git</a></li>
+			<li><a href="#ide">Development Environment</a></li>
 		</ul>
 	</li>
 	<li><a href="#toy">Chapter 2 - A Toy App</a></li>
@@ -173,7 +174,7 @@ Even for experienced Rails developers, installing Ruby, Rails, and all the assoc
 
 The other possibility, recommended for newer users, is to sidestep such installation and configuration issues by using a cloud integrated development environment, or cloud IDE. The cloud IDE used in this tutorial runs inside an ordinary web browser, and hence (karenanya) works the same across different platforms, which is especially useful for operating systems (such as Windows) on which Rails development has historically been difficult. It also maintains the current state of your work, so you can take a break from the tutorial and come back to the system just as you left it.
 
-#### 1.2.1 Development environment
+<h4 id="ide">1.2.1 Development environment</h4> 
 
 Considering various idiosyncratic (istimewa) customizations, there are probably as many development environments as there are Rails programmers. To avoid this complexity, the Ruby on Rails Tutorial standardizes on the excellent cloud development environment [Cloud9.](http://c9.io/) In particular (khusus) , I am pleased to be partnering with Cloud9 to offer a free development environment specifically tailored to the needs of this tutorial. The resulting Rails Tutorial Cloud9 workspace comes pre-configured with most of the software needed for professional-grade Rails development, including Ruby, RubyGems, Git. (Indeed, the only big piece of software we’ll install separately is Rails itself, and this is intentional (Section 1.2.2).)
 

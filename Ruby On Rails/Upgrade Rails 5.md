@@ -1,0 +1,1 @@
+https://hashrocket.com/blog/posts/how-to-upgrade-to-rails-5
