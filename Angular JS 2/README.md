@@ -11,3 +11,5 @@ Keywords: crud with angular 2
 + [Interacting efficiently with a RESTful service with Angular2 and RXJS (Part 1)](http://restlet.com/blog/2016/04/08/interacting-efficiently-with-a-restful-service-with-angular2-and-rxjs-part-1/)
 
 + [How do I link Node.js + Postgres with an AngularJS app?](https://www.quora.com/How-do-I-link-Node-js-+-Postgres-with-an-AngularJS-apps)
+
++ [Download this](https://www.youtube.com/watch?v=tj2nEnx_y-8)
