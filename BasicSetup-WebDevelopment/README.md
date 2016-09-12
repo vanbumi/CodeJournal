@@ -124,7 +124,8 @@ For all server
  
 9. REMOTE > SETUP DOMAIN at DOMAIN SERVER
 -----------------------------------------
-    ref: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean
+
+[Setup Host Name](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-host-name-with-digitalocean)    
         
 10. SETUP NAME SERVER at DOMAIN SERVER
 --------------------------------------
