@@ -90,3 +90,10 @@ Solution
 + Or run npm run tsc:w and npm run lite
 + Or Just follow quick as it is.
 	
+### Can not update on server
+
+main.ts add this lines:
+
+	import {enableProdMode} from '@angular/core';
+
+	enableProdMode();

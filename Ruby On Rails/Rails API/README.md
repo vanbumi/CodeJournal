@@ -16,3 +16,7 @@ keyword: rails 5 api tutorial
 + [How to build a basic JSON API with Rails 5](https://cookieshq.co.uk/posts/how-to-use-the-new-rails-5-api-feature/)
 
 + [Creating Rails 5 API only application following JSON:API specification](https://www.simplify.ba/articles/2016/06/18/creating-rails5-api-only-application-following-jsonapi-specification/)
+
+### Indian guys API
+
+[how-to-make-rest-api-in-rails.html](https://jee-appy.blogspot.co.id/2016/03/how-to-make-rest-api-in-rails.html) - good!

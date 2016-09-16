@@ -15,6 +15,22 @@ STEPS
 ---------------------
     rails new appname -d mysql or 
     rails new appname -d postgresql
+
+    rails s
+
+    FATAL: database "_development" does not exist
+
+Setup database:
+
+    development:
+      <<: *default
+      host: localhost
+      username: xxx
+      password: xxx
+      database: xxx_development
+
+    rake db:create
+    rake db:migrate      
     
 2. REMOTE : CREATE BARE REPOSITORY
 ----------------------------------

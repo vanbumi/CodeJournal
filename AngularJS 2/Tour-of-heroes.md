@@ -3,9 +3,21 @@
 Index:
 
 <ul>
-	<li>...</li>
+	<li><a href="#start">Start</a></li>
 	<li><a href="#multi">Multiple Component</a></li>
 </ul>
+
+<h3 id="start">Start -  Show our Hero</h3>
+
+display Hero data in our app
+
+add two properties to our AppComponent, a title property for the application name and a hero property for a hero named "Windstorm".
+
+	export class AppComponent {
+	  title = 'Tour of Heroes';
+	  hero = 'Windstorm';
+	}
+
 
 <h3 id="multi">Multiple Component</h3>
 
