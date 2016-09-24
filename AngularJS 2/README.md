@@ -13,3 +13,7 @@ Keywords: crud with angular 2
 + [How do I link Node.js + Postgres with an AngularJS app?](https://www.quora.com/How-do-I-link-Node-js-+-Postgres-with-an-AngularJS-apps)
 
 + [Download this](https://www.youtube.com/watch?v=tj2nEnx_y-8)
+
+<h3>Escape double curly braces with &lt;pre&gt;</h3>
+	
+	<code ng-non-bindable>{{ x.name +', '+ x.country }}</code>
