@@ -30,7 +30,7 @@ Admin Lists Panel
 
 Panel, Admin, Progressbar
 
-	http://bootsnipp.com/snippets/pen37
+[Click](http://bootsnipp.com/snippets/pen37)
 
 Admin Panel Quick Shortcuts
 
@@ -51,6 +51,15 @@ Admin Side Menu
 Admin Nav Bar with Popup Sign in"
 
 	http://bootsnipp.com/snippets/featured/admin-nav-bar-with-popup-sign-in
+
+Side and Top Navbar Responsive
+
+	http://bootsnipp.com/snippets/BaeOB	
+
+* [Slide Nav Sidebar](http://bootsnipp.com/snippets/Ba7vQ)
+* [offcanvas](http://www.jasny.net/bootstrap/javascript/#offcanvas) | [Home Page](http://www.jasny.net/bootstrap/)	
+* [Side Navigation](http://www.w3schools.com/howto/howto_js_sidenav.asp)
+* [Dashboard](http://bootsnipp.com/snippets/featured/flat-responsive-dashboard-design)
 
 ## Will_paginate-bootsrap
 

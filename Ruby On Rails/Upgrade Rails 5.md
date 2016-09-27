@@ -1,1 +1,3 @@
-https://hashrocket.com/blog/posts/how-to-upgrade-to-rails-5
+# Rails 5
+
+[guides.rubyonrails](http://guides.rubyonrails.org/)

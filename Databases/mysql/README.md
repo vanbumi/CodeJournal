@@ -26,6 +26,11 @@ User List
 
 	http://stackoverflow.com/questions/21714869/error-1044-42000-access-denied-for-root-with-all-privileges
 
+Remove Database
+---------------
+
+	DROP DATABASE tutorial_database;	
+
 To see User List
 ----------------
 
