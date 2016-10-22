@@ -219,7 +219,37 @@ Update contact and etc, like below:
 
 ### Setup the layout
 
-video number 6
+##### Create admin layout views/layouts/admin
+
+##### Copy & Paste conte views/layouts/application.html.erb to admin/application.html.erb
+
+##### Create file application_controller.rb for controllers/admin & copas similar content into it. And add Admin::
+
+	class Admin::ApplicationController < ActionController::Base
+	  protect_from_forgery with: :exception
+	end
+
+##### Update all controller under admin folder as below:
+
+	class Admin::CategoriesController < Admin::ApplicationController
+	  def index
+	end
+
+##### Add Bootstrap CDN to Admin Layout or use existing from theme
+
+##### Add dashboard controller
+
+	 rails g controller admin/dashboard index
+	 
+##### Categories List order
+
+	@categories = Category.all.order(:created_at => 'DESC')
+
+
+
+
+
+
 
 
 

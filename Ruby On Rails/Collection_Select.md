@@ -1,13 +1,13 @@
-# collection_select
+## collection_select
 
-	<div class="field">
+  	<div class="field">
       <%= f.label :category_id %><br>
       <%= f.collection_select(:category_id, Category.all, :id, :name, class:'form-control', :prompt => 'Pilih Category') %>
     </div>
 
-# collection_select bootstrap
+## collection_select bootstrap
 
-	<div class="form-group">
+  	<div class="form-group">
       <h3><span class="label label-primary">Informasi Kewilayahan</span></h3>
       <%= f.label :provinsi_id, "Nama Provinsi", class:"col-md-3 control-label text-right" %>
       <div class="col-md-9">
@@ -17,4 +17,11 @@
       </div>
     </div>
 
-[Stack Overflow](http://stackoverflow.com/questions/18163621/rails-4-collection-select-not-inserting-class-attribute)        
+[Stack Overflow](http://stackoverflow.com/questions/18163621/rails-4-collection-select-not-inserting-class-attribute) 
+
+## Others way
+
+    <div class="form-group">
+      <%= f.label :category %>
+      <%= f.select :category_id, Category.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Pilih Kategori'}, class:'form-control' %>
+    </div>

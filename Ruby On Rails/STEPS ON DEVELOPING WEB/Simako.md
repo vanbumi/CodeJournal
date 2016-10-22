@@ -1,0 +1,5 @@
+## Simako
+
+Scaffold siswa
+
+	rails g scaffold siswa nama:string nis:string nisn:string jenis_kelamin:string email:string telp:string no_hp:string photo:string jalan:string rt:string rw:string no_rumah:string propinsi:string kab_kota:string kecamatan:string kelurahan:string kodepos:string no_kk:string no_induk_kpendudukan:string peminatan:string agama:string tempat_lahir:string tanggal_lahir:string hobi:string cita_cita:string asal_sekolah:string nama_sekolah_asal:string alamat_sekolah_asal:text provinsi_sek_asal:string kab_kota_sek_asal:string no_ijazah:string thn_lulus:string dterima_dikelas:string dterima_pdtgl:string jarak_rumah:string transport_sekolah:string nama_ayah:string status_ayah:string pendidikan_ayah:string pekerjaan_ayah:string profesi_ayah:string pangkat_gol_ayah:string nohp_ayah:string

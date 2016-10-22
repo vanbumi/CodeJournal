@@ -8,3 +8,6 @@
 
 * [Learn Ruby in Y minutes](https://learnxinyminutes.com/docs/id-id/ruby-id/)
 
+* Cut last character
+
+	'abc123'.chomp('123')    # => "abc"

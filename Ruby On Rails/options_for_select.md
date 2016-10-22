@@ -1,16 +1,16 @@
-# Rails Options For Select and Bootstrap
+## Rails Options For Select and Bootstrap
 
-	<div class="col-lg-3">
-	    <%= f.label :location_cont, 'Property Location' %>
-	    <%= f.select(:location_cont, options_for_select([
-                                                        ['Cirebon','Cirebon'],
-                                                        ['Batam','Batam'],
-                                                        ['Sorong','Sorong']]),
+  	<div class="col-lg-3">
+  	    <%= f.label :location_cont, 'Property Location' %>
+  	    <%= f.select(:location_cont, options_for_select([
+          ['Cirebon','Cirebon'],
+          ['Batam','Batam'],
+          ['Sorong','Sorong']]),
 
-                 {:prompt => "Any"},
-                 {class: "form-control"}
+          {:prompt => "Any"},
+          {class: "form-control"}
         ) %>
-  </div>
+    </div>
 
 *Source*
 
