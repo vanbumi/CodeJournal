@@ -1,5 +1,10 @@
 # Rails Upload to Cloudinary
 
+[Github](https://github.com/assembler/attachinary)
+
+### Rails 5 go here
+[...]()  
+
 ## Setup
 
 ### Credentials
@@ -8,7 +13,10 @@
 
 ##### Add Gemfile
 
-	gem "cloudinary"
+	gem 'cloudinary'
+
+Or use double quotes
+
 	gem "cloudinary"
 
 ##### Bundle
@@ -25,16 +33,23 @@
 
 	**Upload is success
 
-Error 1:	Errno::ENOENT: No such file or directory @ rb_sysopen
+### Error 1:	Errno::ENOENT: No such file or directory @ rb_sysopen
 
 	Solution:	Directory path incorrect > fix the path	
 
-Error 2:    CloudinaryException: Must supply api_key
+#### Error 2:    CloudinaryException: Must supply api_key
 
 	Solution: gem "cloudinary" should be double quotes
 
 	**This case is on sorongbis website
 
+#### Error 3: bash: syntax error near unexpected token `'/home/dyo/Pictures/manwalk.png''
+
+	Solution: 	You need to go to rails console to test upload
+
+	rails c
+
+	Cloudinary::Uploader.upload('/home/dyo/Pictures/manwalk.png')
 
 ##### Add Gemfile Attachinary
 
@@ -44,13 +59,19 @@ Error 2:    CloudinaryException: Must supply api_key
 
 	$ bundle install
 
-##### Setup file of application.rb add this line below:
+##### Setup file of **config/application.rb** add this line below:
 
 	require "attachinary/orm/active_record" # active_record or mongoid
 
 ##### Go to Terminal	
 
 	$ rake attachinary:install:migrations
+
+#### Error rake aborted! NameError: uninitialized constant ActiveRecord
+	
+	Solution:
+
+Rake migrate	
 
 	$ rake db:migrate
 
@@ -117,8 +138,33 @@ Error 2:    CloudinaryException: Must supply api_key
 
 [Ask Question](https://www.bountysource.com/teams/attachinary/issues?tracker_ids=286322)
 
+## jquery_integration
+------------------
 
+[jquery_integration](http://cloudinary.com/documentation/jquery_integration)     
 
+### jQuery - Getting started guide
+
+Installation
+
+	<script src='jquery.min.js' type='text/javascript'></script>
+	<script src='jquery.cloudinary.js' type='text/javascript'></script>
+
+You can download jquery.cloudinary.js from the **js folder** of the [GitHub](https://github.com/cloudinary/cloudinary_js) project. In your HTML pages, include jquery.cloudinary.js after including the jQuery library.
+
+If you want to perform direct uploading from the browser, download the following files from the **js folder** of the [GitHub](https://github.com/cloudinary/cloudinary_js) project as well. These files belong to the jQuery File Upload plugin.
+
+	jquery.ui.widget.js
+	jquery.iframe-transport.js
+	jquery.fileupload.js
+
+Include all required jQuery files in your HTML page:
+
+	<script src='jquery.min.js' type='text/javascript'></script>
+	<script src='jquery.ui.widget.js' type='text/javascript'></script>
+	<script src='jquery.iframe-transport.js' type='text/javascript'></script>
+	<script src='jquery.fileupload.js' type='text/javascript'></script>
+	<script src='jquery.cloudinary.js' type='text/javascript'></script>
 
 
 
