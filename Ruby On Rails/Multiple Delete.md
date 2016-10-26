@@ -74,4 +74,8 @@ Example:
 	  </tbody>
 	</table>
 	<%= submit_tag 'Multi Delete' %>
-	<% end %>	
+	<% end %>
+
+Example:
+
+![example-image](http://res.cloudinary.com/medio/image/upload/v1477453390/multy_delete_g7lqc8.png)		
