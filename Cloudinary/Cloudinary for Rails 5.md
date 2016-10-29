@@ -143,3 +143,33 @@ class ApplicationController < ActionController::Base
   end
 end
 ```
+
+## Add more than one images
+
+Controller:
+
+    private
+    def category_params
+      params.require(:category).permit(:xxx, :xxx, photos:[], photos_two:[], photos_three:[])
+    end
+
+Model:
+
+    has_attachments :photos # maximum: 5  # Be carefule with `s`
+    has_attachments :photo_two    
+    has_attachments :photo_three
+
+View:
+
+    <h3 class="text-center">Photo Two</h3>
+    <!--display here-->
+    <% @category.photos_two.each do |photo_two| %>
+        <%= cl_image_tag photo_two.path, { size: '350x350', :crop => :fill } %>
+    <% end %>
+    
+Form Upload!:
+
+    <%= f.label :edit_photo_two  %>
+    <%= f.attachinary_file_field :photos_two %>
+
+> Becareful with and without 's' :)            
