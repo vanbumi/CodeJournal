@@ -55,7 +55,7 @@ $(document).ready(function() {
 });
 ```
 
-# Usage
+# Usage for Rails 5
 
 ## One picture per model
 
@@ -74,6 +74,10 @@ And the form (`simple_form` gem used):
 ```erb
 <%= f.input :photo, as: :attachinary %>
 ```
+
+For non simple_form:
+
+    <%= f.attachinary_file_field :photo %>
 
 And the controller for strong params:
 

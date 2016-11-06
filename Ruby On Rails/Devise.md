@@ -230,3 +230,46 @@ And change the link
 
 	<%= link_to "log out", destroy_user_session_path, method: :get %>
 
+
+## User New, Edit & Update
+
+	1 error prohibited this user from being saved, Password can't be blank
+
+#### Solution:
+
+You need add unpermitted params to
+
+	def user_params
+	  params.require(:user).permit(:name, :email, :password, :password_confirmation)
+	end
+
+You need add current_password
+
+	<div class="field">
+	    <% f.label :password %>
+	    <% if @minimum_password_length %>
+	        <em>(<%= @minimum_password_length %> characters minimum)</em>
+	    <% end %><br />
+	    <% f.password_field :password, autocomplete: "off" %>
+	    <% f.password_field :current_password, autocomplete: "off" %>
+	  </div>
+
+	  <div class="field">
+	    <% f.label :password_confirmation %><br />
+	    <% f.password_field :password_confirmation, autocomplete: "off" %>
+	    <% f.password_field :current_password, autocomplete: "off" %>
+	  </div>	
+
+		....
+
+
+You need create if conditon base on controller action :
+
+	if params[:action] == "foo"
+	  # Show stuff for action 'foo'
+	elsif params[:action] == "bar"
+	  # Show stuff for action 'bar'
+	elsif ...
+	  # etc.
+	end
+

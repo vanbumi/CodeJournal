@@ -3,7 +3,8 @@
 [Github](https://github.com/assembler/attachinary)
 
 ### Rails 5 go here
-[...]()  
+
+[Rails 5 Setup](https://github.com/vanbumi/CodeJournal/blob/master/Cloudinary/Cloudinary%20for%20Rails%205.md)  
 
 ## Setup
 
@@ -41,6 +42,8 @@ Or use double quotes
 
 	Solution: gem "cloudinary" should be double quotes
 
+			  put gem "cloudinary" on topest line	
+
 	**This case is on sorongbis website
 
 #### Error 3: bash: syntax error near unexpected token `'/home/dyo/Pictures/manwalk.png''
@@ -67,13 +70,17 @@ Or use double quotes
 
 	$ rake attachinary:install:migrations
 
-#### Error rake aborted! NameError: uninitialized constant ActiveRecord
-	
-	Solution:
+if any erro do bundle exec
+
+	bundle exec rake attachinary:install:migrations	
+
+Success result:
+
+	Copied migration 20161029080008_create_attachinary_tables.attachinary.rb from attachinary
 
 Rake migrate	
 
-	$ rake db:migrate
+	$ rake db:migrate or bundle exec rake db:migrate
 
 ##### Mount attachinary on file routes.rb, add this line:
 
@@ -138,33 +145,7 @@ Rake migrate
 
 [Ask Question](https://www.bountysource.com/teams/attachinary/issues?tracker_ids=286322)
 
-## jquery_integration
-------------------
 
-[jquery_integration](http://cloudinary.com/documentation/jquery_integration)     
-
-### jQuery - Getting started guide
-
-Installation
-
-	<script src='jquery.min.js' type='text/javascript'></script>
-	<script src='jquery.cloudinary.js' type='text/javascript'></script>
-
-You can download jquery.cloudinary.js from the **js folder** of the [GitHub](https://github.com/cloudinary/cloudinary_js) project. In your HTML pages, include jquery.cloudinary.js after including the jQuery library.
-
-If you want to perform direct uploading from the browser, download the following files from the **js folder** of the [GitHub](https://github.com/cloudinary/cloudinary_js) project as well. These files belong to the jQuery File Upload plugin.
-
-	jquery.ui.widget.js
-	jquery.iframe-transport.js
-	jquery.fileupload.js
-
-Include all required jQuery files in your HTML page:
-
-	<script src='jquery.min.js' type='text/javascript'></script>
-	<script src='jquery.ui.widget.js' type='text/javascript'></script>
-	<script src='jquery.iframe-transport.js' type='text/javascript'></script>
-	<script src='jquery.fileupload.js' type='text/javascript'></script>
-	<script src='jquery.cloudinary.js' type='text/javascript'></script>
 
 
 
