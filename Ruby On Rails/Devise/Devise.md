@@ -263,7 +263,7 @@ You need add current_password
 		....
 
 
-You need create if conditon base on controller action :
+You need create **if conditon** base on controller action :
 
 	if params[:action] == "foo"
 	  # Show stuff for action 'foo'
@@ -272,4 +272,123 @@ You need create if conditon base on controller action :
 	elsif ...
 	  # etc.
 	end
+
+Example
+
+	<% if params[:action] == "edit" %>
+
+	  <!-- Edit Action -->
+	  <%= form_for(user) do |f| %>
+	    <% if user.errors.any? %>
+	      <div id="error_explanation">
+	        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	        <ul>
+	        <% user.errors.full_messages.each do |message| %>
+	          <li><%= message %></li>
+	        <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
+
+	    <div class="form-group">
+	      <%= f.label :name %>
+	      <%= f.text_field :name, class:'form-control' %>
+	    </div>
+
+	    <div class="form-group">
+	      <%= f.label :email %>
+	      <%= f.text_field :email, class:'form-control' %>
+	    </div>
+
+	    <div class="form-group">
+	      <%= f.label :role_id %>
+	      <%= f.select :role_id, Role.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Pilih Role'}, class:'form-control' %>
+	    </div>
+
+	    <div class="form-group">
+	      <%= f.label :ganti_password %>
+	      <% if @minimum_password_length %>
+	          <em>(<%= @minimum_password_length %> characters minimum)</em>
+	      <% end %><br />
+	      <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
+	      <% f.password_field :current_password, autocomplete: "off" %>
+	    </div>
+
+	    <div class="form-group">
+	      <%= f.label :password_confirmation %><br />
+	      <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
+	      <% f.password_field :current_password, autocomplete: "off" %>
+	    </div>
+
+	    <div class="form-group">
+	      <% if @user.avatar? %>
+	        <%= cl_image_tag @user.avatar.path, :width => 100, :height => 100, :crop => :thumb, class:'img-thumbnail' %>
+	      <% else %>
+	          <img src="http://res.cloudinary.com/medio/image/upload/c_scale,h_100,w_100/v1477035785/user_r8zlsq.jpg" alt="" class="img-responsive">
+	      <% end %>
+	    </div>
+
+	    <div class="form-group">
+	      <%= f.label :user_avatar, 'Edit Foto Kamu' %>
+	      <%= f.attachinary_file_field :avatar %>
+	    </div>
+	    <br><br>
+	    <div class="actions">
+	      <%= f.submit class:'btn btn-success btn-lg btn-block' %>
+	    </div>
+	  <% end %>
+
+	<% else %>
+
+	  <!--- New Action -->
+	  <%= form_for(user) do |f| %>
+	    <% if user.errors.any? %>
+	      <div id="error_explanation">
+	        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	        <ul>
+	        <% user.errors.full_messages.each do |message| %>
+	          <li><%= message %></li>
+	        <% end %>
+	        </ul>
+	      </div>
+	    <% end %>
+
+	    <div class="form-group">
+	      <%= f.label :name %>
+	      <%= f.text_field :name, class:'form-control' %>
+	    </div>
+
+	    <div class="form-group">
+	      <%= f.label :email %>
+	      <%= f.text_field :email, class:'form-control' %>
+	    </div>
+
+	    <div class="form-group">
+	      <%= f.label :role_id %>
+	      <%= f.select :role_id, Role.all.collect {|x| [x.name, x.id]}, {:include_blank => 'Pilih Role'}, class:'form-control' %>
+	    </div>
+
+	    <div class="field">
+	      <%= f.label :password %>
+	      <% if @minimum_password_length %>
+	          <em>(<%= @minimum_password_length %> characters minimum)</em>
+	      <% end %><br />
+	      <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
+	    </div>
+
+	    <div class="field">
+	      <%= f.label :password_confirmation %><br />
+	      <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
+	    </div>
+
+	    <div class="actions">
+	      <%= f.submit %>
+	    </div>
+	  <% end %>
+
+	<% end %>
+
+
 
