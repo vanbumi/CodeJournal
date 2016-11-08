@@ -4,8 +4,13 @@ Reference:
 
 [strfti.me](http://www.strfti.me/)
 
-Sample:
+Example 1:
+    
     <small><%= post.created_at.strftime(" %d %B %Y, %H:%M") %></small>
+
+Example 2: 
+
+    <%= user.last_sign_in_at.try(:strftime, "%d %b %y, %H:%M") %>
 
 FORMAT controls the output.  Interpreted sequences are:
 
@@ -83,3 +88,13 @@ Report date bugs to bug-coreutils@gnu.org
 GNU coreutils home page: <http://www.gnu.org/software/coreutils/>
 General help using GNU software: <http://www.gnu.org/gethelp/>
 For complete documentation, run: info coreutils 'date invocation'
+
+## Error
+
+undefined method `strftime' for nil:NilClass
+
+    <%= user.last_sign_in_at.strftime(" %d %B %Y, %H:%M") %>
+
+Solution add try
+
+    <%= user.last_sign_in_at.try(:strftime, "%d %b %y, %H:%M") %>

@@ -18,6 +18,26 @@ Example:
 		end
 	end
 
+Example 2
+
+	if current_user.role.name == 'Master'
+		  @users = User.all
+    elsif current_user.role.name == 'Owner'
+      @users = User.all  
+	else
+		  redirect_to '/admin/dashboard'
+	end
+
+Example 3:
+
+	def index
+	    if current_user.role.name == 'Master'
+		  @users = User.all
+		else
+		  redirect_to '/admin/dashboard'
+		end
+	end	
+
 ## Conditional ('if') statements based on controller action
 
 The params hash that is available in the controller contains :controller and :action keys, which specify the controller and action names of the request.
