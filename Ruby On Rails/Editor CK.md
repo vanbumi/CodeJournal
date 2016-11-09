@@ -27,7 +27,9 @@ Quick example:
 	        <script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
 	    </head>
 	    <body>
-	        <textarea name="editor1"></textarea>
+
+	        <%= f.text_area :konten, rows: 30, :id => 'editor1'  %>
+	        
 	        <script>
 	            CKEDITOR.replace( 'editor1' );
 	        </script>
