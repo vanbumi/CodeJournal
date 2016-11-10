@@ -7,3 +7,9 @@ Truncate
 Otherway I forgot yet
 
 	raw and ...	
+
+Othersway
+
+	<%= raw news.konten.truncate(200) %>
+
+*that could be not work in index View		

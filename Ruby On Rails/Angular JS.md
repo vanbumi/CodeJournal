@@ -39,3 +39,7 @@
          {class: "form-control"}
             ) %>
     </div>
+
+Rails form
+
+    <%= f.text_field :email, data: { 'ng-model' => 'myValue' } %>    
