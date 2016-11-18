@@ -54,6 +54,10 @@ generates
 	  end
 	end
 
+Sample rumit:
+
+	rails generate migration AddDetailsToKuesionerPbl RumahTinggalTunggal:integer RumahTinggalTunggalBerImb:integer RumahTinggalDeret:integer RumahTinggalDeretBerImb:integer RumahTinggalSusun:integer RumahTinggalSusunBerImb:integer RumahTinggalSementara:integer	
+
 ### Create Table
 
 If the migration name is of the form "CreateXXX" and is followed by a list of column names and types, then a migration creating the table XXX with the columns listed will be generated. For example:
