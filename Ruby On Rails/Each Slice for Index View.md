@@ -38,3 +38,7 @@
           <% end %>
         </div>
     <% end %>
+
+## Usage
+
+[new-row-every-3-items](http://stackoverflow.com/questions/14528919/new-row-every-3-items)    
