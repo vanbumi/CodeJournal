@@ -117,3 +117,5 @@ Copy folder
 #### Copy to other server
    
     scp dyo@widyobumi.com:/home/dyo/perpelabuhan_dev_bkup.sql dyo@pengembanganpelabuhan.com:/home/dyo/
+
+    

@@ -16,3 +16,4 @@ Wizard supports import and export operations using CSV and JSON files, includes 
 Wizard only exports/imports tables using JSON or CSV format. For an overview of the data export and import options in MySQL Workbench, see Section 6.5, “Data Export and Import”.
 
 Get Wizard : right-click table and choose *Table Data Export Wizard or Table Data Import Wizard*.
+

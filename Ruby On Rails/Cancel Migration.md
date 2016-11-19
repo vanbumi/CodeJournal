@@ -4,14 +4,14 @@ Using destroy scaffold does not run the rollback to the migration. The correct w
 
 	$ rake db:rollback
 
-	$ rails destroy scaffold level
+	$ rails destroy scaffold ...
 
 now, as you don't have that other migration anymore, you cannot roll it back. You'll need to delete that table manually:
 
 	$ rails dbconsole
-	$ DROP TABLE levels;
+	$ DROP TABLE ...;
 
-Others Example:
+Example:
 
 	rails generate controller article
 	# Oops!
