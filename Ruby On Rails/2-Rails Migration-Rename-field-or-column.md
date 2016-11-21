@@ -14,6 +14,10 @@ which will create a migration file similar to this :
 	  end
 	end
 
+And
+ 
+ 	rake db:migrate	
+
 ## Rails Migrations to Add a Column and Change Column Type
 	
 Reference:
@@ -73,12 +77,38 @@ Some migrations are meant to raise an ActiveRecord::IrreversibleMigration except
 
 When the up and down methods are specifically defined, migrations and rollbacks both function properly. This leads to a more general point: whenever you create a migration, check to make sure it can be rolled back and migrated successfully.	
 
+# Error!
+
 ## Error migration because of mistaken or typo, can not do rake db:migrate
 
 ![error migration](http://res.cloudinary.com/medio/image/upload/v1472528990/error_migration_vqznez.png)
 
-	What I did go to database and delete that field manualy
-	and 
+Solution:
+
+	What I have done, go to database and delete that field manualy
+
+and 
+
 	do rake db:migrate
+
+## Another Error mysql
+
+	rake aborted!
+	StandardError: An error has occurred, all later migrations canceled:
+
+	Mysql2::Error: Table 'kuesioner_pbls' already exists:
+
+My solution on remote database:
+
+	mysql -u ... -p ...
+
+	show databases;
+
+	use database ...;
+
+	drop database ...;
+
+	done 	
+
 
 

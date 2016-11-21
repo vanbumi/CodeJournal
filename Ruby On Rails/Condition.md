@@ -38,11 +38,11 @@ Example 3:
 		end
 	end	
 
-## Conditional ('if') statements based on controller action
+## Conditional ('if') base on "Action"
 
 The params hash that is available in the controller contains :controller and :action keys, which specify the controller and action names of the request.
 
-Therefore you could say
+### Therefore you could say
 
 	if params[:action] == "foo"
 	  # Show stuff for action 'foo'
@@ -51,6 +51,34 @@ Therefore you could say
 	elsif ...
 	  # etc.
 	end
+
+## Example for my databaseck
+
+### Case for query new form
+
+	f.select :subbidang_id, Subbidang.where(:nama => 'PBL').collect {|x| [x.nama, x.id]}, {:include_blank => 'Isi'}, class:'form-control'
+
+	<% if params[:action] == 'new' %>
+	  <%= f.select :subbidang_id, Subbidang.where(:nama => 'PBL').collect {|x| [x.nama, x.id]}, {:include_blank => 'Isi'}, class:'form-control' %>
+	<% elsif params[:action] == 'edit' %>
+	  <%= f.select :subbidang_id, Subbidang.all.collect {|x| [x.nama, x.id]}, {:include_blank => 'Pilih'}, class:'form-control', :disabled => true %>
+	  <% f.text_field :subbidang_id, class:'form-control' %>
+	<% end %>
+
+### Case for button
+
+	<!--Button  -->
+	<% if params[:action] == 'new' %>
+	  <div class="actions">
+	    <%= f.submit 'Add New', class:'btn btn-primary btn-xs' %>
+	    <%= link_to 'Cancel', kuesioner_pbls_path, class:'btn btn-warning btn-xs' %>
+	  </div>
+	<% elsif params[:action] == 'edit' %>
+	  <div class="actions">
+	    <%= f.submit 'Update', class:'btn btn-primary btn-xs' %>
+	    <%= link_to 'Cancel', kuesioner_pbls_path, class:'btn btn-warning btn-xs' %>
+	  </div>
+	<% end %>		
 
 ### Contoh penggunaannya pada User CRUD
 
