@@ -11,7 +11,7 @@
 	            <div class="preview">
 	              <%= cl_image_tag gambar.path, { size: '270x270', crop: :thumb } %>
 
-> Do not forget to giv row after slice
+> Do not forget to give row after slice
 
 Example case : grafika
 
