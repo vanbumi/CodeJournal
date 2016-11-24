@@ -12,4 +12,8 @@ Othersway
 
 	<%= raw news.konten.truncate(200) %>
 
-*that could be not work in index View		
+*that could be not work in index View
+
+Try also:
+
+	<%= raw post.body.truncate(020) %>		
