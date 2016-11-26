@@ -28,6 +28,25 @@ For projects using Bundler, add gem
 
 ### Usage
 
+Controller:
+
+	@articles = Article.all.order(:created_at => 'DESC').page(params[:page]).per_page(2)
+
 Load the Bootstrap CSS in your template In your view, use the renderer: BootstrapPagination::Rails option with the will_paginate helper:
 
-	<%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+	<%= will_paginate @...., renderer: BootstrapPagination::Rails %>
+
+
+### Error
+
+The @news variable appears to be empty. Did you forget to pass the collection object for will_paginate?
+
+Solutions:
+
+Change with this 
+
+	<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+
+Base on it controller:
+
+	@articles = Article.all.order(:created_at => 'DESC').page(params[:page]).per_page(2)		

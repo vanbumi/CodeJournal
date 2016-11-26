@@ -1,5 +1,9 @@
 # Rails Condition
 
+## Sample Condition in others way
+
+	<%= f.submit  @customer.new_record? ? "Create Customer" : "Update Customer", :class => "btn btn-primary" %>
+
 ## Controller Condition
 
 Example for class

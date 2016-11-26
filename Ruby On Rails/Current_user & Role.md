@@ -1,5 +1,11 @@
 # Current User & it Role
 
+Basic
+
+	<% if current_user.role.name == 'Master' || 'Owner' %>
+
+Example
+
 	<% if current_user.role.name == 'Master' || 'Owner' %>
 	  <li><a href="/admin/users"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;User</a></li>
 	  <li><a href="/admin/users"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;&nbsp;Karyawan</a></li>
