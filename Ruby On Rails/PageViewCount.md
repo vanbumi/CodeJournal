@@ -126,7 +126,7 @@ View Index:
 ---
 	
 
-#### How to Query
+#### Popular Post
 
 [Stack-Overflow most-viewed-items-using-impressionist-gem](http://stackoverflow.com/questions/25565621/last-week-most-viewed-items-using-impressionist-gem)
 
@@ -134,7 +134,60 @@ View Index:
 
 Case on wb sites:
 
-	@posts_hits = Post.joins(:impressions).group("impressions.impressionable_id").order("count(impressionable_id) DESC").limit(5)	
+On Controller:
 
+	def index
+		@posts_hits = Post.joins(:impressions).group("impressions.impressionable_id").order("count(impressionable_id) DESC").limit(5)	
+	end
+
+Update (grafika):
+
+Add article_id:
+
+	def index
+		@articles_hits = Article.joins(:impressions).group("impressions.impressionable_id", "articles.id").order("count(impressionable_id) DESC").limit(10)	
+	end
+
+On view index
+
+	<!-- POPULAR POST -->
+	<div class="col-lg-6 pop rightcol">
+		<div id="heading" class="headingx text-center">
+		  <h3><i class="fa fa-fire" aria-hidden="true"></i>&nbsp;Popular</h3>
+		</div>
+		<div id="content-newpop">
+		  <ul class="list list-unstyled">
+			<% @posts_hits.each do |popu| %>
+			<li>
+				<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;&nbsp; <a href="/<%= popu.slug %>"><%= popu.name %></a>&nbsp;(Hit :&nbsp;<%= popu.impressionist_count %>)
+			</li>
+			<% end %>  
+		  </ul>
+		</div>  
+	</div>
+
+Other sample: 
+
+	<% @articles_hits.each do |hit| %>
+	<div class="widget-blog-item media">
+	    <div class="pull-left">
+	        <div class="date">
+	            <% hit.created_at.strftime("%d %b %Y, %H:%M") %>
+	            <span class="month"><%= hit.created_at.strftime("%b") %></span>
+	            <span class="day"><%= hit.created_at.strftime("%d") %></span>
+	          <% hit.impressions.count %>
+	        </div>
+	    </div>
+	    <div class="media-body">
+	        <a href="#"><h5><%= hit.title %></h5></a>
+	    </div>
+	</div>
+	<% end %>
+
+Image:
+
+![popular articles](http://res.cloudinary.com/grafikatritunggallestari/image/upload/v1480994114/popularArticles_ytjssl.png)	
+
+---		
 
 [Stack-Overflow get-impresions-count-from-today-yesterday-and-this-month](http://stackoverflow.com/questions/27549386/get-impresions-count-from-today-yesterday-and-this-month-impresionist-gem)	

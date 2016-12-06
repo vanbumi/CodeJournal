@@ -50,3 +50,6 @@ Example case : grafika
 	  <% end %>
 	</section>
 	
+### Readmore this 
+
+[ruby-array-each-slice-with-index](http://stackoverflow.com/questions/5983977/ruby-array-each-slice-with-index)	
