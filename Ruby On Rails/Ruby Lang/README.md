@@ -11,3 +11,7 @@
 * Cut last character
 
 	'abc123'.chomp('123')    # => "abc"
+
+* [Ruby Array](https://ruby-doc.org/core-2.2.0/Array.html)
+
+	
