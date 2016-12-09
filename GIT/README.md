@@ -29,3 +29,7 @@ To undo
 
 	git rm --cached filename, use git add filename.
 
+
+## References	
+
+[Git Is Simpler Than You Think](http://nfarina.com/post/9868516270/git-is-simpler)
