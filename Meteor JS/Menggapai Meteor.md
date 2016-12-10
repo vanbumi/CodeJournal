@@ -390,16 +390,164 @@ Buat file baru dengan nama main.html didalam direktori /client, dan tulis kode s
 		</div>
 	</body>
 
-Ini adalah main app template. Anda lihat kode {{> postsList}} ini adalah template inclusion tag, yang mana kita dapat menyisipkan file postsList disini. Kemudian kita akan membuat template lain.
+Ini adalah main app template. Anda lihat kode {{> postsList}} ini adalah **template inclusion tag**, yang mana kita dapat menyisipkan file postsList disini. Template lain adalah seperti yang akan di jelaskan dibawah ini.
 
 ### Meteor Templates
 
 * Buat direktori /templates didalam /client . Disini kita akan menaruh semua template, 
 * Buat direktori /posts didalam /templates untuk file yang berhubungan dengan post.
 
+> #### Finding Files
++ Meteor sangat baik dalam menemukan file-file. Dimanapun anda menaruh kode didalam direktori / Meteor akan menemukan dan meng-compilenya dengan baik. Artinya anda **tidak perlu** secara manual menuliskan **include paths** untuk file JavaScript atau CSS.
++ Juga berarti anda dapat menaruh seluruh file dalam direktori yang sama atau semua kode di dalam file yang sama. Tapi sejak Meteor akan compile semua menjadi single minified file, maka kita mending menyusun file kita serapih mungkin secara terstruktur.
 
+Buat template kedua didalam client/templates/posts, buat file posts_list.html, seperti sbb :
 
+	<template name="postsList">
+	  <div class="posts">
+	    {{#each posts}}
+	      {{> postItem}}
+	    {{/each}}
+	  </div>
+	</template>
 
+Ini adalah daftar post yang akan ditampilkan dengan kode loop {{#each posts}}	
 
+dan buat juga file didalam client/templates/posts/post_item.html :
 
+	<template name="postItem">
+		<div class="post">
+			<div class="post-content">
+				<h3><a href="{{url}}">{{title}}</a><span>{{domain}}</span></h3>
+			</div>
+		</div>
+	</template>
 
+> **Catatan** : name="postsList" attribute dari **template element**. Ini adalah nama yang akan digunakan oleh Meteor untuk 'keep track' templatenya masing-masing.
+
+### Spacebars
+
+Kami akan mengenalkan kepada anda "Meteor’s templating system", yaitu **Spacebars**, Spacebars adalah kode HTML sederhana, dengan tambahan dari tiga hal yaitu: 
+
+* inclusions (atau dikenal sebagai “partials”), 
+* expressions dan 
+* block helpers.
+
+Inclusions menggunakan sintaks 
+
+	{{> templateName}}, 
+
+kode ini perintahankan Meteor untuk menggantikan "the inclusion" dengan template yang telah dbuat sebelumnya dengan nama yang sama (dalam kasus ini **postItem** ).
+
+Expressions seperti ini:  
+
+	{{title}} 
+
+kode ini akan memanggil property dari object yang bersangkutan atau *return value* dari 
+template helper yang telah di *defined* di *current template’s manager* (akan dipelajari kemudian).
+
+Block helpers 
+
+	{{#each}}
+		...
+	{{/each}}
+	
+atau 
+
+	{{#if}}
+		...
+	{{/if}}
+
+adalah special tags untuk control flow dari template.
+
+**Penjelasan**
+
+Pada postsList template, kita lakukan perulangan (iterating) pada posts object dengan block helper {{#each}}...{{/each}}. Kemudian untuk masing-masing perulangan kita sertakan postItem template.
+
+Kemana posts object ini datangnya? Adalah dari template helper, dan anda boleh berfikir ini sebagai *placeholder* untuk *dynamic value*.
+
+Pada postItem template menggunakan tiga expressions yaitu: {{url}} dan {{title}} keduanya mengembalikan nila 'document’s properties', dan {{domain}} calls "template helper".
+
+### Template Helpers 
+
+Meteor memisahkan antara templates dan logic nya, akan tetapi dalam prosesnya template membutuhkan *helpers*. 
+
+*Helpers* seperti tukang masak mengambil bahan baku mentah (data anda) dan menyiapkannya, sebelum memberikan hidangan jadi (the templates) kepada pelayan sebagai orang yang kemudian menyajikannya kepada anda.
+
+> Dengan kata lain, saat peran template berakhir *the helpers* adalah orang yang melakukan pekerjaan berat dengan menetapkan *value* untuk masing-masing variable.
+
+---
+
+> **Controllers?**
+Mungkin anda berfikir file yang berisi template’s helpers seperti semacan controller. Tapi hal yang diragukan sebagai *controllers* (pada MVC), karena memiliki perbedaan fungsi.
+Jadi kita tidak akan menggunakan terminology 'controller', secara sederhana sebut saja sebagai “**the template’s helpers**“ atau “**the template’s logic**” jika subyek nya adalah template’s JavaScript kode.
+
+Secara sederhana, kita akan mengadobsi nama yang sama pada file yang memuat helpers pada template, tapi dengan ekstensi **.js**. Sekarang buatlah file posts_list.js didalam 
+client/templates/posts.
+
+Mulailah membuat helper Pertama client/templates/posts/posts_list.js:
+
+	var postsData = [
+		{
+			title: 'Introducing Telescope',
+			url: 'http://sachagreif.com/introducing-telescope/'
+		},
+		{
+			title: 'Meteor',
+			url: 'http://meteor.com'
+		},
+		{
+			title: 'The Meteor Book',
+			url: 'http://themeteorbook.com'
+		}
+	];
+
+	Template.postsList.helpers({
+		posts: postsData
+	});
+
+Coba anda buka browser anda http://localhost:3000
+
+![](http://res.cloudinary.com/medioxtra/image/upload/c_scale,w_800/v1481337637/microscope_eobfq6.png)
+
+Kita melakukan 2 hal disini: 
+
+* Pertama kita setting *dummy* data didalam postsData array. Yang biasanya kita buat di database (chapter berikutnya) jadi sementara kita buat static data dulu.
+
+* Kedua kita gunakan **Template.postsList.helpers() function** untuk membuat template
+helper memanggil (*called*) **posts** yang akan mengembalikan (returns) **postsData array** yang telah kita buat.
+
+Anda ingat? Kita menggunakan posts helper dalam postsList template:
+
+	<template name="postsList">
+		<div class="posts page">
+			{{#each posts}}
+				{{> postItem}}
+			{{/each}}
+		</div>
+	</template>
+
+### The domain Helper
+
+Sekarang kita membuat post_item.js untuk menempatkan logic postItem template’s 
+
+client/templates/posts/post_item.js
+
+	Template.postItem.helpers({
+		domain: function() {
+			var a = document.createElement('a');
+			a.href = this.url;
+			return a.hostname;
+		}
+	});
+
+Kali ini nilai domain helper’s bukan lagi sebuah array, tapi *anonymous* function. Pattern seperti ini sudah lazim dan *useful* dibandingkan dengan contoh dummy data sebelumnya.
+
+![](http://res.cloudinary.com/medioxtra/image/upload/c_scale,w_800/v1481341744/microscop_u8jyyw.png)
+
+Domain helper ambil URL dan mengembalikan domain nya via "*JavaScript magic*". Tapi bagaimana url tersebut berasal? Jawabnya kita lihat kembali posts_list.html template. Dimana {{#each}} block helper tidak hanya melakukan perulangan (*iterates*) array saja, tapi juga **mengisi nilai**(value) dari "**this**"  ke dalam **block untuk perulangan object**.
+
+Artinya antara kedua {{#each}} tags, masing-masing post ditetapkan (*assigned*) untuk "**this**" berturut-turut, dan sepanjang included template’s manager ( post_item.js ).
+
+We now understand why this.url returns the current post’s URL. And moreover, if we use
+{{title}} this.title and {{url}} inside our post_item.html template, Meteor knows that we mean and this.url and returns the correct values.
