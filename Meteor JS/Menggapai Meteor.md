@@ -549,5 +549,4 @@ Domain helper ambil URL dan mengembalikan domain nya via "*JavaScript magic*". T
 
 Artinya antara kedua {{#each}} tags, masing-masing post ditetapkan (*assigned*) untuk "**this**" berturut-turut, dan sepanjang included template’s manager ( post_item.js ).
 
-We now understand why this.url returns the current post’s URL. And moreover, if we use
-{{title}} this.title and {{url}} inside our post_item.html template, Meteor knows that we mean and this.url and returns the correct values.
+Kita sekarang paham this.url mengembalikan current post’s URL, jika kita menggunakan {{title}} this.title dan {{url}} didalam post_item.html template, Meteor tahu this.url akan mengembalikan values yang benar.
