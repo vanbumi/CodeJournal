@@ -550,3 +550,42 @@ Domain helper ambil URL dan mengembalikan domain nya via "*JavaScript magic*". T
 Artinya antara kedua {{#each}} tags, masing-masing post ditetapkan (*assigned*) untuk "**this**" berturut-turut, dan sepanjang included template’s manager ( post_item.js ).
 
 Kita sekarang paham this.url mengembalikan current post’s URL, jika kita menggunakan {{title}} this.title dan {{url}} didalam post_item.html template, Meteor tahu this.url akan mengembalikan values yang benar.
+
+### JavaScript Magic
+
+Penjelasan dari kode ini:
+
+	Template.postItem.helpers({
+		domain: function() {
+			var a = document.createElement('a');
+			a.href = this.url;
+			return a.hostname;
+		}
+	});
+
+* Pertama kita membuat *empty anchor* ( a ) HTML element dan menyimpannya ke dalam memory, 
+* Kemudian kita set href attribute equal dengan the current post’s URL.
+* Terakhir kita mengembalikan element a dengan spesial hostname property untuk mengambil link dari nama domain tersebut tanpa URL sisannya. (*Finally, we take advantage of that a element’s special hostname property to get back the link’s domain name without the rest of the URL*).
+
+*** Hot Code Reload
+
+You might have noticed that you didn’t even need to manually reload your browser
+window whenever you changed a file.
+This is because Meteor tracks all the files within your project directory, and automatically
+refreshes your browser for you whenever it detects a modification to one of them.
+Meteor’s hot code reload is pretty smart, even preserving the state of your app in-between
+two refreshes!
+
+---
+
+## Collections
+
+A collection is a special data structure that takes care of storing your data in the permanent, server-side MongoDB database, and then synchronising it with each connected user’s browser in real-time.
+
+We want our posts to be permanent and shared between users, so we’ll start by creating a
+collection called Posts to store them in.
+
+Collections are pretty central to any app, so to make sure they are always defined first we’ll put them inside the lib directory. So if you haven’t done so already, create a collections/ folder inside lib , and then a posts.js file inside it. Then add:
+
+	Posts = new Mongo.Collection('posts');
+

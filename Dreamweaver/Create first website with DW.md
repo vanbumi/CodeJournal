@@ -7,9 +7,8 @@ In Dreamweaver, a site organizes on your local computer all the documents associ
 
 A typical Dreamweaver site has at least two parts:
 
-Local Folder: This is your working directory. Dreamweaver refers to this folder as your local site. The local folder is usually a folder on your hard drive.
-
-Remote Folder: This is where you store your files on the computer that is running your web server. The computer running the web server is often (but not always) the computer that makes your site publicly available on the web.
+* **Local Folder**: This is your working directory. Dreamweaver refers to this folder as your local site. The local folder is usually a folder on your hard drive.
+* **Remote Folder**: This is where you store your files on the computer that is running your web server. The computer running the web server is often (but not always) the computer that makes your site publicly available on the web.
 
 For more information about Dreamweaver sites in general, see [Site management](https://helpx.adobe.com/dreamweaver/topics/site-management.html) in Dreamweaver Help.
 
@@ -29,6 +28,7 @@ The sample files for this article contain assets for the sample website you'll b
 1. Start Dreamweaver and choose Site > New Site. The Site Setup dialog box appears.
 2. For the Site Name, type Check Magazine as the name of the site. The name is used internally by Dreamweaver to identify the site. It doesn’t matter if it contains spaces.
 3. Click the folder icon next to Local Site Folder to browse to and select the check_cs6 folder (see Figure 1).
+
 4. Click Save. That's it!
 
 The Files panel in Dreamweaver now shows the new local root folder for your current site (see Figure 2). The file list in the Files panel acts as a file manager, enabling you to copy, paste, delete, move, and open files just as you would on a desktop.
@@ -43,9 +43,9 @@ The Files panel in Dreamweaver now shows the new local root folder for your curr
 
 Part 2 explains how to create a **CSS-based** page layout in Adobe Dreamweaver CS6. *A page layout determines how your page will appear in the browser*, showing, for example, the placement of menus, images, and other kinds of content.
 
-Laying out web pages with CSS (Cascading Style Sheets) has become the standard for modern web design. CSS offers superior flexibility and control over your layout, enabling you to create elements on the page and fine-tune their positions with pixel precision. However, CSS layouts can be difficult to understand and create, and it helps to have some background knowledge before building your first layout with CSS. You can start by reading [CSS page layout basics]()http://www.adobe.com/devnet/dreamweaver/articles/css_page_layout_basics.html, which is an overview of how CSS layouts work. But this reading is not required. If you're up for the challenge, you can just dive right into this tutorial to begin creating your first CSS-based layout.
+Laying out web pages with CSS (Cascading Style Sheets) has become the standard for modern web design. CSS offers superior flexibility and control over your layout, enabling you to create elements on the page and fine-tune their positions with pixel precision. However, CSS layouts can be difficult to understand and create, and it helps to have some background knowledge before building your first layout with CSS. You can start by reading [CSS page layout basics](http://www.adobe.com/devnet/dreamweaver/articles/css_page_layout_basics.html), which is an overview of how CSS layouts work. But this reading is not required. If you're up for the challenge, you can just dive right into this tutorial to begin creating your first CSS-based layout.
 
-Evaluate the task ahead
+**Evaluate the task ahead**
 
 Typically, you don't begin building a website by opening Dreamweaver and laying out pages. The first steps to creating a website begin on a piece of paper or in a graphics-editing application such as Adobe Fireworks or Adobe Photoshop. Graphic designers usually sketch out a piece of comprehensive artwork (also known as a comp) for the website to show it to the client and make sure that the initial ideas for the site meet with their client's approval.
 
@@ -59,7 +59,7 @@ You can also open the original comp file if you want to see it in more detail. Y
 
 More and more people are accessing websites on a wide range of screen resolutions from mobile phones through tablets to laptops and desktops. Creating a website design that adapts to different screen sizes requires considerable CSS knowledge and skills. To keep this tutorial relatively simple and focused on creating your first website, you’ll work with a fixed-width display designed for a desktop.
 
-What to do if things go wrong
+**What to do if things go wrong**
 
 When learning new techniques or working with unfamiliar software, it’s easy to make mistakes. The instructions throughout this tutorial series try to anticipate common errors, and each part contains a ZIP file showing how the code should look when you have finished. If your page doesn’t look the way you expect, use the Dreamweaver File Compare feature to compare your files with the download versions. To use File Compare, you need a third-party file comparison utility, such as WinMerge for Windows. On a Mac, you can use the file comparison tool in TextWrangler. Both are free.
 
@@ -69,7 +69,7 @@ Above all, enjoy yourself. Web design can sometimes be challenging, but it’s a
 
 ### Create and save a new page
 
-After you have set up a site and examined your comps (if any), you are ready to begin building web pages. You'll start by creating a new page, and saving it in the check_cs6 local root folder of your website. The page eventually becomes the home page for Check Magazine.
+After you have set up a site and examined your comps (if any), you are ready to begin building web pages. You'll start by creating a new page, and saving it in the **check_cs6 local root folder** of your website. The page is home page for Check Magazine.
 
 1. In Dreamweaver, make sure the Check Magazine site is selected in the Files panel (see Figure 2).
 2. Choose File > New.
