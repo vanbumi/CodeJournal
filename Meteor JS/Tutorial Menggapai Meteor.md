@@ -589,3 +589,205 @@ Collections are pretty central to any app, so to make sure they are always defin
 
 	Posts = new Mongo.Collection('posts');
 
+Menggunaka Var (variable) atau tidak usah?
+
+In Meteor, the var keyword limits the scope of an object to the current file. Here, we
+want to make the Posts collection available to our whole app, which is why we’re not
+using the var keyword.
+
+### Storing Data
+
+Three basic ways of storing data at their disposal, each filling a different role:
+
+* **The browser’s memory**: things like JavaScript variables are stored in the browser’s
+memory, which means they’re not permanent: they’re local to the current browser tab, and
+will disappear as soon as you close it.
+
+* **The browser’s storage**: browsers can also store data more permanently using cookies or
+Local Storage. Although this data will persist from session to session, it’s local to the current user (but available across tabs) and can’t be easily shared with other users.
+
+* **The server-side database**: the best place for permanent data that you also want to make
+available to more than one user is in a good old database (MongoDB being the default
+solution for Meteor apps).
+
+Meteor makes use of all three, and will sometimes synchronize data from one place to another (as we’ll soon see).
+
+### Client & Server
+
+Code inside folders that are not **client**/ or **server**/ will run in both contexts. So the **Posts collection** is available to both client and server. However, what the collection does in each environment can be pretty different.
+
+On the server, the collection has the job of talking to the MongoDB database, and reading and
+writing any changes. In this sense, it can be compared to a standard database library.
+
+On the client however, the collection is a copy of a subset (bagian) of the real, canonical collection. The client-side collection is constantly and (mostly) transparently kept up to date with that subset in real-time.
+
+### Console vs Console vs Console
+
+Di meteor kita akan mengenal beberapa jenis console:
+
+* Terminal
+
+* Browser Console
+
+* Meteor Shell
+Called from the Terminal with 'meteor shell'
+
+* Mongo Shell
+Called from the Terminal with 'meteor mongo'
+
+### Server-Side Collections
+
+Get help
+
+	db.help()
+
+	DB methods:
+		db.adminCommand(nameOrDocument) - switches to 'admin' db, and runs command [ just calls db.runCommand(...) ]
+		db.auth(username, password)
+		db.cloneDatabase(fromhost)
+		db.commandHelp(name) returns the help for the command
+		db.copyDatabase(fromdb, todb, fromhost)
+		db.createCollection(name, { size : ..., capped : ..., max : ... } )
+		db.createUser(userDocument)
+		db.currentOp() displays currently executing operations in the db
+		db.dropDatabase()
+		db.eval() - deprecated
+		db.fsyncLock() flush data to disk and lock server for backups
+		db.fsyncUnlock() unlocks server following a db.fsyncLock()
+		db.getCollection(cname) same as db['cname'] or db.cname
+		db.getCollectionInfos([filter]) - returns a list that contains the names and options of the db's collections
+		db.getCollectionNames()
+		db.getLastError() - just returns the err msg string
+		db.getLastErrorObj() - return full status object
+		db.getLogComponents()
+		db.getMongo() get the server connection object
+		db.getMongo().setSlaveOk() allow queries on a replication slave server
+		db.getName()
+		db.getPrevError()
+		db.getProfilingLevel() - deprecated
+		db.getProfilingStatus() - returns if profiling is on and slow threshold
+		db.getReplicationInfo()
+		db.getSiblingDB(name) get the db at the same server as this one
+		db.getWriteConcern() - returns the write concern used for any operations on this db, inherited from server object if set
+		db.hostInfo() get details about the server's host
+		db.isMaster() check replica primary status
+		db.killOp(opid) kills the current operation in the db
+		db.listCommands() lists all the db commands
+		db.loadServerScripts() loads all the scripts in db.system.js
+		db.logout()
+		db.printCollectionStats()
+		db.printReplicationInfo()
+		db.printShardingStatus()
+		db.printSlaveReplicationInfo()
+		db.dropUser(username)
+		db.repairDatabase()
+		db.resetError()
+		db.runCommand(cmdObj) run a database command.  if cmdObj is a string, turns it into { cmdObj : 1 }
+		db.serverStatus()
+		db.setLogLevel(level,<component>)
+		db.setProfilingLevel(level,<slowms>) 0=off 1=slow 2=all
+		db.setWriteConcern( <write concern doc> ) - sets the write concern for writes to the db
+		db.unsetWriteConcern( <write concern doc> ) - unsets the write concern for writes to the db
+		db.setVerboseShell(flag) display extra information in shell output
+		db.shutdownServer()
+		db.stats()
+		db.version() current version of the server
+
+**Mongo shell**
+
+	$ meteor mongo
+
+	> db.posts.insert({title: "A new post"});
+	WriteResult({ "nInserted" : 1 })
+	
+	> db.posts.find();
+	{ "_id" : ObjectId("5854ae0dcac95c2a6c2bfbef"), "title" : "A new post" }
+
+### Client-Side Collections
+
+> **Collections client-side!**. When you declare Posts = new Mongo.Collection('posts'); on the client, what you are creating is a local, in-browser cache of the real Mongo collection. When we talk about a client-side collection being a “cache”, we mean it in the sense that it contains a subset of your data, and offers very quick access to this data.
+
+It’s important to understand these points as it’s **fundamental** to the way Meteor works. In general, a client side collection consists (teridiri) of a subset (bagian) of all the documents stored in the Mongo collection (after all, we generally don’t want to send our whole database to the client).
+
+**Secondly**, those documents are stored in **browser memory**, which means that accessing them is basically instantaneous (segera). So there are no slow trips to the server or the database to fetch the data when you call Posts.find() on the client, as the data is already pre-loaded.
+
+### Client-Server Communication
+
+Rather than explaining this in detail, let’s just watch what happens.
+
+Run server:
+
+	myapp$ meteor
+
+Open localhost:3000 with two browser windows, and accessing the browser console in each one. Then, open up the Mongo shell on the command line.
+
+Open new command line, run mongo shell
+
+	myapp$ meteor mongo
+
+On mongo shell (terminal): 
+
+	> db.posts.find();
+	{ "_id" : ObjectId("5854ae0dcac95c2a6c2bfbef"), "title" : "A new post" }
+
+On first browser console:
+
+	> Post.findOne();
+	Object {_id: M…D.ObjectID, title: "A new post"}
+
+Let’s create a new post. In one of the browser windows, run an insert command:
+
+	› Posts.find().count();
+	1
+	› Posts.insert({title: "A second post"});
+	'xxx'
+	› Posts.find().count();
+	2
+
+Unsurprisingly, the post made it into the local collection. Now let’s check Mongo:
+
+	› db.posts.find();
+	{title: "A new post", _id: ObjectId("..")};
+	{title: "A second post", _id: 'yyy'};
+
+s you can see, the post made it all the way back to the Mongo database, without us writing a
+single line of code to hook our client up to the server (well, strictly speaking, we did write a single
+line of code: new Mongo.Collection('posts') ). But that’s not all!
+
+Bring up the second browser window and enter this in the browser console:
+
+	› Posts.find().count();
+	2
+
+The post is there too! Even though we never refreshed or even interacted with the second browser, and we certainly didn’t write any code to push updates out. It all happened magically – and instantly too, although this will become more obvious later.
+
+What happened is that our server-side collection was informed by a client collection of a new post, and took on the task of distributing that post into the Mongo database and back out to all the other connected post collections.
+
+Fetching posts on the browser console isn’t that useful. We will soon learn how to wire this data into our templates, and in the process turn our simple HTML prototype into a functioning realtime web application.
+
+### Populating the Database
+
+What we’d really like to do is display the data, and the changes to that data, on the screen. **To turn our app from a simple web page displaying static data, to a real-time web application with dynamic, changing data**.
+
+First, let’s make sure there’s nothing in the database. We’ll use **meteor reset** , which erases your database and resets your project. You’ll be very careful with this command once
+you start working on real-world projects.
+
+Stop the Meteor server (by pressing ctrl-c ) and then, on the command line, run:
+
+	meteor reset
+
+The reset command completely clears out the Mongo database. It’s a useful command in
+development, where there’s a strong possibility of our database falling into an inconsistent state.
+
+Let’s start our Meteor app again:
+
+	meteor
+
+### Dynamic Data
+
+If we open up a browser console, we’ll see all three posts loaded up into MiniMongo:	
+
+	› Posts.find().fetch();
+	Object, Object, Object
+
+To get these posts into rendered HTML, we’ll use our friend the template helper.	
