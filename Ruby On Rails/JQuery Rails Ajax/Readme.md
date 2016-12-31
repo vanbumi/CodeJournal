@@ -1,3 +1,7 @@
+# JQuery Ajax & Rails
+
+* [Video - How To Add jQuery and Ajax To Your Rails App ](https://www.youtube.com/watch?v=K-sns5tNdTY) (downloaded) 
+
 # How to use the built-in AJAX functionality of Ruby on Rails
 
 * [Codeplace Video](https://www.youtube.com/watch?v=2Il7PPhen3o) -> Very good video!

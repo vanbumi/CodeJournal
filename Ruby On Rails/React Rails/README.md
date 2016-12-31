@@ -4,10 +4,10 @@
 In this tutorial: We get ourselves set up and make sure we are using Ruby 2.3.1 so we can create a new Rails 5 app.
 
 ===TUTORIAL BLOG===
-https://medium.com/coding-and-web-dev...
+[Blog](https://medium.com/coding-and-web-development/you-dont-know-how-to-use-react-with-rails-5-ee5fb95e4f6b#.u4xolc3h0)
 
 ===GIT REPO===
-https://github.com/pereiradaniel/Lift...
+[Git Repo](https://github.com/pereiradaniel/LiftProgressTutorial)
 
 ===LINKS===
 RVM - Ruby Version Manager
