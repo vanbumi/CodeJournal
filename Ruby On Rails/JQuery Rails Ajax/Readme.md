@@ -26,3 +26,5 @@
 * [Arabic Version](https://www.youtube.com/watch?v=_eXKV5qk3Ic&index=7&list=PLh-GhYwaDgIHcxyNV-WZmDCoqubG2PJ2Y)
 
 * [Nice & simple crud ajax](https://richonrails.com/articles/basic-ajax-in-ruby-on-rails)
+
+* [Ajax Delete](https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm)
