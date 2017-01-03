@@ -2,14 +2,12 @@
 
 ## Menu
 
-[Like Star Love Etc](https://github.com/vanbumi/CodeJournal/blob/master/jQuery/Like-Star-Love-Etc.md) 
-[Image Bigger](https://github.com/vanbumi/CodeJournal/blob/master/jQuery/img-bigger.md)
-
-[Examples](http://www.w3schools.com/jquery/jquery_examples.asp)
-
-[Do you want to develop your jQuery selector skills?](http://www.w3schools.com/jquery/trysel.asp)
-
-[Working_with_javascript_in_rails](http://edgeguides.rubyonrails.org/working_with_javascript_in_rails.html)
+* [learn jquery](https://learn.jquery.com/)
+* [Like Star Love Etc](https://github.com/vanbumi/CodeJournal/blob/master/jQuery/Like-Star-Love-Etc.md) 
+* [Image Bigger](https://github.com/vanbumi/CodeJournal/blob/master/jQuery/img-bigger.md)
+* [Examples](http://www.w3schools.com/jquery/jquery_examples.asp)
+* [Do you want to develop your jQuery selector skills?](http://www.w3schools.com/jquery/trysel.asp)
+* [Working_with_javascript_in_rails](http://edgeguides.rubyonrails.org/working_with_javascript_in_rails.html)
 
 ## On Key Up
 

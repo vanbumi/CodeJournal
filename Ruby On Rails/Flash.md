@@ -19,3 +19,7 @@ show.html.erb
       <% if flash[:notice] %>
         <div class="notice"><%= flash[:notice] %></div>
       <% end %>
+
+## Devise Flash
+
+[How To: Integrate I18n Flash Messages with Devise and Bootstrap](https://github.com/plataformatec/devise/wiki/How-To:-Integrate-I18n-Flash-Messages-with-Devise-and-Bootstrap)      
