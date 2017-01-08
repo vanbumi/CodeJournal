@@ -167,7 +167,7 @@ For all server
 
 ## Incase If you find Errors:
    
-#### Error #1
+### Error #1
 
     Web application could not be started
     Could not find a JavaScript runtime. See https://github.com/rails/execjs for a list of available runtimes. (ExecJS::RuntimeUnavailable)
@@ -178,7 +178,7 @@ solution:
 
     $ bundle install
                         
-#### Error #2
+### Error #2
 
     There was an error while trying to load the gem 'uglifier'. (Bundler::GemRequireError)
     /usr/local/lib/ruby/gems/2.3.0/gems/bundler-1.11.2/lib/bundler/runtime.rb:80:in `rescue in block (2 levels) in  require'
@@ -193,7 +193,7 @@ Solution:
 
     sudo apt-get install nodejs    
                         
-#### Error #3
+### Error #3
 
     PG::InvalidParameterValue: ERROR:  new encoding (UTF8) is incompatible with the encoding of the template database (SQL_ASCII)
     HINT:  Use the same encoding as in the template database, or use template0 as template.
@@ -227,7 +227,7 @@ Solution: https://gist.github.com/amolkhanorkar/8706915
 Problem should be resolved :)
       
   
-#### Error #4
+### Error #4
 
     Gem::LoadError: You have already activated rake 10.5.0, but your Gemfile requires rake 10.4.2. Prepending `bundle exec` to your command may solve this.
 
@@ -237,7 +237,22 @@ Solution:
 
     sudo bundle exec rake db:migrate
 
-    
+### Error #5
+
+    Errno::EACCES in Home#landing
+
+    Permission denied @ dir_s_mkdir - /home/dyo/sites/cmpbatam/tmp
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>    
+
+Solution:
+
+First one must create the tmp directory, then give it the necessary permissions. This can be done with the following code:
+
+    sudo mkdir tmp
+    sudo chmod 777 tmp
+
+
 
 
                         

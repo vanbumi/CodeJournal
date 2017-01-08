@@ -93,3 +93,4 @@ On your devise login page, views/devise/sessions/new.html.erb
 	    </div>
 	<% end %>
 
+Done!
