@@ -127,5 +127,14 @@ Permission denied @ dir_s_mkdir - /home/dyo/sites/sorongb/tmp
 
 Solution: 	sudo chmod -R 777 /home/dyo/sites/sorongb/
 
+### Error:
 
+![error psql](http://res.cloudinary.com/medioxtra/image/upload/v1483980727/postgre_error_swxc8v.png)
 
+#### Solution
+
+You should enable postgresql service by performing 
+
+	sudo service postgresql start
+
+[pgconnection-bad-connecting](http://stackoverflow.com/questions/35590668/pgconnection-bad-connecting-to-pgadminiii-cloud-9-ide)	

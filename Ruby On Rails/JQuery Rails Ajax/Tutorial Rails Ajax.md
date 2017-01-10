@@ -38,7 +38,7 @@ And update like below:
 	});
 
 
-### 8.2 - 8.2
+### 8.2 - 8.3 
 
 Add this to remove previous class in previous row
 
@@ -48,6 +48,7 @@ edit.js.erb shoul be like below:
 
 	$(function(){
 		$(".edit_koman").remove();
+		$(".new_koman").remove();
 		$("tr").removeClass("edit_row")
 		$(".new_one").hide().after("<%= j render 'form' %>");
 
@@ -81,6 +82,37 @@ Add below to remove the form after edit
 
 	$(".edit_koman").remove();
 	$(".new_one").show();
-	$(".edit_row").find('td:first').text('<%= raw @koman.name %>').next().text("<%= raw @koman.comment %>");
-	$("tr").removeClass('edit_row'); // to remove class css	
 
+	$(".edit_row").find('td:first').text('<%= raw @koman.name %>').next().text("<%= raw @koman.comment %>");
+	$("tr").removeClass('edit_row'); // to remove class css	after updating
+
+### 9. Delete row from index list
+
+**Add remote: true**
+
+	<td>
+		<%= link_to 'Destroy', koman, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+	</td>
+
+**Add format.js**
+
+	def destroy
+	    @koman.destroy
+	    respond_to do |format|
+	      format.html { redirect_to komen_url, notice: 'Koman was successfully destroyed.' }
+	      format.json { head :no_content }
+	      format.js
+	    end
+	end
+
+**Create new file destroy.js.erb**
+
+	$('tr').find('td:first').each(function(){
+		if ($(this).text() == ('<%= raw @koman.name %>')) {
+			$(this).parent().remove();
+		}
+	});
+
+done
+
+		
