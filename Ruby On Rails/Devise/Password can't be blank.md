@@ -4,7 +4,7 @@
 
 	Password can't be blank
 
-## Solutions Create Change Password facilty !
+## Solutions Create Change Password facility !
 
 Create clone edit.html.erb named changepassword
 
