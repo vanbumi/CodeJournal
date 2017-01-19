@@ -1,6 +1,6 @@
 # Image Gallery HTML & CSS
 
-The html
+### The html
 
 	<section>
 	  <div class="container">
@@ -24,7 +24,7 @@ The html
 		...	
 	...
 
-The css
+### The css
 
 	  body {
 	    font-family: 'Georgia', 'Arial', Sans-serif;
@@ -118,3 +118,13 @@ The css
 	    background: #7a548f;
 	    z-index: 0;
 	  }
+
+### Combine with The lightbox
+
+[lightbox2](http://lokeshdhakar.com/projects/lightbox2/)
+
+Which is add this :
+
+	<a href="http://placehold.it/350x350" class="photo-hover" data-lightbox="my-images" data-title="Lorem Ipsum">
+
+	data-lightbox="my-images" data-title="Lorem Ipsum"
