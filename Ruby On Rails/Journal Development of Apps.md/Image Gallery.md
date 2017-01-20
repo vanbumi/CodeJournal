@@ -128,3 +128,7 @@ Which is add this :
 	<a href="http://placehold.it/350x350" class="photo-hover" data-lightbox="my-images" data-title="Lorem Ipsum">
 
 	data-lightbox="my-images" data-title="Lorem Ipsum"
+
+### Create category or any dynamic from database
+
+video 5, 10:12	

@@ -2,9 +2,7 @@
 
 [Github](https://github.com/assembler/attachinary)
 
-### Rails 5 go here
-
-[Rails 5 Setup](https://github.com/vanbumi/CodeJournal/blob/master/Cloudinary/Cloudinary%20for%20Rails%205.md)  
+##### Rails 5 go here [Rails 5 Setup](https://github.com/vanbumi/CodeJournal/blob/master/Ruby%20On%20Rails/Cloudinary/Cloudinary%20for%20Rails%205.md)  
 
 ## Setup
 
@@ -34,11 +32,15 @@ Or use double quotes
 
 	**Upload is success
 
-### Error 1:	Errno::ENOENT: No such file or directory @ rb_sysopen
+#### Error 1:	
+
+Errno::ENOENT: No such file or directory @ rb_sysopen
 
 	Solution:	Directory path incorrect > fix the path	
 
-#### Error 2:    CloudinaryException: Must supply api_key
+#### Error 2:    
+
+CloudinaryException: Must supply api_key
 
 	Solution: gem "cloudinary" should be double quotes
 
@@ -46,7 +48,9 @@ Or use double quotes
 
 	**This case is on sorongbis website
 
-#### Error 3: bash: syntax error near unexpected token `'/home/dyo/Pictures/manwalk.png''
+#### Error 3: 
+
+bash: syntax error near unexpected token `'/home/dyo/Pictures/manwalk.png''
 
 	Solution: 	You need to go to rails console to test upload
 
