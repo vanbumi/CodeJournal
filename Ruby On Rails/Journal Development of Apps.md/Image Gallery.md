@@ -131,4 +131,8 @@ Which is add this :
 
 ### Create category or any dynamic from database
 
-video 5, 10:12	
+video 4, 10:12, start from generate category controller / scaffold
+
+### Loop home gallery
+
+video 6, 23:00	
