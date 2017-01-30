@@ -165,7 +165,7 @@ For all server
 15. REMOTE > rake db:migrate
 ----------------------------
 
-## Incase If you find Errors:
+## Errors:
    
 ### Error #1
 
@@ -252,7 +252,23 @@ First one must create the tmp directory, then give it the necessary permissions.
     sudo mkdir tmp
     sudo chmod 777 tmp
 
+### Error #6
 
+    Internal Server Error
+
+    The server encountered an internal error or misconfiguration and was unable to complete your request.
+
+    Please contact the server administrator at webmaster@localhost to inform them of the time this error occurred, and the actions you performed just before this error.
+
+    More information about this error may be available in the server error log.
+
+    Apache/2.4.7 (Ubuntu) Server at grafikatritunggallestari.co.id Port 80
+
+**Solution**:
+
+Read this:
+
+[how-to-troubleshoot-common-site-issues-on-a-linux-server](https://www.digitalocean.com/community/tutorials/how-to-troubleshoot-common-site-issues-on-a-linux-server)
 
 
                         

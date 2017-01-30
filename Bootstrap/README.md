@@ -1,5 +1,9 @@
 # All About Bootstrap
 
+### 50 Must-have plugins for extending Twitter Bootstrap
+
+[plugins](http://tutorialzine.com/2013/07/50-must-have-plugins-for-extending-twitter-bootstrap/)
+
 ### Bootsnip
 
 	http://bootsnipp.com/
