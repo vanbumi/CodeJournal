@@ -32,19 +32,101 @@ To open
 
 	$ codeblocks (enter)	
 
-+ 7:23 - Start codeblocks IDE
-+ 10:00 - Setup Project
-+ 16:00 - C is a language
-+ 16:40 - Dummy file 
-+ 18:00 - Part of the C language
+### Step Video Tutorial
 
-+ 23:00 - Require definition
+4:00 - IDE
 
-	Processor directive includes definition
+5:00 - Download IDE for ubuntu	
+
+7:23 - Start codeblocks IDE
+
+10:00 - Setup Project
+
+16:00 - C is a language
+
+16:40 - Dummy file 
+
+18:00 - Part of the C language
+
+23:00 - **Processor directive includes definition**
+
+Add on top page
 
 	#include <stdio.h>
 
-+ **24:00 Basic Input & Output (I/O)**
+24:00 **Basic Input & Output (I/O)**
+
+29:30 **Printf**
+
+	printf output is one line string with no new line
+
+add \n to add new line
+
+	#include <stdio.h>
+
+	int main()
+	{
+		printf("This is the way the world ends \n");
+		printf("Not with a bang but a whimper. \n");
+
+		return(0);
+	}
+
+31:40 **Escape Characters**
+
+	#include <stdio.h>
+
+	int main()
+	{
+		printf("Hello\n my name is \"Dyo\" ");
+
+		return(0);
+	}	
+
+35:00 **Placeholder**
+
+%d	Integer (whole number) values
+%s	String
+%f 	Floating-points values
+%c 	Single characters
+%%	The percent sign	menampilkan persen sejati.	
+
+Sample 1:
+
+	#include <stdio.h>
+
+	int main()
+	{
+		printf("You are a %s\n","programmer");
+
+		return(0);
+	}
+
+Sample 2:
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    printf("Aku adalah seorang %c %s \n", 'C', "Programmer");
+
+	    return(0);
+	}
+
+Sample 3:
+
+	#include <stdio.h>
+
+	int main()
+	{
+		printf("I got %d%% on my C exam!\n",98);
+
+		return(0);
+	}
+
+41:50 **C Language Variable**
+
+
 
 
 
