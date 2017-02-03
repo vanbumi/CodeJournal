@@ -126,6 +126,158 @@ Sample 3:
 
 41:50 **C Language Variable**
 
+C language keywords:
+
+* int   --
+* float	----- C language keywords 	
+* char 	--
+
+**Variable int**
+
+var int bisa digunakan lebih dari 1 kali:
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    int age;
+
+	    age = 30;
+	    printf("Bahasa C sudah berumur lebih dari %d tahun \n", age);
+
+	    age = 40;
+	    printf("Umur saya masih dibawah %d tahun lho! \n", age);
+
+	    age = 35;
+	    printf("Umur si %s adalah %d \n", "Cungkring",age);
+	    printf("Berarti total %d bulan \n", age*12);
+
+	    return(0);
+	}
+
+**Variable char**
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    char x,y,z;
+
+	    x = 'A';
+	    y = 'B';
+	    z = 'C';
+
+	    printf("Hasilnya adalah %c%c%c \n",x,y,z);
+
+	    x = 'A';
+	    y = x + 1;
+	    z = y +1;
+
+	    printf("Apakah hasilnya akan sama %c%c%c \n", x,y,z);
+
+	    return(0);
+	}
+
+**Var float**
+
+	#include <stdio.h>
+
+	int main()
+	{
+		float pi;
+
+		pi = 22.00 / 7.0;
+		printf("The ancients calculated PI as %f.\n",pi);
+
+		return(0);
+	}
+
+49:00 **Character I/O Functions**
+
+* getchar() -> input (mengambil character dari keyboard)
+* putchar() -> output (menampilkan character dari variable)
+
+* all those Requires stdio.h header (library)
+* Work with int values
+* Are stream oriented
+
+Contoh:
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    int c;
+
+	    printf("Ketik huruf disini: ");
+
+	    c = getchar();
+	    printf("Anda sudah mengetik '%c'. \n", c);
+
+	    return(0);
+	}
+
+Bila menggunakan putchar() :
+
+	int d;
+
+	printf("Input lagi dong disini: ");
+    d = getchar();
+
+    printf("Anda sudah menginput ' ");
+    putchar(d);
+    printf(" '. \n");
+
+	return(0);
+
+Contoh 2:
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    int a,b;
+
+	    printf("Ketiklah 2 huruf disini: ");
+
+	    a = getchar();
+	    b = getchar();
+
+	    printf("Anda sudah mengetik ' ");
+	    putchar(a);
+	    printf(" ' dan ' ");
+	    putchar(b);
+	    printf(" '. \n");
+
+	    return(0);
+	}
+
+57:30 **The scanf() Function**
+
+sebelumnya lebih ngulang pelajaran dulu di 49:00
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
