@@ -34,29 +34,29 @@ To open
 
 ### Step Video Tutorial
 
-4:00 - IDE
+#### 4:00 - IDE
 
-5:00 - Download IDE for ubuntu	
+#### 5:00 - Download IDE for ubuntu	
 
-7:23 - Start codeblocks IDE
+#### 7:23 - Start codeblocks IDE
 
-10:00 - Setup Project
+#### 10:00 - Setup Project
 
-16:00 - C is a language
+#### 16:00 - C is a language
 
-16:40 - Dummy file 
+#### 16:40 - Dummy file 
 
-18:00 - Part of the C language
+#### 18:00 - Part of the C language
 
-23:00 - **Processor directive includes definition**
+#### 23:00 - **Processor directive includes definition**
 
 Add on top page
 
 	#include <stdio.h>
 
-24:00 **Basic Input & Output (I/O)**
+#### 24:00 **Basic Input & Output (I/O)**
 
-29:30 **Printf**
+#### 29:30 **Printf**
 
 	printf output is one line string with no new line
 
@@ -72,7 +72,7 @@ add \n to add new line
 		return(0);
 	}
 
-31:40 **Escape Characters**
+#### 31:40 **Escape Characters**
 
 	#include <stdio.h>
 
@@ -83,7 +83,7 @@ add \n to add new line
 		return(0);
 	}	
 
-35:00 **Placeholder**
+#### 35:00 **Placeholder**
 
 %d	Integer (whole number) values
 %s	String
@@ -124,7 +124,7 @@ Sample 3:
 		return(0);
 	}
 
-41:50 **C Language Variable**
+#### 41:50 **C Language Variable**
 
 C language keywords:
 
@@ -192,7 +192,7 @@ var int bisa digunakan lebih dari 1 kali:
 		return(0);
 	}
 
-49:00 **Character I/O Functions**
+#### 49:00 **Character I/O Functions**
 
 * getchar() -> input (mengambil character dari keyboard)
 * putchar() -> output (menampilkan character dari variable)
@@ -252,9 +252,128 @@ Contoh 2:
 	    return(0);
 	}
 
-57:30 **The scanf() Function**
+Contoh 3 string:
 
-sebelumnya lebih ngulang pelajaran dulu di 49:00
+	#include <stdio.h>
+
+	int main()
+	{
+	    char password[] = "rahasia";
+
+	    printf("Tampilkan password: \"%s\" \n", password);
+
+	    return(0);
+	}
+
+#### 57:30 **The scanf() Function**
+
+Sintaks nya sbb:
+
+	scanf("format", &variable);
+
+format adalah:
+
+* format adalah berisi text string
+* berisi input request
+* berisi placeholder %d, %s, %f, %c dsb.
+
+&variable adalah:
+
+* adalah nama dari suatu variable
+* diberi awalan "&" (ampersand) di depan variable.
+* & bukan awalan dari suatu string atau array.
+* "&" adalah menunjuk locasi memeory variable/operator.
+
+Contoh:
+
+	int main()
+	{
+	    /*
+	    int x;
+
+	    printf("Ketik integer disini: ");
+	    scanf("%d", &x);
+	    printf("Integer %d \n", x);
+	    */
+	    float x;
+
+	    printf("Ketik float disini: ");
+	    scanf("%f", &x);
+	    printf("Float %f \n", x);
+	}
+
+Contoh penggunaan pada string tidak menggunakan Ampersand (&)
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    char name[15];
+
+	    printf("Tulis nama anda disini: ");
+	    scanf("%s", name);
+	    printf("Nama anda adalah: %s \n", name);
+	}
+
+Tapi bila anda menuliskan nama dengan 2 kata (Dyo Bumi) maka kata ke 2 tidak terbaca scanf() tidak membaca "**white space**". Untuk itu kita akan menggunakan **fgets()**.
+
+#### 1:02:51 **fgets()**
+
+	#int main()
+	{
+	    char input[64];
+
+	    printf("Masukan instruksi anda: ");
+	    fgets(input, 64, stdin);
+	    printf("Instruksi anda adalah: %s \n", input);
+
+	    // atau seperti ini:
+
+	    printf("Masukan instruksi anda: ");
+	    fgets(input, 64, stdin);
+	    puts("Terimakasih! Instruksi anda adalah: ");
+	    puts(input);
+	}
+
+#### 1:03:49 **Math Operators**
+
+Contoh operasi tambah:
+
+#include <stdio.h>
+
+	int main()
+	{
+	    int a;
+	    int b = 5;
+
+	    printf("Input integer a: ");
+	    scanf("%d", &a);
+	    printf("%d + %d = %d \n", a, b, a + b);
+
+	    return(0);
+	}
+
+Contoh operasi pembagian (gunakan float!):
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    // operasi pembagian
+	    float a;
+	    float b = 5.0;
+
+	    printf("Masukan nilai bilangan desimal: ");
+	    scanf("%f", &a);
+	    printf("%f / %f = %f \n", a, b, a / b);
+
+	    return(0);
+	}
+
+
+
+
+
 
 
 

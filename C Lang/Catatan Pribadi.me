@@ -1,0 +1,40 @@
+# Catatan C
+
+
+## Pengertian Pointer
+
+* Pointer adalah suatu variabel yang menunjuk ke alamat memory variabel yang lainnya.
+* Suatu pointer bukan berisi dengan suatu nilai data seperti halnya pada variabel biasa, variabel pointer berisi dengan suatu alamat.
+* Untuk mendeklarasikan variabel pointer kita menggunakan tanda asterik / bintang (*) didepan variabel yang di deklarasikan pada tipe data tertentu.
+* Tanda ini juga dapat dipakai untuk mengakses nilai dari variabel yang telah ditunjuk.
+* Untuk mendapatkan alamat dari variabel pointer kita menggunakan tanda &
+
+Contoh program dengan pointer
+
+    #include <stdio.h>
+
+    main()
+    {
+        int *ptr;
+        int k;
+        k=7;
+        printf("Isi variable k = %d \n", k);
+        printf("Alamat variable k = %d \n", &k);
+        printf("Alamat variable *ptr = %d \n", &ptr);
+        printf("Isi variable *ptr = %d \n", ptr);
+        ptr = &k;
+        printf("Alamat variable *ptr = %d \n", ptr);
+        printf("Isi variable *ptr = %d \n",ptr);
+        printf("Isi dari alamat %d = %d \n", ptr, *ptr);
+        // coba ini
+        printf("Alamat variable *ptr = %d \n", *ptr);
+        printf("\n");// memberi jarak 1 baris kosong
+    }
+
+Hasilnya (build & run):
+
+![program pointer](http://res.cloudinary.com/medio/image/upload/v1486092226/c_pointer_k3gf8e.png)
+
+
+
+
