@@ -319,6 +319,8 @@ Tapi bila anda menuliskan nama dengan 2 kata (Dyo Bumi) maka kata ke 2 tidak ter
 
 #### 1:02:51 **fgets()**
 
+**fgets(input, 64, stdin)**
+
 	#int main()
 	{
 	    char input[64];
@@ -370,6 +372,79 @@ Contoh operasi pembagian (gunakan float!):
 	    return(0);
 	}
 
+Contoh operasi penambahan ++
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    int x = 10;
+
+	    printf("%d \n", x);
+	    x = x + 1;
+	    printf("%d \n", x);
+
+	    printf("Atau gunakan ini \n");
+	    printf("%d \n", x);
+	    x++;
+	    printf("%d \n", x);
+
+	    printf("Operasi Pengurangan \n");
+	    printf("%d \n", x);
+	    x--;
+	    printf("%d \n", x);
+
+	    return(0);
+	}
+
+Contoh lain:
+
+	#include <stdio.h>
+
+	int main()
+	{
+	    int a;
+
+	    a = 25 / 5 * 2 + 3;
+	    printf("Jawabannya adalah a = %d \n", a);
+
+	    printf("\n");
+
+	    a = 25 / 5 * (2 + 3);
+	    printf("Jawabannya adalah a = %d \n", a);
+
+	    printf("\n");
+
+	    a = 25 / (5 * (2 + 3));
+	    printf("Jawabannya adalah a = %d \n", a);
+	}
+
+#### 1:11:00 Math Library
+
+To include math lib:
+
+	#include <math.h>
+
+**sqrt (square root function) akar pangkat dua**
+
+#include <std.io.h>
+#include <math.h>
+
+int main()
+	{
+		int r;
+
+		r = sqrt(2.0);
+
+		printf("Akar pangkat dua dari 2 adalah %f \n", r);
+
+		return(0);
+
+	}
+
+**Power**
+
+#### 1:13:00 C Library Math Function
 
 
 
