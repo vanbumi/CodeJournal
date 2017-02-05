@@ -4,7 +4,7 @@
 
 Hasil dari rekam di simpan di external HD
 
-## Steps
+## Belajar React JS
 
 Install via npm
 
