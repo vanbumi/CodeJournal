@@ -2,7 +2,15 @@
 
 ## Lesson 1
 
+Get example google search
+
 Create new app
+
+	rails new rails_autocomplete
+
+Generate scaffold customer
+
+	rails g scaffold customer name address:text
 
 Create scaffold data
 
@@ -10,12 +18,19 @@ Create scaffold data
 
 Cek url 
 
-	rake routes
+	$rake routes
+	
+Path			Method	URI
+-------------------------------------------------------------------------						
+data_enter		GET    	/data/enter(.:format) 		data#enter
 
-	data_enter  GET    /data/enter(.:format)                  data#enter
-	data_search GET    /data/search(.:format)                 data#search
+data_search 	GET    	/data/search(.:format)      data#search
 	
 Perhatikan methode GET pada ke duanya
+
+Start server:
+
+	rails s		
 
 Cek controller
 
@@ -27,9 +42,10 @@ Cek controller
 	  end
 	end
 
-Cek view > data > enter.html.erb & search.html.erb
+Cek view > data > enter.html.erb 
+	view > data > search.html.erb
 
-Edit like below:
+Edit data > enter, like below:
 
 	<h1>Search here</h1>
 	<%= form_tag data_search_path do %>
@@ -37,7 +53,7 @@ Edit like below:
 		<%= submit_tag 'Search', :id => 'search_key' %>	
 	<% end %>
 
-Cek at localhost:3000
+Cek at localhost:3000/data/enter
 
 Cek form dengan inspect element
 
@@ -47,16 +63,21 @@ Cek form dengan inspect element
 		<input name="commit" value="Search" id="search_key" data-disable-with="Search" type="submit">
 	</form>
 
-Secara default form akan di generate dengan method POST. 
+Perhatikan action URI nya
+Perhatikan input nya -> value search	
+
+Secara default form akan di generate dengan method POST. Sedangkan di routes method nya adalah GET. 
+
+Coba klik submit maka di kirim ke halaman lain dengan method POST.
 
 Maka form di atas kita update dengan method: 'GET', method:'GET'
 
-	<%= form_tag data_search_path, method:'get' do %>
+	<%= form_tag data_search_path, method:'GET' do %>
 		<%= text_field_tag :search, '', size:25 %>
 		<%= submit_tag 'Search', :id => 'search_key' %>	
 	<% end %>
 
-Cek lagi dengan inspect element maka akan berubah menjadi get.
+Refresh halaman & Cek lagi dengan inspect element maka akan berubah menjadi method GET.
 
 	<form action="/data/search" accept-charset="UTF-8" method="get">
 		<input name="utf8" value="✓" type="hidden">
@@ -77,15 +98,15 @@ Dan pada terminal akan tertulis seperti ini:
 	  Rendered data/search.html.erb within layouts/application (0.6ms)
 	Completed 200 OK in 64ms (Views: 62.7ms | ActiveRecord: 0.0ms)
 
-Perhatikan parameter search => kosong, bila kita isi ali misalnya
+Perhatikan parameter search => kosong, bila kita search dyo dan klik search
 
 Di browser:
 
-	http://localhost:3000/data/search?utf8=%E2%9C%93&search=Ali&commit=Search
+	http://localhost:3000/data/search?utf8=%E2%9C%93&search=Dyo&commit=Search
 
 Di terminal: 
 
-	Started GET "/data/search?utf8=%E2%9C%93&search=Ali&commit=Search" for 127.0.0.1 at 2017-01-09 13:53:52 +0700
+	Started GET "/data/search?utf8=%E2%9C%93&search=Dyo&commit=Search" for 127.0.0.1 at 2017-01-09 13:53:52 +0700
 	Processing by DataController#search as HTML
 	  Parameters: {"utf8"=>"✓", "search"=>"Ali", "commit"=>"Search"}
 	  Rendering data/search.html.erb within layouts/application
@@ -95,6 +116,9 @@ Di terminal:
 Untuk menghilangkan autocomplete yang dibuat oleh browser cookies, tambahkan di field input:
 
 	:autocomplete => :off
+
+Cek kembali di inspect element, autocomplete off.
+Dan cek di form search pastikan autocomplete cookies sudah tidak ada lagi.	
 
 Tambahkan remote true di form untuk menggunakan ajax.
 
@@ -107,7 +131,7 @@ Akan menjadi seperti dibawah ini:
 		<%= submit_tag 'Search', :id => 'search_key' %>
 	<% end %>	
 
-Apabila kita click search maka tidak akan pindah halaman lagi
+Apabila kita click search maka tidak akan pindah halaman lagi. Karena search akan ditangani oleh Ajax.
 
 Bila kita lihat log di terminal maka, search as JS:
 
@@ -118,13 +142,17 @@ Bila kita lihat log di terminal maka, search as JS:
 	  Rendered data/search.html.erb within layouts/application (0.5ms)
 	Completed 200 OK in 61ms (Views: 57.2ms | ActiveRecord: 0.0ms)
 
-Buat file baru search.js.erb, yang akan memproses search tsb
+Perhatikan pada: Processing by DataController#search as JS.
+
+Maka buat file baru search.js.erb, yang akan menangani search request tsb. Dalama Rails ...js.erb
 
 Kita test dengan alert:
 
 	alert("Hello from search.js.erb!")
 
 ![search](http://res.cloudinary.com/medioxtra/image/upload/v1483946451/Screenshot_from_2017-01-09_14_19_49_ffu1e0.png)
+
+---
 
 ## Lesson 2
 
@@ -224,7 +252,7 @@ Modif di controller
 
 Kemudian cek di browser, akan sama hasilnya.
 
-Modif di controller agar dapat mengambil data dari server.
+Modif di controller agar dapat mengambil data dari **database**.
 
 	def search
 		query ="%" + params[:search] + "%"

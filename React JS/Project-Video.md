@@ -6,6 +6,8 @@ Hasil dari rekam di simpan di external HD
 
 ## Belajar React JS
 
+### Episode 1 Setup environment
+
 Install via npm
 
 	npm i create-react-app -g
@@ -37,7 +39,7 @@ Custome index.js
 		document.getElementById("root");
 	); 	
 
-#### Membuat React Component
+### Episode 2 Membuat React Component
 
 app.js file:
 
@@ -54,5 +56,92 @@ app.js file:
 Normal JS
 
 	return React.createElement('h1', null, 'Hello React');	
+
+### Episode 3
+
+Render method hanya boleh untuk single node, bila lebih dari satu element maka harus wrap dengan tag.
+
+	class App extends React.Component {
+		render() {
+			return ( 
+			<div>
+				<h1>Hello Dyo</h1>
+				<p>Apakabar</p>	
+			</div>
+			) 
+		}
+	}
+
+### Episode 4
+
+Props
+
+term Components pada React adalah semacam function, yang bisa terpisah, indepent dan reusable.
+
+Kemudian di dalam component kita bisa memasukan input yang dinamis, yang bisa di rubah2, inilah props, props juga bisa mengatur dimana kita akan menampilkannya.
+
+Kita bisa passing data ke dalam component dengan menggunakan props.
+
+Pada index.js kita sisipkan props ke dalam element, seperti kita menuliskan atribut di dalam element.
+
+index.js
+
+	ReactDOM.render(
+		<App cat={10} txt="Ini adalah props text" />
+	)
+
+app.js
+
+	class App extends React.Component {
+		render() {
+			return <h1>{this.props.txt}</h1>
+		}
+	}
+
+Atau gunakan variable let
+
+	class App extends React.Component {
+		render() {
+			let txt = this.props.txt
+			return <h1>{txt}</h1>
+		}
+	}
+
+Kita coba test update index js menjadi:
+
+	Ini adalah props text, kita belajar apa itu props.  
+
+Pada app.js file : Kita juga memberikan/menentukan tipe dari props:
+
+	App.propTypes = {
+		txt: React.PropTypes.string,
+		cat: React.PropTypes.number.isRequired
+	}
+
+Maka akan terjadi Error, karena cat tidak ter defined, untuk itu update index.html tambahkan cat.
+
+Kita juga bisa menambahkan default props:
+
+	App.defaultProps = {
+		txt: "Ini adalah default dari text ok!"
+	}
+
+Jadi bila di index.html txt kita hapus maka yang akan menucul adalah defaultProps. 
+
+	ReactDOM.render(
+		<App cat={10} txt="Ini adalah props text" />
+	)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
