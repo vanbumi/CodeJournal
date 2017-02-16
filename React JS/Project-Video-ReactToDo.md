@@ -30,7 +30,7 @@ Change this
 	  To get started, edit <code>src/App.js</code> and save to reload.
 	</p>
 
-Become	
+To become	
 
 	<p className="App-intro">
 		Hello React!.
@@ -82,24 +82,25 @@ retun (
 
 Tambahkan CSS:
 
-.Todo App {
-	padding-top:28px;
-	display:inline-block;
-	text-align:left;   
-}
+	.Todo App {
+		padding-top:28px;
+		display:inline-block;
+		text-align:left;   
+	}
 
-input {
-	font-size: 28px;
-}
+	input {
+		font-size: 28px;
+	}
 
-ul {
-	padding: 0px;
-}
+	ul {
+		padding: 0px;
+	}
 
-li {
-	list-style-type: none;
-}
+	li {
+		list-style-type: none;
+	}
 
+And see on browser :)
 
 
 

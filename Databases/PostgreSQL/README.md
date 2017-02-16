@@ -56,6 +56,8 @@ Download it from server to your local:
 ### Postgre SQL Restore
 -----------------------
 
+[how-to-backup-and-restore-postgres-database-using-pg_dump-and-psql](http://www.thegeekstuff.com/2009/01/how-to-backup-and-restore-postgres-database-using-pg_dump-and-psql/)
+
 I decided to using GUI PgAdmin
 ------------------------------
 
