@@ -336,7 +336,45 @@ add column category_id on model subcategories
 
 	rails g migration add_category_id_to_subcategories category_id:integer
 
-	
+Create search form helper
+
+This:
+
+	<form class="searchform">
+		<div class="form-group text-center">
+		  <input type="text" name="s" class="form-control">
+		  <input 
+		    type="image" 
+		    class="search_img"
+		    src="http://res.cloudinary.com/dearmombabyshop/image/upload/c_scale,h_60,w_60/v1488600494/search-pointer-icon_cs1jir.png">
+		</div>    
+	</form>
+
+to become this:	
+
+	<%= form_tag search_path, method:'get', class:'searchform' do  %>
+      <div class="form-group text-center">
+        <%= text_field_tag :search, '', size:25 %> 
+        <%= submit_tag 'Search', 
+          :type => :image, 
+          :src => "http://res.cloudinary.com/dearmombabyshop/image/upload/c_scale,h_60,w_60/v1488600494/search-pointer-icon_cs1jir.png", 
+          :id => 'search_key' %>
+      </div>
+    <% end %>
+
+Create method search in home controller
+
+	def search
+		@categories = Category.all.order(:created_at => 'DESC')
+	end
+
+
+
+
+Create file search.html.erb
+
+
+
 
 
 
