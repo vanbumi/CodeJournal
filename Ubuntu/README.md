@@ -118,4 +118,39 @@ Copy folder
    
     scp dyo@widyobumi.com:/home/dyo/perpelabuhan_dev_bkup.sql dyo@pengembanganpelabuhan.com:/home/dyo/
 
+## Problem install ubuntu 14.04
+
+serious error were found while checking the disk drive for /
+
+Solutions:
+
+    In Windows Boot Manager, select Ubuntu.
+    Press any key and enter GNU Grub2 menu.
+    You can press "e" to edit GRUB2 boot entry.
+    You need to change the GRUB2 boot entry from "ro" to "rw",
+
+    e.g.
+
+    linux   /boot/vmlinuz-3.13.0-24-generic root=UUID=AAC884AC1F144321 loop=/ubuntu/disks/root.disk ro   quiet splash $vt_handoff
+    to
+
+    linux   /boot/vmlinuz-3.13.0-24-generic root=UUID=AAC884AC1F144321 loop=/ubuntu/disks/root.disk rw   quiet splash $vt_handoff
+    Press F10, you can boot in Ubuntu 14.04.
+    
+and you can fix GRUB2 boot entry:
+
+    sudo vi /etc/grub.d/10_lupin
+    Change the line:
+
+    linux   ${rel_dirname}/${basename} root=${LINUX_HOST_DEVICE} loop=${loop_file_relative} ro ${args}
+    to:
+
+    linux   ${rel_dirname}/${basename} root=${LINUX_HOST_DEVICE} loop=${loop_file_relative} rw ${args}
+    Regenerate GRUB2 boot entry:
+
+    sudo update-grub
+
+ Reference: [askubuntu.com](http://askubuntu.com/questions/453411/ubuntu-14-04-not-booting-after-error-message-tmp-could-not-be-mounted)
+
+
     
