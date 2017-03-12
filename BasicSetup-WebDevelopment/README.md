@@ -11,6 +11,134 @@ Resources:
 STEPS
 -----
 
+SERVER
+
+## Create a New User
+
+[Initial Server Setup with Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
+
+    adduser widyo
+
+## Root Privileges
+
+    gpasswd -a widyo sudo
+
+## Add Public Key Authentication 
+
+## Copy the Public Key
+
+### Option 1: Use ssh-copy-id
+
+    local$ ssh-copy-id widyo@SERVER_IP_ADDRESS
+
+### Option 2: Manually Install the Key
+
+    local$ cat ~/.ssh/id_rsa.pub
+
+#### Add Public Key to New Remote User
+
+Access server with root@...
+
+    su - widyo
+
+Create directory for ssh
+
+    mkdir .ssh
+    chmod 700 .ssh
+
+open a file in .ssh called authorized_keys with a text editor
+
+    nano .ssh/authorized_keys
+
+Now restrict the permissions of the authorized_keys file with this command:
+
+    chmod 600 .ssh/authorized_keys
+
+Type this command once to return to the root user:
+
+    exit    
+
+Now you may SSH login as your new user, using the private key as authentication.
+
+---
+
+## Next Deploy a Rails App with Passenger and Nginx on Ubuntu 14.04
+
+[Deploy a Rails App with Passenger and Nginx on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-rails-app-with-passenger-and-nginx-on-ubuntu-14-04)
+
+Do it in user (not in root)
+
+    $ sudo su widyo
+
+    $ pwd
+
+    -> home/widyo
+
+### Install Ruby
+
+    sudo apt-get update
+
+Install some dependencies
+
+    sudo apt-get install build-essential libssl-dev libyaml-dev libreadline-dev openssl curl git-core zlib1g-dev bison libxml2-dev libxslt1-dev libcurl4-openssl-dev nodejs libsqlite3-dev sqlite3
+
+Create a temporary folder for the Ruby source files:
+
+    mkdir ~/ruby
+    
+Move to the new folder:
+
+    cd ~/ruby
+
+Download the latest stable Ruby source code from [Download Ruby](https://www.ruby-lang.org/en/downloads/)
+
+    Current latest 2.4.0
+
+    wget http://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0.tar.gz
+
+Decompress the downloaded file:
+
+    tar -xzf ruby-2.4.0.tar.gz    
+
+Select the extracted directory:
+
+    cd ruby-2.4.0
+
+Run the configure script. This will take some time as it checks for dependencies and creates a new Makefile, which will contain steps that need to be taken to compile the code:
+
+    ./configure
+
+Run the make utility which will use the Makefile to build the executable program. This step can take a bit longer:
+
+    make        
+
+Now, run the same command with the install parameter. It will try to copy the compiled binaries to the /usr/local/bin folder. This step requires root access to write to this directory. It will also take a bit of time:
+
+    sudo make install
+
+Ruby should now be installed on the system. We can check it with the following command, which should print the Ruby version:
+
+    ruby -v
+
+Finally, we can delete the temporary folder:
+
+    rm -rf ~/ruby
+
+### Install Passenger and Nginx
+
+First, install a PGP key:
+
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+
+
+
+
+
+
+
+---                
+
+
 1. LOCAL : CREATE APP
 ---------------------
     rails new appname -d mysql or 

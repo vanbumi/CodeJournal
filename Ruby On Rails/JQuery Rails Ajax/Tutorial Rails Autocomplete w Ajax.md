@@ -174,7 +174,7 @@ Dengan cara copy link di layout > applications.html.erb
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-Edit file search.js.erb
+copy ini ke file search.js.erb
 
 	$( function() {
 	  var availableTags = [
@@ -206,7 +206,24 @@ Edit file search.js.erb
 	  });
 	} );
 
-Modif file search.js.erb menjadi
+Kemudian test di browser, pada search awali tekan enter dulu (sementara).	
+
+Coba rubah spt ini:
+
+$( function() {
+	  var availableTags = ['Brandon', 'Ersya', 'Dyo'];
+	  $( "#search" ).autocomplete({
+	  source: availableTags
+	  });
+	} );
+
+Coba di browser
+
+Tambahkan user baru: Kasper
+
+Test di browser	
+
+Untuk mengambil data dari database, modif file search.js.erb menjadi
 
 	$( function() {
 	  var availableTags = <%= raw @auto %>;
@@ -221,7 +238,7 @@ Untuk mengambil data dari database gunakan:
 
 dimana instan variable @auto di inisiasi di controler.		
 
-Modif di controller 
+Tambahkan instant variable @ auto di controller search: 
 
 	def search
 	    @auto = [
@@ -250,18 +267,67 @@ Modif di controller
 	    ]
 	end
 
+Atau modif lagi:
+
+	def search
+		@auto = ['Brandon', 'Ersya', 'Dyo']
+	end	
+
 Kemudian cek di browser, akan sama hasilnya.
 
 Modif di controller agar dapat mengambil data dari **database**.
+
+	def search 
+		query = params[:search]
+	end
+
+:search ini ambil dari form :
+
+	<input type="text" name="search" id="search" value="" size="25" autocomplete="off">	
+
+Kemudian search di browser "brandon"	
+
+dan cek paramameters nya lihat di terminal:
+
+	Started GET "/search?utf8=%E2%9C%93&search=brandon&commit=Search" for 127.0.0.1 at 2017-03-09 19:30:13 +0700
+	Processing by HomeController#search as JS
+	  Parameters: {"utf8"=>"✓", "search"=>"brandon", "commit"=>"Search"}
+	  Rendering home/search.js.erb
+	  Rendered home/search.js.erb (0.7ms)
+	Completed 200 OK in 22ms (Views: 11.6ms | ActiveRecord: 0.0ms)
 
 	def search
 		query ="%" + params[:search] + "%"
 		@auto = Koman.where('name LIKE ?', query).pluck(:name)
 	end
 
-Dan coba di browser, sukses!
+Dan coba di browser, search for "u" dan cek di terminal hasilnya sbb:
+
+	Started GET "/search?utf8=%E2%9C%93&search=u&commit=search" for 127.0.0.1 at 2017-03-10 22:30:18 +0700
+	Processing by HomeController#search as JS
+	  Parameters: {"utf8"=>"✓", "search"=>"u", "commit"=>"search"}
+	   (0.8ms)  SELECT "products"."name" FROM "products" WHERE (name Like '%u%')
+	  Rendering home/search.js.erb
+	  Rendered home/search.js.erb (0.9ms)
+	Completed 200 OK in 16ms (Views: 7.7ms | ActiveRecord: 0.8ms)
+
+Lihat parameternya:
+
+Parameters: {"utf8"=>"✓", "search"=>"u", "commit"=>"search"}
+(0.8ms)  SELECT "products"."name" FROM "products" WHERE (name Like '%u%')
+
 
 ![sukses](http://res.cloudinary.com/medioxtra/image/upload/v1483954360/sukses_ycbgat.png)	
+
+Coba dengan menambahkan puts @auto.inspect
+
+	def search
+		query ="%" + params[:search] + "%"
+		@auto = Koman.where('name LIKE ?', query).pluck(:name)
+		puts @auto.inspect
+	end
+
+---
 
 ## Lesson 3
 
@@ -294,7 +360,7 @@ instead of
 
 	Person.all.map(&:name)
 
-Tambahkan script di assets/javascripts/application.js
+Tambahkan supaya tidak perlu di refresh dan di enter lagi, di assets/javascripts/application.js
 
 	$(function(){
 	  $('#search').on('keyup', function(){
@@ -317,4 +383,32 @@ Tambahkan script di assets/javascripts/application.js
 	  });
 	});
 
+---
+
 ## Lesson 4
+
+Pada saat search cek di inspection:
+
+	<input type="text" name="search" id="search" value="" size="25" autocomplete="off" class="form-control no-border ui-autocomplete-input">
+
+Ambil class dari input form dan buat css nya:
+
+	.ui-autocomplete-input {
+		height: 100px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+
+Next membuat function selected :
+
+$(function(){
+	$('#search').autocomplete({select: function(event, ui){
+		alert(ui.item.value);
+	}});
+});
+
+---
+
+## Lesson 5
+
+
