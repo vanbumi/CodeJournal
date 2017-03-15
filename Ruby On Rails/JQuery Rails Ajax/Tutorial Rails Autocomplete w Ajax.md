@@ -1,5 +1,7 @@
 # Rails Autocomplete with Ajax
 
+original file latihan ~/sites_jq/latihan$ => sites/latihan/jq/latihan
+
 ## Lesson 1
 
 Get example google search
