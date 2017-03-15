@@ -319,4 +319,30 @@ Tambahkan script di assets/javascripts/application.js
 	  });
 	});
 
+---
+
 ## Lesson 4
+
+Inspeksi element kembali form input search :
+
+	<input type="text" name="search" id="search" value="" size="25" autocomplete="off" class="form-control no-border ui-autocomplete-input"> 
+
+class **ui-autocomplete** bisa di jadikan class style untuk menambahkan style:
+
+	.ui-autocomplete {  
+		height: 100px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+
+Membuat function select
+
+$(function(){
+	$("#search").autocomplete({select: function(event, ui){
+		alert(ui.item.value);
+	}});
+});
+
+---
+
+## Lesson 5
