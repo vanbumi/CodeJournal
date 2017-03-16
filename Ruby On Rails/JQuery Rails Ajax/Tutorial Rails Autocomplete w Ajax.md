@@ -346,3 +346,71 @@ $(function(){
 ---
 
 ## Lesson 5
+
+Add in application.html.erb or home index.html for placing result of selected search
+
+	<div id="product_data"></div>
+
+Update file search.js.erb below:
+
+	$("#product_data").html("<%= j render 'data' %>");
+
+Create new render file call _data.html.erb, fill with this below:
+
+	<% unless @full.blank? %>
+	    <p>
+	        <%= raw @full.name %>
+	    </p>
+	    <p>
+	        <%= raw @full.price_awal %>
+	    </p>
+	    <p>
+	        <%= raw @full.price_sekarang %>
+	    </p>
+	<% end %>
+
+Update application.js
+
+	$(function(){
+		$("#search").autocomplete({select: function(event, ui){
+	        setTimeout(function(){
+	            $('#search_key').click();
+	            alert(ui.item.value);
+	        }, 10);    
+		}});
+	});	
+
+Test di browser
+
+Success!
+
+Update file _data.html.erb
+
+	<% unless @full.blank? %>
+
+	    <div class="row well">
+
+	        <div class="col-sm-6 text-right">
+	            <img src="http://res.cloudinary.com/dearmombabyshop/image/upload/v1486697984/stroller1_rc6jhp.jpg" alt="">
+	        </div>
+
+	        <div class="col-sm-6">
+	            <h4><%= @full.name %></h4> <br>
+	            <div id="price">
+	                <div class="price-awal">Rp <%= @full.price_awal %></div>
+	                <div class="price-sekarang">Rp <%= @full.price_sekarang %></div>
+	            </div>
+	            <br>
+	            <div class="status">
+	                <span class="label label-default"><%= @full.status %></span>
+	            </div>
+	            <br>    
+	            <a class="btn btn-default" href="/show/<%= @full.id %>">Lihat</a>
+	        </div>             
+	     
+	    </div>
+
+	<% end %>
+
+
+

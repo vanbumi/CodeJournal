@@ -58,19 +58,36 @@ bash: syntax error near unexpected token `'/home/dyo/Pictures/manwalk.png''
 
 	Cloudinary::Uploader.upload('/home/dyo/Pictures/manwalk.png')
 
-##### Add Gemfile Attachinary
+#### Add Gemfile Attachinary
 
 	gem 'attachinary'
 
-##### Bundle	
+#### Bundle	
 
 	$ bundle install
 
-##### Setup file of **config/application.rb** add this line below:
+Error
+
+	Bundler could not find compatible versions for gem "cloudinary":
+	  In snapshot (Gemfile.lock):
+	    cloudinary (= 1.2.3)
+
+	  In Gemfile:
+	    cloudinary
+
+	    attachinary was resolved to 0.0.1, which depends on
+	      cloudinary (~> 1.0.24)
+
+	Running `bundle update` will rebuild your snapshot from scratch, using only
+	the gems in your Gemfile, which may resolve the conflict.
+
+Solution `bundle update`
+
+#### Setup file of **config/application.rb** add this line below:
 
 	require "attachinary/orm/active_record" # active_record or mongoid
 
-##### Go to Terminal	
+#### Go to Terminal	
 
 	$ rake attachinary:install:migrations
 
@@ -84,9 +101,13 @@ Success result:
 
 Rake migrate	
 
-	$ rake db:migrate or bundle exec rake db:migrate
+	$ rake db:migrate 
 
-##### Mount attachinary on file routes.rb, add this line:
+or 
+
+	$bundle exec rake db:migrate
+
+#### Mount attachinary on file routes.rb, add this line:
 
 	mount Attachinary::Engine => "/attachinary"
 
