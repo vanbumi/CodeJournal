@@ -35,3 +35,30 @@ To undo
 ## References	
 
 [Git Is Simpler Than You Think](http://nfarina.com/post/9868516270/git-is-simpler)
+
+## Branching
+
+Check Branch
+
+	git branch
+
+Add branch
+
+	git branch new_branch
+
+Switch to new_branch
+
+	git checkout new_branch
+
+## Merge Branch
+
+	git checkout master
+
+	git merge new_branch
+
+## Remove Branch
+
+	git branch -d new_branch	
+
+
+		

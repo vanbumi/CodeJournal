@@ -39,6 +39,42 @@
         </div>
     <% end %>
 
+## Case in baby-shop
+
+  <div id="home-index">
+
+      <% @products.each_slice(3) do |products| %>    
+      <div id="display-product" class="row">
+      
+          <% products.each do |product| %>
+              <div class="col-md-4 col-sm-4 col-xs-4 image">
+
+                  <% if product.images? %>
+                      <% product.images.each do |image| %>
+                          <%= cl_image_tag(image.path, { crop: :fit, class:'img-responsive' }) %>
+                      <% end %>
+                  <% else %>
+                      <img src="http://res.cloudinary.com/dearmombabyshop/image/upload/v1486697984/stroller1_rc6jhp.jpg" alt="" class="img-responsive">
+                  <% end %>
+
+                  <h4><%= product.name %></h4>
+                  <p><%= product.subcategory.name if product.subcategory %></p>
+                  <div id="price">
+                      <div class="price-awal">Rp <%= product.price_awal %></div>
+                      <div class="price-sekarang">Rp <%= product.price_sekarang %></div>
+                  </div>
+                  <div class="status">
+                      <span class="label label-default"><%= product.status %></span>
+                  </div>    
+                  <a class="btn" href="/show/<%= product.id %>">Lihat</a>
+              </div>
+          <% end %>    
+      </div>
+      <% end %>
+          
+  </div>
+
+
 ## Usage
 
 [new-row-every-3-items](http://stackoverflow.com/questions/14528919/new-row-every-3-items)    
