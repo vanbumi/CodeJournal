@@ -4,13 +4,10 @@ Truncate
 
 	<%= truncate(strip_tags(article.body), length: 100) %>
 
-Otherway I forgot yet
+Otherway 
 
-	raw and ...	
+	<%= raw product.name[0..40] %>...	
 
-Othersway
-
-	<%= raw news.konten.truncate(200) %>
 
 *that could be not work in index View
 

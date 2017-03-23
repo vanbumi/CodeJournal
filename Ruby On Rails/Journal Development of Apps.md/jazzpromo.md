@@ -1,0 +1,1 @@
+[Database model](http://www.databaseanswers.org/data_models/inventory_of_rental_equipment/index.htm)
