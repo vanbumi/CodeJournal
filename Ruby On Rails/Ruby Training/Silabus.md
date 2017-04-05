@@ -1,4 +1,4 @@
-# Ringkasan Materi R-Training
+# Ringkasan Materi Ruby Training (R-Training)
 
 ## Introduction Ruby
 
@@ -28,3 +28,80 @@ Metode dalam menginstal Ruby:
 ## Code Editor
 
 Kami merekomendasikan gunakan Sublime Text. Kemudian Code Editor lain yang bisa digunakan adalah Atom.
+
+### Belajar menggunakan Command Line dan irb
+
+### Apa itu Gems?
+
+### Debug Ruby code dengan Pry
+
+## The Basics
+
+1. Strings
+2. Symbols
+3. Numbers
+4. Nill
+5. Operation
+6. Type Conversion
+7. Basic Data Structures
+8. Expressions and Return
+9. puts vs return
+10. Latihan
+
+## Variables
+
+1. Apa itu variable?
+2. Menetapkan Nilai untuk Variables
+3. Mendapatkan Data dari User
+4. Variable Scope
+5. Types of Variables
+6. Latihan
+
+## Method
+
+1. Apa itu Method?
+2. Object Method
+3. Mutating the Caller
+4. puts vs return
+5. Chaining Methods
+6. Methods as Arguments
+7. Latihan
+
+## Flow Control
+
+1. Conditionals
+2. Comparisons
+3. Combining Expressions
+4. Ternary Operator
+5. Case Statement
+6. True and False
+7. Latihan
+
+## Loops & Iterators
+
+1. A Simple Loop
+2. Controlling Loop Execution
+3. While Loops
+4. Until Loops
+5. Do/While Loops
+6. For Loops
+7. Conditionals Within Loops
+8. Iterators
+9. Recursion
+10. Latihan
+
+## Array
+..
+dll
+
+## Hashes
+..
+dll
+
+## More
+1. Regex
+..
+dll
+
+
+
