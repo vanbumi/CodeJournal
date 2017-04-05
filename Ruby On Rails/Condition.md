@@ -56,6 +56,10 @@ The params hash that is available in the controller contains :controller and :ac
 	  # etc.
 	end
 
+## Conditional ('if') base on "Controller" & Action"
+
+	<% if params[:controller] == 'home' && params[:action] == 'index' %>	
+
 ## Example for my databaseck
 
 ### Case for query new form
