@@ -17,7 +17,7 @@ SERVER
 
 [Initial Server Setup with Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
 
-    adduser widyo
+    adduser demo
 
 ## Root Privileges
 
@@ -130,11 +130,9 @@ First, install a PGP key:
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
 
+......
 
-
-
-
-
+### Do not forget install database
 
 ---                
 

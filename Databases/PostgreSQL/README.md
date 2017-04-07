@@ -2,9 +2,40 @@
 
 ## Important Reference
 
-[help.ubuntu.com/community/PostgreSQL](https://help.ubuntu.com/community/PostgreSQL)
+* [help.ubuntu.com/community/PostgreSQL](https://help.ubuntu.com/community/PostgreSQL)
 
-[Backup & Restore via PgAdmin3](http://www.pgadmin.org/docs/dev/backup.html)
+* [Backup & Restore via PgAdmin3](http://www.pgadmin.org/docs/dev/backup.html)
+
+* [postgresqltutorial](http://www.postgresqltutorial.com/)
+
+* [Tut postgresql](https://www.tutorialspoint.com/postgresql/index.htm)
+
+---
+
+## Add User
+
+Create Database User
+--------------------
+Create a PostgreSQL superuser user with this command (substitute the highlighted word with your own username):
+
+    sudo -u postgres createuser -s demo
+
+If you want to set a password for the database user, enter the PostgreSQL console with this command:
+----------------------------------------------------------------------------------------------------
+
+    sudo -u postgres psql
+
+The PostgreSQL console is indicated by the postgres=# prompt. At the PostgreSQL prompt, enter this command to set the password for the database user that you created:
+
+    \password demo
+
+Enter your desired password at the prompt, and confirm it.
+
+Now you may exit the PostgreSQL console by entering this command:
+
+    \q
+
+---    
 
 ## psql commands
 
@@ -13,6 +44,7 @@ go to psql command line:
 	sudo -u postgres psql
 
 ### show databases:
+
 	\l
 
 ### connect to database # to create relations
@@ -34,6 +66,8 @@ go to psql command line:
 ### Show version
 
 	postgres=# SELECT version();
+
+	psql --version
 
 ### Postgre SQL dump
 --------------------
