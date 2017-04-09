@@ -148,13 +148,13 @@ Optionally you can use below to remove blank space
 
 Add new function on application.js
 
-$(function(){
-	$('#sortir').autocomplete({
-		select: function(event, ui){
-			alert(ui.item.value);
-	};
+	$(function(){
+		$('#sortir').autocomplete({
+			select: function(event, ui){
+				alert(ui.item.value);
+		};
+		});
 	});
-});
 
 ## Video 5
 
