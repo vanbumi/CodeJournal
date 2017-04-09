@@ -28,3 +28,7 @@
 * [Nice & simple crud ajax](https://richonrails.com/articles/basic-ajax-in-ruby-on-rails)
 
 * [Ajax Delete](https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm)
+
+New !
+
+* [the-detailed-guide-on-how-ajax-works-with-ruby-on-rails](https://launchschool.com/blog/the-detailed-guide-on-how-ajax-works-with-ruby-on-rails) -> lets continue this !

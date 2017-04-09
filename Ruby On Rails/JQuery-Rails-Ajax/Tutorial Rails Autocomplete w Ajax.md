@@ -283,7 +283,7 @@ Modif di controller agar dapat mengambil data dari **database**.
 		query = params[:search]
 	end
 
-:search ini ambil dari form :
+**:search** ini ambil dari form :
 
 	<input type="text" name="search" id="search" value="" size="25" autocomplete="off">	
 
@@ -385,11 +385,24 @@ Tambahkan supaya tidak perlu di refresh dan di enter lagi, di assets/javascripts
 	  });
 	});
 
+Supaya bisa search dengan lowercase, tambahkan
+
+	.titleize
+
+Maka di controller jadi kayak gini:
+
+	 def search
+	    q = params[:search].titleize
+	    query ="%" + q + "%"
+		@auto = Equipment.where('name LIKE ?', query).pluck(:name)
+	end		
+
 ---
 
 ## Lesson 4
 
-<<<<<<< HEAD
+**Custom search list result area**
+
 Inspeksi element kembali form input search :
 
 	<input type="text" name="search" id="search" value="" size="25" autocomplete="off" class="form-control no-border ui-autocomplete-input"> 
@@ -397,7 +410,7 @@ Inspeksi element kembali form input search :
 class **ui-autocomplete** bisa di jadikan class style untuk menambahkan style:
 
 	.ui-autocomplete {  
-=======
+
 Pada saat search cek di inspection:
 
 	<input type="text" name="search" id="search" value="" size="25" autocomplete="off" class="form-control no-border ui-autocomplete-input">
@@ -405,23 +418,18 @@ Pada saat search cek di inspection:
 Ambil class dari input form dan buat css nya:
 
 	.ui-autocomplete-input {
->>>>>>> 224f29a9877392c3e4d9dabac636f0e56e685b72
 		height: 100px;
 		overflow-y: scroll;
 		overflow-x: hidden;
 	}
 
-<<<<<<< HEAD
-Membuat function select
-
 $(function(){
 	$("#search").autocomplete({select: function(event, ui){
-=======
+
 Next membuat function selected :
 
 $(function(){
 	$('#search').autocomplete({select: function(event, ui){
->>>>>>> 224f29a9877392c3e4d9dabac636f0e56e685b72
 		alert(ui.item.value);
 	}});
 });
@@ -430,12 +438,11 @@ $(function(){
 
 ## Lesson 5
 
-<<<<<<< HEAD
 Add in application.html.erb or home index.html for placing result of selected search
 
 	<div id="product_data"></div>
 
-Update file search.js.erb below:
+Tambahkan file search.js.erb line below:
 
 	$("#product_data").html("<%= j render 'data' %>");
 
@@ -452,6 +459,12 @@ Create new render file call _data.html.erb, fill with this below:
 	        <%= raw @full.price_sekarang %>
 	    </p>
 	<% end %>
+
+So update:
+
+	def search
+		@full = Product.where('name = ?', params[:search]).first
+	end 
 
 Update application.js
 
@@ -496,7 +509,4 @@ Update file _data.html.erb
 
 	<% end %>
 
-
-=======
->>>>>>> 224f29a9877392c3e4d9dabac636f0e56e685b72
 
