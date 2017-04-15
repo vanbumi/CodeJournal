@@ -4,6 +4,14 @@
 
 	<%= f.submit  @customer.new_record? ? "Create Customer" : "Update Customer", :class => "btn btn-primary" %>
 
+## Case babyshop
+
+	<%= @product.subcategory ? @product.subcategory.name : "Empty!"  %>
+
+As image below:
+
+![online condition](http://res.cloudinary.com/medioxtra/image/upload/v1492226175/case_rails_condition_umfzbs.png)			
+
 ## Controller Condition
 
 Example for class
