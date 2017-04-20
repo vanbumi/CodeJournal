@@ -135,16 +135,212 @@ Ini artinya method dari Object juga tersedia untuk strings. (This section of the
 
 ### Belajar menggunakan Command Line dan irb
 
+#### Command Line
+
+To create a directory (or folder) called 'new_dir' type the following command:
+
+	$ mkdir new_dir
+
+To navigate into the folder you just created:
+
+	$ cd new_dir
+
+To create a file called 'new_file':
+
+	$ touch new_file.rb
+
+To delete the file you just created:
+
+	$ rm new_file.rb
+
+To navigate out of the current folder to the one above:
+
+	$ cd ..
+
+To delete the directory you just created:
+
+	$ rmdir new_dir
+
+Now, create the directory and file like you did above, again.
+
+To remove the directory and file at the same time navigate to the directory above 'new_dir' and type the following command:
+
+	$ rm -R new_dir
+
+Hati-hati dengan **rm** command. Sangat destructive dan tidak dapat di recover lagi. Bila ragu gunakan folder / file navigasi program (e.g. Explorer or Finder) dan hapus dengan cara seperti biasa.
+
+#### irb
+
+Ruby has a built in interactive environment called "irb" that can be very helpful when writing Ruby code. At the command line type:
+
+	$ irb
+
+This will produce a prompt that looks something like this:
+
+	2.0.0p-247 :001 >
+
+The 2.0.0p-247 is telling us what version of Ruby we are running and the :001 tells us what line we are on. However, throughout this book, we will refer to the irb prompt like this:
+
+	irb :001 >
+
+You can type in a Ruby command after the prompt and see its output and what it returns. For example, if you type the following command and press return to run it:
+
+	irb :001 > puts 'hello world!'
+
+The output will look something like this:
+
+	irb :001 > puts 'hello world!'
+	hello world!
+ 	=> nil
+	irb :002 >
+
+When you want to exit irb back to the command line, just type exit. 
+
+### Running Ruby Code
+
+Pada saat membuat Ruby file, simpan dengan **.rb** extension, anda dapat menjalankan code pada file tersebut dengan mengetik "ruby" diikuti nama file dan extentionnya, contoh file example.rb.
+
+	$ ruby example.rb
+
+Asumsi file example.rb file memuat code baris puts 'hello world!'.
+
+	$ ruby example.rb
+	hello world!
+	$
+
+When you run a Ruby file from the command line, the code gets executed by what's called an interpreter.
+
+To exit out of the program execution loop, use control-c.
+
+#### Perlu di ingat!
+
+Pastikan anda sudah mengerti perbedaan dari tiga hal diatas:
+
+1. Menggunakan Command untuk me-manage files dan folders pada command line (terminal).
+2. Menggunakan Ruby commands di irb.
+3. Menggunakan Ruby code dari **.rb** file pada command line.
+
+## Ruby "Gems"
+
 ### Apa itu Gems?
 
-### Debug Ruby code dengan Pry
+Rubyists (sebutan untuk para developer Ruby) menyebutnya **RubyGems** atau **"gems"** saja. Ada dua definisi dari RubyGems: 
 
-## The Basics
+* Satu, adalah sebagai kumpulan dari file-file Ruby atau **Ruby library**, yang memiliki tugas/fungsi tertentu. 
+* Dua, sebagai **publishing system** adalah sebagai organisasi, listing, dan publishing librari, atau gems, yang anda bisa download, untuk anda gunakan pada system anda. Anda bisa lihat dan download librari tersebut yang disebut **"gems"**. di website [rubygems.org.](http://rubygems.org). 
 
-1. Strings
-2. Symbols
-3. Numbers
-4. Nill
+RubyGems secara default untuk membantu para developer Ruby mengembangkan aplikasi dengan lebih cepat. code didalam gem seperti **pre-packaged bundles** dari code yang ditulis oleh seseorang untuk memecahkan solusi yang berguna, menghemat waktu pengerjaan. Ruby gems have versions based on the Semantic Versioning standard. Seluruh public instal gems ada di [rubygems.org.](http://rubygems.org) dan code nya di host di code repository, seperti a Github.com.
+
+Cara menggunakan:
+
+	gem install <nama gem>
+
+### Debugging Ruby code with Pry
+
+Pry adalah library yang bagus sebagai alternative untuk irb dengan host features menarik. Untuk menggunakan pry kita harus meng-instal nya:
+
+	gem install pry
+
+This gives you the pry command which when entered in your terminal will open a new session just like you would with irb.
+
+Use pry for debugging
+
+Next, when you want to use pry for debugging you'll have to require "pry" and insert a binding.pry in your file like so:
+
+Use pry for debugging
+
+Next, when you want to use pry for debugging you'll have to require "pry" and insert a binding.pry in your file like so:
+
+	#preparation.rb
+	
+	require "pry"
+
+	a = [1, 2, 3]
+	a << 4
+	binding.pry     # execution will pause here, allowing you to inspect all objects
+	puts a
+
+> What this means is that when your program gets to where binding.pry has been declared, it'll open a new pry session instead of moving on to the next line in the code. This gives you the opportunity to play around with your variables and objects to see why things are not working. This is an extremely powerful debugging technique since it lets you pause execution to inspect the state of all variables and objects at that line of code. After you're done looking at your variables, you can continue the program execution with Ctrl + D.
+
+> We've just scratched the surface of what you should know to debug simple Ruby code. We just want to introduce you to this debugging technique in Ruby because it's a better alternative to using puts for debugging and gives you a good idea of what's really happening within your code.
+
+#### Exercises
+
+1. Create a directory named my_folder and then navigate inside that directory. Create two files named one.rb and two.rb in the my_folder directory. Write a ruby program that outputs the line this is file one when you run the one.rb file. Then write another program that outputs this is file two when you run the two.rb file. (Hint: one.rb should have this in it puts "this is file one")
+
+2. 
+
+
+---
+
+## Fundamental
+
+### Strings
+
+String adalah kumpulan dari karakter secara spesifik berurutan. String tulis dengan single quote ('hi there') atau double quote ("hi there").
+
+Jika menggunakan single quote, anda bisa menggunakan double quote method atau menggunakan single quote method dengan **escaping**:
+
+Ex. 1: with double quotes
+
+	"The man said, 'Hi there!'"
+
+Ex 2: with single quotes and escaping
+
+	'The man said, \'Hi there!\''
+
+**Backslash** atau **escape** (\)** karakter, tells the computer that the quotes that follow it are not meant as Ruby syntax but only as simple quote characters to be included in the string.
+
+Double quotes allow something called string interpolation. To try it out, type the following into an irb session:	
+
+	irb :001 > a = 'ten'
+	 => "ten" 
+	irb :002 > "My favorite number is #{a}!"
+	 => "My favorite number is ten!"
+
+String interpolation is a handy way to merge Ruby code with strings. The basic syntax is: #{ruby expression goes here}, and the returned expression will be concatenated with the surrounding string. String interpolation only works within double quotes. You'll get quite familiar with this technique over time.
+
+### Symbol
+
+Ruby symbols adalah menempatkan colon (:) didepan kata.
+
+Examples of symbols
+
+	:nama
+	:a_symbol
+	:"ini juga symbol"
+
+Basically, a symbol is used when you want to reference something like a string but don't ever intend to print it to the screen or change it. It is often referred to as an immutable (i.e. unchangeable) string.
+
+### Numbers
+
+Numbers me-representasikan banyak cara pada Ruby. Yang paling dasar adalah untuk memanggil integer. Dimana me-representasikan seluruh number tanpa tanda desimal. Sangat komplek number kita sebut float. Float adalah number yang memuat desimal.
+
+Example of integers
+
+	1, 2, 3, 50, 10, 4345098098
+
+Example of floats
+
+	1.2345, 2345.4267, 98.2234
+
+### Nill
+
+In programming, we need a way to express "nothing", and in Ruby, we do this through something called nil. A variable with a value of nil could be described as having 'nothing' or being 'completely empty', or even just simply 'not any specific type'. A situation where this may occur is where output is expected but none is returned, such as:
+
+	irb :001 > puts "Hello, world!"
+	 Hello, world!
+	 => nil 
+
+The puts method prints out a string and returns nothing, so we see nil being returned after the string is displayed.
+
+It is possible to check if something is a nil type by using .nil?. For example:
+
+	irb :001 > "Hello, World".nil?
+	=> false
+
+
+
 5. Operation
 6. Type Conversion
 7. Basic Data Structures
