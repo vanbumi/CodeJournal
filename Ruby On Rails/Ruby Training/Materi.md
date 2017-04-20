@@ -273,7 +273,7 @@ Next, when you want to use pry for debugging you'll have to require "pry" and in
 
 ---
 
-## Fundamental
+## Basic Ruby
 
 ### Strings
 
@@ -339,9 +339,183 @@ It is possible to check if something is a nil type by using .nil?. For example:
 	irb :001 > "Hello, World".nil?
 	=> false
 
+### Operation
+
+Operasi matematika Tambah (Adding), Kurang (Subtracting), dan Perkalian (Multiplying Integers)
+
+Gunakan irb untuk latihan:
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > 1-1
+	 => 0 
+	2.4.0 :002 > 4*4
+	 => 16 
+	2.4.0 :003 > 5-6
+	 => -1 
+
+#### Division vs. Modulus
+
+Pembagian gunakan **/** operator, contoh:
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > 16/4
+	 => 4 
+
+Modulus atau modulo gunakan **%** operator, Modulo adalah **hasil sisa dari sebuah pembagian integer**, contoh:
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > 16 % 4
+	 => 0  
+	2.4.0 :003 > 16 % 5
+	 => 1 
+
+#### Multiplying and Dividing Floats
+
+Untuk mendapatkan hasil akurasi dari operasi pembagian kita bisa gunakan floats.
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > 15.0 / 4
+	 => 3.75
+
+Untuk perkalian yang kompleks gunakan **multiply floats**.
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > 9.75 * 3.45
+	 => 33.6375 
+
+#### Equality Comparison
+
+Equality Comparison adalah ketika anda ingin mengecek jika nilai nilai dari dua object adalah sama. equality dari dua nilai tersebut gunakan **== operator**. Ini akan membandingkan object sebelah kiri dari operator == dengan object sebelah kanannya dan hasilnya (return) antara **true** or **false**, true dan false disebut nilai **boolean**. Gunakan irb untuk latihan:
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > 4 == 4
+	 => true 
+	2.4.0 :002 > 4 == 5
+	 => false 
+	2.4.0 :003 > 'foo' == 'foo'
+	 => true 
+	2.4.0 :004 > 'foo' == 'bar'
+	 => false 
+
+Apa yang terjadi bila dibawah ini:
+
+	2.4.0 :005 > '4' == 4
+	 => ???
+
+#### String Concatenation
+
+String concatenation seperti sebuah operasi penjumlahan. Menggunakan **+** operator untuk menggabungkan dua buah string, gunakan irb! :
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > 'foo' + 'fii'
+	 => "foofii" 
+	2.4.0 :002 > 'foo' + 'bar'
+	 => "foobar" 
+	2.4.0 :003 > 'Dyo' + '' + 'Medio'
+	 => "DyoMedio" 
+	2.4.0 :004 > 'Dyo' + ' ' + 'Medio'
+	 => "Dyo Medio" 
+
+Cobalah bermain-main dengan irb:
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > '1'+'1'
+	 => "11" 
+	2.4.0 :002 > 'satu' + '1'
+	 => "satu1" 
+	2.4.0 :003 > 'satu' + 1
+	TypeError: no implicit conversion of Integer into String
+		from (irb):3:in `+'
+		from (irb):3
+		from /home/dyo/.rvm/rubies/ruby-2.4.0/bin/irb:11:in `<main>'
+
+Pada latihan irb **'satu' + 1** muncul pesan error. Iinterpreter tidak dapat secara langsung mengconversin nilai **Fixnum** menjadi nilai **String**. Kita tidak dapat menggabungkan Fixnum dan String bersama. By the way, FixNum adalah sebuah nilai integer.
+
+#### Type Conversion
+
+Untuk menggabungkan String dan Fixnum, contoh '12' + 2, akan menghasilkan error.
+
+Untuk menggabungkan gunakan sebuah **method** yang meng-convert String to Fixnum, dengan menggunakan **to_i**, pada setiap String, perhatikan contoh dibawah:
+
+	dyo@ubuntu:~$ irb
+	2.4.0 :001 > '4'.to_i
+	 => 4 
+	2.4.0 :002 > '4 hello dyo'.to_i
+	 => 4 
+	2.4.0 :003 > 'helo dyo 4'.to_i
+	 => 0 
+	2.4.0 :004 > '4'.to_f
+	 => 4.0 
+	2.4.0 :005 > '4 hello dyo'.to_f
+	 => 4.0 
+	2.4.0 :006 > 'hello dyo 4'.to_f
+	 => 0.0 
+
+Contoh berikutnya:
+
+	2.4.0 :007 > '5'.to_s
+	 => "5" 
+	2.4.0 :008 > 'hello dyo 4'.to_s
+	 => "hello dyo 4" 
+	2.4.0 :009 > '4 hello dyo'.to_s
+	 => "4 hello dyo" 
+	2.4.0 :010 > 4 + '5'.to_s
+	TypeError: String can't be coerced into Integer
+		from (irb):10:in `+'
+		from (irb):10
+		from /home/dyo/.rvm/rubies/ruby-2.4.0/bin/irb:11:in `<main>'
+	2.4.0 :011 > 4 + 5.to_s
+	TypeError: String can't be coerced into Integer
+		from (irb):11:in `+'
+		from (irb):11
+		from /home/dyo/.rvm/rubies/ruby-2.4.0/bin/irb:11:in `<main>'
+	2.4.0 :012 > '4' + 5.to_s
+	 => "45"
+
+Tugas: Jelaskan kenapa terjadi error? Kenapa '4' + 5.to_s tidak error?
+
+## Basic Data Structures
+
+Dua data struktur yang paling umum anda gunakan pada Ruby adalah **array** dan **hash**. Akan dijelaskan lebih detil kemudian tapi sekarang kita akan berkenalan terlebih dahulu.
+
+### Arrays
+
+Sebuah aray digunakan untuk mengorganisasikan informasi kedalam bentuk daftar yang berurutan. Daftar ini bisa terdiri dari string, integer, float, boolean, atau tipe data lainnya. Pada Ruby array ditandai dengan square brackets (kurung kotak) **[ ]**. Didalam bracket anda dapat memembuat daftar element yang dipisahkan dengan tanda koma "**,**" mari kita coba di irb.
+
+	dyo@ubuntu:~$ irb
+	irb :001 > [1,2,3,4,5]
+	 => [1, 2, 3, 4, 5]	
+ 
+Diatas kita membuat array of integer 1 sampai 5. Tiap element dalama array dapat di akses via **index**. Index adalah sebuah nomor urut yang dimulai dari **nol** (zero). Akses hanya pada element pertama kita dapat lakukan begini:
+
+	irb :001 > [1,2,3,4,5]
+	 => [1, 2, 3, 4, 5] 
+	irb :002 > [1,2,3,4,5][0]
+	 => 1
+
+	irb :003 > [1,2,3,4,5][2]
+	 => 3 
+	irb :004 > [1,2,3,4,5][1]
+	 => 2 
+
+### Hashes
+
+Hash, kadang disebut **dictionary**, hash adalah pasangan dari **key-value**. Hash ditandai dengan **curly braces { }**. Pada sebuah pasangan **key-value** dimana key menunjuk kepada sebuah nilai tertentu. 
+
+Sebuah hash terdiri dari sebuah kunci, biasanya ditunjukkan oleh sebuah simbol, yang menunjukkan nilai (dilambangkan dengan menggunakan a =>) dari semua jenis data.
+
+	irb :001 > {:dog => 'barks'}
+	 => {:dog=>"barks"}
+
+Diatas adalah hash dengan satu pasang key-value. Sama seperti array, kita dapat memiliki multiple items pada hash jika kita pisahkan mereka dengan tanda "koma":
+
+	irb :002 > {:anjing => 'menggonggong', :kucing => 'mengeong', :ayam => 'berkokok'}[:kucing]
+	 => "mengeong"
 
 
-5. Operation
+---
+
+
 6. Type Conversion
 7. Basic Data Structures
 8. Expressions and Return
