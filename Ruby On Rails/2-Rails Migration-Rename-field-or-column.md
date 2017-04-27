@@ -42,7 +42,7 @@ The change method automatically lets us run the migration and roll it back, so a
 	$ rake db:rollback
 	$ rake db:migrate
 
-Lets add another migration to change the type of the body column to be text instead of an integer.
+Lets add another migration to change the type of the **body column** to be **text** instead of an **integer**.
 
 	$ rails g migration ChangeBodyTypeInPosts
 	
@@ -65,6 +65,8 @@ If we run this migration and check the schema file, we will see that it was succ
 	
 Some migrations are meant to raise an ActiveRecord::IrreversibleMigration exception, but this is the type of migration where that is probably not true. Here is a better way to create the migration:
 
+	$ rails g migration ChangeBodyTypeInPosts
+	
 	class ChangeBodyTypeInPosts < ActiveRecord::Migration
 	  def self.up
 	    change_column :posts, :body, :text

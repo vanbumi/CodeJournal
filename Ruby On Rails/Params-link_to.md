@@ -14,4 +14,18 @@ Will show in Browser:
 
 Will show in Inspect element:
 
-	<a href="/product-brand?brand=2">Baby Einstein</a>			
+	<a href="/product-brand?brand=2">Baby Einstein</a>
+
+---
+
+### Params for filter
+
+Controller :
+
+	@brands = Brand.where(:category_id => params[:id] )
+
+Url :
+
+	<% @brands.each do |brand| %>
+		<%= link_to brand.name, product_brand_path(:brand => brand.id) %> <br>
+	<% end %>
