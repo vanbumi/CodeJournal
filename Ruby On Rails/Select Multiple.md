@@ -81,6 +81,55 @@ select-with-multiple-true-not-saving-values
 	body  => name of column
 	posts => name of table
 
-+ https://www.sitepoint.com/save-multiple-checkbox-values-database-rails/
++ **Dearmom case**
 
-		masih keder
+**do serialize**
+
+**do change type integer to string**
+
+		rails g migration ChangeCategory_idTypeInBrands
+
+	produce this:		
+
+		class ChangeCategoryIdTypeInBrands < ActiveRecord::Migration[5.0]
+		  def change
+		  end
+		end
+
+	Add this:
+	
+		def self.up
+	    change_column :brands, :category_id, :text
+	  end
+
+	  def self.down
+	    change_column :brands, :category_id, :integer
+	  end
+
+Error Produced:
+
+		SyntaxError: /home/dyo/sites/rails/babyshop-2/db/migrate/20170427121810_change_category_id_type_in_
+		brands.rb:3: syntax error, unexpected keyword_def, expecting ']'
+		  def self.up	  	
+
+	Problem it was: 
+
+		class ChangeCategoryIdTypeInBrands < ActiveRecord::Migration[5.0 
+	
+	Solutions
+
+		add ]
+
+	and
+		
+		def up
+	    change_table :brands do |t|
+	      t.change :category_id, :text
+	    end
+	  end
+	 
+	  def down
+	    change_table :brands do |t|
+	      t.change :category_id, :integer
+	    end
+	  end	  
