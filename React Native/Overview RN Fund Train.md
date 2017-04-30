@@ -2,7 +2,7 @@
 
 ## Overview React Native Fundamental Training
 
-Oleh: SB Widyo Bumi
+By SB Widyo Bumi
 
 **Lama Training**:
 
@@ -10,9 +10,9 @@ Oleh: SB Widyo Bumi
 + 4 (Empat) hari @ 5 Jam 9:30 - 15:30
 + 12:00 - 13:00 Istirahat, Sholat & Makan siang, 
 
-**Operating System** : Windows
+**Operating System** : min Windows 7, min Core i-3, Ram 4Gb
 
-**Peserta Training** : Pemula dan Umum semua level.
+**Peserta Training** : Pemula dan Umum semua level, JavaScript & HTML basic knowledge (bila ada).
 
 **Keterangan**:
 
@@ -31,3 +31,124 @@ React Native dapat membuat anda bisa membangun aplikasi seluler baik Android mau
 **React Native app adalah real mobile app**
 
 Dengan React Native, anda tidak membangun "mobile web app", "HTML5 app", atau "Hybrid app". Anda membangun "real mobile app" yang tidak dapat dibedakan dari aplikasi yang dibuat dengan Objective-C atau Java. React Native menggunakan fundamental UI yang sama dalam membangun blocks seperti iOS dan Android app pada umumnya. Hanya anda menempatkan building blocks tersebut bersama dengan menggunakan JavaScript dan React.
+
+## Materi
+
+#### Hari 1
+
+##### Installation
+
+1. Instal java sdk.
+2. Instal nodejs.
+3. Instal python 2.
+4. Instal "android studio donwload"
+5. Open command run as administrator.
+6. Cek version node -v
+...
+
+##### File dan Direktori pada aplikasi React Native
+
+Mengenal isi direktori dari aplikasi React Native
+
+- android folder
+- ios folder
+- node_modules
+
+Mengenal file utama:
+
+- index.android.js
+- index.ios.js
+...
+
+##### Memilih Code Editor
+
+##### Get content on screen
+
+##### React & React Native Library
+
+##### Create component
+
+* Mengenal JSX
+
+##### Register component
+
+* Rendering to device:
+
+##### Destruturing import library
+
+* Refactor import library dan AppRegistry
+
+##### Membuat App outline
+
+---
+
+#### Hari 2
+
+##### Membuat Header component
+
+##### Consume file export
+
+##### Styling dengan React Native
+
+##### Styling lanjut
+
+##### Pengenalan Flexbox
+
+##### Header Styling
+
+##### Header Reusable
+
+##### Sourcing album data.
+
+##### List component
+
+#### Class based component
+
+---
+
+#### Hari 3
+
+##### Lifecycle methode 
+
+##### Mengenal Axios
+
+##### Network Requestt
+
+##### Component level state
+
+##### More component level state
+
+##### Rendering list component
+
+##### Display individual album
+
+##### Fantastic reusable components
+
+##### Style card
+
+##### Pass component sebagai card
+
+---
+
+#### Hari 4
+
+##### Membagi card ke dalam section
+
+##### Mastering layout dengan flexbox
+
+##### Position elements on mobile
+
+##### Lanjut dalam styling
+
+##### Image dengan React Native
+
+##### Display album artwork
+
+##### Membuat content scrollable
+
+##### Handling user input dengan button
+
+##### Styling button dengan UX
+
+##### Respond to user input
+

@@ -1,20 +1,26 @@
-# Ringkasan Materi Ruby Training (R-Training)
+![image](http://res.cloudinary.com/medioxtra/image/upload/c_scale,h_340,w_700/v1493570591/hqdefault_uuru08.jpg)
 
-## Introduction Ruby
+## Overview Ruby Fundamental Training
 
-Ruby saat itu di ciptakan oleh Yukihiro Matsumoto, atau "Matz", di Jepang pada pertengahan 1990. Dengan tujuan adalah untuk produktivitas dan fun untuk para programer. Dengan menekankan kebutuhan akan software yang mudah di mengerti oleh manusia terlebih dahulu baru kemudian komputer. 
+### Introduction Ruby
 
-Hingga saat ini perkembangan Ruby terus berlanjut dan semakin populer sebagai bahasa untuk mengembangkan web aplikasi. Sedangkan Ruby on Rails adalah Framework yang dibangun dengan bahasa Ruby oleh David Heinemeier Hansson (DHH), diperkenalkan oleh banyak orang untuk melakukan pemrograman yang menyenangkan.
+Ruby saat itu di ciptakan oleh **Yukihiro Matsumoto**, atau "**Matz**", di Jepang pada pertengahan 1990. Dengan tujuan adalah untuk produktivitas dan fun untuk para programer. Dengan menekankan kebutuhan akan software yang mudah di mengerti oleh manusia terlebih dahulu baru kemudian komputer.
+
+![yukihiro](http://res.cloudinary.com/medioxtra/image/upload/v1493570911/yukihiro-matsumoto_uj3nv9.jpg) 
+
+Hingga saat ini perkembangan Ruby terus berlanjut dan semakin populer sebagai bahasa untuk mengembangkan web aplikasi. Sedangkan **Ruby on Rails** adalah **Framework** yang dibangun dengan bahasa Ruby oleh **David Heinemeier Hansson** (**DHH**), diperkenalkan oleh banyak orang untuk melakukan pemrograman yang menyenangkan.
+
+![DHH](http://res.cloudinary.com/medioxtra/image/upload/c_scale,h_168,w_168/v1493571137/DHH_b9mdam.jpg)
 
 Ruby memiliki komunitas yang sangat bersemangat dan dinamis untuk mendukung programer pemula dan yang antusias tentang memproduksi kode program yang berkualitas tinggi.
 
-## Tujuan Training
+### Tujuan Training
 
 Training ini di tujukan untuk yang belum berpengalaman atau programer pemula, apabila anda menerapkan prinsip dan teknik dalam R-Training ini, anda akan memilki pengetahuan dasar yang cukup untuk melakukan pemerograman dengan Ruby. Anda dapat menggunakan pengetahuan yang didapat di R-Training untuk terus belajar lebih dalam konsep tingkat lanjut. 
 
 R-Training akan membimbing anda pada kebingungan dan mempersingkat waktu belajar bagi pemula, dan juga akan memberikan latihan untuk menerapkan sintak dasar Ruby pada tahap selanjutnya anda akan fokus dalam memberikan solusi pada dunia nyata dan membangun aplikasi yang mumpuni pada dunia nyata.
 
-## Install Ruby
+### Install Ruby
 
 Para peserta R-Training diasumsikan menggunakan Linux machine (Ubuntu 14.04).
 
@@ -25,17 +31,17 @@ Metode dalam menginstal Ruby:
 + Homebrew (Mac only)
 + Build from source
 
-## Code Editor
+### Code Editor
 
 Kami merekomendasikan gunakan Sublime Text. Kemudian Code Editor lain yang bisa digunakan adalah Atom.
 
-### Belajar menggunakan Command Line dan irb
+#### Belajar menggunakan Command Line dan irb
 
-### Apa itu Gems?
+#### Apa itu Gems?
 
-### Debug Ruby code dengan Pry
+#### Debug Ruby code dengan Pry
 
-## The Basics
+### The Basics
 
 1. Strings
 2. Symbols
@@ -48,7 +54,7 @@ Kami merekomendasikan gunakan Sublime Text. Kemudian Code Editor lain yang bisa 
 9. puts vs return
 10. Latihan
 
-## Variables
+### Variables
 
 1. Apa itu variable?
 2. Menetapkan Nilai untuk Variables
@@ -57,7 +63,7 @@ Kami merekomendasikan gunakan Sublime Text. Kemudian Code Editor lain yang bisa 
 5. Types of Variables
 6. Latihan
 
-## Method
+### Method
 
 1. Apa itu Method?
 2. Object Method
@@ -67,7 +73,7 @@ Kami merekomendasikan gunakan Sublime Text. Kemudian Code Editor lain yang bisa 
 6. Methods as Arguments
 7. Latihan
 
-## Flow Control
+### Flow Control
 
 1. Conditionals
 2. Comparisons
@@ -77,7 +83,7 @@ Kami merekomendasikan gunakan Sublime Text. Kemudian Code Editor lain yang bisa 
 6. True and False
 7. Latihan
 
-## Loops & Iterators
+### Loops & Iterators
 
 1. A Simple Loop
 2. Controlling Loop Execution
@@ -90,18 +96,18 @@ Kami merekomendasikan gunakan Sublime Text. Kemudian Code Editor lain yang bisa 
 9. Recursion
 10. Latihan
 
-## Array
-..
-dll
+### Array
 
-## Hashes
 ..
-dll
 
-## More
+### Hashes
+
+..
+
+### More
+
 1. Regex
 ..
-dll
 
 
 
