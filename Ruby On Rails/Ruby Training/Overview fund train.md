@@ -1,6 +1,20 @@
-![image](http://res.cloudinary.com/medioxtra/image/upload/c_scale,h_340,w_700/v1493570591/hqdefault_uuru08.jpg)
+![image](http://res.cloudinary.com/medioxtra/image/upload/c_scale,h_360,w_700/v1493570591/hqdefault_uuru08.jpg)
 
 ## Overview Ruby Fundamental Training
+
+By SB Widyo Bumi
+
+**Detail Training**:
+
++ 20 jam. 
++ 4 (Empat) hari @ 5 Jam 9:30 - 15:30
++ 12:00 - 13:00 Istirahat, Sholat & Makan siang, 
+
+**Operating System** : Linux Ubuntu 14.04, min Core i-3, min Ram 4Gb
+
+**Peserta Training** : Pemula dan Umum semua level, HTML basic knowledge.
+
+---
 
 ### Introduction Ruby
 

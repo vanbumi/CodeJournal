@@ -4,13 +4,13 @@
 
 By SB Widyo Bumi
 
-**Lama Training**:
+**Detail Training**:
 
 + 20 jam. 
 + 4 (Empat) hari @ 5 Jam 9:30 - 15:30
 + 12:00 - 13:00 Istirahat, Sholat & Makan siang, 
 
-**Operating System** : min Windows 7, min Core i-3, Ram 4Gb
+**Operating System** : min Windows 7, min Core i-3, min Ram 4Gb
 
 **Peserta Training** : Pemula dan Umum semua level, JavaScript & HTML basic knowledge (bila ada).
 
