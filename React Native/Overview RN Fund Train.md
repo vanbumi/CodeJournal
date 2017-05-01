@@ -1,6 +1,6 @@
 ![](http://res.cloudinary.com/medioxtra/image/upload/c_scale,w_700/v1492953344/react-native-agileengine_sxsfqw.png)
 
-## Overview React Native Fundamental Training
+## React Native Fundamental Training
 
 By SB Widyo Bumi
 
@@ -32,123 +32,87 @@ React Native dapat membuat anda bisa membangun aplikasi seluler baik Android mau
 
 Dengan React Native, anda tidak membangun "mobile web app", "HTML5 app", atau "Hybrid app". Anda membangun "real mobile app" yang tidak dapat dibedakan dari aplikasi yang dibuat dengan Objective-C atau Java. React Native menggunakan fundamental UI yang sama dalam membangun blocks seperti iOS dan Android app pada umumnya. Hanya anda menempatkan building blocks tersebut bersama dengan menggunakan JavaScript dan React.
 
-## Materi
+## Overview Materi
 
-#### Hari 1
+Section 1 - Installation
 
-##### Installation
+Section 2 - File dan Direktori di aplikasi React Native
 
-1. Instal java sdk.
-2. Instal nodejs.
-3. Instal python 2.
-4. Instal "android studio donwload"
-5. Open command run as administrator.
-6. Cek version node -v
+Section 3 - Memilih Code Editor
+
+Section 4 - Membuat konten di screen
+
+Section 5 - React & React Native Library
+
+Section 6 - Membuat component
+
+Section 7 - Cara meregister component
+
+Section 8 - De-strutur import library
+
+Section 9 - Membuat App outline
+
+Section 10 - Membuat Header component
+
+Section 11 - Consume file export
+
+Section 12 - Styling dengan React Native
+
+Section 13 - Styling lanjut
+
+Section 14 - Pengenalan Flexbox
+
+Section 15 - Header Styling
+
+Section 16 - Header Reusable
+
+Section 17 - Sourcing album data.
+
+Section 18 - List component
+
+Section 19 - Class based component
+
+Section 20 - Lifecycle methode 
+
+Section 21 - Mengenal Axios
+
+Section 22 - Network Requestt
+
+Section 23 - Component level state
+
+Section 24 - More component level state
+
+Section 25 - Rendering list component
+
+Section 26 - Display individual album
+
+Section 27 - Fantastic reusable components
+
+Section 28 - Style card
+
+Section 29 - Pass component sebagai card
+
+Section 30 - Membagi card ke dalam section
+
+Section 31 - Mastering layout dengan flexbox
+
+Section 32 - Position elements on mobile
+
+Section 33 - Lebih lanjut dengan styling
+
+Section 34 - Image dengan React Native
+
+Section 35 - Display album artwork
+
+Section 36 - Membuat content scrollable
+
+Section 37 - Handling user input dengan button
+
+Section 38 - Styling button dengan UX
+
+Section 39 - Respond to user input
+
 ...
 
-##### File dan Direktori pada aplikasi React Native
 
-Mengenal isi direktori dari aplikasi React Native
-
-- android folder
-- ios folder
-- node_modules
-
-Mengenal file utama:
-
-- index.android.js
-- index.ios.js
-...
-
-##### Memilih Code Editor
-
-##### Get content on screen
-
-##### React & React Native Library
-
-##### Create component
-
-* Mengenal JSX
-
-##### Register component
-
-* Rendering to device:
-
-##### Destruturing import library
-
-* Refactor import library dan AppRegistry
-
-##### Membuat App outline
-
----
-
-#### Hari 2
-
-##### Membuat Header component
-
-##### Consume file export
-
-##### Styling dengan React Native
-
-##### Styling lanjut
-
-##### Pengenalan Flexbox
-
-##### Header Styling
-
-##### Header Reusable
-
-##### Sourcing album data.
-
-##### List component
-
-#### Class based component
-
----
-
-#### Hari 3
-
-##### Lifecycle methode 
-
-##### Mengenal Axios
-
-##### Network Requestt
-
-##### Component level state
-
-##### More component level state
-
-##### Rendering list component
-
-##### Display individual album
-
-##### Fantastic reusable components
-
-##### Style card
-
-##### Pass component sebagai card
-
----
-
-#### Hari 4
-
-##### Membagi card ke dalam section
-
-##### Mastering layout dengan flexbox
-
-##### Position elements on mobile
-
-##### Lanjut dalam styling
-
-##### Image dengan React Native
-
-##### Display album artwork
-
-##### Membuat content scrollable
-
-##### Handling user input dengan button
-
-##### Styling button dengan UX
-
-##### Respond to user input
 
