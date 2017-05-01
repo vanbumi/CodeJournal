@@ -15,7 +15,7 @@ By: SB Widyo Bumi
 
 **Operating System** : min Windows 7
 
-**Peserta Training** : Pemula dan Umum semua level, HTML basic knowledge.
+**Peserta Training** : Pemula dan Umum semua level, HTML basic knowledge & CSS (jika ada).
 
 ---
 
