@@ -1,7 +1,7 @@
 ![img-dw](http://res.cloudinary.com/medioxtra/image/upload/c_scale,w_700/v1493609911/dw_rbozty.jpg)
 
-# Learn Dreamwever CS6 	 
-### And Preparation Adobe Certified Associate Web Communication using Adobe Dreamweaver CS6 Exam.
+# Mastering Dreamwever CS6 	 
+### And Preparation Adobe Certified Associate Web Communication Dreamweaver CS6 Exam.
 
 ---
 
@@ -103,13 +103,13 @@
 
 12.3. Creating external style sheets
 
-### 13 - How to troubleshoot Cascading Style Sheets
+### Lesson 13 - How to troubleshoot Cascading Style Sheets
 
 13.1. Using the Tag selector
 
 13.2. Coloring divs to diagnose layout problems
 
-### 14 - How to make websites accessible
+### Lesson 14 - How to make websites accessible
 
 14.1. Accessibility preferences options
 
@@ -119,9 +119,9 @@
 
 14.4. How to meet accessibility requirements
 
-### 15 - How to use the Adobe Dreamweaver Widget Browser 
+### Lesson 15 - How to use the Adobe Dreamweaver Widget Browser 
 
-### 16 - How to check files in and out
+### Lesson 16 - How to check files in and out
 
 16.1. Setting up a Check In/Check Out system on a remote server
 
@@ -133,7 +133,7 @@
 
 16.5. Using Subversion
 
-### 17 - How to create interactive navigation
+### Lesson 17 - How to create interactive navigation
 
 17.1. Creating buttons and navigation bars in Fireworks
 
@@ -141,19 +141,19 @@
 
 17.3. How to create rollover images
 
-### 18 - How to add images
+### Lesson 18 - How to add images
 
 18.1. Adding images
 
 18.2. Set image properties
 
-### 19 - How to add rich media to a web page
+### Lesson 19 - How to add rich media to a web page
 
 19.1. HTML5 video
 
 19.2. About FLA, SWF, and FLV file types
 
-### 20 - How to add text
+### Lesson 20 - How to add text
 
 20.1. Adding text to a document
 
@@ -165,17 +165,17 @@
 
 ### Day 3
 
-### 21 - How to use CSS text styles
+### Lesson 21 - How to use CSS text styles
 
 21.1. Changing text styles
 
 21.2. Using web fonts
 
-### 22 - How to create lists
+### Lesson 22 - How to create lists
 
 22.1. Creating lists
 
-### 23 - How to create links
+### Lesson 23 - How to create links
 
 23.1. Creating an internal link
 
@@ -185,7 +185,7 @@
 
 23.4. Creating a link to an e-mail address
 
-### 24 - How to create data tables
+### Lesson 24 - How to create data tables
 
 24.1. Inserting a table on a page
 
@@ -201,7 +201,7 @@
 
 24.7. Inserting a spreadsheet table
 
-### 25 - How to create forms
+### Lesson 25 - How to create forms
 
 25.1. Setting up a form
 
@@ -209,19 +209,19 @@
 
 25.3. Using form buttons
 
-### 26 - How to create image maps
+### Lesson 26 - How to create image maps
 
 26.1. Creating an image map
 
-### 27 - How to preview and test a web project
+### Lesson 27 - How to preview and test a web project
 
 27.1. Using BrowserLab in Dreamweaver
 
-### 28 - How to check links
+### Lesson 28 - How to check links
 
 28.1. Checking links in a local site
 
-### 29 - How to publish web files
+### Lesson 29 - How to publish web files
 
 29.1. Connecting to a remote site
 
@@ -231,6 +231,6 @@
 
 ### Day 4
 
-### 30 - Examp Preparation
+### Lesson 30 - Examp Preparation
 
-### 31 - Exam Adobe Certified Associate Web Communication Dreamweaver CS6
+### Certification 31 - Exam Adobe Certified Associate Web Communication Dreamweaver CS6
