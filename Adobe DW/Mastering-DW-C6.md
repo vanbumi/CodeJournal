@@ -3,7 +3,7 @@
 # Mastering Dreamwever CS6 	 
 ### And Preparation Adobe Certified Associate Web Communication Dreamweaver CS6 Exam.
 
-BY: SB Widyo Bumi
+By: SB Widyo Bumi
 
 ---
 
