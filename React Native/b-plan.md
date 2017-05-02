@@ -49,15 +49,25 @@ Produk yang dihasilkan bisa berupa:
 * Jasa Pelatihan.
 * Jasa Pengembangan.
 
-### Bentuk usaha: Badan Usaha atau Perusahaan Terbatas (PT)
+### Bentuk usaha: 
 
-### Aspek perijinan: Bisa Pelatihan, Konsultan dan sebagainnya.
+Badan Usaha atau Perusahaan Terbatas (PT)
 
-### Siapa yang ikut bekerja sama: Dalam hal ini saya sebagai pencetus dan pendiri.
+### Aspek perijinan: 
 
-### Gambaran persaingan bisnis: Saat ini di Indonesia masih langka badan usaha yang fokus mengembangkan Aplikasi Smartphone dengan menggunakan Teknologi **React Native**.
+Bisa Pelatihan, Konsultan dan sebagainnya.
 
-### Keunggulan Produk dan Teknologi: Sangat mudah dipelajari dan memiliki kemampuan yang serupa dengan teknologi Java. 
+### Siapa yang ikut bekerja sama: 
+
+Dalam hal ini saya sebagai pencetus dan pendiri.
+
+### Gambaran persaingan bisnis: 
+
+Saat ini di Indonesia masih langka badan usaha yang fokus mengembangkan Aplikasi Smartphone dengan menggunakan Teknologi **React Native**.
+
+### Keunggulan Produk dan Teknologi: 
+
+Sangat mudah dipelajari dan memiliki kemampuan yang serupa dengan teknologi Java. 
 
 ### Analisa pemasaran (marketing analysis)
 
