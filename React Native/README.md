@@ -26,5 +26,6 @@ Solution:
 * [reactjs-id/react-native-ubuntu](https://github.com/reactjs-id/react-native-ubuntu)
 * [Getting Started with React Native on Ubuntu ](http://www.proreactnative.com/Getting-Started-with-React-Native-on-Ubuntu-Linux/)
 * [Integrating Data with React Native](http://makeitopen.com/tutorials/building-the-f8-app/data/)
-
+* [Tutorial build conversion currency](http://learn.handlebarlabs.com/courses/enrolled/175915)
+* [react-native-architecture-explained](https://www.logicroom.co/react-native-architecture-explained/)
 
