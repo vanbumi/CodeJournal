@@ -16,9 +16,16 @@ Solution: [running the sdk-manager](http://stackoverflow.com/questions/36683726/
 
 Solution: 
 
+## Install New Ract version on RN
 
+* Delete node modules 
+* Delete react in package.json
+* Install react 15.6.1 or latest
+* And install all rest.
 
+## Setup Genymotion on Expo
 
+[Setup Genymotion](https://docs.expo.io/versions/v15.0.0/guides/genymotion.html)
 
 ## Resources
 
@@ -28,4 +35,4 @@ Solution:
 * [Integrating Data with React Native](http://makeitopen.com/tutorials/building-the-f8-app/data/)
 * [Tutorial build conversion currency](http://learn.handlebarlabs.com/courses/enrolled/175915)
 * [react-native-architecture-explained](https://www.logicroom.co/react-native-architecture-explained/)
-
+* [Use Redux to Manage React Navigation State](https://www.youtube.com/watch?v=JT9Jah5WBr4&feature=youtu.be)
