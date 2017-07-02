@@ -27,6 +27,14 @@ Solution:
 
 [Setup Genymotion](https://docs.expo.io/versions/v15.0.0/guides/genymotion.html)
 
+## Publish app with Expo
+
+[Publishing on Expo](https://blog.expo.io/publishing-on-exponent-790493660d24) and [Publishing](https://docs.expo.io/versions/v18.0.0/guides/publishing.html)
+
+## Building Standalone Apps
+
+[building-standalone-apps](https://docs.expo.io/versions/v13.0.0/guides/building-standalone-apps.html)
+
 ## Resources
 
 * [Menjalankan React Native (Android App) di Elementary OS (ubuntu 14.04)](https://www.youtube.com/watch?v=qLC-MkphOJI&feature=youtu.be)
@@ -36,3 +44,4 @@ Solution:
 * [Tutorial build conversion currency](http://learn.handlebarlabs.com/courses/enrolled/175915)
 * [react-native-architecture-explained](https://www.logicroom.co/react-native-architecture-explained/)
 * [Use Redux to Manage React Navigation State](https://www.youtube.com/watch?v=JT9Jah5WBr4&feature=youtu.be)
+* [All things React Native — tutorials, experiments, tips & tricks, snippets](https://medium.com/the-react-native-log)
