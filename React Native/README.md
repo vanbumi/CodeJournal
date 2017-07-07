@@ -45,3 +45,4 @@ Solution:
 * [react-native-architecture-explained](https://www.logicroom.co/react-native-architecture-explained/)
 * [Use Redux to Manage React Navigation State](https://www.youtube.com/watch?v=JT9Jah5WBr4&feature=youtu.be)
 * [All things React Native — tutorials, experiments, tips & tricks, snippets](https://medium.com/the-react-native-log)
+* [ReactNativeNews React-Native-Apps](https://github.com/ReactNativeNews/React-Native-Apps)
