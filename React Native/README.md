@@ -221,3 +221,4 @@ Solution:
 * [All things React Native — tutorials, experiments, tips & tricks, snippets](https://medium.com/the-react-native-log)
 * [ReactNativeNews React-Native-Apps](https://github.com/ReactNativeNews/React-Native-Apps)
 * [Dota Mania](https://github.com/sonnylazuardi/reactriot2017-dotamania)
+* [React Native Genymotion Codepolitan](https://www.codepolitan.com/memulai-pengembangan-android-dengan-react-native-di-windows-57b85678b26a9-17960)
