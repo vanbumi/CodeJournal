@@ -60,5 +60,9 @@ Switch to new_branch
 
 	git branch -d new_branch	
 
+## Revise recent commit
 
+	git commit --amend -m "New commit message"
+
+	
 		
