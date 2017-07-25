@@ -30,6 +30,15 @@ Day 3 React Native Expo
 
 [expo & firebase](https://www.youtube.com/results?search_query=expo+and+firebase)
 
+## Gmap Direction
+
+Requirements:
+
+* Element on direction.
+* Register API maps.
+* React native airmaps.
+* Polyline. 
+
 ## Error Stack
 
 * SDK location not found. Define location with sdk.dir in the local.properties file or with an ANDROID_HOME environment variable.
@@ -52,6 +61,14 @@ Solution:
 
 ....
 
+#### Unable to connect remote debugger:
+
+Solution:
+
+1. Refresh expo.
+2. Click device button again.
+3. Refresh Genymo.
+
 #### Firebase Error
 
     Unable to resolve module `firebase` from `E:\workspace\reactnative\auth-app-expo\src\Main.js`: Module does not exist in the module map or in these directories:
@@ -62,21 +79,6 @@ Solution:
       1. Clear watchman watches: `watchman watch-del-all`.
       2. Delete the `node_modules` folder: `rm -rf node_modules && npm install`.
       3. Reset packager cache: `rm -fr $TMPDIR/react-*` or `npm start -- --reset-cache`.
-
-      ABI18_0_0RCTFatal
-      ABI18_0_0RCTSetFatalHandler
-      ABI18_0_0RCTSetFatalHandler
-      <redacted>
-      <redacted>
-      <redacted>
-      <redacted>
-      <redacted>
-      CFRunLoopRunSpecific
-      CFRunLoopRunInMode
-      GSEventRunModal
-      UIApplicationMain
-      Exponent
-      <redacted>
 
 **Solution**
 
@@ -117,78 +119,9 @@ Solution:
 
 #### No Firebase App '[DEFAULT]' has been created - call Firebase App.initializeApp() (app/no-app).
 
-    Firebase: No Firebase App '[DEFAULT]' has been created - call Firebase App.initializeApp() (app/no-app).
+Solution: 
 
-    FirebaseError
-        E:\workspace\reactnative\auth-app-expo\node_modules\firebase\app\errors.js:37:30
-    create
-        E:\workspace\reactnative\auth-app-expo\node_modules\firebase\app\errors.js:85:40
-    error
-        E:\workspace\reactnative\auth-app-expo\node_modules\firebase\app\firebase_app.js:385:27
-    app
-        E:\workspace\reactnative\auth-app-expo\node_modules\firebase\app\firebase_app.js:350:18
-    serviceNamespace
-        E:\workspace\reactnative\auth-app-expo\node_modules\firebase\app\firebase_app.js:273:101
-    onButtonPress
-        E:\workspace\reactnative\auth-app-expo\src\components\LoginForm.js:13:4
-    touchableHandlePress
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Components\Touchable\TouchableOpacity.js:127:45
-    _performSideEffectsForTransition
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Components\Touchable\Touchable.js:746:34
-    _receiveSignal
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Components\Touchable\Touchable.js:664:44
-    touchableHandleResponderRelease
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Components\Touchable\Touchable.js:433:24
-    invokeGuardedCallback
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\utils\ReactErrorUtils.js:22:15
-    invokeGuardedCallback
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\utils\ReactErrorUtils.js:110:39
-    invokeGuardedCallbackAndCatchFirstError
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\utils\ReactErrorUtils.js:133:62
-    executeDispatch
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\EventPluginUtils.js:92:4
-    executeDispatchesInOrder
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\EventPluginUtils.js:123:20
-    executeDispatchesAndRelease
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\EventPluginHub.js:37:46
-    executeDispatchesAndReleaseTopLevel
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\EventPluginHub.js:48:37
-    forEachAccumulated
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\utils\forEachAccumulated.js:30:16
-    processEventQueue
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\EventPluginHub.js:236:8
-    runEventQueueInBatch
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\ReactEventEmitterMixin.js:18:35
-    handleTopLevel
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\ReactEventEmitterMixin.js:38:25
-    <unknown>
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\native\ReactNativeEventEmitter.js:107:8
-    fiberBatchedUpdates
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\ReactGenericBatching.js:27:12
-    performFiberBatchedUpdates
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\ReactGenericBatching.js:33:29
-    perform
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\stack\reconciler\Transaction.js:152:24
-    batchedUpdates
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\stack\reconciler\ReactDefaultBatchingStrategy.js:61:33
-    batchedUpdates
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\stack\reconciler\ReactUpdates.js:92:41
-    batchedUpdates
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\ReactGenericBatching.js:38:29
-    batchedUpdatesWithControlledComponents
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\shared\shared\event\ReactGenericBatching.js:51:26
-    _receiveRootNodeIDEvent
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\native\ReactNativeEventEmitter.js:105:40
-    receiveTouches
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\Renderer\src\renderers\native\ReactNativeEventEmitter.js:193:8
-    __callFunction
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\BatchedBridge\MessageQueue.js:245:47
-    <unknown>
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\BatchedBridge\MessageQueue.js:101:26
-    __guard
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\BatchedBridge\MessageQueue.js:213:6
-    callFunctionReturnFlushedQueue
-        E:\workspace\reactnative\auth-app-expo\node_modules\react-native\Libraries\BatchedBridge\MessageQueue.js:100:17
+    Typo! when write: componentWillMount    
 
 ## Install New Ract version on RN
 
