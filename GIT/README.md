@@ -58,11 +58,57 @@ Switch to new_branch
 
 ## Remove Branch
 
-	git branch -d new_branch	
+	git branch -d branch_to_remove
+
+If found error, do following command: 
+
+error: The branch 'devel-revise-1' is not fully merged. If you are sure you want to delete it, run '
+
+	git branch -D devel-revise-1
 
 ## Revise recent commit
 
 	git commit --amend -m "New commit message"
 
-	
+## Go back to my commit in past
+
+	git checkout e4af64a77
+
+Message:
+
+	Note: checking out 'e4af64a77'.
+
+	You are in 'detached HEAD' state. You can look around, make experimental changes and commit them, and you can discard any commits you make in this state without impacting any branches by performing another checkout.
+
+	If you want to create a new branch to retain commits you create, you may do so (now or later) by using: -b with the checkout command again. Example:
+
+		git checkout -b <new-branch-name>
+
+	HEAD is now at e4af64a... finish v.142 Successfull save to Firebase 	
 		
+My experimentals :
+
+I do checkout another commit after above commit:
+
+	git checkout 4cb5d52022ea
+
+I am making any changes, commit it and create new branch named devel-revise-1 and I will merge it into branch devel-revise.
+
+## Back to last work fine commit and remove all commit since that.
+
+I follow this steps:
+
+* Create new branch eq: devel-revise
+
+* State of devel and devel-revise branch is similar state.
+
+* In devel-revise checkout the last work fine commit.
+
+* In this commit state create new branch: devel-fine.
+
+* remove devel-revise
+
+* Now you work with devel-fine ready to merge to master if some case.
+
+
+
