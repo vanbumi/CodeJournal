@@ -108,6 +108,8 @@ I follow this steps:
 
 * remove devel-revise
 
+* git checkout devel-fine
+
 * Now you work with devel-fine ready to merge to master if some case.
 
 

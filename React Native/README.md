@@ -123,12 +123,59 @@ Solution:
 
     Typo! when write: componentWillMount    
 
+#### syntaxerror: strict mode does not allow function declarations in a lexically nested statment.
+
+Solution:
+
+[stackoverflow](https://stackoverflow.com/questions/41058495/syntaxerror-strict-mode-does-not-allow-function-declarations-in-a-lexically-nes).
+[Github Fb](https://github.com/facebook/react-native/issues/11389)
+
+I've found simple solution
+
+    open node_modules\react-native\Libraries\Core\InitializeCore.js line 112
+
+    change function handleError(e, isFatal) to var handleError = function(e, isFatal)
+
+    then do npm start -- --reset-cache
+    you can also check it in github issue above
+
+For those who can't find the Core folder in the the react-native node_modules. You might be running a different version like I was, and found it here:
+
+    node_modules\react-native\Libraries\JavaScriptAppEngine\Initialization\InitializeJavaScriptAppEngine.js
+
+    line ~120
+    and change
+
+    function handleError(e, isFatal) 
+    to
+
+    var handleError = function(e, isFatal)
+    then do npm start -- --reset-cache
+
+---
+
 ## Install New Ract version on RN
 
 * Delete node modules 
 * Delete react in package.json
 * Install react 15.6.1 or latest
 * And install all rest.
+
+---
+
+## Warning!
+
+Setting a timer for a long period of time, i.e. multiple minutes, is a performance and correctness issue on Android as it keeps the timer module awake, and timers can only be called when the app is in the foreground. See https://github.com/facebook/react-native/issues/12981 for more info. (Saw setTimeout with duration 111862ms)
+
+Solution:
+
+    console.ignoredYellowBox = [
+       'Setting a timer'
+    ]
+
+Or Read: [Add support for AlarmManager in Timing to allow proper handling of long timers](https://github.com/facebook/react-native/issues/12981) 
+
+
 
 ## Setup Genymotion on Expo
 
