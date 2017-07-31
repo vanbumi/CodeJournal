@@ -99,29 +99,40 @@ Solution:
 
 **Solution 2 from official expo**
 
-    When you’re unable to load a bundle, look at the packager logs or the error message displayed in the Expo client to see if it’s related to the packager. If so, you should try clearing the packager’s state to reduce the chance the bug is related to a stale cache or corrupt process.
+When you’re unable to load a bundle, look at the packager logs or the error message displayed in the Expo client to see if it’s related to the packager. If so, you should try clearing the packager’s state to reduce the chance the bug is related to a stale cache or corrupt process.
 
-    These instructions are for macOS and Linux, but the general ideas apply to Windows as well.
+These instructions are for macOS and Linux, but the general ideas apply to Windows as well.
 
-    Stop XDE/exp, which should also stop the packager. Check your list of running processes to ensure these processes are not running.
-    Delete node_modules in your project
+1. Stop XDE/exp, which should also stop the packager. Check your list of running processes to ensure these processes are not running.
+2. Delete node_modules in your project.
     If your project depends on other local projects (e.g. has a file: URI in its dependencies), clear those local project’s node_modules directories too for good measure even though it’s probably unnecessary.
-    Clear your Yarn or npm cache, depending on which you’re using, with yarn cache clean or npm cache clean
-    Run yarn or npm i to install your dependencies again
-    Run watchman watch-del-all to clear Watchman’s state
-    Kill the watchman daemon process
-    Delete the packager’s cache directory with rm -fr $TMPDIR/react-*
-    Start XDE or exp
-    With exp, run exp r -c for good measure
-    And just to be sure, force quit the Expo client on your phone or simulator and re-open it.
+3. Clear your Yarn or npm cache, depending on which you’re using, with yarn cache clean or npm cache clean.
+4. Run yarn or npm i to install your dependencies again.
+5. Run watchman watch-del-all to clear Watchman’s state.
+6. Kill the watchman daemon process.
+7. Delete the packager’s cache directory with rm -fr $TMPDIR/react-*
+8. Start XDE or exp, With exp, run : 
 
-    or npm start -- --reset-cache     
+    exp r -c 
+    
+for good measure
+    
+And just to be sure, force quit the Expo client on your phone or simulator and re-open it.
+
+or 
+    npm start -- --reset-cache     
+
+Ref: [how-to-clear-the-react-native-packager](https://forums.expo.io/t/how-to-clear-the-react-native-packager/1352)
+
+---
 
 #### No Firebase App '[DEFAULT]' has been created - call Firebase App.initializeApp() (app/no-app).
 
 Solution: 
 
     Typo! when write: componentWillMount    
+
+---
 
 #### syntaxerror: strict mode does not allow function declarations in a lexically nested statment.
 
@@ -132,19 +143,20 @@ Solution:
 
 I've found simple solution
 
-    open node_modules\react-native\Libraries\Core\InitializeCore.js line 112
+1. Open node_modules\react-native\Libraries\Core\InitializeCore.js line 112
 
-    change function handleError(e, isFatal) to var handleError = function(e, isFatal)
+2. change function handleError(e, isFatal) to var handleError = function(e, isFatal)
 
-    then do npm start -- --reset-cache
-    you can also check it in github issue above
+3. then do npm start -- --reset-cache
+   you can also check it in github issue above
 
-For those who can't find the Core folder in the the react-native node_modules. You might be running a different version like I was, and found it here:
+3. For those who can't find the Core folder in the the react-native node_modules. You might be running a different version like I was, and found it here:
 
     node_modules\react-native\Libraries\JavaScriptAppEngine\Initialization\InitializeJavaScriptAppEngine.js
 
     line ~120
-    and change
+    
+and change
 
     function handleError(e, isFatal) 
     to
@@ -175,7 +187,7 @@ Solution:
 
 Or Read: [Add support for AlarmManager in Timing to allow proper handling of long timers](https://github.com/facebook/react-native/issues/12981) 
 
-
+---
 
 ## Setup Genymotion on Expo
 
