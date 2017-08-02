@@ -201,6 +201,31 @@ Or Read: [Add support for AlarmManager in Timing to allow proper handling of lon
 
 [building-standalone-apps](https://docs.expo.io/versions/v13.0.0/guides/building-standalone-apps.html)
 
+## Clone RN
+
+* clone, trs 
+* buka package.json, hilangkan semua tnda '^' , 
+* save, dan 
+* npm install lagi, dan 
+* react-native link lagi.
+* try react-native run-android.
+
+Error: 
+
+Execution failed for task ':app:transformClassWithDexForDebug'. java.io.IOException: Could nt create empty folder ...
+
+Solution I tried this:
+
+[cant-create-folder-debug-android-studio](https://stackoverflow.com/questions/39055677/cant-create-folder-debug-android-studio)
+
+Right click Android Studio open with Admininstrator priviledge.
+
+this works but with warning:
+
+Could not loadexpfcxxxxx://localhost: 80 are you sure xde or exp is running?
+
+
+
 ## Resources
 
 * [Menjalankan React Native (Android App) di Elementary OS (ubuntu 14.04)](https://www.youtube.com/watch?v=qLC-MkphOJI&feature=youtu.be)
