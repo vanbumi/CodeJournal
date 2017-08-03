@@ -24,4 +24,6 @@ di scroll view tampak keyboardShouldPersistTaps={'always'}
 
 Ref:
 
-[How to make your React Native app respond gracefully when the keyboard pops up](https://medium.freecodecamp.org/how-to-make-your-react-native-app-respond-gracefully-when-the-keyboard-pops-up-7442c1535580)
+1. [How to make your React Native app respond gracefully when the keyboard pops up](https://medium.freecodecamp.org/how-to-make-your-react-native-app-respond-gracefully-when-the-keyboard-pops-up-7442c1535580)
+
+2. [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view)

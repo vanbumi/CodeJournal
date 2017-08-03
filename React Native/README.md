@@ -239,3 +239,4 @@ Could not loadexpfcxxxxx://localhost: 80 are you sure xde or exp is running?
 * [ReactNativeNews React-Native-Apps](https://github.com/ReactNativeNews/React-Native-Apps)
 * [Dota Mania](https://github.com/sonnylazuardi/reactriot2017-dotamania)
 * [React Native Genymotion Codepolitan](https://www.codepolitan.com/memulai-pengembangan-android-dengan-react-native-di-windows-57b85678b26a9-17960)
+* [javascript-personal-notes](https://github.com/arfianadam/javascript-personal-notes)
