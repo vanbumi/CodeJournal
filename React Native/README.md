@@ -241,3 +241,4 @@ Could not loadexpfcxxxxx://localhost: 80 are you sure xde or exp is running?
 * [React Native Genymotion Codepolitan](https://www.codepolitan.com/memulai-pengembangan-android-dengan-react-native-di-windows-57b85678b26a9-17960)
 * [javascript-personal-notes](https://github.com/arfianadam/javascript-personal-notes)
 * [Checklist to Deploy React Native to Production](https://medium.com/the-react-native-log/checklist-to-deploy-react-native-to-production-47157f8f85ed)
+* [Switch React Native](https://www.npmjs.com/package/switch-react-native)
