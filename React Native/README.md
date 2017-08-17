@@ -244,4 +244,6 @@ Could not loadexpfcxxxxx://localhost: 80 are you sure xde or exp is running?
 * [Switch React Native](https://www.npmjs.com/package/switch-react-native)
 * [Shared Element Transition with React Native](https://medium.com/@narendrashetty/shared-element-transition-with-react-native-159f8bc37f50), [React Native Photo Gallery with Shared Transitions](https://github.com/narendrashetty/photo-gallery-RN)
 * [Creating a ride-booking app with React Native and Pusher](https://blog.pusher.com/creating-ride-booking-app-react-native-pusher/)
-* [Build A React App With Redux - Egghead.io](https://egghead.io/courses/build-a-react-app-with-redux)
+* [REACT REDUX - FREE! Build A React App With Redux - Egghead.io](https://egghead.io/courses/build-a-react-app-with-redux)
+* [REACT - FREE! Start Using React to Build Web Applications](https://egghead.io/courses/start-using-react-to-build-web-applications)
+* [REACT - PAID! Build Your First Production Quality React App](https://egghead.io/courses/build-your-first-production-quality-react-app)
