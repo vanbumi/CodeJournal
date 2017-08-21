@@ -224,6 +224,21 @@ this works but with warning:
 
 Could not loadexpfcxxxxx://localhost: 80 are you sure xde or exp is running?
 
+## React Native CLI
+
+### Error with init -> babel preset:
+
+    npm uninstall babel-preset-react-native
+    npm install babel-preset-react-native@2.1.0
+
+If Invalid remove one row of babel-preset in package.json
+
+[React Native: Transform Error for Unexpected Token (](https://stackoverflow.com/questions/45723747/react-native-transform-error-for-unexpected-token)    
+
+### Another Error 
+
+bundling failed: "transfromError" cannot find module AccessibiltiyInfo
+
 
 
 ## Resources
