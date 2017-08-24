@@ -262,3 +262,5 @@ bundling failed: "transfromError" cannot find module AccessibiltiyInfo
 * [REACT REDUX - FREE! Build A React App With Redux - Egghead.io](https://egghead.io/courses/build-a-react-app-with-redux)
 * [REACT - FREE! Start Using React to Build Web Applications](https://egghead.io/courses/start-using-react-to-build-web-applications)
 * [REACT - PAID! Build Your First Production Quality React App](https://egghead.io/courses/build-your-first-production-quality-react-app)
+* [The GraphQL backend for mobile & web developers](https://www.graph.cool/)
+* [Apollo Data](https://www.apollodata.com/)
