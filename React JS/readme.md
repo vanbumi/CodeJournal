@@ -223,4 +223,5 @@ You can run a webserver and see your changes live in your web browser:
 
 	</script>
 
-	
+* [React Rails Course](https://learnetto.com/tutorials/quick-introduction-to-key-react-concepts)
+* [3 ways to use React with Ruby on Rails 5](https://learnetto.com/blog/3-ways-to-use-react-with-ruby-on-rails-5)	
