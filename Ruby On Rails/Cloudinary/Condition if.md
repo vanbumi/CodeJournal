@@ -101,22 +101,22 @@ Case example
         <% end %>
     </div>
 
-Baby-shop case in view show
+**Baby-shop case in view show**
 
-  <% if @product.images? %>
-    <% @product.images.each do |image| %>
-        <%= cl_image_tag(image.path, { size: '500x500', crop: :fit }) %>
+    <% if @product.images? %>
+        <% @product.images.each do |image| %>
+            <%= cl_image_tag(image.path, { size: '500x500', crop: :fit }) %>
+        <% end %>
+    <% else %>
+        <img src="http://res.cloudinary.com/dearmombabyshop/image/upload/v1486697984/stroller1_rc6jhp.jpg" alt="" class="img-responsive">
     <% end %>
-  <% else %>
-      <img src="http://res.cloudinary.com/dearmombabyshop/image/upload/v1486697984/stroller1_rc6jhp.jpg" alt="" class="img-responsive">
-  <% end %>
 
 And use this for view index, with no @
 
-  <% if product.images? %>
-      <% product.images.each do |image| %>
-          <%= cl_image_tag(image.path, { size: '800x800', crop: :fit, class:'img-responsive' }) %>
-      <% end %>
-  <% else %>
-      <img src="http://res.cloudinary.com/dearmombabyshop/image/upload/v1486697984/stroller1_rc6jhp.jpg" alt="" class="img-responsive">
-  <% end %>
+    <% if product.images? %>
+        <% product.images.each do |image| %>
+            <%= cl_image_tag(image.path, { size: '800x800', crop: :fit, class:'img-responsive' }) %>
+        <% end %>
+    <% else %>
+        <img src="http://res.cloudinary.com/dearmombabyshop/image/upload/v1486697984/stroller1_rc6jhp.jpg" alt="" class="img-responsive">
+    <% end %>

@@ -143,3 +143,8 @@ https://www.digitalocean.com/community/questions/wordpress-ssh-public-and-privat
 ## Administrator Page
 
 [how-to-add-an-admin-user-to-the-wordpress-database-via-mysql](http://www.wpbeginner.com/wp-tutorials/how-to-add-an-admin-user-to-the-wordpress-database-via-mysql/)
+
+### Move web from root to folder:
+
+* [Cara Pindahkan Folder WordPress dari Root ke Subfolder di cPanel](https://gegeriyadi.com/cara-pindahkan-folder-wordpress-dari-root-ke-subfolder)
+* [How to change WordPress site address (URL)](https://www.namecheap.com/support/knowledgebase/article.aspx/9201/2187/how-to-change-wordpress-site-address-url)

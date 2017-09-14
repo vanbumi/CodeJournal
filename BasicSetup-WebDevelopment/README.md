@@ -238,7 +238,7 @@ Nginx Server
 7. SETUP sites-available for NGINX Server 
 -----------------------------------------
     > cd /etc/nginx/sites-available
-    > mkdir sitename.conf
+    > touch sitename
     > and write as bellow:
     
         server {

@@ -97,7 +97,7 @@ Solution:
 
     Back to change React v 16.0.0-alpha.12, restart xde. But check if fibase has instaled.
 
-**Solution 2 from official expo**
+## Solution 2 from official expo
 
 When you’re unable to load a bundle, look at the packager logs or the error message displayed in the Expo client to see if it’s related to the packager. If so, you should try clearing the packager’s state to reduce the chance the bug is related to a stale cache or corrupt process.
 
@@ -239,8 +239,6 @@ If Invalid remove one row of babel-preset in package.json
 
 bundling failed: "transfromError" cannot find module AccessibiltiyInfo
 
-
-
 ## Resources
 
 * [Menjalankan React Native (Android App) di Elementary OS (ubuntu 14.04)](https://www.youtube.com/watch?v=qLC-MkphOJI&feature=youtu.be)
@@ -264,3 +262,7 @@ bundling failed: "transfromError" cannot find module AccessibiltiyInfo
 * [REACT - PAID! Build Your First Production Quality React App](https://egghead.io/courses/build-your-first-production-quality-react-app)
 * [The GraphQL backend for mobile & web developers](https://www.graph.cool/)
 * [Apollo Data](https://www.apollodata.com/)
+* [30-days-of-react](https://www.fullstackreact.com/30-days-of-react/)
+* [My Development Toolset for React Native iOS Development](https://medium.com/ios-os-x-development/my-development-toolset-for-react-native-ios-development-de1bd1b07216)
+* [React Rails Course](https://learnetto.com/tutorials/quick-introduction-to-key-react-concepts)
+* [3 ways to use React with Ruby on Rails 5](https://learnetto.com/blog/3-ways-to-use-react-with-ruby-on-rails-5)
