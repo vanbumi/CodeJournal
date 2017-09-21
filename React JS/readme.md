@@ -224,4 +224,12 @@ You can run a webserver and see your changes live in your web browser:
 	</script>
 
 * [React Rails Course](https://learnetto.com/tutorials/quick-introduction-to-key-react-concepts)
-* [3 ways to use React with Ruby on Rails 5](https://learnetto.com/blog/3-ways-to-use-react-with-ruby-on-rails-5)	
+* [3 ways to use React with Ruby on Rails 5](https://learnetto.com/blog/3-ways-to-use-react-with-ruby-on-rails-5)
+* [Uncontrolled Components](https://facebook.github.io/react/docs/uncontrolled-components.html)
+		To write an uncontrolled component, instead of writing an event handler for every state update, you can use a ref to get form values from the DOM.
+* [Form & Controlled Component](https://facebook.github.io/react/docs/forms.html).
+* [Refs and the DOM](https://facebook.github.io/react/docs/refs-and-the-dom.html).
+* [Buat Latihan - React.js - A guide for Rails developers](https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers)
+* [React POST Request](https://www.npmjs.com/package/axios)
+
+
