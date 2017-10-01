@@ -1,0 +1,1 @@
+https://www.driftingruby.com/episodes/creating-a-basic-gem

@@ -112,5 +112,19 @@ I follow this steps:
 
 * Now you work with devel-fine ready to merge to master if some case.
 
+* **Case** I have master mess up, and branch can_upload better one, I want to change can_upload to become master:
+
+**solution:**
+
+	git checkout better_branch
+	git merge --strategy=ours master   # keep the content of this branch, but record a merge
+	git checkout master
+	git merge better_branch             # fast-forward master up to the merge
+
+if error : Error reading /home/dyo/.nano_history: Permission denied
+
+use sudo git merge --strategy=ours master	
+
+https://stackoverflow.com/questions/2763006/make-the-current-git-branch-a-master-branch
 
 
