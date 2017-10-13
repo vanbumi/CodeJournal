@@ -47,3 +47,28 @@ Which will output a table like this:
 | user2 |
 +-------+
 
+## Work with Mac
+
+#### Install
+
+    brew install mysql
+
+we've installed your MySQL database without a root password. To secure it run:
+    mysql_secure_installation
+
+Result:
+
+MySQL is configured to only allow connections from localhost by default
+
+To connect run:
+    mysql -uroot
+
+To have launchd start mysql now and restart at login:
+  brew services start mysql
+Or, if you don't want/need a background service you can just run:
+  mysql.server start
+==> Summary
+🍺  /usr/local/Cellar/mysql/5.7.19: 322 files, 234.8MB
+dyo-mac:grafika dyo-medio$ mysql.server start
+Starting MySQL
+. SUCCESS! 

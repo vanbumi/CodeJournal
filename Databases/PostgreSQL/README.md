@@ -16,6 +16,7 @@
 
 Create Database User
 --------------------
+
 Create a PostgreSQL superuser user with this command (substitute the highlighted word with your own username):
 
     sudo -u postgres createuser -s demo
@@ -174,3 +175,23 @@ You should enable postgresql service by performing
 	sudo service postgresql start
 
 [pgconnection-bad-connecting](http://stackoverflow.com/questions/35590668/pgconnection-bad-connecting-to-pgadminiii-cloud-9-ide)	
+
+# Work with Mac
+
+## If you need to have this software first in your PATH run:
+
+	echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.bash_profile
+
+## Getting Started with PostgreSQL on Mac OSX
+
+[Get started with PG](https://www.codementor.io/devops/tutorial/getting-started-postgresql-server-mac-osx)
+
+
+
+
+
+
+
+
+
+

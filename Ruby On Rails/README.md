@@ -16,3 +16,7 @@ Ref:
 * What is protect_from_forgery with: :exception?
 
 <script>$(".button-collapse").sideNav();</script>
+
+### Install Ruby and Rails on Mac
+
+[Setup Ruby and Rails on Mac](http://railsapps.github.io/installrubyonrails-mac.html)
