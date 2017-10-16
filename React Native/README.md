@@ -267,3 +267,9 @@ bundling failed: "transfromError" cannot find module AccessibiltiyInfo
 * [React Rails Course](https://learnetto.com/tutorials/quick-introduction-to-key-react-concepts)
 * [3 ways to use React with Ruby on Rails 5](https://learnetto.com/blog/3-ways-to-use-react-with-ruby-on-rails-5)
 * [Spencer Carli - Easily Build Forms in React Native](https://medium.com/@spencer_carli/easily-build-forms-in-react-native-9006fcd2a73b)
+
+
+## PATH
+
+export $PATH=$ANDROID_HOME/tools:PATH
+export $PATH=$ANDROID_HOME/platform-tools:PATH
