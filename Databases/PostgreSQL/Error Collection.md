@@ -20,3 +20,8 @@ Solution
 [language-problem-on-ubuntu-14-04](https://www.digitalocean.com/community/questions/language-problem-on-ubuntu-14-04)
 
 ---
+
+## error postgres
+
+could not connect to server: Connection refused Is the server running on host "localhost" (::1) and accepting TCP/IP connections on port 5432? could not connect to server: Connection refused Is the server running on host "localhost" (127.0.0.1) and accepting TCP/IP connections on port 5432?
+

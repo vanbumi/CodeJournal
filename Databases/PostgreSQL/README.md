@@ -184,10 +184,35 @@ You should enable postgresql service by performing
 
 ## Getting Started with PostgreSQL on Mac OSX
 
-[Get started with PG](https://www.codementor.io/devops/tutorial/getting-started-postgresql-server-mac-osx)
+Get started with PG: [https://www.codementor.io/devops/tutorial/getting-started-postgresql-server-mac-osx](https://www.codementor.io/devops/tutorial/getting-started-postgresql-server-mac-osx)
 
+> On 23 October 17 I redo this get started process read of this:
 
+To have launched start postgresql now and restart at login:
 
+	brew services start postgresql
+
+Or if you dont want a background service you can just run:
+
+	pg_ctl -D /usr/local/var/postgres start
+
+Let’s go ahead and start Postgres running, and make sure Postgres starts every time your computer starts up. Execute the following command:	
+
+	pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+
+To check version:
+
+	postgres -V
+
+Configuring Postgres
+
+	psql postgres
+
+to see what users are installed:
+
+	postgres=# \du
+
+please continue to read next one.
 
 
 
