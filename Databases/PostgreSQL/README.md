@@ -212,7 +212,9 @@ to see what users are installed:
 
 	postgres=# \du
 
-please continue to read next one.
+please continue to read next one and install this http://postgresapp.com/
+
+
 
 
 

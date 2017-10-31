@@ -14,4 +14,6 @@ Example:
 
     https://api.whatsapp.com/send?phone=15551234567&text=I'm%20interested%20in%20your%20car%20for%20sale
 
-https://api.whatsapp.com/send?phone=6287878866943&text=Halo saya tertarik training di GStudio
+Mine:
+
+    https://api.whatsapp.com/send?phone=6287878866943&text=Halo saya tertarik training di GStudio
