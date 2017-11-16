@@ -1,5 +1,29 @@
 # Node JS
 
+Apa itu Node.js
+
+Node.js bukan bahasa programing dan bukan framework,
+Node.js adalah JavaScript runtime yang dibangun didalam JavaScript engine v8, engine yang sama yang digunakan oleh Google Chrome, yang menjadikan Google Chrome powerful dan sangat cepat.
+
+Apa itu runtime? Node menjadikan JavaScript berjalan secara single proses didalam mesin anda, v8 engine yang ditulis dengan c++ menjadikan JavaScript dan meng-copilenya menjadi bahasa mesin yang cepat dan dimengerti oleh komputer.
+
+Node membuat JavaScript menjadi server side teknologi, seperti PHP, Rails, Java, Python dsb.
+
+Node adalah Teknologi Cross Platform, yang berjalan pada semua Operating System, seperti Windows, Mac dan Linux.
+
+Node membangun aplikasi berskala besar dengan sangat cepat dan mendukung real-time aplikasi.
+
+Bila anda memiliki pengalaman cukup dengan Node.js akan menjadikan anda pada jajaran Top Skill yang banyak dibutuhkan oleh Teknologi saat ini di dunia.
+
+Apa yang bisa kita lakukan dengan Node?
+
+* Manipulasi file pada filesystem.
+* Membangun web servers.
+* Query database (MongoDB, MySQL, Postgres, Redis dll)
+* Powerfull APIs & Backend interfaces.
+* Powerfull server side apps dengan render view.
+* Real-time service.
+
 ### Getting Start Server!
 
 cd to your project workspace folder

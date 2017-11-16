@@ -36,5 +36,5 @@ Switch of node version with nvm use 0.10 (more infos here).
 To have a node activated by default (not to have to nvm use on each new shell), run this (stable being the id of the version):
 
     nvm alias default stable
-
+~
 Now, you can run multiple versions of node on your computer.
