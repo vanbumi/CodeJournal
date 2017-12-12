@@ -185,7 +185,8 @@ Setup database:
 6. REMOTE > GIT CLONE
 ---------------------
     $ cd to/sites
-    example : the_site$ git clone dyo@widyobumi.com:/home/dyo/repo/repname.git 
+     
+    use this: sites$ git clone /home/dyo/repo/gstudio.git
 
 Apache Server
 -------------
