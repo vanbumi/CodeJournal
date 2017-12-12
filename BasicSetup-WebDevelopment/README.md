@@ -203,25 +203,43 @@ Open the config file
 
 Edit it or replace the existing contents so your final result matches the file shown below. Changes you need to make are highlighted in red. Remember to use your own domain name, and the correct path to your Rails app:
 
+just do copas this !  
+
     <VirtualHost *:80>
-        *ServerName example.com
-        *ServerAlias www.example.com
+        ServerName example.com
+        ServerAlias www.example.com
         ServerAdmin webmaster@localhost
         DocumentRoot /home/rails/testapp/public
-        *RailsEnv development
+        RailsEnv development
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
-        *<Directory "/home/rails/testapp/public">
+        <Directory "/home/rails/testapp/public">
             Options FollowSymLinks
             Require all granted
         </Directory>
-    </VirtualHost>    
+    </VirtualHost>
 
 Disable the default site, enable your new site, and restart Apache:
 
     sudo a2dissite 000-default
     sudo a2ensite testapp
     sudo service apache2 restart
+
+Go to the web --> sites/theWeb
+
+    $ bundle install
+    $ rake db:create
+    $ rake db:migrate
+
+#### new error:
+
+    Incomplete response received from application
+
+ Solution:
+
+
+
+
 
 **For Multy Domain**
 
