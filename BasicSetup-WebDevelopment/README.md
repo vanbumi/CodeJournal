@@ -237,6 +237,22 @@ Go to the web --> sites/theWeb
 
  Solution:
 
+    copy paste this for virtual host:
+
+    <VirtualHost *:80>
+        ServerName example.com
+        ServerAlias www.example.com
+        ServerAdmin webmaster@localhost
+        DocumentRoot /home/rails/testapp/public
+        RailsEnv development
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        <Directory "/home/rails/testapp/public">
+            Options FollowSymLinks
+            Require all granted
+        </Directory>
+    </VirtualHost>
+
 
 
 
