@@ -10,3 +10,5 @@
 		  def goodbye
 		  end
 	end
+
+More read here [http://guides.rubyonrails.org/layouts_and_rendering.html](http://guides.rubyonrails.org/layouts_and_rendering.html)	
