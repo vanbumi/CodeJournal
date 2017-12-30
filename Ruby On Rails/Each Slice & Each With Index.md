@@ -11,7 +11,16 @@
 	            <div class="preview">
 	              <%= cl_image_tag gambar.path, { size: '270x270', crop: :thumb } %>
 
-> Do not forget to give row after slice
+**Do not forget to give row after slice**
+
+Jadi each_slice itu looping row nya.
+
+**Steps**: 
+
+1. each_slice().
+2. class row.
+3. each do normal seperti biasa.
+4. each do for image.
 
 Example case : grafika
 
@@ -49,7 +58,25 @@ Example case : grafika
 	    </div>
 	  <% end %>
 	</section>
+
+**Simple case grafika at show page**
+
+	<% @products1.each_slice(4) do |product| %>
+		<div class="img-spasi text-center"> # --->> berlaku sebagai ROW !
+		<% product.each do |photo| %>
+			<div class="span3 img">
+				<% photo.photos.each do |foto| %>
+				<a class="example-image-link" href="<%= cl_image_path(foto.path, :width => 900, :height => 700, :crop => :thumb) %>" data-lightbox="example-1" data-title="<%= photo.noproduct %> | <%= photo.name %>">
+						<%= cl_image_tag foto.path, { size: '150x150', crop: :thumb } %>
+					<% end %>
+				</a>	
+				<h5><%= photo.noproduct %> - <%= photo.name %></h5>
+			</div>
+			<% end %>
+		</div>
+	<% end %>	
 	
 ### Readmore this 
 
 [ruby-array-each-slice-with-index](http://stackoverflow.com/questions/5983977/ruby-array-each-slice-with-index)	
+

@@ -11,4 +11,4 @@ Make sure the entire app directory and its subfolders belong to your user:
 
 And add the write permission to all folders:
 
-  chmod -R u+w /home/u/eol
+  chmod -R u+w /home/u/eol~
