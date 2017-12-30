@@ -19,7 +19,8 @@ Jadi each_slice itu looping row nya.
 
 1. each_slice().
 2. class row.
-3. each do normal seperti biasa.
+3. each do normal seperti biasa for looping column.
+4. column.
 4. each do for image.
 
 Example case : grafika
