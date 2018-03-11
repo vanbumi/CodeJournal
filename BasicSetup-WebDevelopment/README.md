@@ -186,7 +186,7 @@ Setup database:
 ---------------------
     $ cd to/sites
      
-    use this: sites$ git clone /home/dyo/repo/gstudio.git
+    use this: sites$ git clone /home/myname/repo/reponame.git
 
 Apache Server
 -------------
