@@ -431,7 +431,20 @@ Read this:
 
 [how-to-troubleshoot-common-site-issues-on-a-linux-server](https://www.digitalocean.com/community/tutorials/how-to-troubleshoot-common-site-issues-on-a-linux-server)
 
+### error #7
 
-                        
+	Forbidden
+
+	You don't have permission to access / on this server.
+	Apache/2.4.7 (Ubuntu) Server at mediosoft.com Port 80
+
+**Solution**
+
+	Setelah di clone di folder sites segera di ganti aksesnya:
+	
+		sudo chmod 775 home/myname/sites/folder_project
+		
+		
+	
                         
                         

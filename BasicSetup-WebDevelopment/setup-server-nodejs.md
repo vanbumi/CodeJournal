@@ -11,28 +11,26 @@ https://www.phusionpassenger.com/library/walkthroughs/deploy/nodejs/ownserver/ng
 
 ## The Steps
 
-1. Create Local Git repository.
-2. Create Remote Git repository.
+1. Local: Create Local Git repository.
+2. Server: Create Remote Git repository.
 
 		git init --bare --shared reponame.git
 
-3. Add git remote in local app.
-
+3. Local: Add git remote in local app.
 
 		git remote add deploy dyo@example.com:/home/myname/repo/reponame.git
 
-3. Push app to remote repository.
+3. Local: Push app to remote repository.
 
 		git push -u deploy master
 
-4. Clone app into folder sites
+4. Server: Clone app into folder sites
 
 		git clone /home/myname/repo/reponame.git				
 
-5. Install app dependencies
-
+5. Server: Install app dependencies
 		
-6. Configuring Nginx / Apache Server and Passenger.
+6. Server: Configuring Nginx / Apache Server and Passenger.
 
 		# Make a copy:
 
@@ -41,7 +39,6 @@ https://www.phusionpassenger.com/library/walkthroughs/deploy/nodejs/ownserver/ng
 7. Open zzz.conf
 
 		sudon nano zzz.conf
-
 
 8. Edit configuration file of zzz.conf
 
