@@ -69,6 +69,19 @@ error: The branch 'devel-revise-1' is not fully merged. If you are sure you want
 ## Revise recent commit
 
 	git commit --amend -m "New commit message"
+	
+## Rename branch
+	
+	https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/
+	
+
+## Git checkout with new branch
+
+	git checkout -b <new-branch>
+	
+	https://www.atlassian.com/git/tutorials/using-branches/git-checkout
+	
+	
 
 ## Go back to my commit in past
 
