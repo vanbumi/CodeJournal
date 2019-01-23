@@ -38,11 +38,13 @@ Enter maka muncul: Identity added: /Users/dyo-medio/.ssh/id_rsa_xxx (/Users/dyo-
       HostName github.com
       User git
       IdentityFile ~/.ssh/id_rsa
+      IdentitiesOnly yes
 
     Host github-NAMALAIN
       HostName github.com
       User git
       IdentityFile ~/.ssh/id_rsa_namalain
+      IdentitiesOnly yes
 
 ## Step 4 - Coba dengan git.
 

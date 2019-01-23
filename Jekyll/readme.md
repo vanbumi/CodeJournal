@@ -1,5 +1,23 @@
 # All about static site of Jekyll
 
+## Cara membuat static web dengan Jekyll
+
+Ada 2 cara utama yaitu dari **"remote ke local dan dari local ke server"**.
+
+> Cara Pertama yaitu buat dulu di github.com dengan akun baru atau akun lama anda (lihat cara membuat multi akun github).
+
+> Cara Kedua yaitu generate new web dengan Jekyll:
+
+  Langkah pembuatan ada di web resminya https://jekyllrb.com/docs/step-by-step/01-setup/
+  
+   
+
+
+
+
+
+<br>
+
 ## Deploy Jekyll
 
 ### Deploy Jekyll to github
