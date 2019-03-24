@@ -12,7 +12,7 @@ Permission denied @ dir_s_mkdir - /home/dyo/sites/msweb/tmp/cache
 
 	chmod 777 /home/dyo/sites/msweb/tmp/cache
 	
-## 2 Potgres
+## Error 2: Potgres
 
 could not connect to server: Connection refused Is the server running on host "localhost"
 
@@ -76,3 +76,33 @@ and do :
 	kill -9 305
 
 error gone !	
+
+
+## Error 3
+
+PG::ConnectionBad (could not connect to server: Connection refused Is the server running on host "localhost" (::1) and accepting TCP/IP connections on port 5432?
+
+**Solution**
+
+It could be as simple as a stale PID file. It could be failing silently because your computer didn't complete the shutdown process completely which means postgres didn't delete the PID (process id) file.
+
+The PID file is used by postgres to make sure only one instance of the server is running at a time. So when it goes to start again, it fails because there is already a PID file which tells postgres that another instance of the server was started (even though it isn't running, it just didn't get to shutdown and delete the PID).
+
+1. To fix it remove/rename the **PID file**. Find the postgres data directory. On a MAC using homebrew it is /usr/local/var/postgres/, other systems it might be /usr/var/postgres/.
+
+2. To make sure this is the problem, look at the log file (server.log). On the last lines you will see:
+
+		FATAL: lock file "postmaster.pid" already exists
+		HINT: Is another postmaster (PID 347) running in data directory "/usr/local/var/postgres"?
+
+3. If so, rm postmaster.pid.
+
+4. Restart your server. On a mac using launchctl (with homebrew) the following commands will restart the server.
+
+		launchctl unload homebrew.mxcl.postgresql.plist  
+		launchctl load -w homebrew.mxcl.postgresql.plist
+
+OR on newer versions of Brew
+
+	brew services restart postgresql
+	
