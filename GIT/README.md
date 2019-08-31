@@ -2,6 +2,18 @@
 
 ## [Git Tutorial](https://git-scm.com/docs/gittutorial)
 
+## Delete a remote GIT branch
+
+To delete a remote branch you can use the following command:
+
+	git push <remote_name> --delete <branch_name>
+
+Alternatively, there is this other following option too, which might be just a bit hard to remember:
+
+	$ git push <remote_name> :<branch_name>
+
+These top options can also be used if you want to delete a “tag”.
+
 ## Revert Git repo to a previous commit
 
 * [Stack Overflow](http://stackoverflow.com/questions/4114095/revert-git-repo-to-a-previous-commit)
@@ -9,7 +21,7 @@
 
 ### Git Cache
 
-To untrack a single file that has already been added/initialized to your repository, i.e., stop tracking the file but not delete it from your system use: 
+To untrack a single file that has already been added/initialized to your repository, i.e., stop tracking the file but not delete it from your system use:
 
 	git rm --cached filename
 
@@ -27,12 +39,12 @@ Commit it:
 
 	git commit -m ".gitignore is now working"
 
-To undo 
+To undo
 
 	git rm --cached filename, use git add filename.
 
 
-## References	
+## References
 
 [Git Is Simpler Than You Think](http://nfarina.com/post/9868516270/git-is-simpler)
 
@@ -60,7 +72,7 @@ Switch to new_branch
 
 	git branch -d branch_to_remove
 
-If found error, do following command: 
+If found error, do following command:
 
 error: The branch 'devel-revise-1' is not fully merged. If you are sure you want to delete it, run '
 
@@ -69,19 +81,19 @@ error: The branch 'devel-revise-1' is not fully merged. If you are sure you want
 ## Revise recent commit
 
 	git commit --amend -m "New commit message"
-	
+
 ## Rename branch
-	
+
 	https://multiplestates.wordpress.com/2015/02/05/rename-a-local-and-remote-branch-in-git/
-	
+
 
 ## Git checkout with new branch
 
 	git checkout -b <new-branch>
-	
+
 	https://www.atlassian.com/git/tutorials/using-branches/git-checkout
-	
-	
+
+
 
 ## Go back to my commit in past
 
@@ -98,7 +110,7 @@ Message:
 		git checkout -b <new-branch-name>
 
 	HEAD is now at e4af64a... finish v.142 Successfull save to Firebase 	
-		
+
 My experimentals :
 
 I do checkout another commit after above commit:
@@ -136,8 +148,6 @@ I follow this steps:
 
 if error : Error reading /home/dyo/.nano_history: Permission denied
 
-use sudo git merge --strategy=ours master	
+use sudo git merge --strategy=ours master
 
 https://stackoverflow.com/questions/2763006/make-the-current-git-branch-a-master-branch
-
-
