@@ -10,7 +10,7 @@
                 lastName: 'Bumi'           
             };
         }
-
+    
         nameHandleChange(event) {
             this.setState({name: event.target.value});
         }
@@ -18,12 +18,12 @@
         lastHandleChange(event) {
             this.setState({lastName: event.target.value});
         }
-
+    
         handleSubmit(event) {
             alert('A name was submitted: ' + this.state.name + ' ' + this.state.lastName);
             event.preventDefault();
         }
-
+    
         render() {
             return (
             <form onSubmit={this.handleSubmit}>
@@ -39,7 +39,7 @@
             );
         }
     }
-
+    
     ReactDOM.render(
         <NameForm />,
         document.getElementById('root')
@@ -50,7 +50,7 @@
     class NewItem extends React.Component {
         constructor(props) {
             super(props);
-
+    
             this.state = {
                 name: '',
                 description: ''
@@ -60,19 +60,19 @@
         NameHandleChange(event) { 
             this.setState({name: event.target.value });     
         }
-
+    
         DescHandleChange(event) { 
             this.setState({description: event.target.value });     
         }
-
+    
         handleSubmit(event) {
             const name = this.state.name;
             const description = this.state.description; 
-
+    
             alert('name: ' + name + ' description: ' + description);
             event.preventDefault();
         }
-
+    
         render() {
             return (
                 <div>
@@ -93,3 +93,5 @@
     }
 
 ## Example 3        
+
+c
