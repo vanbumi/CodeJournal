@@ -40,24 +40,24 @@ Create JavaScript file named server.js and add following code:
 
 	var express = require('express');   
 	var app = express();
-
+	
 	app.get('/', function (req, res) {
 	   res.send("Hello form server.js")
 	});
-
+	
 	app.listen(3000);
 	console.log("Server running on port 3000");
-	
+
 On the same folder now install express
 
     $ npm init
-
-	$ npm install express --save
+    
+    $ npm install express --save
 
 Run the server
 
 	$ node server
-    
+
 Open localhost:3000    
 
 Walahhh :)
@@ -68,12 +68,12 @@ Replace server.js with this code:
 
 	var express = require('express');
 	var app = express();
-
+	
 	* app.use(express.static(__dirname + '/public'));
-
+	
 	app.listen(3000);
 	console.log("Server running on port 3000");
-	
+
 Create folder public
 
 	mkdir public
@@ -104,7 +104,7 @@ Refresh the server and run again
 Add this CDN inside index.html file
 
 	https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js        
-	
+
 Put link CDN before closing tag body as sample bellow:
 
 	<!DOCTYPE html>
@@ -136,7 +136,7 @@ Clear NPM's cache:
 Install a little helper called 'n'
 
 	sudo npm install -g n
-	
+
 Install latest stable NodeJS version
 
 	sudo n stable
@@ -144,3 +144,12 @@ Install latest stable NodeJS version
 Alternatively pick a specific version and install like this:
 
 	sudo n 0.8.20 (version option)
+
+
+
+## Node Version Manager
+
+
+
+tutorial link: https://www.keycdn.com/blog/node-version-manager
+
