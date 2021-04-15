@@ -2,48 +2,50 @@
 
 ## Example 1 
 
-    class NameForm extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                name: '',
-                lastName: 'Bumi'           
-            };
-        }
-    
-        nameHandleChange(event) {
-            this.setState({name: event.target.value});
-        }
-        
-        lastHandleChange(event) {
-            this.setState({lastName: event.target.value});
-        }
-    
-        handleSubmit(event) {
-            alert('A name was submitted: ' + this.state.name + ' ' + this.state.lastName);
-            event.preventDefault();
-        }
-    
-        render() {
-            return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    Name:
-                    <input type="text" value={this.state.name} onChange={this.nameHandleChange.bind(this)} />
-                    <br />
-                    Last Name:
-                    <input type="text" value={this.state.lastName} onChange={this.lastHandleChange.bind(this)} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-            );
-        }
+```react
+class NameForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            lastName: 'Bumi'           
+        };
+    }
+
+    nameHandleChange(event) {
+        this.setState({name: event.target.value});
     }
     
-    ReactDOM.render(
-        <NameForm />,
-        document.getElementById('root')
-    );
+    lastHandleChange(event) {
+        this.setState({lastName: event.target.value});
+    }
+
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.name + ' ' + this.state.lastName);
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+        <form onSubmit={this.handleSubmit}>
+            <label>
+                Name:
+                <input type="text" value={this.state.name} onChange={this.nameHandleChange.bind(this)} />
+                <br />
+                Last Name:
+                <input type="text" value={this.state.lastName} onChange={this.lastHandleChange.bind(this)} />
+            </label>
+            <input type="submit" value="Submit" />
+        </form>
+        );
+    }
+}
+
+ReactDOM.render(
+    <NameForm />,
+    document.getElementById('root')
+);
+```
 
 ## Example 2
 
